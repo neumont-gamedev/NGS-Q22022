@@ -46,10 +46,10 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
 
-        world.GenerateWorld();
+        
         if (currentState == GameState.GAME)
         {
-            
+            world.GenerateWorld();
         }
         
 
