@@ -8,6 +8,12 @@ public class RemoveMeshFromPercentage : MonoBehaviour
     public GameObject ObjectWithMesh;
     public float percentageAmount = 100;
 
+    public Camera mainCamera;
+    private RaycastHit raycastHit;
+    public int clickAmount = 0;
+
+    public GameObject dustParticle;
+
     void Start()
     {
         
@@ -15,7 +21,25 @@ public class RemoveMeshFromPercentage : MonoBehaviour
 
     void Update()
     {
-        percentageAmount -= Time.deltaTime;
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out raycastHit))
+            {
+                if (raycastHit.collider.gameObject.name == "ObjectWithMesh")
+                {
+                    Debug.Log("clicked " + clickAmount + " times.");
+                    clickAmount++;
+
+                    GameObject dust = Instantiate(dustParticle, raycastHit.transform);
+
+                    Destroy(dust, 2f);
+                }
+            }
+        }
+
+        #region Testing Mesh Changes
+        //percentageAmount -= Time.deltaTime;
         if (percentageAmount <= 0)
             percentageAmount = 0;
 
@@ -35,5 +59,6 @@ public class RemoveMeshFromPercentage : MonoBehaviour
         {                                                                               
             ObjectWithMesh.GetComponent<MeshFilter>().mesh = Meshes[0].GetComponent<MeshFilter>().sharedMesh;
         }
+        #endregion
     }
 }
