@@ -49,43 +49,59 @@ namespace MarchingCubes
 
 		  public void Start()
 		  {
-				if (worldConfig.worldSeed == 0 && !WorldManager.IsCreated())//Generate random seed when use 0 and is scene testing (no WorldManager exists)
-				{
-					 Debug.Log("worldSeed 0 detected, generating random seed world");
-					 string selectedWorld = WorldManager.GetSelectedWorldName();
-					 WorldManager.DeleteWorld(selectedWorld);//Remove previous data
-					 WorldManager.CreateWorld(selectedWorld, worldConfig);//Create a new world folder for correct working
-					 worldConfig.worldSeed = Random.Range(int.MinValue, int.MaxValue);
-				}
-				else if ((Constants.AUTO_CLEAR_WHEN_NOISE_CHANGE) && !WorldManager.IsCreated())//If AUTO_CLEAR_WHEN_NOISE_CHANGE true and world manager not exist, we clear old world data (we assume we are using a debug scene)
-				{
-					 string selectedWorld = WorldManager.GetSelectedWorldName();
-					 WorldConfig loadedWorldConfig = WorldManager.GetSelectedWorldConfig();
-					 //If worldConfig loaded is different to the current one, remove old data and save the new config
-					 if (loadedWorldConfig.worldSeed != worldConfig.worldSeed || loadedWorldConfig.biomeScale != worldConfig.biomeScale || loadedWorldConfig.diffToMerge != worldConfig.diffToMerge || loadedWorldConfig.surfaceLevel != worldConfig.surfaceLevel ||
-						 loadedWorldConfig.octaves != worldConfig.octaves || loadedWorldConfig.persistance != worldConfig.persistance || loadedWorldConfig.lacunarity != worldConfig.lacunarity)
-					 {
-						  WorldManager.DeleteWorld(selectedWorld);//Remove old world
-						  WorldManager.CreateWorld(selectedWorld, worldConfig);//Create new world with the new worldConfig
-					 }
-
-				}
-				else if (WorldManager.IsCreated())//Load config of the world
-				{
-					 worldConfig = WorldManager.GetSelectedWorldConfig();
-				}
-				if (biomes.Length == 0)
-				{
-					 Biome[] biomeArray = GetComponents<Biome>();
-					 biomes = new BiomeProperties[biomeArray.Length];
-					 for (int i = 0; i < biomeArray.Length; i++)
-					 {
-						  biomes[i].biome = biomeArray[i];
-						  biomes[i].appearValue = (float)(biomeArray.Length - i) / biomeArray.Length;
-					 }
-				}
-				ChunkManager.Instance.Initialize();
+			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
+			WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
+			 Startup();
+			 StartupBoi();
 		  }
+
+		//Original Startup Stuff
+		 private void Startup()
+         {
+			if (worldConfig.worldSeed == 0 && !WorldManager.IsCreated())//Generate random seed when use 0 and is scene testing (no WorldManager exists)
+			{
+				Debug.Log("worldSeed 0 detected, generating random seed world");
+				string selectedWorld = WorldManager.GetSelectedWorldName();
+				WorldManager.DeleteWorld(selectedWorld);//Remove previous data
+				WorldManager.CreateWorld(selectedWorld, worldConfig);//Create a new world folder for correct working
+				worldConfig.worldSeed = Random.Range(int.MinValue, int.MaxValue);
+			}
+			else if ((Constants.AUTO_CLEAR_WHEN_NOISE_CHANGE) && !WorldManager.IsCreated())//If AUTO_CLEAR_WHEN_NOISE_CHANGE true and world manager not exist, we clear old world data (we assume we are using a debug scene)
+			{
+				string selectedWorld = WorldManager.GetSelectedWorldName();
+				WorldConfig loadedWorldConfig = WorldManager.GetSelectedWorldConfig();
+				//If worldConfig loaded is different to the current one, remove old data and save the new config
+				if (loadedWorldConfig.worldSeed != worldConfig.worldSeed || loadedWorldConfig.biomeScale != worldConfig.biomeScale || loadedWorldConfig.diffToMerge != worldConfig.diffToMerge || loadedWorldConfig.surfaceLevel != worldConfig.surfaceLevel ||
+					loadedWorldConfig.octaves != worldConfig.octaves || loadedWorldConfig.persistance != worldConfig.persistance || loadedWorldConfig.lacunarity != worldConfig.lacunarity)
+				{
+					WorldManager.DeleteWorld(selectedWorld);//Remove old world
+					WorldManager.CreateWorld(selectedWorld, worldConfig);//Create new world with the new worldConfig
+				}
+
+			}
+			else if (WorldManager.IsCreated())//Load config of the world
+			{
+				worldConfig = WorldManager.GetSelectedWorldConfig();
+			}
+			if (biomes.Length == 0)
+			{
+				Biome[] biomeArray = GetComponents<Biome>();
+				biomes = new BiomeProperties[biomeArray.Length];
+				for (int i = 0; i < biomeArray.Length; i++)
+				{
+					biomes[i].biome = biomeArray[i];
+					biomes[i].appearValue = (float)(biomeArray.Length - i) / biomeArray.Length;
+				}
+			}
+			ChunkManager.Instance.Initialize();
+		}
+		//Startup for fossil spawing and such
+		 private void StartupBoi()
+         {
+
+         }
+
+
 
 		  public byte[] GenerateChunkData(Vector2Int vecPos)
 		  {
