@@ -47,12 +47,16 @@ namespace MarchingCubes
 				public float appearValue;//1 to 0 value when the biome appears. Next biomePropertie.appear value is where this biome end
 		  }
 
+		  private int fossilDepth = -6;
+		  private int fossilBorders = 25;
+		  Dictionary<int, int> xys;
+
 		  public void Start()
 		  {
 			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
-			WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
+			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
 			 Startup();
-			 StartupBoi();
+			// StartupBoi();
 		  }
 
 		//Original Startup Stuff
@@ -98,6 +102,14 @@ namespace MarchingCubes
 		//Startup for fossil spawing and such
 		 private void StartupBoi()
          {
+			xys.Clear();
+
+			//temp list
+			List<Fossil> fossils = null;
+			foreach(var f in fossils)
+            {
+				f.gameObject.transform.position = new Vector3(Random.value * fossilBorders, fossilDepth, Random.value * fossilBorders);
+            }
 
          }
 
@@ -133,7 +145,6 @@ namespace MarchingCubes
 				}
 
 				return chunkData;
-
 		  }
 
 		  /// <summary>
