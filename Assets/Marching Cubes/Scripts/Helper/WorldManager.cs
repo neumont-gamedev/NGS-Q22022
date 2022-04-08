@@ -11,6 +11,7 @@ namespace MarchingCubes
         [SerializeField] private string world = "default"; //World selected by the manager
         public const string WORLDS_DIRECTORY = "/worlds"; //Directory worlds (save folder, that contains the worlds folders)
 
+        public string World { get { return world; } private set { if (world != null) world = value; } }
 
         private void Awake()
         {

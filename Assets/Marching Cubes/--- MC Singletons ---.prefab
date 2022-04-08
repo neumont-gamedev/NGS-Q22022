@@ -43,7 +43,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8656061851995920644}
   - component: {fileID: 4456748041921147835}
-  - component: {fileID: 5255459944120257049}
   - component: {fileID: 997808334374709775}
   - component: {fileID: 949443206355623918}
   - component: {fileID: 1424679412264877637}
@@ -89,61 +88,10 @@ MonoBehaviour:
     persistance: 0.1
     lacunarity: 9
   biomes:
-  - biome: {fileID: 5255459944120257049}
-    appearValue: 1
-  - biome: {fileID: 997808334374709775}
-    appearValue: 0.75
-  - biome: {fileID: 949443206355623918}
-    appearValue: 0.5
   - biome: {fileID: 1424679412264877637}
+    appearValue: 0.75
+  - biome: {fileID: 997808334374709775}
     appearValue: 0.25
---- !u!114 &5255459944120257049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5246400935058690163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203436860b177a54ebd749e243c194b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainHeightCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  scale: 50
-  octaves: 4
-  persistance: 0.5
-  lacunarity: 2
-  maxHeightDifference: 7
-  snowDeep: 5
-  iceNoiseScale: 14
-  iceApearValue: 0.8
-  iceMaxHeight: 8
-  IcePersistance: 0.607
-  IceLacunarity: 4.5
 --- !u!114 &997808334374709775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +363,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7735028669594396285}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02dfafdeb5a90df46ab4078bb2288f7c, type: 3}
   m_Name: 
@@ -423,5 +371,5 @@ MonoBehaviour:
   terrainMaterial: {fileID: 2100000, guid: 89c4a0e45f94ae34d88ced3ebbc28bee, type: 2}
   chunkViewDistance: 6
   chunkMantainDistance: 0.3
-  useCameraPosition: 1
+  useCameraPosition: 0
   debugMode: 0
