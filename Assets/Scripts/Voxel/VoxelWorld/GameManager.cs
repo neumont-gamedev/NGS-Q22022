@@ -184,14 +184,23 @@ public class GameManager : MonoBehaviour
 
     public void StartGameDesert()
     {
-        currentState = GameState.GAME;
-        SceneManager.LoadScene("TerrainGenTest");
+        StartGame("TerrainGenTest");
     }
 
     public void StartGameMountain()
     {
+        StartGame("DesertGen");
+    }
+
+    public void StartGameExcavation()
+    {
+        StartGame("FirstPersonDigging");
+    }
+
+    public void StartGame(string sceneName)
+    {
         currentState = GameState.GAME;
-        SceneManager.LoadScene("DesertGen");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void SelectBiome()

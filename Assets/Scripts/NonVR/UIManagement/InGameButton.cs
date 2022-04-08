@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameButton : MonoBehaviour
 {
-    GameManager game;
+    Button button;
 
-    // Start is called before the first frame update
     void Start()
     {
-        game = FindObjectOfType<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        button = GetComponent<Button>();
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         Debug.Log(this.name + "ButtonTouched");
+        if (button != null && collision.gameObject.tag == "Hand")
+        {
+            button.onClick.Invoke();
+            return;
+        }
+
+        /*
         if (collision.gameObject.tag == "Hand" && this.name == "Museum")
         {
             game.ToMuseum();
@@ -53,12 +54,16 @@ public class InGameButton : MonoBehaviour
         {
             game.StartGameMountain();
         }
+        else if (collision.gameObject.tag == "Hand" && this.name == "Desert")
+        {
+            game.StartGameExcavation();
+        }
         else if (collision.gameObject.tag == "Hand" && this.name == "Quit")
         {
             Debug.Log("Application Exited");
             Application.Quit();
         }
-
+        */
     }
 
 }

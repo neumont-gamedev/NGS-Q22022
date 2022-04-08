@@ -36,6 +36,9 @@ namespace MarchingCubes
             GetComponent<MeshRenderer>().material = ChunkManager.Instance.terrainMaterial;
             gameObject.AddComponent<MeshCollider>();
 
+            gameObject.tag = "Ground";
+            gameObject.layer = LayerMask.NameToLayer("Ground");
+
             return this;
         }
 
