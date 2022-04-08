@@ -5,43 +5,38 @@ using UnityEngine;
 public class StoneBreak : MonoBehaviour
 {
     public GameObject[] RockPieces;
-    int pieceNextToBreak = -1;
+    public GameObject breakParticle;
+    public GameObject cBreakParticle;
+    public int pieceNextToBreak = -1;
+    bool beenHit = false;
 
-    void Update()
+    public void HitHandle()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            //Debug.Log("Click");
 
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Rock"){
-                if (pieceNextToBreak > RockPieces.Length)
-                {
-                    
-                    pieceNextToBreak += 0;
-                    Debug.Log(pieceNextToBreak);
-                }
-                else
-                {
-                    pieceNextToBreak++;
-                    BreakPiece();
-                    Debug.Log(pieceNextToBreak);
-                }
-            
-            }
-        }
+            pieceNextToBreak++;
+            BreakPiece();
+            Debug.Log(pieceNextToBreak);
     }
 
     public void BreakPiece()
     {
-        if(pieceNextToBreak == RockPieces.Length)
+        if(pieceNextToBreak > RockPieces.Length-1)
         {
             Debug.Log("All Broken Off");
+            Destroy(gameObject, 2f);
         }
         else
         {
+            cBreakParticle = Instantiate(breakParticle, breakParticle.transform.position, transform.rotation);
+            Destroy(cBreakParticle, 1.5f);
+
             RockPieces[pieceNextToBreak].GetComponent<Rigidbody>().useGravity = true;
+            Destroy(RockPieces[pieceNextToBreak], 2.5f);
+            if(pieceNextToBreak == RockPieces.Length-1)
+            {
+                pieceNextToBreak += 1;
+                BreakPiece();
+            }
             //Destroy(RockPieces[pieceNextToBreak]);
             Debug.Log("Pieces Left: " + pieceNextToBreak);
         }
