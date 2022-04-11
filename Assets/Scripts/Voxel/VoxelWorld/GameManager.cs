@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
         if (currentState == GameState.GAME)
         {
-            world.GenerateWorld();
+            if (world != null) world.GenerateWorld();
         }
         
 
@@ -253,5 +253,14 @@ public class GameManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.None;
         currentState = GameState.GAME;
         pausePanel.SetActive(false);
+    }
+
+    public void OnQuit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
