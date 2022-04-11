@@ -38,9 +38,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Shovel.SetActive(true);
-        Pickaxe.SetActive(false);
-        Drill.SetActive(false);
+        //Shovel.SetActive(true);
+        //Pickaxe.SetActive(false);
+        //Drill.SetActive(false);
     }
 
     private Vector3 GetMovementDirection(Vector3 movementInput)
@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         IsGrounded = Physics.Raycast(transform.position, Vector3.down, rayDistance, groundMask);
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+/*        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Shovel.SetActive(true);
             Pickaxe.SetActive(false);
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             Drill.SetActive(true);
             curTool = "Hammer";
             
-        }
+        }*/
         
     }
 
