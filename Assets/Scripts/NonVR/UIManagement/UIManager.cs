@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    // Scene Indices: Museum = 0, Digging = 1, Cleaning = 2
+
     //public GameObject biomeIcon1;
     //public GameObject biomeIcon2;
     //public GameObject mainTitle;
@@ -30,5 +33,23 @@ public class UIManager : MonoBehaviour
     public void OnStart()
     {
 
+    }
+
+    public void ActivatePanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void DeactivatePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+    public void LoadMuseum()
+    {
+        //load scene
+        SceneManager.LoadScene(0);
+
+        //load anything that needs to be loaded
     }
 }

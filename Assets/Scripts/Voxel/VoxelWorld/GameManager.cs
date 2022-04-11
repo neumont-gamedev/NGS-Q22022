@@ -245,7 +245,7 @@ public class GameManager : MonoBehaviour
     public void ToMuseum()
     {
         currentState = GameState.MUSEUM;
-        SceneManager.LoadScene("Museum");
+        SceneManager.LoadScene("TPMuseum");
     }
 
     public void PauseBackButton()
