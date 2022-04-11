@@ -7,38 +7,42 @@ public class StoneBreak : MonoBehaviour
     public GameObject[] RockPieces;
     public GameObject breakParticle;
     public GameObject cBreakParticle;
-    public int pieceNextToBreak = -1;
-    bool beenHit = false;
+    public int numofPieces = 0;
+    int curlength;
+
+    public void Start()
+    {
+       curlength =  RockPieces.Length - 1;
+    }
 
     public void HitHandle()
     {
-
-            pieceNextToBreak++;
+            //pieceNextToBreak++;
             BreakPiece();
-            Debug.Log(pieceNextToBreak);
+            //Debug.Log(pieceNextToBreak);
     }
 
     public void BreakPiece()
     {
-        if(pieceNextToBreak > RockPieces.Length-1)
+
+        int ranNum;
+        do
         {
-            Debug.Log("All Broken Off");
-            Destroy(gameObject, 2f);
-        }
-        else
-        {
+            ranNum = Random.Range(0, curlength);
+
             cBreakParticle = Instantiate(breakParticle, breakParticle.transform.position, transform.rotation);
             Destroy(cBreakParticle, 1.5f);
-
-            RockPieces[pieceNextToBreak].GetComponent<Rigidbody>().useGravity = true;
-            Destroy(RockPieces[pieceNextToBreak], 2.5f);
-            if(pieceNextToBreak == RockPieces.Length-1)
-            {
-                pieceNextToBreak += 1;
-                BreakPiece();
-            }
+            RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
+            Destroy(RockPieces[ranNum], 2.5f);
             //Destroy(RockPieces[pieceNextToBreak]);
-            Debug.Log("Pieces Left: " + pieceNextToBreak);
+            Debug.Log("Pieces Left: " + "test");
         }
+        while (RockPieces[ranNum] != null);
+    }
+
+    public void DestroyRock()
+    {
+            Debug.Log("All Broken Off");
+            Destroy(gameObject, 2f);
     }
 }
