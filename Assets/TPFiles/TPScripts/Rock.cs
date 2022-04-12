@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class Rock : MonoBehaviour
 {
-    
+    public int breakPoint = 3;
+
+
 }

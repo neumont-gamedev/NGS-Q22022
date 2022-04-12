@@ -17,9 +17,16 @@ public class StoneBreak : MonoBehaviour
 
         int ranNum = Random.Range(0, RockPieces.Count);
 
-        RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
-        Destroy(RockPieces[ranNum], 1.5f);
-        RockPieces.RemoveAt(ranNum);
+        if (RockPieces[ranNum].GetComponent<Rock>().breakPoint > 0)
+        {
+            RockPieces[ranNum].GetComponent<Rock>().breakPoint--;
+        }
+        else 
+        {
+            RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
+            Destroy(RockPieces[ranNum], 1.5f);
+            RockPieces.RemoveAt(ranNum);
+        }
 
         if(RockPieces.Count == 0)
         {
@@ -29,8 +36,9 @@ public class StoneBreak : MonoBehaviour
     }
 
     public void DestroyRock()
-    {
-            Debug.Log("All Broken Off");
-            Destroy(gameObject, 2f);
+    { 
+        gameObject.GetComponent<Collider>();
+        Debug.Log("All Broken Off");
+        Destroy(gameObject, 2f);
     }
 }
