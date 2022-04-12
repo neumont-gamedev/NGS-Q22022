@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     //panel index checks with gamestate index
     [SerializeField] GameObject[] panels;
+    [SerializeField] GameObject infoBookPanel;
 
     void Start()
     {
@@ -14,11 +15,6 @@ public class UIManager : MonoBehaviour
         {
             DeactivatePanel(panel);
         }
-    }
-
-    void Update()
-    {
-        
     }
 
     #region Generic Methods
@@ -46,6 +42,18 @@ public class UIManager : MonoBehaviour
         else if(currentPanel != null)
         {
             ActivatePanel(currentPanel);
+        }
+    }
+
+    public void InfoBook()
+    {
+        if (infoBookPanel.activeInHierarchy)
+        {
+            DeactivatePanel(infoBookPanel);
+        }
+        else if (infoBookPanel != null)
+        {
+            ActivatePanel(infoBookPanel);
         }
     }
 

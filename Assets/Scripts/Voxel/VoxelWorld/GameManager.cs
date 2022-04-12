@@ -181,12 +181,6 @@ public class GameManager : MonoBehaviour
         StartGame(2);
     }
 
-    //public void StartGame(string sceneName)
-    //{
-    //    currentState = GameState.GAME;
-    //    SceneManager.LoadScene(sceneName);
-    //}
-
     public void StartGame(int sceneIndex)
     {
         switch (sceneIndex)
