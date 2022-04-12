@@ -39,6 +39,7 @@ namespace MarchingCubes
 
 		  [Header("Biomes Array")]// Empty for get all Biomes of inside the GameObject
 		  public BiomeProperties[] biomes;
+		  public List<GameObject> fossils;
 
 		  [System.Serializable]
 		  public struct BiomeProperties
@@ -48,15 +49,15 @@ namespace MarchingCubes
 		  }
 
 		  private int fossilDepth = -6;
-		  private int fossilBorders = 25;
-		  Dictionary<int, int> xys;
+		  private int fossilBorders = 60;
+		  Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
 		  public void Start()
 		  {
 			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
 			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
 			 Startup();
-			// StartupBoi();
+			 StartupBoi();
 		  }
 
 		//Original Startup Stuff
@@ -102,13 +103,25 @@ namespace MarchingCubes
 		//Startup for fossil spawing and such
 		 private void StartupBoi()
          {
-			xys.Clear();
+			xzs.Clear();
 
-			//temp list
-			List<Fossil> fossils = null;
+			float x;
+			float z;
 			foreach(var f in fossils)
             {
-				f.gameObject.transform.position = new Vector3(Random.value * fossilBorders, fossilDepth, Random.value * fossilBorders);
+				x = Random.value * fossilBorders;
+				if(x > (fossilBorders / 2)) x = x / 2;
+				else x = x * -1;
+
+				z = Random.value * fossilBorders;
+				if (z > (fossilBorders / 2)) z = z / 2;
+				else z = z * -1;
+
+
+				f.transform.position = new Vector3(x, fossilDepth, z);
+				FossilHolder.UpdateFossil(f);
+				Instantiate(f);
+				xzs.Add(f.GetComponent<Fossil>().name, new KeyValuePair<float, float>(x, z));
             }
 
          }

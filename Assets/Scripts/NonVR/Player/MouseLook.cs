@@ -38,7 +38,7 @@ public class MouseLook : MonoBehaviour
             if(hit.collider.transform.tag != "Untagged")
             {
                 lastHit = hit.collider.transform.gameObject;
-                Debug.Log(hit.collider.transform.tag);
+                //Debug.Log(hit.collider.transform.tag);
                 RayHitManager(hit.collider.transform.tag, hit.transform.gameObject);
 
                 if(Input.GetMouseButtonDown(0))
@@ -48,7 +48,7 @@ public class MouseLook : MonoBehaviour
                 }
 
             }
-            Debug.Log(hit.collider.transform.tag);
+            //Debug.Log(hit.collider.transform.tag);
         }
 
         float mouseX = Input.GetAxis("Mouse X") * lookSpeed * Time.deltaTime;
