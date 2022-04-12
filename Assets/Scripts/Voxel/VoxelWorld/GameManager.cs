@@ -141,10 +141,6 @@ public class GameManager : MonoBehaviour
                 uiManager.Menu(GameState.TITLE);
                 break;
             case GameState.BIOMECHOOSE:
-                //biomeSelect.SetActive(true);
-                //mainTitle.SetActive(false);
-                //biomeIcon1.SetActive(true);
-                //biomeIcon2.SetActive(true);
                 break;
             case GameState.GAME:
                 Time.timeScale = 1;
@@ -204,6 +200,7 @@ public class GameManager : MonoBehaviour
                 uiManager.LoadExcavation();
                 break;
             case 2:
+                currentState = GameState.LAB;
                 uiManager.LoadLab();
                 break;
             default:
