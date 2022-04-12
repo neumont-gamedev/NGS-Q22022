@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class LoadManager : MonoBehaviour
 {
-
     public GameObject LoadingScreen;
     public GameObject LoadingRaptor;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(LoadingScreenCo());
     }
-
 
     IEnumerator LoadingScreenCo()
     {

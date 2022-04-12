@@ -24,23 +24,18 @@ public class GameManager : MonoBehaviour
 
     public Camera gameCamera;
 
-    public GameObject biomeIcon1;
-    public GameObject biomeIcon2;
-    public GameObject mainTitle;
-    public GameObject biomeSelect;
-    public GameObject aboutPage;
-    public GameObject pausePanel;
-     
     public enum GameState
-    {
-       BEFORETITLE,
-       TITLE,
-       BIOMECHOOSE,
-       GAME,
-       MUSEUM,
-       PAUSED,
-       ABOUT,
-       EXITGAME,
+    { 
+        //i promise this makes sense -Salem
+        TITLE = 0,
+        PAUSED = 1,
+        ABOUT = 2,
+        BEFORETITLE, 
+        BIOMECHOOSE,
+        GAME,
+        LAB,
+        MUSEUM,
+        EXITGAME,
     }
 
     public void Start()
@@ -52,14 +47,11 @@ public class GameManager : MonoBehaviour
             world.GenerateWorld();
         }
         
-
-
     }
     public void SpawnPlayer()
     {
         if(player != null)
         {
-            
             return;
         }
         Vector3Int raycastStartPosition = new Vector3Int(world.chunkSize / 2, 100, world.chunkSize / 2);
@@ -144,24 +136,21 @@ public class GameManager : MonoBehaviour
             case GameState.BEFORETITLE:
                 currentState = GameState.TITLE;
                 break;
-
             case GameState.TITLE:
                 Time.timeScale = 1;
-                mainTitle.SetActive(true);
-                aboutPage.SetActive(false);
-                biomeSelect.SetActive(false);
-                biomeIcon1.SetActive(false);
+                uiManager.Menu(GameState.TITLE);
                 break;
-
             case GameState.BIOMECHOOSE:
-                biomeSelect.SetActive(true);
-                mainTitle.SetActive(false);
-                biomeIcon1.SetActive(true);
+                //biomeSelect.SetActive(true);
+                //mainTitle.SetActive(false);
+                //biomeIcon1.SetActive(true);
                 //biomeIcon2.SetActive(true);
                 break;
             case GameState.GAME:
                 Time.timeScale = 1;
                 //Cursor.lockState = CursorLockMode.Locked;
+                break;
+            case GameState.LAB:
                 break;
             case GameState.MUSEUM:
                 break;
@@ -169,11 +158,10 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                pausePanel.SetActive(true);
+                uiManager.Menu(GameState.PAUSED);
                 break;
             case GameState.ABOUT:
-                mainTitle.SetActive(false);
-                aboutPage.SetActive(true);
+                uiManager.Menu(GameState.ABOUT);
                 break;
             case GameState.EXITGAME:
                 break;
@@ -182,31 +170,50 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGameDesert()
+    public void StartGameMuseum()
     {
-        StartGame("TerrainGenTest");
-    }
-
-    public void StartGameMountain()
-    {
-        StartGame("DesertGen");
+        StartGame(0);
     }
 
     public void StartGameExcavation()
     {
-        StartGame("FirstPersonDigging");
+        StartGame(1);
     }
 
-    public void StartGame(string sceneName)
+    public void StartGameLab()
     {
-        currentState = GameState.GAME;
-        SceneManager.LoadScene(sceneName);
+        StartGame(2);
+    }
+
+    //public void StartGame(string sceneName)
+    //{
+    //    currentState = GameState.GAME;
+    //    SceneManager.LoadScene(sceneName);
+    //}
+
+    public void StartGame(int sceneIndex)
+    {
+        switch (sceneIndex)
+        {
+            case 0:
+                currentState = GameState.MUSEUM;
+                uiManager.LoadMuseum();
+                break;
+            case 1:
+                currentState = GameState.GAME;
+                uiManager.LoadExcavation();
+                break;
+            case 2:
+                uiManager.LoadLab();
+                break;
+            default:
+                break;
+        }
     }
 
     public void SelectBiome()
     {
         currentState = GameState.BIOMECHOOSE;
-
     }
 
     public void AboutPage()
@@ -226,9 +233,8 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToTitle()
     {
-        SceneManager.LoadScene("MainMenu");
         currentState = GameState.BEFORETITLE;
-
+        uiManager.LoadMuseum();
     }
 
     public void MainMenuOpen()
@@ -239,19 +245,19 @@ public class GameManager : MonoBehaviour
     public void ReturnToGame()
     {
         currentState = GameState.GAME;
-        pausePanel.SetActive(false);
+        uiManager.Menu(GameState.PAUSED);
     }
 
     public void ToMuseum()
     {
         currentState = GameState.MUSEUM;
-        SceneManager.LoadScene("TPMuseum");
+        uiManager.LoadMuseum();
     }
 
     public void PauseBackButton()
     {
         //Cursor.lockState = CursorLockMode.None;
         currentState = GameState.GAME;
-        pausePanel.SetActive(false);
+        uiManager.Menu(GameState.PAUSED);
     }
 }

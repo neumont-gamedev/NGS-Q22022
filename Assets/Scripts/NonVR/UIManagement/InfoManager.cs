@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class InfoManager : MonoBehaviour
 {
-
     public GameObject bonePanel;
     public TextMeshProUGUI boneName;
     public TextMeshProUGUI boneGenus;
     public TextMeshProUGUI boneFact;
     public Transform panelLocation;
 
-
-    
     bool panelActive;
     bool loadActive = false;
 
@@ -21,13 +18,10 @@ public class InfoManager : MonoBehaviour
     public float loadTimeRemaining = 5;
     //public PlayerShot bullet;
 
-
     // Start is called before the first frame update
     void Start()
     {
-
         bonePanel.SetActive(false);
-        
     }
 
     public void GetInfo(string name, string genus, string fact)
@@ -42,14 +36,8 @@ public class InfoManager : MonoBehaviour
     // Update is called once per frame
     public float timeRemaining;
 
-
-    
-
     private void Update()
     {
-
-           
-
         if (panelActive)
         {
             if (panelTimeRemaining > 0)
@@ -62,11 +50,7 @@ public class InfoManager : MonoBehaviour
                 panelTimeRemaining = 0;
                 bonePanel.SetActive(false);
                 panelActive = false;
-
             }
         }
-
     }
-
-
 }
