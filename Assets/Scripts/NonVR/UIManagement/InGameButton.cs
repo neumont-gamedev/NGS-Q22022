@@ -61,7 +61,7 @@ public class InGameButton : MonoBehaviour
         else if (collision.gameObject.tag == "Hand" && this.name == "Quit")
         {
             Debug.Log("Application Exited");
-            Application.Quit();
+            game.OnQuit();
         }
         */
     }
