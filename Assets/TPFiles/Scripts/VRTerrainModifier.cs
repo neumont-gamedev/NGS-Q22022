@@ -8,6 +8,7 @@ public class VRTerrainModifier : MonoBehaviour
 {
     public Text textSize;
     public Text textMaterial;
+    public AudioSource digNoise;
     [Tooltip("Force of modifications applied to the terrain")]
     public float modiferStrengh = 10;
     [Tooltip("Size of the brush, number of vertex modified")]
@@ -21,6 +22,7 @@ public class VRTerrainModifier : MonoBehaviour
     void Start()
     {
         chunkManager = ChunkManager.Instance;
+        digNoise = GetComponent<AudioSource>();
         UpdateUI();
     }
 
@@ -36,7 +38,7 @@ public class VRTerrainModifier : MonoBehaviour
 
         float modification = -modiferStrengh;
         var contacts = collision.contacts;
-        Debug.Log($"Contacts: {contacts.Length}");
         chunkManager.ModifyChunkData(contacts[0].point, sizeHit, modification, buildingMaterial);
+        if (!digNoise.isPlaying) digNoise.Play();
     }
 }
