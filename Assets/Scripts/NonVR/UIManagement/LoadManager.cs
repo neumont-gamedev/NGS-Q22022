@@ -10,7 +10,9 @@ public class LoadManager : MonoBehaviour
 
     void Awake()
     {
+        playerController = GetComponentInParent<OVRPlayerController>();
         if (playerController != null) playerController.enabled = false;
+
         StartCoroutine(LoadingScreenCo());
     }
 
