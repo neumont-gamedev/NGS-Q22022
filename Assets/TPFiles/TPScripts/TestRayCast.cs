@@ -19,7 +19,8 @@ public class TestRayCast : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Rock")
             {
-                hit.transform.gameObject.GetComponent<StoneBreak>().HitHandle();
+                Debug.Log("Rock Clicked");
+                hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece();
             }
         }
     }

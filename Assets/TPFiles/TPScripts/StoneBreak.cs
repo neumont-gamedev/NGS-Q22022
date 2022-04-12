@@ -12,6 +12,7 @@ public class StoneBreak : MonoBehaviour
 
     public void Start()
     {
+        Debug.Log("Start StoneBreak");
        curlength =  RockPieces.Length - 1;
     }
 
@@ -24,11 +25,12 @@ public class StoneBreak : MonoBehaviour
 
     public void BreakPiece()
     {
+        Debug.Log("Start stone break");
 
         int ranNum;
         do
         {
-            ranNum = Random.Range(0, curlength);
+            ranNum = Random.Range(0, curlength+1);
 
             cBreakParticle = Instantiate(breakParticle, breakParticle.transform.position, transform.rotation);
             Destroy(cBreakParticle, 1.5f);
@@ -38,6 +40,23 @@ public class StoneBreak : MonoBehaviour
             Debug.Log("Pieces Left: " + "test");
         }
         while (RockPieces[ranNum] != null);
+
+        for(int i = 0; i < RockPieces.Length; i++)
+        {
+            int allRocksnull = 0;
+            if (RockPieces[i] == null)
+            {
+                allRocksnull++;
+            }
+            else
+            {
+                if(allRocksnull == curlength)
+                {
+                    DestroyRock();
+                }
+
+            }
+        }
     }
 
     public void DestroyRock()
