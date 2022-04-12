@@ -4,59 +4,28 @@ using UnityEngine;
 
 public class StoneBreak : MonoBehaviour
 {
-    public GameObject[] RockPieces;
+    public List<GameObject> RockPieces;
     public GameObject breakParticle;
     public GameObject cBreakParticle;
-    public int numofPieces = 0;
-    int curlength;
-
-    public void Start()
-    {
-        Debug.Log("Start StoneBreak");
-       curlength =  RockPieces.Length - 1;
-    }
-
-    public void HitHandle()
-    {
-            //pieceNextToBreak++;
-            BreakPiece();
-            //Debug.Log(pieceNextToBreak);
-    }
+    static int numofPiecesToBreak;
+    //public int numofPieces;
+    //int curlength;
 
     public void BreakPiece()
     {
-        Debug.Log("Start stone break");
+        numofPiecesToBreak = RockPieces.Count;
 
-        int ranNum;
-        do
+        int ranNum = Random.Range(0, RockPieces.Count);
+
+        RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
+        Destroy(RockPieces[ranNum], 1.5f);
+        RockPieces.RemoveAt(ranNum);
+
+        if(RockPieces.Count == 0)
         {
-            ranNum = Random.Range(0, curlength+1);
-
-            cBreakParticle = Instantiate(breakParticle, breakParticle.transform.position, transform.rotation);
-            Destroy(cBreakParticle, 1.5f);
-            RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
-            Destroy(RockPieces[ranNum], 2.5f);
-            //Destroy(RockPieces[pieceNextToBreak]);
-            Debug.Log("Pieces Left: " + "test");
+            DestroyRock();
         }
-        while (RockPieces[ranNum] != null);
 
-        for(int i = 0; i < RockPieces.Length; i++)
-        {
-            int allRocksnull = 0;
-            if (RockPieces[i] == null)
-            {
-                allRocksnull++;
-            }
-            else
-            {
-                if(allRocksnull == curlength)
-                {
-                    DestroyRock();
-                }
-
-            }
-        }
     }
 
     public void DestroyRock()
