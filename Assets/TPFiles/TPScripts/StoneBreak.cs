@@ -13,7 +13,7 @@ public class StoneBreak : MonoBehaviour
     public void Start()
     {
         Debug.Log("Start StoneBreak");
-       curlength =  RockPieces.Length - 1;
+       curlength =  RockPieces.Length;
     }
 
     public void HitHandle()
@@ -47,6 +47,7 @@ public class StoneBreak : MonoBehaviour
             if (RockPieces[i] == null)
             {
                 allRocksnull++;
+                i++;
             }
             else
             {
