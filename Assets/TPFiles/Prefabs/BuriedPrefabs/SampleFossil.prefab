@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6600287661515966694}
   - component: {fileID: 514536776048917702}
   - component: {fileID: 6644049462066585104}
+  - component: {fileID: 1130501542966547822}
   m_Layer: 0
   m_Name: SampleFossil
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4996352711260062010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.540915, y: -6, z: 27.62744}
+  m_LocalPosition: {x: 19.740362, y: -3, z: 28.743979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,5 +109,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a350af4fbc81e1442b00ce595f4a259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wasFound: 1
+  wasFound: 0
+  buried: 1
   name: test01
+--- !u!54 &1130501542966547822
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4996352711260062010}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
