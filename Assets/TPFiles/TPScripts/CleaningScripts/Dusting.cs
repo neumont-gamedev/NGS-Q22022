@@ -6,14 +6,14 @@ public class Dusting : MonoBehaviour
 {
 
     int stage = 0;
-    public GameObject curBone;
 
     public void ChangeColor()
     {
 
-        curBone.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+        this.GetComponent<Renderer>().material.color = new Color(0, 204, 102);
+        Debug.Log("Change Color");
 
-        /*        Debug.Log("Change Color");
+        /*       
                 stage++;
                 switch (stage)
                 {
