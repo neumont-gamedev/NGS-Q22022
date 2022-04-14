@@ -9,6 +9,7 @@ public class Dusting : MonoBehaviour
 
     public void ChangeColor()
     {
+        Debug.Log("Change Color");
         stage++;
         switch (stage)
         {

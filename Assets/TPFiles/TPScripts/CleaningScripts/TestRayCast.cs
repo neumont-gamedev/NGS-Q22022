@@ -43,7 +43,7 @@ public class TestRayCast : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Bone")
             {
-                Debug.Log("Rock Clicked");
+                Debug.Log("Bone Clicked");
                 hit.transform.gameObject.GetComponent<Dusting>().ChangeColor();
             }
         }
