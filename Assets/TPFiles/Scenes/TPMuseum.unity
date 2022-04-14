@@ -18463,7 +18463,7 @@ GameObject:
   - component: {fileID: 864435523}
   m_Layer: 0
   m_Name: Floors
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -33822,7 +33822,7 @@ GameObject:
   - component: {fileID: 1421285373}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -38838,7 +38838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a8a742b438a7e4a83cbed6a16c4e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hammer: {fileID: 790423237}
+  obj: {fileID: 0}
+  button: 4
 --- !u!135 &1632817462
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -48183,6 +48184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingScreen: {fileID: 1270216021}
   LoadingRaptor: {fileID: 2007123607}
+  playerController: {fileID: 0}
+  enabler: {fileID: 0}
 --- !u!1 &2008284803
 GameObject:
   m_ObjectHideFlags: 0
