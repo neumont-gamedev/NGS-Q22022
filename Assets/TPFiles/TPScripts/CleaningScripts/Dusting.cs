@@ -7,28 +7,29 @@ public class Dusting : MonoBehaviour
 
     int stage = 0;
 
+    public Material stage1;
+    public Material stage2;
+    public Material stage3;
+
     public void ChangeColor()
     {
 
-        this.GetComponent<Renderer>().material.color = new Color(0, 204, 102);
-        Debug.Log("Change Color");
 
-        /*       
-                stage++;
-                switch (stage)
-                {
-                    case 1:
-                        this.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
-                        break;
-                    case 2:
-                        this.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
-                        break;
-                    case 3:
-                        this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-                        break;
-                    default:
-                        break;
-                }
-        */
+        stage++;
+        switch (stage)
+        {
+            case 1:
+                this.GetComponent<Renderer>().material = stage1;
+                break;
+            case 2:
+                this.GetComponent<Renderer>().material = stage2;
+                break;
+            case 3:
+                this.GetComponent<Renderer>().material = stage3;
+                break;
+            default:
+                break;
+        }
+
     }
 }
