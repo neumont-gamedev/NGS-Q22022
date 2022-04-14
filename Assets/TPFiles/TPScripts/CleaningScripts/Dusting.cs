@@ -6,25 +6,29 @@ public class Dusting : MonoBehaviour
 {
 
     int stage = 0;
+    public GameObject curBone;
 
     public void ChangeColor()
     {
-        Debug.Log("Change Color");
-        stage++;
-        switch (stage)
-        {
-            case 1:
-                this.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
-                break;
-            case 2:
-                this.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
-                break;
-            case 3:
-                this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-                break;
-            default:
-                break;
-        }
 
+        curBone.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+
+        /*        Debug.Log("Change Color");
+                stage++;
+                switch (stage)
+                {
+                    case 1:
+                        this.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+                        break;
+                    case 2:
+                        this.GetComponent<Renderer>().material.SetColor("_Color", Color.black);
+                        break;
+                    case 3:
+                        this.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                        break;
+                    default:
+                        break;
+                }
+        */
     }
 }
