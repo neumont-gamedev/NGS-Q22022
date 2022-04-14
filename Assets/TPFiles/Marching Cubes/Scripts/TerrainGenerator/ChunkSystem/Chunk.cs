@@ -140,5 +140,9 @@ namespace MarchingCubes
             }
         }
 #endif
+        private void OnCollisionExit(Collision collision)
+        {
+            Debug.Log("Bruh");
+        }
     }
 }

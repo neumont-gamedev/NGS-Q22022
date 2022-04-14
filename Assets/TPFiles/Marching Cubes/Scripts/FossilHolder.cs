@@ -1,35 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MarchingCubes;
 
-public class FossilHolder : MonoBehaviour
+public class FossilHolder : Singleton<FossilHolder>
 {
-    private static FossilHolder instance;
-    public List<FossilInfo> fossilBits = new List<FossilInfo>() { 
+    public static List<FossilInfo> fossilBits = new List<FossilInfo>() { 
         new FossilInfo("test01"), new FossilInfo("test02") };
 
     private void Awake()
     {
-        //TODO test this
-    /*if(instance == null)
-    {
-        instance = this;
-        DontDestroyOnLoad(this);
-    }*/
-    }
-
-    public void OnDestroy()
-    {
-        if (instance == this)
+        base.Awake();
+        if (Instance == this)
         {
-            instance = null;
-            Destroy(gameObject);
+            DontDestroyOnLoad(this);
         }
     }
 
-    public static bool IsCreated()
+    public static void UpdateFossil(GameObject fossil)
     {
-        return (instance != null);
+        foreach(var f in fossilBits)
+        {
+            if(f.name == fossil.GetComponent<Fossil>().name)
+            {
+                f.location = fossil.transform.position;
+                continue;
+            }
+        }
+    }
+    public static void FossilFound(Fossil fossil)
+    {
+        foreach (var f in fossilBits)
+        {
+            if (f.name == fossil.name)
+            {
+                f.found = fossil.wasFound;
+                Debug.Log(f.found);
+                continue;
+            }
+        }
     }
 }
 
@@ -38,6 +47,7 @@ public class FossilInfo
 {
     public bool found;
     public string name;
+    public Vector3 location;
 
     public FossilInfo(string n)
     {

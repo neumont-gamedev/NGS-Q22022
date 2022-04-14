@@ -264,7 +264,7 @@ MonoBehaviour:
   textMaterial: {fileID: 1609144960}
   rangeHit: 10
   modiferStrengh: 5
-  sizeHit: 2
+  sizeHit: 5
   buildingMaterial: 1
 --- !u!1001 &798286949
 PrefabInstance:
@@ -338,6 +338,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: --- MC Singletons ---
       objectReference: {fileID: 0}
+    - target: {fileID: 4456748041921147835, guid: 0dd8af356d25ee441896c42d31ada3b4,
+        type: 3}
+      propertyPath: fossils.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456748041921147835, guid: 0dd8af356d25ee441896c42d31ada3b4,
+        type: 3}
+      propertyPath: fossils.Array.data[0]
+      value: 
+      objectReference: {fileID: 4996352711260062010, guid: 4df9809bee0dfdd40b17b6cdd3dce2cb,
+        type: 3}
+    - target: {fileID: 4456748041921147835, guid: 0dd8af356d25ee441896c42d31ada3b4,
+        type: 3}
+      propertyPath: fossils.Array.data[1]
+      value: 
+      objectReference: {fileID: 4996352711260062010, guid: ad52cbcad1939e24ea0d21324e8c0d0c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0dd8af356d25ee441896c42d31ada3b4, type: 3}
 --- !u!1 &963194225
@@ -1102,7 +1119,7 @@ MonoBehaviour:
   Pickaxe: {fileID: 3158029085377043172}
   Drill: {fileID: 1553532834}
   jump: 10
-  Gravity: -9.8
+  Gravity: -2
   curTool: 
 --- !u!81 &4523949599300545044
 AudioListener:
