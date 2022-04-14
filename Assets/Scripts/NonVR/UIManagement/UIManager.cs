@@ -9,13 +9,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject[] panels;
     [SerializeField] GameObject infoBookPanel;
 
+    /*
     void Start()
     {
+        //Hot Fix For Missing Menu In Excavation Scene
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
         foreach(GameObject panel in panels)
         {
             DeactivatePanel(panel);
         }
     }
+    */
 
     #region Generic Methods
     public void ActivatePanel(GameObject panel)

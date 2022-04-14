@@ -20,9 +20,11 @@ public class GameManager : MonoBehaviour
 
     public UIManager uiManager;
 
-    public static GameState currentState = GameState.TITLE;
+    public GameState currentState = GameState.BEFORETITLE;
 
     public Camera gameCamera;
+
+    private int scene = 0;
 
     public enum GameState
     { 
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             if (world != null) world.GenerateWorld();
         }
-        
+        if (uiManager == null) uiManager = FindObjectOfType<UIManager>();
     }
     public void SpawnPlayer()
     {
@@ -134,11 +136,26 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GameState.BEFORETITLE:
-                currentState = GameState.TITLE;
+                scene = SceneManager.GetActiveScene().buildIndex;
+
+                switch (scene)
+                {
+                    case 0: //TPMuseum
+                        currentState = GameState.TITLE;
+                        break;
+                    case 1: //FirstPersonDigging (Excavation)
+                        currentState = GameState.GAME;
+                        break;
+                    case 2: //CleaningTest
+                        currentState = GameState.LAB;
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case GameState.TITLE:
                 Time.timeScale = 1;
-                uiManager.Menu(GameState.TITLE);
+                //uiManager.Menu(GameState.TITLE);
                 break;
             case GameState.BIOMECHOOSE:
                 break;
@@ -147,6 +164,8 @@ public class GameManager : MonoBehaviour
                 //Cursor.lockState = CursorLockMode.Locked;
                 break;
             case GameState.LAB:
+                Time.timeScale = 1;
+                //Cursor.lockState = CursorLockMode.Locked;
                 break;
             case GameState.MUSEUM:
                 break;
