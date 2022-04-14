@@ -4,41 +4,48 @@ using UnityEngine;
 
 public class StoneBreak : MonoBehaviour
 {
-    public GameObject[] RockPieces;
+    public List<GameObject> RockPieces;
     public GameObject breakParticle;
     public GameObject cBreakParticle;
-    public int pieceNextToBreak = -1;
-    bool beenHit = false;
-
-    public void HitHandle()
-    {
-
-            pieceNextToBreak++;
-            BreakPiece();
-            Debug.Log(pieceNextToBreak);
-    }
+    static int numofPiecesToBreak;
+    Renderer renderer;
+    //public int numofPieces;
+    //int curlength;
 
     public void BreakPiece()
     {
-        if(pieceNextToBreak > RockPieces.Length-1)
-        {
-            Debug.Log("All Broken Off");
-            Destroy(gameObject, 2f);
-        }
-        else
-        {
-            cBreakParticle = Instantiate(breakParticle, breakParticle.transform.position, transform.rotation);
-            Destroy(cBreakParticle, 1.5f);
 
-            RockPieces[pieceNextToBreak].GetComponent<Rigidbody>().useGravity = true;
-            Destroy(RockPieces[pieceNextToBreak], 2.5f);
-            if(pieceNextToBreak == RockPieces.Length-1)
-            {
-                pieceNextToBreak += 1;
-                BreakPiece();
-            }
-            //Destroy(RockPieces[pieceNextToBreak]);
-            Debug.Log("Pieces Left: " + pieceNextToBreak);
+        
+        numofPiecesToBreak = RockPieces.Count;
+        
+
+        int ranNum = Random.Range(0, RockPieces.Count);
+
+        if (RockPieces[ranNum].GetComponent<Rock>().breakPoint > 0)
+        {
+            RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", .5f);
+            RockPieces[ranNum].GetComponent<Rock>().breakPoint--;
+
         }
+        else 
+        {
+            RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", 0f);
+            RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
+            Destroy(RockPieces[ranNum], 1.5f);
+            RockPieces.RemoveAt(ranNum);
+        }
+
+        if(RockPieces.Count == 0)
+        {
+            DestroyRock();
+        }
+
+    }
+
+    public void DestroyRock()
+    { 
+        gameObject.GetComponent<Collider>();
+        Debug.Log("All Broken Off");
+        Destroy(gameObject, 2f);
     }
 }
