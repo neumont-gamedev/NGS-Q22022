@@ -24,7 +24,17 @@ public class FossilHolder : Singleton<FossilHolder>
             if(f.name == fossil.GetComponent<Fossil>().name)
             {
                 f.location = fossil.transform.position;
-                f.found = fossil.GetComponent<Fossil>().wasFound;
+                continue;
+            }
+        }
+    }
+    public static void FossilFound(Fossil fossil)
+    {
+        foreach (var f in fossilBits)
+        {
+            if (f.name == fossil.name)
+            {
+                f.found = fossil.wasFound;
                 Debug.Log(f.found);
                 continue;
             }

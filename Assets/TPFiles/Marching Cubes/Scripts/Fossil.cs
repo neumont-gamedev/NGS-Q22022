@@ -18,6 +18,7 @@ public class Fossil : MonoBehaviour
             if (!buried)
             {
                 wasFound = true;
+                FossilHolder.FossilFound(this);
                 Debug.Log("Bruh it works");
             }
             if (!wasFound)
