@@ -20,6 +20,8 @@ namespace MarchingCubes
         [Tooltip("F4 to active. Show the current chunk and the data of the voxel you are looking. Important: You need activate gizmos in Game tab!!")]
         public bool debugMode = false;
 
+        public Transform Player { get { return player; } }
+
         private Dictionary<Vector2Int, Chunk> chunkDict = new Dictionary<Vector2Int, Chunk>();
         private Dictionary<Vector2Int, Region> regionDict = new Dictionary<Vector2Int, Region>();
         private List<Vector2Int> chunkLoadList = new List<Vector2Int>();
