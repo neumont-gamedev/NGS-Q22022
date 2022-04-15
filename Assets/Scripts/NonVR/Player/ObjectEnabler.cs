@@ -31,12 +31,12 @@ public class ObjectEnabler : MonoBehaviour
             {
                 objects[counter].SetActive(true);
                 controller.SetActive(false);
-                if (counter-1 >= 0) objects[counter-1].SetActive(false);
+                if (counter - 1 >= 0) objects[counter-1].SetActive(false);
                 counter++;
             }
             else
             {
-                objects[counter-1].SetActive(false);
+                if (counter - 1 >= 0) objects[counter-1].SetActive(false);
                 controller.SetActive(true);
                 counter = 0;
             }
