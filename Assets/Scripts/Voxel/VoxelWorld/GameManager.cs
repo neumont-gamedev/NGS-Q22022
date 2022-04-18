@@ -20,9 +20,11 @@ public class GameManager : MonoBehaviour
 
     public UIManager uiManager;
 
-    public static GameState currentState = GameState.TITLE;
+    public GameState currentState = GameState.BEFORETITLE;
 
     public Camera gameCamera;
+
+    private int scene = 0;
 
     public enum GameState
     { 
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour
         {
             if (world != null) world.GenerateWorld();
         }
-        
+        if (uiManager == null) uiManager = FindObjectOfType<UIManager>();
     }
     public void SpawnPlayer()
     {
@@ -134,11 +136,26 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GameState.BEFORETITLE:
-                currentState = GameState.TITLE;
+                scene = SceneManager.GetActiveScene().buildIndex;
+
+                switch (scene)
+                {
+                    case 0: //TPMuseum
+                        currentState = GameState.TITLE;
+                        break;
+                    case 1: //FirstPersonDigging (Excavation)
+                        currentState = GameState.GAME;
+                        break;
+                    case 2: //CleaningTest
+                        currentState = GameState.LAB;
+                        break;
+                    default:
+                        break;
+                }
                 break;
             case GameState.TITLE:
                 Time.timeScale = 1;
-                uiManager.Menu(GameState.TITLE);
+                //uiManager.Menu(GameState.TITLE);
                 break;
             case GameState.BIOMECHOOSE:
                 break;
@@ -147,6 +164,8 @@ public class GameManager : MonoBehaviour
                 //Cursor.lockState = CursorLockMode.Locked;
                 break;
             case GameState.LAB:
+                Time.timeScale = 1;
+                //Cursor.lockState = CursorLockMode.Locked;
                 break;
             case GameState.MUSEUM:
                 break;
@@ -154,10 +173,10 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
                 Time.timeScale = 0;
-                uiManager.Menu(GameState.PAUSED);
+                //uiManager.Menu(GameState.PAUSED);
                 break;
             case GameState.ABOUT:
-                uiManager.Menu(GameState.ABOUT);
+                //uiManager.Menu(GameState.ABOUT);
                 break;
             case GameState.EXITGAME:
                 break;
@@ -209,23 +228,50 @@ public class GameManager : MonoBehaviour
 
     public void AboutPage()
     {
+        if (currentState == GameState.ABOUT) return;
+        for (int i=0; i < (int)GameState.EXITGAME; i++)
+        {
+            uiManager.DeactivatePanel((GameState)i);
+        }
+
+        uiManager.ActivatePanel(GameState.ABOUT);
         currentState = GameState.ABOUT;
     }
 
     public void BackButton()
     {
+        if (currentState == GameState.TITLE) return;
+        for (int i = 0; i < (int)GameState.EXITGAME; i++)
+        {
+            uiManager.DeactivatePanel((GameState)i);
+        }
+
+        uiManager.ActivatePanel(GameState.TITLE);
         currentState = GameState.TITLE;
     }
 
     public void OnPause()
     {
+        if (currentState == GameState.PAUSED) return;
+        for (int i = 0; i < (int)GameState.EXITGAME; i++)
+        {
+            uiManager.DeactivatePanel((GameState)i);
+        }
+
+        uiManager.ActivatePanel(GameState.PAUSED);
         currentState = GameState.PAUSED;
     }
 
     public void ReturnToTitle()
     {
-        currentState = GameState.BEFORETITLE;
-        uiManager.LoadMuseum();
+        if (currentState == GameState.TITLE) return;
+        for (int i = 0; i < (int)GameState.EXITGAME; i++)
+        {
+            uiManager.DeactivatePanel((GameState)i);
+        }
+
+        uiManager.ActivatePanel(GameState.TITLE);
+        currentState = GameState.TITLE;
     }
 
     public void MainMenuOpen()

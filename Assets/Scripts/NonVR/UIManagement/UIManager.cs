@@ -9,13 +9,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject[] panels;
     [SerializeField] GameObject infoBookPanel;
 
+    /*
     void Start()
     {
+        //Hot Fix For Missing Menu In Excavation Scene
+        if (SceneManager.GetActiveScene().buildIndex == 1) return;
+
         foreach(GameObject panel in panels)
         {
             DeactivatePanel(panel);
         }
     }
+    */
 
     #region Generic Methods
     public void ActivatePanel(GameObject panel)
@@ -28,9 +33,22 @@ public class UIManager : MonoBehaviour
         panel.SetActive(false);
     }
 
+    public void ActivatePanel(GameManager.GameState gameState)
+    {
+        if ((int)gameState >= panels.Length) return;
+        panels[(int)gameState].SetActive(true);
+    }
+
+    public void DeactivatePanel(GameManager.GameState gameState)
+    {
+        if ((int)gameState >= panels.Length) return;
+        panels[(int)gameState].SetActive(false);
+    }
     #endregion
 
     #region UI Menus
+    //Because this method was called every frame, it would result in panel flashing no matter what so I've updated some methods
+    // to work around it
     public void Menu(GameManager.GameState gameState)
     {
         GameObject currentPanel = panels[(int)gameState];
