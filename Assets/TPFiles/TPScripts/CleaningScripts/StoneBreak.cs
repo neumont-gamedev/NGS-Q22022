@@ -21,7 +21,7 @@ public class StoneBreak : MonoBehaviour
 
         int ranNum = Random.Range(0, RockPieces.Count);
 
-        if (RockPieces[ranNum].GetComponent<Rock>().breakPoint > 0)
+        if (RockPieces[ranNum].GetComponent<Rock>().breakPoint >= 0)
         {
             RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", .5f);
             RockPieces[ranNum].GetComponent<Rock>().breakPoint--;
