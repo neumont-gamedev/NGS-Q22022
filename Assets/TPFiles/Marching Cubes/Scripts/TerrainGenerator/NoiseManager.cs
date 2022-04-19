@@ -52,6 +52,7 @@ namespace MarchingCubes
 		  private int fossilBorders = 60;
 		  Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
+		//resets world data and calls startup commands
 		  public void Start()
 		  {
 			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
@@ -100,30 +101,29 @@ namespace MarchingCubes
 			}
 			ChunkManager.Instance.Initialize();
 		}
-		//Startup for fossil spawing and such
-		 private void StartupBoi()
-         {
+
+		//Startup for updating fossil position and spawning in the world
+		private void StartupBoi()
+		{
 			xzs.Clear();
 
 			float x;
 			float z;
-			foreach(var f in fossils)
-            {
+			foreach (var f in fossils)
+			{
 				x = Random.value * fossilBorders;
-				if(x > (fossilBorders / 2)) x = x / 2;
+				if (x > (fossilBorders / 2)) x = x / 2;
 				else x = x * -1;
 
 				z = Random.value * fossilBorders;
 				if (z > (fossilBorders / 2)) z = z / 2;
 				else z = z * -1;
 
-
 				f.transform.position = new Vector3(x, fossilDepth, z);
 				FossilHolder.UpdateFossil(f);
 				Instantiate(f);
 				xzs.Add(f.GetComponent<Fossil>().name, new KeyValuePair<float, float>(x, z));
-            }
-
+			}
          }
 
 
