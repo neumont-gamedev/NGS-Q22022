@@ -15,8 +15,8 @@ public class Dusting : MonoBehaviour
     public void ChangeMaterial()
     {
 
-
         stage++;
+
         switch (stage)
         {
             case 1:
