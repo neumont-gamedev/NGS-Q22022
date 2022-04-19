@@ -14,7 +14,8 @@ public class StoneBreak : MonoBehaviour
     public void BreakPiece()
     {
 
-        
+        cBreakParticle = Instantiate(breakParticle);
+        Destroy(cBreakParticle, 1.5f);
         numofPiecesToBreak = RockPieces.Count;
         
 
@@ -30,8 +31,7 @@ public class StoneBreak : MonoBehaviour
         {
             //RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", 0f);
             RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
-            cBreakParticle = Instantiate(breakParticle);
-            Destroy(cBreakParticle, 1.5f);
+
             Destroy(RockPieces[ranNum], 1.5f);
             RockPieces.RemoveAt(ranNum);
         }
