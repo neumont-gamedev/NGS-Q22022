@@ -8,7 +8,6 @@ public class StoneBreak : MonoBehaviour
     public GameObject breakParticle;
     public GameObject cBreakParticle;
     static int numofPiecesToBreak;
-    Renderer renderer;
     //public int numofPieces;
     //int curlength;
 
@@ -23,14 +22,16 @@ public class StoneBreak : MonoBehaviour
 
         if (RockPieces[ranNum].GetComponent<Rock>().breakPoint >= 0)
         {
-            RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", .5f);
+            //RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", .5f);
             RockPieces[ranNum].GetComponent<Rock>().breakPoint--;
 
         }
         else 
         {
-            RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", 0f);
+            //RockPieces[ranNum].GetComponent<Renderer>().sharedMaterial.SetFloat("BlendEffect", 0f);
             RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
+            cBreakParticle = Instantiate(breakParticle);
+            Destroy(cBreakParticle, 1.5f);
             Destroy(RockPieces[ranNum], 1.5f);
             RockPieces.RemoveAt(ranNum);
         }
