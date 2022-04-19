@@ -10,8 +10,9 @@ public class Dusting : MonoBehaviour
     public Material stage1;
     public Material stage2;
     public Material stage3;
+    public Material stage4;
 
-    public void ChangeColor()
+    public void ChangeMaterial()
     {
 
 
@@ -26,6 +27,9 @@ public class Dusting : MonoBehaviour
                 break;
             case 3:
                 this.GetComponent<Renderer>().material = stage3;
+                break;
+            case 4:
+                this.GetComponent<Renderer>().material = stage4;
                 break;
             default:
                 break;
