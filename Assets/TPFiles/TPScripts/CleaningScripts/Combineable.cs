@@ -39,42 +39,17 @@ public class Combineable : MonoBehaviour
 
         if (rightCollider.gameObject.tag == collidedObject.tag)
         {
-            for(int i = 0; i <= boneParts.Count; i++)
+            for (int i = 0; i < boneParts.Count; i++)
             {
-                if (collidedObject.name.Equals(boneParts[i].gameObject.name))
+                Debug.Log(collidedObject.transform.parent.name);
+                Debug.Log(boneParts[i].gameObject.name);
+                if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
                 {
-                    Debug.Log(collidedObject.name);
-                    Debug.Log(boneParts[i].gameObject.name);
                     this.boneParts[i].SetActive(true);
+                    Destroy(collidedObject.transform.parent.gameObject);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
                 }
-                Debug.Log("None Found");
             }
-
-
-            //Debug.Log()
-
-
-            /* if (hiddenJaw.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
-             {
-                 hiddenJaw.SetActive(true);
-                 Destroy(this.gameObject);
-             }
-             else if (hiddenNose.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
-             {
-                 hiddenNose.SetActive(true);
-                 Destroy(this.gameObject);
-             }*/
-            //transform.SetParent(collidedObject.transform);
-            //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
-            //boneParts[0].SetActive(true);
-            Debug.Log(rightCollider.gameObject.name + " Collided with " + collidedObject.name);
-        }
-        else if (leftCollider.gameObject.tag == other.gameObject.tag)
-        {
-            //transform.SetParent(collidedObject.transform);
-            //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
-            Debug.Log(leftCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
     }
 }
