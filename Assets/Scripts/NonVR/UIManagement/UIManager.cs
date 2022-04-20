@@ -75,6 +75,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SwitchPage(int currentPanelIndex, int destinationPanelIndex)
+    {
+        DeactivatePanel(panels[destinationPanelIndex]);
+        ActivatePanel(panels[currentPanelIndex]);
+    }
+
     #endregion
 
     #region Scene Loading
