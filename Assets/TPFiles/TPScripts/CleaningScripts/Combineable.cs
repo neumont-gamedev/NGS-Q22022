@@ -43,6 +43,8 @@ public class Combineable : MonoBehaviour
             {
                 if (collidedObject.name.Equals(boneParts[i].gameObject.name))
                 {
+                    Debug.Log(collidedObject.name);
+                    Debug.Log(boneParts[i].gameObject.name);
                     this.boneParts[i].SetActive(true);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
                 }
