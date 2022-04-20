@@ -48,23 +48,24 @@ public class Combineable : MonoBehaviour
                 }
                 Debug.Log("None Found");
             }
-           
-            
+
+
             //Debug.Log()
 
 
-           /* if (hiddenJaw.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
-            {
-                hiddenJaw.SetActive(true);
-                Destroy(this.gameObject);
-            }
-            else if (hiddenNose.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
-            {
-                hiddenNose.SetActive(true);
-                Destroy(this.gameObject);
-            }*/
+            /* if (hiddenJaw.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
+             {
+                 hiddenJaw.SetActive(true);
+                 Destroy(this.gameObject);
+             }
+             else if (hiddenNose.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
+             {
+                 hiddenNose.SetActive(true);
+                 Destroy(this.gameObject);
+             }*/
             //transform.SetParent(collidedObject.transform);
             //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
+            boneParts[0].SetActive(true);
             Debug.Log(rightCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
         else if (leftCollider.gameObject.tag == other.gameObject.tag)
