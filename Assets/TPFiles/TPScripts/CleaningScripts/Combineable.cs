@@ -14,6 +14,7 @@ public class Combineable : MonoBehaviour
 
     public GameObject hiddenJaw;
     public GameObject hiddenNose;
+    public GameObject hiddenHead;
 
     GameObject parentObject = new GameObject();
 
@@ -46,13 +47,13 @@ public class Combineable : MonoBehaviour
                 hiddenNose.SetActive(true);
                 Destroy(this.gameObject);
             }
-            transform.SetParent(collidedObject.transform);
+            //transform.SetParent(collidedObject.transform);
             //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
             Debug.Log(rightCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
         else if (leftCollider.gameObject.tag == other.gameObject.tag)
         {
-            transform.SetParent(collidedObject.transform);
+            //transform.SetParent(collidedObject.transform);
             //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
             Debug.Log(leftCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
