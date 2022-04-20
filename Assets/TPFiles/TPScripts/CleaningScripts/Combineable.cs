@@ -39,7 +39,7 @@ public class Combineable : MonoBehaviour
 
         if (rightCollider.gameObject.tag == collidedObject.tag)
         {
-            for(int i = 0; i < boneParts.Count; i++)
+            for(int i = 0; i <= boneParts.Count; i++)
             {
                 if (collidedObject.name == boneParts[i].gameObject.name)
                 {
@@ -65,7 +65,7 @@ public class Combineable : MonoBehaviour
              }*/
             //transform.SetParent(collidedObject.transform);
             //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
-            boneParts[0].SetActive(true);
+            //boneParts[0].SetActive(true);
             Debug.Log(rightCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
         else if (leftCollider.gameObject.tag == other.gameObject.tag)
