@@ -41,7 +41,7 @@ public class Combineable : MonoBehaviour
         {
             for(int i = 0; i <= boneParts.Count; i++)
             {
-                if (collidedObject.name == boneParts[i].gameObject.name)
+                if (collidedObject.name.Equals(boneParts[i].gameObject.name))
                 {
                     this.boneParts[i].SetActive(true);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
