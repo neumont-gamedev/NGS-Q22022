@@ -12,9 +12,11 @@ public class Combineable : MonoBehaviour
     public GameObject combinePoint;
     public string combinableWantedObject;
 
-    public GameObject hiddenJaw;
+    public List<GameObject> boneParts = new List<GameObject>();
+
+ /*   public GameObject hiddenJaw;
     public GameObject hiddenNose;
-    public GameObject hiddenHead;
+    public GameObject hiddenHead;*/
 
     GameObject parentObject = new GameObject();
 
@@ -37,7 +39,20 @@ public class Combineable : MonoBehaviour
 
         if (rightCollider.gameObject.tag == collidedObject.tag)
         {
-            if (hiddenJaw.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
+            for(int i = 0; i < boneParts.Count; i++)
+            {
+                if (collidedObject.name == boneParts[i].gameObject.name)
+                {
+                    this.boneParts[i].SetActive(true);
+                }
+            }
+            
+
+            
+            //Debug.Log()
+
+
+           /* if (hiddenJaw.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
             {
                 hiddenJaw.SetActive(true);
                 Destroy(this.gameObject);
@@ -46,7 +61,7 @@ public class Combineable : MonoBehaviour
             {
                 hiddenNose.SetActive(true);
                 Destroy(this.gameObject);
-            }
+            }*/
             //transform.SetParent(collidedObject.transform);
             //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
             Debug.Log(rightCollider.gameObject.name + " Collided with " + collidedObject.name);
