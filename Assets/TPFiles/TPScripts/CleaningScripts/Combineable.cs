@@ -12,25 +12,17 @@ public class Combineable : MonoBehaviour
     public GameObject combinePoint;
     public string combinableWantedObject;
 
+    public GameObject hiddenJaw;
+    public GameObject hiddenNose;
+
     GameObject parentObject = new GameObject();
 
     void Start()
     {
         childColliders = GetComponentsInChildren<BoxCollider>();
 
-        if (childColliders[0].tag == "BottomColliderLeft" && childColliders[1].tag == "BottomColliderRight")
-        {
-            leftCollider = childColliders[0];
-            rightCollider = childColliders[1];
-        }
-        else
-        {
-            leftCollider = childColliders[1];
-            rightCollider = childColliders[0];
-        }
-
-        Debug.Log("Left Collider : " + leftCollider.tag);
-        Debug.Log("Right Collider : " + rightCollider.tag);
+        leftCollider = (childColliders[0].tag == "BottomColliderLeft") ? childColliders[0] : childColliders[1];
+        rightCollider = (childColliders[0].tag == "BottomColliderLeft") ? childColliders[1] : childColliders[0];
     }
 
     void Update()
@@ -42,17 +34,27 @@ public class Combineable : MonoBehaviour
     {
         GameObject collidedObject = other.gameObject;
 
-        if (rightCollider.gameObject.tag == other.gameObject.tag)
+        if (rightCollider.gameObject.tag == collidedObject.tag)
         {
-            //transform.SetParent(parentObject.transform);
-            combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
-            Debug.Log("Collided Right");
+            if (hiddenJaw.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
+            {
+                hiddenJaw.SetActive(true);
+                Destroy(this.gameObject);
+            }
+            else if (hiddenNose.transform.root.gameObject.name == collidedObject.transform.root.gameObject.name)
+            {
+                hiddenNose.SetActive(true);
+                Destroy(this.gameObject);
+            }
+            transform.SetParent(collidedObject.transform);
+            //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
+            Debug.Log(rightCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
-        if (leftCollider.gameObject.tag == other.gameObject.tag)
+        else if (leftCollider.gameObject.tag == other.gameObject.tag)
         {
-            //transform.SetParent(parentObject.transform);
-            combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
-            Debug.Log("Collided Left");
+            transform.SetParent(collidedObject.transform);
+            //combinePoint.transform.position = GameObject.Find(combinableWantedObject).transform.position;
+            Debug.Log(leftCollider.gameObject.name + " Collided with " + collidedObject.name);
         }
     }
 }
