@@ -30,5 +30,6 @@ public class PlayerMarker : MonoBehaviour
     void SetPositionAndRotation()
     {
         rectTransform.localPosition = new Vector3(player.transform.position.x / 50f, player.transform.position.z / 50f, -0.51f);
+        rectTransform.localRotation = Quaternion.Euler(0f, 0f, -player.transform.rotation.eulerAngles.y);
     }
 }
