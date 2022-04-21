@@ -20,9 +20,6 @@ public class Map : MonoBehaviour
 
     public void GenerateMap()
     {
-        if (noiseManager == null) noiseManager = FindObjectOfType<NoiseManager>();
-        Debug.LogWarning("Map Generated");
-
         foreach(var i in noiseManager.getCoords())
         {
             GameObject remake = Instantiate(mapMarker, panel.transform);
@@ -32,5 +29,6 @@ public class Map : MonoBehaviour
 
         Instantiate(playerMarker, panel.transform);
         markers.Add(playerMarker.GetComponent<PlayerMarker>());
+        Debug.LogWarning("Map Generated");
     }
 }
