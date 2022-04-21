@@ -49,8 +49,8 @@ namespace MarchingCubes
 				public float appearValue;//1 to 0 value when the biome appears. Next biomePropertie.appear value is where this biome end
 		  }
 
-		  private int fossilDepth = -3;
-		  private int fossilBorders = 60;
+		  private int fossilDepth = -6;
+		  private int fossilBorders = 45;
 		  private Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
 		//resets world data and calls startup commands
