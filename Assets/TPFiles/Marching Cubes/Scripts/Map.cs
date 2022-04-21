@@ -6,6 +6,7 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
     public GameObject playerMarker;
+    public GameObject boardMarker;
     public GameObject mapMarker;
     public GameObject panel;
 
@@ -26,6 +27,9 @@ public class Map : MonoBehaviour
             remake.GetComponent<MapMarker>().UpdatePosition(i);
             markers.Add(remake.GetComponent<MapMarker>());
         }
+
+        Instantiate(boardMarker, panel.transform);
+        markers.Add(boardMarker.GetComponent<PlayerMarker>());
 
         Instantiate(playerMarker, panel.transform);
         markers.Add(playerMarker.GetComponent<PlayerMarker>());

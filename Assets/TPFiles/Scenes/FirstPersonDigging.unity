@@ -892,7 +892,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 3.1e-44, w: NaN}
+  m_BoundingSphereOverride: {x: 4.5905e-41, y: -0.5821476, z: 4.5905e-41, w: 9.403955e-38}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -2970,6 +2970,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 101085028, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 101085028, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3025,6 +3029,42 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 104668529, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 177771917, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 604830952, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 744518519, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1251624854, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499890309, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595291900, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636368443, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734242769, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1784279308, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3057,10 +3097,37 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1784279310, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901825349, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960779701, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654496296300553661, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6626397001344773061, guid: e256c70be6f1759468fdfa8d48e9217b,
         type: 3}
       propertyPath: m_Name
       value: InteractableBoard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626397001344773061, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626397001344773061, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Board
       objectReference: {fileID: 0}
     - target: {fileID: 6627056243326085281, guid: e256c70be6f1759468fdfa8d48e9217b,
         type: 3}
@@ -6755,7 +6822,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 1023
+    m_Bits: 3071
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -9937,6 +10004,12 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 800598539}
+    - target: {fileID: 2346986728140153517, guid: 58202e97d3338a14abf160b557b72a03,
+        type: 3}
+      propertyPath: boardMarker
+      value: 
+      objectReference: {fileID: 95776425071266545, guid: 56487ab65bf721543828610a08629605,
+        type: 3}
     - target: {fileID: 2346986728140153517, guid: 58202e97d3338a14abf160b557b72a03,
         type: 3}
       propertyPath: playerMarker
