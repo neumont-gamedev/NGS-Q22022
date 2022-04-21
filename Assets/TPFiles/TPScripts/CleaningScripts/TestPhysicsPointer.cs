@@ -16,29 +16,31 @@ public class TestPhysicsPointer : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-            
-
-        UpdateLength();
-
         if (VRInput.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(VRInput.mousePosition);
-            if (Physics.Raycast(ray, out hit, endPosition.magnitude) && hit.transform.tag == "Rock")
+            Ray ray = new Ray(endPosition, transform.forward);
+            if (Physics.Raycast(ray, out hit, endPosition.magnitude))
             {
-                Debug.Log("Rock Clicked");
-                hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece();
-            }
-
-            if (Physics.Raycast(ray, out hit, endPosition.magnitude) && hit.transform.tag == "Bone")
-            {
-                hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial();
-                Debug.Log("Bone Clicked");
-
+                if (hit.transform.gameObject.CompareTag("Rock"))
+                {
+                    Debug.Log("Rock Clicked");
+                    hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece();
+                }
+                else if (hit.transform.gameObject.CompareTag("Bone"))
+                {
+                    hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial();
+                    Debug.Log("Bone Clicked");
+                }
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        UpdateLength();
     }
 
     private void UpdateLength()
