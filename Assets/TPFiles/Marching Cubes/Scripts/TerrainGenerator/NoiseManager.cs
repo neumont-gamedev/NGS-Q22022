@@ -50,7 +50,7 @@ namespace MarchingCubes
 
 		  private int fossilDepth = -3;
 		  private int fossilBorders = 60;
-		  Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
+		  private Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
 		//resets world data and calls startup commands
 		  public void Start()
@@ -59,7 +59,9 @@ namespace MarchingCubes
 			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
 			 Startup();
 			 StartupBoi();
-		  }
+			 var map = FindObjectOfType<Map>();
+			 map.GenerateMap();
+		}
 
 		//Original Startup Stuff
 		 private void Startup()
@@ -345,5 +347,15 @@ namespace MarchingCubes
 
 				return noiseMap;
 		  }
+
+		public Dictionary<float, float> getCoords()
+        {
+			Dictionary<float, float> coords = new Dictionary<float, float>();
+			foreach(var i in xzs)
+            {
+				coords.Add(i.Value.Key, i.Value.Value);
+            }
+			return coords;
+        }
 	 }
 }
