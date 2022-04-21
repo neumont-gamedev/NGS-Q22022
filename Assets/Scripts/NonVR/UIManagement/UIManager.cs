@@ -75,8 +75,10 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SwitchPage(int currentPanelIndex, int destinationPanelIndex)
+    public void SwitchPanel(int currentPanelIndex, int destinationPanelIndex)
     {
+        //3, 4 - Table of Contents
+        //5-13 - Dino Entries (Allo, baro, igua, lobo, ples, pter, tril, trex, utah)
         DeactivatePanel(panels[destinationPanelIndex]);
         ActivatePanel(panels[currentPanelIndex]);
     }
