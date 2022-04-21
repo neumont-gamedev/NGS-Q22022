@@ -12,8 +12,8 @@ public class PlayerMarker : MapMarker
     private new void Start()
     {
         base.Start();
-        SetPositionAndRotation();
         if (worldObject == null) worldObject = GameObject.FindWithTag(objectTag);
+        SetPositionAndRotation();
     }
 
     void Update()
@@ -23,7 +23,7 @@ public class PlayerMarker : MapMarker
 
     void SetPositionAndRotation()
     {
-        rectTransform.localPosition = new Vector3(worldObject.transform.position.x / 100f, worldObject.transform.position.z / 100f, markerZ);
+        rectTransform.localPosition = new Vector3(worldObject.transform.position.x / mapScale, worldObject.transform.position.z / mapScale, markerZ);
         rectTransform.localRotation = Quaternion.Euler(0f, 0f, -worldObject.transform.rotation.eulerAngles.y);
     }
 }
