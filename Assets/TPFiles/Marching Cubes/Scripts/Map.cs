@@ -5,15 +5,24 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    NoiseManager noiseManager;
     public GameObject playerMarker;
     public GameObject mapMarker;
-    List<MapMarker> markers = new List<MapMarker>();
     public GameObject panel;
+
+    NoiseManager noiseManager;
+    List<MapMarker> markers = new List<MapMarker>();
+
+    private void Awake()
+    {
+        noiseManager = FindObjectOfType<NoiseManager>();
+        noiseManager.map = this;
+    }
 
     public void GenerateMap()
     {
-        noiseManager = FindObjectOfType<NoiseManager>();
+        if (noiseManager == null) noiseManager = FindObjectOfType<NoiseManager>();
+        Debug.LogWarning("Map Generated");
+
         foreach(var i in noiseManager.getCoords())
         {
             GameObject remake = Instantiate(mapMarker, panel.transform);
@@ -21,7 +30,7 @@ public class Map : MonoBehaviour
             markers.Add(remake.GetComponent<MapMarker>());
         }
 
-        //Instantiate(playerMarker, panel.transform);
-        //markers.Add(playerMarker.GetComponent<PlayerMarker>())
+        Instantiate(playerMarker, panel.transform);
+        markers.Add(playerMarker.GetComponent<PlayerMarker>());
     }
 }

@@ -11,8 +11,6 @@ public class LoadManager : MonoBehaviour
     public OVRPlayerController playerController;
     public ObjectEnabler enabler;
 
-    int timer = 0;
-
     void Awake()
     {
         playerController = GetComponentInParent<OVRPlayerController>();
@@ -26,7 +24,6 @@ public class LoadManager : MonoBehaviour
     IEnumerator LoadingScreenCo()
     {
         yield return WaitUntilTrue(IsPlayerSet);
-        timer = 0;
         yield return WaitUntilTrue(IsEnoughChunksLoaded);
         LoadingRaptor.SetActive(false);
         LoadingScreen.SetActive(false);
@@ -45,19 +42,11 @@ public class LoadManager : MonoBehaviour
 
     bool IsPlayerSet()
     {
-#if UNITY_EDITOR
-        timer++;
-        Debug.LogWarning($"Player Timer: {timer}");
-#endif
         return ChunkManager.Instance.Player != null;
     }
 
     bool IsEnoughChunksLoaded()
     {
-#if UNITY_EDITOR
-        timer++;
-        Debug.LogWarning($"Chunk Timer: {timer}");
-#endif
         List<GameObject> chunks = new List<GameObject>();
         GameObject chunk;
         int i, j;
@@ -73,7 +62,7 @@ public class LoadManager : MonoBehaviour
                 else return false;
             }
         }
-        Debug.LogWarning($"Chunks Size: {chunks.Count}");
+
         return true;
     }
 }

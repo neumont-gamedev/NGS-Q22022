@@ -9,6 +9,7 @@ namespace MarchingCubes
 
 		  [Header("World configuration")]
 		  public WorldConfig worldConfig;//Current world configuration of the noiseManager
+		  public Map map;
 		  [System.Serializable]
 		  public class WorldConfig
 		  {
@@ -59,7 +60,7 @@ namespace MarchingCubes
 			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
 			 Startup();
 			 StartupBoi();
-			 var map = FindObjectOfType<Map>();
+			 if (map == null) map = FindObjectOfType<Map>();
 			 map.GenerateMap();
 		}
 

@@ -4,21 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 // Will Be Child Class of MapMarker
-public class PlayerMarker : MonoBehaviour
+public class PlayerMarker : MapMarker
 {
-    public GameObject player;
-    public Image image;
-    public RectTransform rectTransform;
-    public string playerTag = "Player";
-    public Color color = Color.white;
-
-    void Start()
+    private new void Start()
     {
-        if (player == null) player = GameObject.FindWithTag(playerTag);
-        if (image == null) image = GetComponent<Image>();
-        if (rectTransform == null) rectTransform = gameObject.GetComponent<RectTransform>();
-
-        image.color = color;
+        base.Start();
         SetPositionAndRotation();
     }
 
@@ -29,7 +19,7 @@ public class PlayerMarker : MonoBehaviour
 
     void SetPositionAndRotation()
     {
-        rectTransform.localPosition = new Vector3(player.transform.position.x / 50f, player.transform.position.z / 50f, -0.51f);
-        rectTransform.localRotation = Quaternion.Euler(0f, 0f, -player.transform.rotation.eulerAngles.y);
+        rectTransform.localPosition = new Vector3(worldObject.transform.position.x / 100f, worldObject.transform.position.z / 100f, markerZ);
+        rectTransform.localRotation = Quaternion.Euler(0f, 0f, -worldObject.transform.rotation.eulerAngles.y);
     }
 }
