@@ -29,24 +29,5 @@ public class TestRayCast : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (VRInput.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(VRInput.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Rock")
-            {
-                Debug.Log("Rock Clicked");
-                hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece();
-            }
-
-            if (Physics.Raycast(ray, out hit, 100.0f) && hit.transform.tag == "Bone")
-            {
-                hit.transform.gameObject.GetComponent<Dusting>().ChangeColor();
-                Debug.Log("Bone Clicked");
-                
-            }
-        }
-    }
+   
 }
