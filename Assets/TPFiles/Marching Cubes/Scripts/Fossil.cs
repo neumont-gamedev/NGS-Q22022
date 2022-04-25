@@ -13,6 +13,14 @@ public class Fossil : MonoBehaviour
     private Animator ani;
     private GameObject shell;
 
+    private void Awake()
+    {
+        ani = GetComponent<Animator>();
+        shell = transform.Find("Shell").gameObject;
+        shell.SetActive(false);
+        //Plaster();
+    }
+
     //resets buried to false until it comes back false
     private void FixedUpdate()
     {
