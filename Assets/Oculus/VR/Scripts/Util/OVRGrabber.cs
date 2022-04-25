@@ -81,6 +81,11 @@ public class OVRGrabber : MonoBehaviour
         get {
             Debug.Log(grabbedObject.ToString());
             return m_grabbedObj; }
+        set
+        {
+            Debug.Log(grabbedObject.ToString());
+            m_grabbedObj = grabbedObject;
+        }
     }
 
 	public void ForceRelease(OVRGrabbable grabbable)
