@@ -7,6 +7,7 @@ public class FossilHolder : Singleton<FossilHolder>
 {
     public static List<FossilInfo> fossilBits = new List<FossilInfo>() { 
         new FossilInfo("test01"), new FossilInfo("test02") };
+    public static List<Fossil> backpack = new List<Fossil>();
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
+    //updates the fossil location
     public static void UpdateFossil(GameObject fossil)
     {
         foreach(var f in fossilBits)
@@ -28,6 +30,8 @@ public class FossilHolder : Singleton<FossilHolder>
             }
         }
     }
+
+    //updates the fossil found 
     public static void FossilFound(Fossil fossil)
     {
         foreach (var f in fossilBits)
@@ -39,6 +43,12 @@ public class FossilHolder : Singleton<FossilHolder>
                 continue;
             }
         }
+    }
+
+    //adds Fossil to backpack
+    public static void AddToBackpack(Fossil fossil)
+    {
+        backpack.Add(fossil);
     }
 }
 

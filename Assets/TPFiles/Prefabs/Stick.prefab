@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6878521254948511425}
   - component: {fileID: 6878521254948511427}
-  - component: {fileID: 6878521254948511424}
+  - component: {fileID: 2099313993}
   m_Layer: 0
   m_Name: Stick
   m_TagString: Hand
@@ -213,19 +213,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!135 &6878521254948511424
-SphereCollider:
+--- !u!136 &2099313993
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6878521254948511438}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0075
-  m_Center: {x: 0, y: 0, z: 0.45}
+  m_Radius: 0.01
+  m_Height: 0.1
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.4075}
 --- !u!1 &6878521255983693500
 GameObject:
   m_ObjectHideFlags: 0

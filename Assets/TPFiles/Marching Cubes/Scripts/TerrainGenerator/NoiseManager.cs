@@ -9,6 +9,7 @@ namespace MarchingCubes
 
 		  [Header("World configuration")]
 		  public WorldConfig worldConfig;//Current world configuration of the noiseManager
+		  public Map map;
 		  [System.Serializable]
 		  public class WorldConfig
 		  {
@@ -48,17 +49,20 @@ namespace MarchingCubes
 				public float appearValue;//1 to 0 value when the biome appears. Next biomePropertie.appear value is where this biome end
 		  }
 
-		  private int fossilDepth = -3;
-		  private int fossilBorders = 60;
-		  Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
+		  private int fossilDepth = -6;
+		  private int fossilBorders = 45;
+		  private Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
+		//resets world data and calls startup commands
 		  public void Start()
 		  {
 			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
 			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
 			 Startup();
 			 StartupBoi();
-		  }
+			 if (map == null) map = FindObjectOfType<Map>();
+			 map.GenerateMap();
+		}
 
 		//Original Startup Stuff
 		 private void Startup()
@@ -100,30 +104,29 @@ namespace MarchingCubes
 			}
 			ChunkManager.Instance.Initialize();
 		}
-		//Startup for fossil spawing and such
-		 private void StartupBoi()
-         {
+
+		//Startup for updating fossil position and spawning in the world
+		private void StartupBoi()
+		{
 			xzs.Clear();
 
 			float x;
 			float z;
-			foreach(var f in fossils)
-            {
+			foreach (var f in fossils)
+			{
 				x = Random.value * fossilBorders;
-				if(x > (fossilBorders / 2)) x = x / 2;
+				if (x > (fossilBorders / 2)) x = x / 2;
 				else x = x * -1;
 
 				z = Random.value * fossilBorders;
 				if (z > (fossilBorders / 2)) z = z / 2;
 				else z = z * -1;
 
-
 				f.transform.position = new Vector3(x, fossilDepth, z);
 				FossilHolder.UpdateFossil(f);
 				Instantiate(f);
 				xzs.Add(f.GetComponent<Fossil>().name, new KeyValuePair<float, float>(x, z));
-            }
-
+			}
          }
 
 
@@ -345,5 +348,15 @@ namespace MarchingCubes
 
 				return noiseMap;
 		  }
+
+		public Dictionary<float, float> getCoords()
+        {
+			Dictionary<float, float> coords = new Dictionary<float, float>();
+			foreach(var i in xzs)
+            {
+				coords.Add(i.Value.Key, i.Value.Value);
+            }
+			return coords;
+        }
 	 }
 }

@@ -10,7 +10,10 @@ public class Fossil : MonoBehaviour
 
     private bool startDigging = false;
 
-    //happens before the collisions
+    private Animation ani;
+    private GameObject shell;
+
+    //resets buried to false until it comes back false
     private void FixedUpdate()
     {
         if (startDigging)
@@ -19,7 +22,7 @@ public class Fossil : MonoBehaviour
             {
                 wasFound = true;
                 FossilHolder.FossilFound(this);
-                Debug.Log("Bruh it works");
+                //Debug.Log("Bruh it works");
             }
             if (!wasFound)
             {
@@ -28,6 +31,7 @@ public class Fossil : MonoBehaviour
         }
     }
 
+    //starts the digging and sets buried true
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
@@ -42,11 +46,19 @@ public class Fossil : MonoBehaviour
             }
         }
     }
+
+    //changes buried true as long as they collide
     private void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.tag == "Ground" && !wasFound)
         {
             buried = true;
         }
+    }
+
+    public void Plaster()
+    {
+        shell.SetActive(true);
+        ani.Play();
     }
 }
