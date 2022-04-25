@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     //panel index checks with gamestate index
     [SerializeField] GameObject[] panels;
-    [SerializeField] GameObject infoBookPanel;
+    [SerializeField] GameObject infoBook;
 
     /*
     void Start()
@@ -65,14 +65,22 @@ public class UIManager : MonoBehaviour
 
     public void InfoBook()
     {
-        if (infoBookPanel.activeInHierarchy)
+        if (infoBook.activeInHierarchy)
         {
-            DeactivatePanel(infoBookPanel);
+            DeactivatePanel(infoBook);
         }
-        else if (infoBookPanel != null)
+        else if (infoBook != null)
         {
-            ActivatePanel(infoBookPanel);
+            ActivatePanel(infoBook);
         }
+    }
+
+    public void SwitchPanel(int currentPanelIndex, int destinationPanelIndex)
+    {
+        //3, 4 - Table of Contents
+        //5-13 - Dino Entries (Allo, baro, igua, lobo, ples, pter, tril, trex, utah)
+        DeactivatePanel(panels[destinationPanelIndex]);
+        ActivatePanel(panels[currentPanelIndex]);
     }
 
     #endregion

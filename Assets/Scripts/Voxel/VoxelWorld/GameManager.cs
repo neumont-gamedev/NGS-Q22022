@@ -133,6 +133,13 @@ public class GameManager : MonoBehaviour
             OnPause();
         }
 
+        if (Input.GetButtonDown("Button.Two"))
+        {
+            //open informational book if not open
+            //put away book if open
+            uiManager.InfoBook();
+        }
+
         switch (currentState)
         {
             case GameState.BEFORETITLE:
