@@ -13,10 +13,9 @@ public class Dusting : MonoBehaviour
     public Material stage2;
     public Material stage3;
     public Material stage4;
-
-    public void ChangeMaterial()
+    public int ChangeMaterial()
     {
-
+        int stage = 0;
         stage++;
 
         switch (stage)
@@ -25,24 +24,25 @@ public class Dusting : MonoBehaviour
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage1;
-                
-                break;
+                return stage = 1;
             case 2:
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage2;
-                break;
+                return stage = 2;
             case 3:
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage3;
-                break;
+                return stage = 3;
             case 4:
+                cBreakParticle = Instantiate(breakParticle);
+                Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage4;
-                break;
-            default:
-                break;
+                return stage = 4;
         }
+
+        return sage;
 
     }
 }
