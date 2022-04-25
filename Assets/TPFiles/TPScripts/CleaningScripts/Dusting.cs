@@ -42,7 +42,7 @@ public class Dusting : MonoBehaviour
                 return stage = 4;
         }
 
-        return sage;
+        return stage;
 
     }
 }
