@@ -13,7 +13,7 @@ public class Map : MonoBehaviour
     NoiseManager noiseManager;
     List<MapMarker> markers = new List<MapMarker>();
 
-    private void Awake()
+    public void SetNoiseManager()
     {
         noiseManager = FindObjectOfType<NoiseManager>();
         noiseManager.map = this;

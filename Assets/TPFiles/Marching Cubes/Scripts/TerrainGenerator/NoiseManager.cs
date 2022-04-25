@@ -61,6 +61,7 @@ namespace MarchingCubes
 			 Startup();
 			 StartupBoi();
 			 if (map == null) map = FindObjectOfType<Map>();
+			 map.SetNoiseManager();
 			 map.GenerateMap();
 		}
 
