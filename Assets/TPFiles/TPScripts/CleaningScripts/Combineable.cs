@@ -14,6 +14,8 @@ public class Combineable : MonoBehaviour
 
     public List<GameObject> boneParts = new List<GameObject>();
 
+    int combinedBoneCounter = 0;
+
  /*   public GameObject hiddenJaw;
     public GameObject hiddenNose;
     public GameObject hiddenHead;*/
@@ -29,6 +31,11 @@ public class Combineable : MonoBehaviour
     }
 
 
+    public int GetBoneCounter()
+    {
+        return combinedBoneCounter;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         GameObject collidedObject = other.gameObject;
@@ -42,6 +49,7 @@ public class Combineable : MonoBehaviour
                 if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
                 {
                     this.boneParts[i].SetActive(true);
+                    combinedBoneCounter++;
                     Destroy(collidedObject.transform.parent.gameObject);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
                 }
