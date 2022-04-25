@@ -10,7 +10,7 @@ public class Fossil : MonoBehaviour
 
     private bool startDigging = false;
 
-    private Animation ani;
+    private Animator ani;
     private GameObject shell;
 
     //resets buried to false until it comes back false
@@ -59,6 +59,6 @@ public class Fossil : MonoBehaviour
     public void Plaster()
     {
         shell.SetActive(true);
-        ani.Play();
+        ani.Play("FieldJacketClose");
     }
 }
