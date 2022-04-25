@@ -22,6 +22,8 @@ public class TestPhysicsPointer : MonoBehaviour
 
     static CleaningGameState currentState;
 
+    public Combineable currentBone;
+
     /// <summary>
     /// Cleaning Game State Layout
     /// </summary>
@@ -67,8 +69,11 @@ public class TestPhysicsPointer : MonoBehaviour
                 Debug.Log("Currently on Dusting");
                 break;
             case CleaningGameState.COMBINE:
-                
 
+                if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
+                {
+                    currentState = CleaningGameState.DUSTING;
+                }
 
                 Debug.Log("Currently on Combine");
 
@@ -84,6 +89,7 @@ public class TestPhysicsPointer : MonoBehaviour
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        currentBone = FindObjectOfType<Combineable>();
     }
 
     private void Update()
