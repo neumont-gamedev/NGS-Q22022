@@ -8,14 +8,17 @@ public class Fossil : MonoBehaviour
     private bool buried = true;
     private bool startDigging = false;
 
+    private OVRGrabbable grabbable;
     private Animator ani;
     private GameObject shell;
 
     private void Awake()
     {
         ani = GetComponent<Animator>();
+        grabbable = GetComponent<OVRGrabbable>();
         shell = transform.Find("Shell").gameObject;
         shell.SetActive(false);
+        grabbable.enabled = false;
         //Plaster();
     }
 
@@ -68,5 +71,10 @@ public class Fossil : MonoBehaviour
     {
         shell.SetActive(true);
         ani.Play("FieldJacketClose");
+    }
+
+    public void PlasterDone()
+    {
+        grabbable.enabled = true;
     }
 }
