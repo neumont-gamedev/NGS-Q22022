@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Fossil : MonoBehaviour
 {
-    public bool wasFound = false;
-    public bool buried = true;
-    public string name = null;
-
+    private bool unburied = false;
+    private bool buried = true;
     private bool startDigging = false;
 
     private Animator ani;
@@ -28,11 +26,11 @@ public class Fossil : MonoBehaviour
         {
             if (!buried)
             {
-                wasFound = true;
+                unburied = true;
                 FossilHolder.FossilFound(this);
                 //Debug.Log("Bruh it works");
             }
-            if (!wasFound)
+            if (!unburied)
             {
                 buried = false;
             }
@@ -48,7 +46,7 @@ public class Fossil : MonoBehaviour
             {
                 startDigging = true;
             }
-            if (!wasFound)
+            if (!unburied)
             {
                 buried = true;
             }
@@ -58,11 +56,13 @@ public class Fossil : MonoBehaviour
     //changes buried true as long as they collide
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.tag == "Ground" && !wasFound)
+        if(collision.gameObject.tag == "Ground" && !unburied)
         {
             buried = true;
         }
     }
+
+    public bool isFound() { return unburied; }
 
     public void Plaster()
     {

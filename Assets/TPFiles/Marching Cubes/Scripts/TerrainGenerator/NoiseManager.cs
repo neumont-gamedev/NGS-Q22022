@@ -124,7 +124,6 @@ namespace MarchingCubes
 				else z = z * -1;
 
 				f.transform.position = new Vector3(x, fossilDepth, z);
-				FossilHolder.UpdateFossil(f);
 				Instantiate(f, transform);
 				xzs.Add(f.GetComponent<Fossil>().name, new KeyValuePair<float, float>(x, z));
 			}
