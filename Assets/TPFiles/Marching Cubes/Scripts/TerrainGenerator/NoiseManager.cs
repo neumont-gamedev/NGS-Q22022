@@ -61,7 +61,6 @@ namespace MarchingCubes
 			 Startup();
 			 StartupBoi();
 			 if (map == null) map = FindObjectOfType<Map>();
-			 map.SetNoiseManager();
 			 map.GenerateMap();
 		}
 
@@ -111,8 +110,7 @@ namespace MarchingCubes
 		{
 			xzs.Clear();
 
-			float x;
-			float z;
+			float x, z;
 			foreach (var f in fossils)
 			{
 				x = Random.value * fossilBorders;
@@ -125,7 +123,7 @@ namespace MarchingCubes
 
 				f.transform.position = new Vector3(x, fossilDepth, z);
 				Instantiate(f, transform);
-				xzs.Add(f.GetComponent<Fossil>().name, new KeyValuePair<float, float>(x, z));
+				xzs.Add(f.name, new KeyValuePair<float, float>(x, z));
 			}
          }
 

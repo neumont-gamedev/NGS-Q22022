@@ -10,26 +10,19 @@ public class Map : MonoBehaviour
     public GameObject mapMarker;
     public GameObject panel;
 
-    NoiseManager noiseManager;
     List<MapMarker> markers = new List<MapMarker>();
-
-    public void SetNoiseManager()
-    {
-        noiseManager = FindObjectOfType<NoiseManager>();
-        noiseManager.map = this;
-    }
 
     public void GenerateMap()
     {
-        foreach(var i in noiseManager.getCoords())
+        foreach(var i in FindObjectOfType<NoiseManager>().getCoords())
         {
-            GameObject remake = Instantiate(mapMarker, panel.transform);
-            remake.GetComponent<MapMarker>().UpdatePosition(i);
-            markers.Add(remake.GetComponent<MapMarker>());
+            GameObject markerClone = Instantiate(mapMarker, panel.transform);
+            markerClone.GetComponent<MapMarker>().UpdatePosition(i);
+            markers.Add(markerClone.GetComponent<MapMarker>());
         }
 
         Instantiate(boardMarker, panel.transform);
-        markers.Add(boardMarker.GetComponent<PlayerMarker>());
+        markers.Add(boardMarker.GetComponent<MapMarker>());
 
         Instantiate(playerMarker, panel.transform);
         markers.Add(playerMarker.GetComponent<PlayerMarker>());
