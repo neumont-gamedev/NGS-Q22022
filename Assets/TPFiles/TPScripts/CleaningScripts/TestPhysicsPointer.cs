@@ -124,9 +124,12 @@ public class TestPhysicsPointer : MonoBehaviour
 
     private void Update()
     {
+       
         Debug.Log(currentState);
         Debug.Log("Pieces Cleaned: " + piecesCleaned);
-        
+        Debug.Log("Number of bone Pieces" + currentBone.GetBoneCounter());
+
+
         if (VRInput.GetMouseButtonDown(0))
         {
             CleaningState();
