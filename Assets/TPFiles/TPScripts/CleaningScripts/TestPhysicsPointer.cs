@@ -123,7 +123,7 @@ public class TestPhysicsPointer : MonoBehaviour
 
     private void Update()
     {
-
+        Debug.Log(currentState);
         
         if (VRInput.GetMouseButtonDown(0))
         {
