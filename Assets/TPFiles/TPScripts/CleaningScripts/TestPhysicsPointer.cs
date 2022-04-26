@@ -124,6 +124,7 @@ public class TestPhysicsPointer : MonoBehaviour
     private void Update()
     {
         Debug.Log(currentState);
+        Debug.Log("Pieces Cleaned: " + piecesCleaned);
         
         if (VRInput.GetMouseButtonDown(0))
         {
