@@ -70,6 +70,8 @@ public class TestPhysicsPointer : MonoBehaviour
                         }
                         else if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
+
+
                             currentState = CleaningGameState.IDENTIFY;
                         }
                         Debug.Log("Bone Clicked");
