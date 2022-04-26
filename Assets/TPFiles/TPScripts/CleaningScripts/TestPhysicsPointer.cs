@@ -20,6 +20,10 @@ public class TestPhysicsPointer : MonoBehaviour
     public TestVRInput VRInput;
     Vector3 endPosition;
 
+    int piecesCleaned = 0;
+    bool combined = false;
+
+
     static CleaningGameState currentState;
 
     public Combineable currentBone;
@@ -55,11 +59,16 @@ public class TestPhysicsPointer : MonoBehaviour
                 {
                 if(hit.transform.gameObject.CompareTag("Bone"))
                     {
-                        if(hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial() == 3)
+                        if(hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
                         {
-                            currentState = CleaningGameState.COMBINE;
+                            piecesCleaned++;
+                            if (piecesCleaned == currentBone.GetBoneCounter())
+                            {
+                                currentState = CleaningGameState.COMBINE;
+                            }
+                           
                         }
-                        else if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial() == 4)
+                        else if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
                             currentState = CleaningGameState.IDENTIFY;
                         }
@@ -72,6 +81,7 @@ public class TestPhysicsPointer : MonoBehaviour
 
                 if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
                 {
+                    combined = true;
                     currentState = CleaningGameState.DUSTING;
                 }
 
