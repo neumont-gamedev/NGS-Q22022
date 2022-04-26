@@ -65,6 +65,7 @@ public class TestPhysicsPointer : MonoBehaviour
                             piecesCleaned++;
                             if (piecesCleaned == currentBone.GetBoneCounter())
                             {
+                                Debug.Log("All Clean");
                                 currentState = CleaningGameState.COMBINE;
                             }
                            
