@@ -63,7 +63,7 @@ public class TestPhysicsPointer : MonoBehaviour
                         if(hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
                         {
                             piecesCleaned++;
-                            if (piecesCleaned == currentBone.GetBoneCounter())
+                            if (piecesCleaned == currentBone.boneParts.Count)
                             {
                                 Debug.Log("All Clean");
                                 currentState = CleaningGameState.COMBINE;
@@ -127,7 +127,7 @@ public class TestPhysicsPointer : MonoBehaviour
        
         Debug.Log(currentState);
         Debug.Log("Pieces Cleaned: " + piecesCleaned);
-        Debug.Log("Number of bone Pieces" + currentBone.GetBoneCounter());
+        Debug.Log("Number of bone Pieces: " + currentBone.GetBoneCounter());
 
 
         if (VRInput.GetMouseButtonDown(0))
