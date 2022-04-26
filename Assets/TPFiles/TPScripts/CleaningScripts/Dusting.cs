@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Dusting : MonoBehaviour
 {
-
     int stage = 0;
     public GameObject breakParticle;
     public GameObject cBreakParticle;
@@ -23,7 +22,7 @@ public class Dusting : MonoBehaviour
         {
             cBreakParticle = Instantiate(breakParticle);
             Destroy(cBreakParticle, 1.5f);
-            this.GetComponent<Renderer>().material = stage2;
+            this.GetComponent<Renderer>().material = stage4;
 
             return stage = -1;
         }
