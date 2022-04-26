@@ -11,6 +11,7 @@ public class TestPhysicsPointer : MonoBehaviour
         ROCKBREAK,
         DUSTING,
         COMBINE,
+        POLISH,
         IDENTIFY
     }
 
@@ -68,27 +69,43 @@ public class TestPhysicsPointer : MonoBehaviour
                             }
                            
                         }
-                        else if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
+                        /* else if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
-
-
                             currentState = CleaningGameState.IDENTIFY;
-                        }
+                        }*/
                         Debug.Log("Bone Clicked");
                     }
                 }
                 Debug.Log("Currently on Dusting");
                 break;
-            case CleaningGameState.COMBINE:
 
+            case CleaningGameState.COMBINE:
+                Debug.Log("Enter Combine");
                 if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
                 {
                     combined = true;
-                    currentState = CleaningGameState.DUSTING;
+                    currentState = CleaningGameState.POLISH;
                 }
+                break;
 
-                Debug.Log("Currently on Combine");
+            case CleaningGameState.POLISH:
+                Debug.Log("Enter Polish");
 
+                if (Physics.Raycast(ray, out hit, endPosition.magnitude))
+                {
+                    if (hit.transform.gameObject.CompareTag("Bone"))
+                    {
+                        if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
+                        {
+                            piecesCleaned++;
+                            if (piecesCleaned == currentBone.GetBoneCounter()*2)
+                            {
+                                currentState = CleaningGameState.IDENTIFY;
+                            }
+
+                        }
+                    }
+                }
                 break;
             case CleaningGameState.IDENTIFY:
                 Debug.Log("Identify");

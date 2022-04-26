@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLength: 3
   VRInput: {fileID: 0}
+  currentBone: {fileID: 0}
 --- !u!120 &34609706
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -584,7 +585,7 @@ MonoBehaviour:
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
-  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  stage4: {fileID: 0}
 --- !u!114 &116725464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,7 +603,7 @@ MonoBehaviour:
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
-  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  stage4: {fileID: 0}
 --- !u!114 &116725465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +621,7 @@ MonoBehaviour:
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
-  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  stage4: {fileID: 0}
 --- !u!64 &116725466
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -999,9 +1000,11 @@ GameObject:
   - component: {fileID: 411656613}
   - component: {fileID: 411656615}
   - component: {fileID: 411656614}
+  - component: {fileID: 411656617}
+  - component: {fileID: 411656616}
   m_Layer: 9
   m_Name: HiddenJaw
-  m_TagString: Untagged
+  m_TagString: Bone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,6 +1072,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411656612}
   m_Mesh: {fileID: -4909793419484529428, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+--- !u!64 &411656616
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411656612}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4909793419484529428, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+--- !u!114 &411656617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411656612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakParticle: {fileID: 1606772214}
+  cBreakParticle: {fileID: 0}
+  stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
+  stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
+  stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
+  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
 --- !u!1001 &434987803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1894,7 +1929,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5601235244416183127, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+  - {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1975,7 +2010,7 @@ MonoBehaviour:
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
-  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  stage4: {fileID: 0}
 --- !u!1 &895223338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,6 +3044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLength: 3
   VRInput: {fileID: 983074075}
+  currentBone: {fileID: 0}
 --- !u!54 &1584528525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3173,8 +3209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa878ffb6130304cb8dc8a2329ee9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combinePoint: {fileID: 1494954603}
-  combinableWantedObject: CombinePointJaw
   boneParts:
   - {fileID: 1735288999}
   - {fileID: 1447323617}
@@ -3662,9 +3696,11 @@ GameObject:
   - component: {fileID: 1844404848}
   - component: {fileID: 1844404850}
   - component: {fileID: 1844404849}
+  - component: {fileID: 1844404852}
+  - component: {fileID: 1844404851}
   m_Layer: 9
   m_Name: HiddenNose
-  m_TagString: Untagged
+  m_TagString: Bone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3732,6 +3768,38 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844404847}
   m_Mesh: {fileID: -8561489107302738737, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+--- !u!64 &1844404851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844404847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8561489107302738737, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+--- !u!114 &1844404852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844404847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breakParticle: {fileID: 1606772214}
+  cBreakParticle: {fileID: 0}
+  stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
+  stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
+  stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
+  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
 --- !u!54 &1945325430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5117,7 +5185,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 248095952346832364, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+  - {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6319,8 +6387,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa878ffb6130304cb8dc8a2329ee9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combinePoint: {fileID: 895223338}
-  combinableWantedObject: CombinePointJaw
   boneParts:
   - {fileID: 411656612}
   - {fileID: 1844404847}
@@ -6389,7 +6455,7 @@ MonoBehaviour:
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
-  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  stage4: {fileID: 0}
 --- !u!4 &3189831341335424432
 Transform:
   m_ObjectHideFlags: 0
@@ -7926,7 +7992,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5601235244416183127, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
+  - {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10778,7 +10844,7 @@ MonoBehaviour:
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
-  stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  stage4: {fileID: 0}
 --- !u!114 &8900407095528456299
 MonoBehaviour:
   m_ObjectHideFlags: 0
