@@ -9,18 +9,9 @@ public class Combineable : MonoBehaviour
     Collider leftCollider;
     Collider rightCollider;
 
-    public GameObject combinePoint;
-    public string combinableWantedObject;
-
     public List<GameObject> boneParts = new List<GameObject>();
 
     int combinedBoneCounter = 0;
-
- /*   public GameObject hiddenJaw;
-    public GameObject hiddenNose;
-    public GameObject hiddenHead;*/
-
-    GameObject parentObject = new GameObject();
 
     void Start()
     {
@@ -40,7 +31,7 @@ public class Combineable : MonoBehaviour
     {
         GameObject collidedObject = other.gameObject;
 
-        if (rightCollider.gameObject.tag == collidedObject.tag)
+        if (rightCollider.gameObject.tag == collidedObject.tag || leftCollider.gameObject.tag == collidedObject.tag)
         {
             for (int i = 0; i < boneParts.Count; i++)
             {
