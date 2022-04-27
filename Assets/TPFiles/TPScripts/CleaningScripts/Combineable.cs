@@ -11,7 +11,7 @@ public class Combineable : MonoBehaviour
 
     public List<GameObject> boneParts = new List<GameObject>();
 
-    int combinedBoneCounter = 0;
+    public int combinedBoneCounter = -1;
 
     void Start()
     {
@@ -40,10 +40,11 @@ public class Combineable : MonoBehaviour
                 if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
                 {
                     this.boneParts[i].SetActive(true);
-                    combinedBoneCounter++;
+                    combinedBoneCounter += 1;
                     Destroy(collidedObject.transform.parent.gameObject);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
                 }
+                Debug.Log("Bone Couner Count From Active OBJ : " + combinedBoneCounter);
             }
         }
     }

@@ -63,7 +63,7 @@ public class TestPhysicsPointer : MonoBehaviour
                         if(hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
                         {
                             piecesCleaned++;
-                            if (piecesCleaned == currentBone.boneParts.Count)
+                            if (piecesCleaned == currentBone.boneParts.Count + 1)
                             {
                                 Debug.Log("All Clean");
                                 currentState = CleaningGameState.COMBINE;
@@ -82,7 +82,10 @@ public class TestPhysicsPointer : MonoBehaviour
 
             case CleaningGameState.COMBINE:
                 Debug.Log("Enter Combine");
-                if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
+                Debug.Log("Bone Counter : " + currentBone.GetBoneCounter());
+                Debug.Log("Bone Counter With Public Var : " + currentBone.combinedBoneCounter);
+                Debug.Log("Bone Parts Count : " + currentBone.boneParts.Count);
+                if (currentBone.GetBoneCounter() == currentBone.boneParts.Count + 1)
                 {
                     combined = true;
                     currentState = CleaningGameState.POLISH;
