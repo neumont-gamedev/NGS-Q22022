@@ -31,7 +31,7 @@ public class Dusting : MonoBehaviour
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage4;
-                return stage = -1;
+                //return stage = -1;
             }
         }
 
