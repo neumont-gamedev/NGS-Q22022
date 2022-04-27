@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dusting : MonoBehaviour
 {
-    int stage = 0;
+    public int stage = 0;
     public GameObject breakParticle;
     public GameObject cBreakParticle;
 
