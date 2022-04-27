@@ -56,26 +56,28 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
-    //brings fossil to hand
-    public static void GrabFossil(Fossil fossil)
+    //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
+    public int GrabFossil(Fossil fossil)
     {
-        if (fossil == null) return;
+        int fossilIndex = 0;
+        if (fossil == null) return -1;
         //needs to clear hand of any fossils and put back in backpack
         Fossil grabbedFossil = new Fossil();
         foreach (Fossil f in backpack)
         {
             if (f == fossil)
-            {
+            { 
                 grabbedFossil = f;
                 backpack.Remove(f);
                 break;
             }
+
+            fossilIndex++;
         }
 
         if (grabbedFossil == null)
         {
             print("no bones for you");
-            return;
         }
         else
         {
@@ -85,9 +87,11 @@ public class FossilHolder : Singleton<FossilHolder>
             if(backpackFossil.TryGetComponent<OVRGrabbable>(out OVRGrabbable grabFossil))
             {
                 grabber.grabbedObject = grabFossil;
-
+                return fossilIndex;
             }
         }
+
+        return -1;
     }
 }
 
@@ -103,6 +107,7 @@ public class FossilInfo
     public string name;
     public Vector3 location;
     public Sprite inventorySprite;
+    public GameObject fossilPrefab;
 
     public eDiet diet;
     public string generalInformation;

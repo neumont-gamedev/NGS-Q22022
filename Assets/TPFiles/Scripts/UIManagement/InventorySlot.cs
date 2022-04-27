@@ -7,6 +7,7 @@ using TMPro;
 public class InventorySlot : MonoBehaviour
 {
     public Button button;
+    public FossilInfo fossilInfo;
     public Image image;
     public GameObject objectPrefab;
 }
