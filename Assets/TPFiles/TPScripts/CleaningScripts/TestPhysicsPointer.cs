@@ -85,7 +85,7 @@ public class TestPhysicsPointer : MonoBehaviour
                 Debug.Log("Bone Counter : " + currentBone.GetBoneCounter());
                 Debug.Log("Bone Counter With Public Var : " + currentBone.combinedBoneCounter);
                 Debug.Log("Bone Parts Count : " + currentBone.boneParts.Count);
-                if (currentBone.GetBoneCounter() == currentBone.boneParts.Count + 1)
+                if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
                 {
                     combined = true;
                     currentState = CleaningGameState.POLISH;
