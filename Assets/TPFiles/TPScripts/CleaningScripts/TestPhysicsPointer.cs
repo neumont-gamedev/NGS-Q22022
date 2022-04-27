@@ -98,6 +98,7 @@ public class TestPhysicsPointer : MonoBehaviour
                     {
                         if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
+                            Debug.Log("Bruh" + hit.transform.gameObject.name);
                             piecesPolished++;
                             if (piecesPolished == currentBone.boneParts.Count + 1)
                             {

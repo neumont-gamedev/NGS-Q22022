@@ -13,6 +13,8 @@ public class Dusting : MonoBehaviour
     public Material stage3;
     public Material stage4;
 
+    bool donePolishing = false;
+
     int timesCleaned = 0;
     public int ChangeMaterial(bool isCombined)
     {
@@ -20,22 +22,13 @@ public class Dusting : MonoBehaviour
 
         if (isCombined)
         {
-            Debug.Log(gameObject.name + " Stage: " + stage);
-            stage++;
-            if (stage > 4)
-            {
-                return 0;
-            }
-            else if(this.GetComponent<Renderer>().material == stage4)
-            {
-                return -2;
-            }
-            else
+            if(!donePolishing)
             {
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage4;
-                return stage = -1;
+                donePolishing = true;
+                return -1;
             }
         }
 
