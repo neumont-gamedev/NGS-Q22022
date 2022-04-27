@@ -20,11 +20,18 @@ public class Dusting : MonoBehaviour
 
         if(isCombined)
         {
-            cBreakParticle = Instantiate(breakParticle);
-            Destroy(cBreakParticle, 1.5f);
-            this.GetComponent<Renderer>().material = stage4;
+            if (stage > 4)
+            {
+                return 0;
+            }
+            else
+            {
+                cBreakParticle = Instantiate(breakParticle);
+                Destroy(cBreakParticle, 1.5f);
+                this.GetComponent<Renderer>().material = stage4;
 
-            return stage = -1;
+                return stage = -1;
+            }
         }
 
         else

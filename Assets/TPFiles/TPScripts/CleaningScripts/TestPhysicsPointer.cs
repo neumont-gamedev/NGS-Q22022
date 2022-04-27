@@ -103,7 +103,7 @@ public class TestPhysicsPointer : MonoBehaviour
                         if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
                             piecesCleaned++;
-                            if (piecesCleaned == currentBone.GetBoneCounter())
+                            if (piecesCleaned == currentBone.boneParts.Count + 1)
                             {
                                 currentState = CleaningGameState.IDENTIFY;
                             }
