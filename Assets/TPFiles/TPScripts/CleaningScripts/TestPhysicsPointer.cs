@@ -71,10 +71,6 @@ public class TestPhysicsPointer : MonoBehaviour
                             }
                            
                         }
-                        /* else if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
-                        {
-                            currentState = CleaningGameState.IDENTIFY;
-                        }*/
                         Debug.Log("Bone Clicked");
                     }
                 }
@@ -102,8 +98,8 @@ public class TestPhysicsPointer : MonoBehaviour
                     {
                         if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
-                            piecesCleaned++;
-                            if (piecesCleaned == currentBone.boneParts.Count + 1)
+                            piecesPolished++;
+                            if (piecesPolished == currentBone.boneParts.Count + 1)
                             {
                                 currentState = CleaningGameState.IDENTIFY;
                             }

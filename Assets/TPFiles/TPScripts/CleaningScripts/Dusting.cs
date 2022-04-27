@@ -16,11 +16,13 @@ public class Dusting : MonoBehaviour
     int timesCleaned = 0;
     public int ChangeMaterial(bool isCombined)
     {
+        Debug.Log(gameObject.name + " Stage: " + stage);
         stage++;
+        Debug.Log(gameObject.name + " Stage: " + stage);
 
-        if(isCombined)
+        if (isCombined)
         {
-            Debug.Log(gameObject.name + " Stage: " + stage);
+
             if (stage >= 4)
             {
                 return 0;
