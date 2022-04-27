@@ -26,12 +26,16 @@ public class Dusting : MonoBehaviour
             {
                 return 0;
             }
+            else if(this.GetComponent<Renderer>().material == stage4)
+            {
+                return -2;
+            }
             else
             {
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
                 this.GetComponent<Renderer>().material = stage4;
-                //return stage = -1;
+                return stage = -1;
             }
         }
 
