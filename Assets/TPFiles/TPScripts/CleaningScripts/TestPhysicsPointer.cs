@@ -22,6 +22,7 @@ public class TestPhysicsPointer : MonoBehaviour
     Vector3 endPosition;
 
     int piecesCleaned = 0;
+    int piecesPolished = 0;
     bool combined = false;
 
 
@@ -102,7 +103,7 @@ public class TestPhysicsPointer : MonoBehaviour
                         if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
                             piecesCleaned++;
-                            if (piecesCleaned == currentBone.GetBoneCounter()*2)
+                            if (piecesCleaned == currentBone.GetBoneCounter())
                             {
                                 currentState = CleaningGameState.IDENTIFY;
                             }
