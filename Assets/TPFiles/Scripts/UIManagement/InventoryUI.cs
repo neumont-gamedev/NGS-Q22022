@@ -54,16 +54,17 @@ public class InventoryUI : MonoBehaviour
 
     public void EmptySlot(int slotIndex)
     {
-        if(slotIndex > -1)
+        if (slotIndex < 0)
         {
-            // disables button from being clicked
-            inventorySlots[slotIndex].button.interactable = false;
-            inventorySlots[slotIndex].fossilInfo = null;
-            inventorySlots[slotIndex].image.sprite = emptySprite;
-            inventorySlots[slotIndex].objectPrefab = null;
+            Debug.LogError("how dare you give me an invalid index");
+            return;
         }
 
-        Debug.LogError("how dare you give me an invalid index");
+        // disables button from being clicked
+        inventorySlots[slotIndex].button.interactable = false;
+        inventorySlots[slotIndex].fossilInfo = null;
+        inventorySlots[slotIndex].image.sprite = emptySprite;
+        inventorySlots[slotIndex].objectPrefab = null;
     }
 
     // make sure fossil info matches the inventory ui

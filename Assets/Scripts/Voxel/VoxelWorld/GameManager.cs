@@ -29,101 +29,19 @@ public class GameManager : MonoBehaviour
     public enum GameState
     { 
         //i promise this makes sense -Salem
-        TITLE = 0,
-        PAUSED = 1,
-        ABOUT = 2,
+        TITLE,
+        PAUSED,
+        CREDIT,
         BEFORETITLE, 
-        BIOMECHOOSE,
         GAME,
         LAB,
         MUSEUM,
-        EXITGAME,
+        EXITGAME
     }
 
     public void Start()
     {
-        //world.GenerateWorld();
-
-        if (currentState == GameState.GAME)
-        {
-            if (world != null) world.GenerateWorld();
-        }
         if (uiManager == null) uiManager = FindObjectOfType<UIManager>();
-    }
-    public void SpawnPlayer()
-    {
-        if(player != null)
-        {
-            return;
-        }
-        Vector3Int raycastStartPosition = new Vector3Int(world.chunkSize / 2, 100, world.chunkSize / 2);
-        RaycastHit hit;
-        if (Physics.Raycast(raycastStartPosition, Vector3.down, out hit, 120))
-        {
-            player = Instantiate(playerPrefab, hit.point + Vector3Int.up, Quaternion.identity);
-            VRPlayer = player.transform.GetChild(0).transform.gameObject;
-            StartCheckingTheMap();
-        }
-    }
-
-    public void StartCheckingTheMap()
-    {
-        //SetCurrentChunkCoordinates();
-        SetCurrentChunkCoordinatesVR();
-        StopAllCoroutines();
-        //StartCoroutine(CheckIfShouldLoadNextPosition());
-        StartCoroutine(CheckIfShouldLoadNextPositionVR());
-    }
-
-/*    IEnumerator CheckIfShouldLoadNextPosition()
-    {
-        yield return new WaitForSeconds(detectionTime);
-        if (
-            Mathf.Abs(currentChunkCenter.x - player.transform.position.x) > world.chunkSize ||
-            Mathf.Abs(currentChunkCenter.z - player.transform.position.z) > world.chunkSize ||
-            (Mathf.Abs(currentPlayerChunkPosition.y - player.transform.position.y) > world.chunkHeight)
-            )
-        {
-            world.LoadAdditionalChunksRequest(player);
-        }
-        else
-        {
-            StartCoroutine(CheckIfShouldLoadNextPosition());
-        }
-    }*/
-
-
-    IEnumerator CheckIfShouldLoadNextPositionVR()
-    {
-        yield return new WaitForSeconds(detectionTime);
-        Debug.Log("Start Check if Should Load Next Position VR");
-        if (
-            Mathf.Abs(currentChunkCenter.x - VRPlayer.transform.position.x) > world.chunkSize ||
-            Mathf.Abs(currentChunkCenter.z - VRPlayer.transform.position.z) > world.chunkSize ||
-            (Mathf.Abs(currentPlayerChunkPosition.y - VRPlayer.transform.position.y) > world.chunkHeight)
-            )
-        {
-            Debug.Log("Check");
-            world.LoadAdditionalChunksRequest(VRPlayer);
-        }
-        else
-        {
-            StartCoroutine(CheckIfShouldLoadNextPositionVR());
-        }
-    }
-
-    private void SetCurrentChunkCoordinates()
-    {
-        currentPlayerChunkPosition = WorldDataHelper.ChunkPositionFromBlockCoords(world, Vector3Int.RoundToInt(player.transform.position));
-        currentChunkCenter.x = currentPlayerChunkPosition.x + world.chunkSize / 2;
-        currentChunkCenter.z = currentPlayerChunkPosition.z + world.chunkSize / 2;
-    }
-
-    private void SetCurrentChunkCoordinatesVR()
-    {
-        currentVRPlayerChunkPosition = WorldDataHelper.ChunkPositionFromBlockCoords(world, Vector3Int.RoundToInt(VRPlayer.transform.position));
-        currentChunkCenter.x = currentPlayerChunkPosition.x + world.chunkSize / 2;
-        currentChunkCenter.z = currentPlayerChunkPosition.z + world.chunkSize / 2;
     }
 
     public void Update()
@@ -137,7 +55,7 @@ public class GameManager : MonoBehaviour
         {
             //open informational book if not open
             //put away book if open
-            uiManager.InfoBook();
+            //uiManager.InfoBook();
         }
 
         switch (currentState)
@@ -164,8 +82,6 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 //uiManager.Menu(GameState.TITLE);
                 break;
-            case GameState.BIOMECHOOSE:
-                break;
             case GameState.GAME:
                 Time.timeScale = 1;
                 //Cursor.lockState = CursorLockMode.Locked;
@@ -182,7 +98,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 //uiManager.Menu(GameState.PAUSED);
                 break;
-            case GameState.ABOUT:
+            case GameState.CREDIT:
                 //uiManager.Menu(GameState.ABOUT);
                 break;
             case GameState.EXITGAME:
@@ -228,33 +144,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SelectBiome()
-    {
-        currentState = GameState.BIOMECHOOSE;
-    }
-
     public void AboutPage()
     {
-        if (currentState == GameState.ABOUT) return;
+        if (currentState == GameState.CREDIT) return;  
         for (int i=0; i < (int)GameState.EXITGAME; i++)
         {
             uiManager.DeactivatePanel((GameState)i);
         }
 
-        uiManager.ActivatePanel(GameState.ABOUT);
-        currentState = GameState.ABOUT;
-    }
-
-    public void BackButton()
-    {
-        if (currentState == GameState.TITLE) return;
-        for (int i = 0; i < (int)GameState.EXITGAME; i++)
-        {
-            uiManager.DeactivatePanel((GameState)i);
-        }
-
-        uiManager.ActivatePanel(GameState.TITLE);
-        currentState = GameState.TITLE;
+        uiManager.ActivatePanel(GameState.CREDIT);
+        currentState = GameState.CREDIT;
     }
 
     public void OnPause()
@@ -300,7 +199,6 @@ public class GameManager : MonoBehaviour
 
     public void PauseBackButton()
     {
-        //Cursor.lockState = CursorLockMode.None;
         currentState = GameState.GAME;
         uiManager.Menu(GameState.PAUSED);
     }
