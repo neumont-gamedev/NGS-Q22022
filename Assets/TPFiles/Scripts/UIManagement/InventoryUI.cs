@@ -19,7 +19,7 @@ public class InventoryUI : MonoBehaviour
     {
         InventorySlot s;
 
-        // checks the inventorySlots for whether or not they have fossils or not
+        // checks the inventorySlots for whether or not they have fossils
         for(int i = 0; i < inventorySlots.Length - 1; i++)
         {
             s = inventorySlots[i];
@@ -72,6 +72,27 @@ public class InventoryUI : MonoBehaviour
         inventorySlots[slotIndex].fossilInfo = null;
         inventorySlots[slotIndex].image.sprite = emptySprite;
         inventorySlots[slotIndex].objectPrefab = null;
+    }
+
+    //calls AddToBackpack from FossilHolder.cs
+    public void AddToSlot(Fossil fossil)
+    {
+        if (fossil == null) return;
+        InventorySlot s; // slot to store fossil in
+
+        // check for next open spot
+        for(int i = 0; i < inventorySlots.Length - 1; i++)
+        {
+            s = inventorySlots[i];
+            if (s.objectPrefab != null) break;
+            else
+            {
+                // update slot info to match fossil's info
+
+                // if no open spots in first menu, open the second menu for inventory
+                //   add fossil to next open spot in that menu
+            }
+        }
     }
 
     // make sure fossil info matches the inventory ui

@@ -40,16 +40,16 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown("Button.One"))
         {
-            OnPause();
+            //OnPause();
         }
 
         if (Input.GetButtonDown("Button.Two"))
         {
             //open informational book if not open
             //put away book if open
-            //uiManager.InfoBook();
+            uiManager.InfoBook();
         }
 
         switch (currentState)
