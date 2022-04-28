@@ -21,8 +21,11 @@ public class Map : MonoBehaviour
             markers.Add(markerClone.GetComponent<MapMarker>());
         }
 
-        Instantiate(boardMarker, panel.transform);
-        markers.Add(boardMarker.GetComponent<MapMarker>());
+        GameObject boardClone = Instantiate(boardMarker, panel.transform);
+        GameObject board = GameObject.FindGameObjectWithTag("Board");
+        Debug.LogWarning($"{board.name}");
+        boardClone.GetComponent<MapMarker>().UpdatePosition(new KeyValuePair<float, float>(board.transform.position.x, board.transform.position.z));
+        markers.Add(boardClone.GetComponent<MapMarker>());
 
         Instantiate(playerMarker, panel.transform);
         markers.Add(playerMarker.GetComponent<PlayerMarker>());

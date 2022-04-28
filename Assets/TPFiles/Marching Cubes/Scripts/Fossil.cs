@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Fossil : MonoBehaviour
 {
+    //public Material setJacketMaterial;
+
     private bool unburied = false;
     private bool buried = true;
     private bool startDigging = false;
+    private bool plastered = false;
 
     private OVRGrabbable grabbable;
     private Animator ani;
@@ -15,11 +18,8 @@ public class Fossil : MonoBehaviour
     private void Awake()
     {
         ani = GetComponent<Animator>();
-        grabbable = GetComponent<OVRGrabbable>();
         shell = transform.Find("Shell").gameObject;
         shell.SetActive(false);
-        grabbable.enabled = false;
-        //Plaster();
     }
 
     //resets buried to false until it comes back false
@@ -43,7 +43,9 @@ public class Fossil : MonoBehaviour
     //starts the digging and sets buried true
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        Debug.Log(collision.gameObject.tag);
+
+        if (collision.gameObject.CompareTag("Ground"))
         {
             if (!startDigging)
             {
@@ -54,14 +56,29 @@ public class Fossil : MonoBehaviour
                 buried = true;
             }
         }
+
+        else if (collision.gameObject.CompareTag("Plaster"))
+        {
+            if (plastered) return;
+            Debug.LogWarning("Plastered");
+            Plaster();
+        }
     }
 
     //changes buried true as long as they collide
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.tag == "Ground" && !unburied)
+        Debug.Log(collision.gameObject.tag);
+
+        if (collision.gameObject.CompareTag("Ground") && !unburied)
         {
             buried = true;
+        }
+        else if (collision.gameObject.CompareTag("Plaster"))
+        {
+            if (plastered) return;
+            Debug.LogWarning("Plastered");
+            Plaster();
         }
     }
 
@@ -69,12 +86,44 @@ public class Fossil : MonoBehaviour
 
     public void Plaster()
     {
+        plastered = true;
         shell.SetActive(true);
         ani.Play("FieldJacketClose");
     }
 
+    public void PlasterDry()
+    {
+        var renderers = shell.GetComponentsInChildren<MeshRenderer>();
+        foreach (var r in renderers)
+        {
+            StartCoroutine(PlasterDryCo(r));
+        }
+    }
+
+    private IEnumerator PlasterDryCo(MeshRenderer r, float timer = 0.5f)
+    {
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            float t = 1.0f - (timer / 0.5f);
+            r.materials[1].color = Color.Lerp(Color.clear, Color.white, t);
+
+            yield return null;
+        }
+
+        r.materials = new Material[1] { r.materials[1] };
+
+        yield return true;
+    }
+
     public void PlasterDone()
     {
+        grabbable = gameObject.AddComponent<OVRGrabbable>();
         grabbable.enabled = true;
+        grabbable.allowOffhandGrab = true;
+        grabbable.snapPosition = true;
+        grabbable.snapOrientation = true;
+        grabbable.snapOffset = gameObject.transform.Find("Offset");
+        grabbable.grabPoints[0] = grabbable.snapOffset.gameObject.GetComponent<Collider>();
     }
 }
