@@ -6,25 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Camera gameCamera;
+    public Camera mainCam;
     public GameObject playerPrefab;
-    private GameObject player;
     public GameObject VRPlayer;
+    public GameState currentState = GameState.BEFORETITLE;
+    public UIManager uiManager;
     public Vector3Int currentPlayerChunkPosition;
     public Vector3Int currentVRPlayerChunkPosition;
-    private Vector3Int currentChunkCenter = Vector3Int.zero;
-
     public World world;
 
-    float detectionTime = 1;
-    public Camera mainCam;
-
-    public UIManager uiManager;
-
-    public GameState currentState = GameState.BEFORETITLE;
-
-    public Camera gameCamera;
-
+    private float detectionTime = 1;
+    private GameObject player;
     private int scene = 0;
+    private Vector3Int currentChunkCenter = Vector3Int.zero;    
 
     public enum GameState
     { 
