@@ -5,8 +5,8 @@ using MarchingCubes;
 
 public class FossilHolder : Singleton<FossilHolder>
 {
-    public static List<FossilInfo> fossilBits = new List<FossilInfo>() {
-        new FossilInfo("test01"), new FossilInfo("test02") };
+    public static List<FossilInfo> fossilBits = new List<FossilInfo>() { 
+        new FossilInfo("SampleFossil"), new FossilInfo("SampleFossil 1") };
     public static List<Fossil> backpack = new List<Fossil>();
     [SerializeField] static OVRGrabber grabber;
 
@@ -19,19 +19,6 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
-    //updates the fossil location
-    public static void UpdateFossil(GameObject fossil)
-    {
-        foreach (var f in fossilBits)
-        {
-            if (f.name == fossil.GetComponent<Fossil>().name)
-            {
-                f.location = fossil.transform.position;
-                continue;
-            }
-        }
-    }
-
     //updates the fossil found 
     public static void FossilFound(Fossil fossil)
     {
@@ -39,8 +26,8 @@ public class FossilHolder : Singleton<FossilHolder>
         {
             if (f.name == fossil.name)
             {
-                f.found = fossil.wasFound;
-                Debug.Log(f.found);
+                f.found = fossil.isFound();
+                //Debug.Log(f.found);
                 continue;
             }
         }

@@ -12,15 +12,12 @@ public class MapMarker : MonoBehaviour
 
     protected void Start()
     {
-        if (rectTransform == null) rectTransform = gameObject.GetComponent<RectTransform>();
         GetComponent<Image>().color = Color.white;
     }
 
     public void UpdatePosition(KeyValuePair<float,float> values)
     {
         rectTransform.localPosition = new Vector3(values.Key / mapScale, values.Value / mapScale, markerZ);
-        Debug.Log(rectTransform.position.x + " " + rectTransform.position.y);
-        Debug.Log(values.Key + " " + values.Value);
     }
 
     public void RemoveMarker()

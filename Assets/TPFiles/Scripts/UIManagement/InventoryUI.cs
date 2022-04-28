@@ -61,7 +61,7 @@ public class InventoryUI : MonoBehaviour
 
     public void EmptySlot(int slotIndex)
     {
-        if(slotIndex > -1)
+        if (slotIndex < 0)
         {
             Debug.LogError("how dare you give me an invalid index");
             return;

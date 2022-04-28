@@ -41,6 +41,7 @@ public class OVRGrabbable : MonoBehaviour
     public bool allowOffhandGrab
     {
         get { return m_allowOffhandGrab; }
+        set { m_allowOffhandGrab = value; }
     }
 
 	/// <summary>
@@ -57,6 +58,7 @@ public class OVRGrabbable : MonoBehaviour
     public bool snapPosition
     {
         get { return m_snapPosition; }
+        set { m_snapPosition = value; }
     }
 
 	/// <summary>
@@ -65,6 +67,7 @@ public class OVRGrabbable : MonoBehaviour
     public bool snapOrientation
     {
         get { return m_snapOrientation; }
+        set { m_snapOrientation = value; }
     }
 
 	/// <summary>
@@ -73,6 +76,7 @@ public class OVRGrabbable : MonoBehaviour
     public Transform snapOffset
     {
         get { return m_snapOffset; }
+        set { m_snapOffset = value; }
     }
 
 	/// <summary>
@@ -132,7 +136,7 @@ public class OVRGrabbable : MonoBehaviour
 
     void Awake()
     {
-        if (m_grabPoints.Length == 0)
+        if (m_grabPoints == null || m_grabPoints.Length == 0)
         {
             // Get the collider from the grabbable
             Collider collider = this.GetComponent<Collider>();

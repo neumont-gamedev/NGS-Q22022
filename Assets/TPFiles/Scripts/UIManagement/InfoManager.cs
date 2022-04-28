@@ -12,11 +12,9 @@ public class InfoManager : MonoBehaviour
     public Transform panelLocation;
 
     bool panelActive;
-    bool loadActive = false;
 
     public float panelTimeRemaining;
     public float loadTimeRemaining = 5;
-    //public PlayerShot bullet;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +31,6 @@ public class InfoManager : MonoBehaviour
         panelActive = true;
         bonePanel.SetActive(true);
     }
-    // Update is called once per frame
-    public float timeRemaining;
 
     private void Update()
     {

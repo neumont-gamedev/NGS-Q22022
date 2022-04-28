@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
         {
             DeactivatePanel(currentPanel);
         }
-        else if(currentPanel != null)
+        else
         {
             ActivatePanel(currentPanel);
         }
@@ -69,7 +69,7 @@ public class UIManager : MonoBehaviour
         {
             DeactivatePanel(infoBook);
         }
-        else if (infoBook != null)
+        else
         {
             ActivatePanel(infoBook);
         }
@@ -79,8 +79,8 @@ public class UIManager : MonoBehaviour
     {
         //3, 4 - Table of Contents
         //5-13 - Dino Entries (Allo, baro, igua, lobo, ples, pter, tril, trex, utah)
-        DeactivatePanel(panels[destinationPanelIndex]);
-        ActivatePanel(panels[currentPanelIndex]);
+        DeactivatePanel(panels[currentPanelIndex]);
+        ActivatePanel(panels[destinationPanelIndex]);
     }
 
     #endregion

@@ -110,8 +110,7 @@ namespace MarchingCubes
 		{
 			xzs.Clear();
 
-			float x;
-			float z;
+			float x, z;
 			foreach (var f in fossils)
 			{
 				x = Random.value * fossilBorders;
@@ -123,9 +122,8 @@ namespace MarchingCubes
 				else z = z * -1;
 
 				f.transform.position = new Vector3(x, fossilDepth, z);
-				FossilHolder.UpdateFossil(f);
-				Instantiate(f);
-				xzs.Add(f.GetComponent<Fossil>().name, new KeyValuePair<float, float>(x, z));
+				Instantiate(f, transform);
+				xzs.Add(f.name, new KeyValuePair<float, float>(x, z));
 			}
          }
 

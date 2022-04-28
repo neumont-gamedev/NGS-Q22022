@@ -7,36 +7,22 @@ using UnityEngine.UI;
 public class PlayerMarker : MapMarker
 {
     public GameObject worldObject;
-    public string objectTag = "Player";
-
-    // isActualPlayer is false for BoardMarker; did not want to make a second script for this
-    public bool isActualPlayer = true;
 
     private new void Start()
     {
         base.Start();
-        if (worldObject == null) worldObject = GameObject.FindWithTag(objectTag);
+        if (worldObject == null) worldObject = GameObject.FindWithTag("Player");
         SetPosition();
     }
 
     void Update()
     {
-        if (isActualPlayer) SetPositionAndRotation();
-    }
-
-    void SetPositionAndRotation()
-    {
         SetPosition();
-        SetRotation();
+        rectTransform.localRotation = Quaternion.Euler(0f, 0f, -worldObject.transform.rotation.eulerAngles.y);
     }
 
     void SetPosition()
     {
         rectTransform.localPosition = new Vector3(worldObject.transform.position.x / mapScale, worldObject.transform.position.z / mapScale, markerZ);
-    }
-
-    void SetRotation()
-    {
-        rectTransform.localRotation = Quaternion.Euler(0f, 0f, -worldObject.transform.rotation.eulerAngles.y);
     }
 }
