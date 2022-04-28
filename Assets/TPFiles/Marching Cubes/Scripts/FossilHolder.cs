@@ -59,20 +59,21 @@ public class FossilHolder : Singleton<FossilHolder>
     //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
     public int GrabFossil(Fossil fossil)
     {
+        Fossil f;
         int fossilIndex = 0;
         if (fossil == null) return -1;
         //needs to clear hand of any fossils and put back in backpack
         Fossil grabbedFossil = new Fossil();
-        foreach (Fossil f in backpack)
+        for (int i = 0; i < backpack.Count - 1; i++)
         {
+            f = backpack[i];
             if (f == fossil)
             { 
                 grabbedFossil = f;
                 backpack.Remove(f);
+                fossilIndex = i;
                 break;
             }
-
-            fossilIndex++;
         }
 
         if (grabbedFossil == null)

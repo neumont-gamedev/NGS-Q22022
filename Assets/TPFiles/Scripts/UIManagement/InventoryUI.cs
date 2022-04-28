@@ -17,9 +17,12 @@ public class InventoryUI : MonoBehaviour
     // run after anything is added to/removed from inventory
     public void UpdateInventory()
     {
+        InventorySlot s;
+
         // checks the inventorySlots for whether or not they have fossils or not
-        foreach(InventorySlot s in inventorySlots)
+        for(int i = 0; i < inventorySlots.Length - 1; i++)
         {
+            s = inventorySlots[i];
             if(s.objectPrefab != null)
             {
                 s.button.interactable = true;
@@ -32,6 +35,10 @@ public class InventoryUI : MonoBehaviour
                 {
                     Debug.LogError($"uh oh, no fossil info in {s.name}");
                 }
+            }
+            else
+            {
+                EmptySlot(i);
             }
         }
     }
@@ -56,14 +63,15 @@ public class InventoryUI : MonoBehaviour
     {
         if(slotIndex > -1)
         {
-            // disables button from being clicked
-            inventorySlots[slotIndex].button.interactable = false;
-            inventorySlots[slotIndex].fossilInfo = null;
-            inventorySlots[slotIndex].image.sprite = emptySprite;
-            inventorySlots[slotIndex].objectPrefab = null;
+            Debug.LogError("how dare you give me an invalid index");
+            return;
         }
 
-        Debug.LogError("how dare you give me an invalid index");
+        // disables button from being clicked
+        inventorySlots[slotIndex].button.interactable = false;
+        inventorySlots[slotIndex].fossilInfo = null;
+        inventorySlots[slotIndex].image.sprite = emptySprite;
+        inventorySlots[slotIndex].objectPrefab = null;
     }
 
     // make sure fossil info matches the inventory ui

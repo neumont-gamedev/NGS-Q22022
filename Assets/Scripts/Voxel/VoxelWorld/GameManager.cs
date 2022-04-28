@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         //i promise this makes sense -Salem
         TITLE = 0,
         PAUSED = 1,
-        ABOUT = 2,
+        CREDITS = 2,
         BEFORETITLE, 
         BIOMECHOOSE,
         GAME,
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 //uiManager.Menu(GameState.PAUSED);
                 break;
-            case GameState.ABOUT:
+            case GameState.CREDITS:
                 //uiManager.Menu(GameState.ABOUT);
                 break;
             case GameState.EXITGAME:
@@ -233,16 +233,16 @@ public class GameManager : MonoBehaviour
         currentState = GameState.BIOMECHOOSE;
     }
 
-    public void AboutPage()
+    public void CreditsPage()
     {
-        if (currentState == GameState.ABOUT) return;
+        if (currentState == GameState.CREDITS) return;
         for (int i=0; i < (int)GameState.EXITGAME; i++)
         {
             uiManager.DeactivatePanel((GameState)i);
         }
 
-        uiManager.ActivatePanel(GameState.ABOUT);
-        currentState = GameState.ABOUT;
+        uiManager.ActivatePanel(GameState.CREDITS);
+        currentState = GameState.CREDITS;
     }
 
     public void BackButton()
