@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Dusting : MonoBehaviour
 {
-
-    int stage = 0;
+    public int stage = 0;
     public GameObject breakParticle;
     public GameObject cBreakParticle;
 
@@ -14,35 +13,53 @@ public class Dusting : MonoBehaviour
     public Material stage3;
     public Material stage4;
 
-    public void ChangeMaterial()
+    bool donePolishing = false;
+
+    int timesCleaned = 0;
+    public int ChangeMaterial(bool isCombined)
     {
 
-        stage++;
 
-        switch (stage)
+        if (isCombined)
         {
-            case 1:
+            if(!donePolishing)
+            {
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
-                this.GetComponent<Renderer>().material = stage1;
-                
-                break;
-            case 2:
-                cBreakParticle = Instantiate(breakParticle);
-                Destroy(cBreakParticle, 1.5f);
-                this.GetComponent<Renderer>().material = stage2;
-                break;
-            case 3:
-                cBreakParticle = Instantiate(breakParticle);
-                Destroy(cBreakParticle, 1.5f);
-                this.GetComponent<Renderer>().material = stage3;
-                break;
-            case 4:
                 this.GetComponent<Renderer>().material = stage4;
-                break;
-            default:
-                break;
+                donePolishing = true;
+                return -1;
+            }
         }
+
+        else
+        {
+            Debug.Log(gameObject.name + " Stage: " + stage);
+            stage++;
+            switch (stage)
+            {
+                case 1:
+                    cBreakParticle = Instantiate(breakParticle);
+                    Destroy(cBreakParticle, 1.5f);
+                    this.GetComponent<Renderer>().material = stage1;
+                    return stage; //isCleaned false
+                case 2:
+                    cBreakParticle = Instantiate(breakParticle);
+                    Destroy(cBreakParticle, 1.5f);
+                    this.GetComponent<Renderer>().material = stage2;
+                    return stage; //isCleaned false
+                case 3:
+                    cBreakParticle = Instantiate(breakParticle);
+                    Destroy(cBreakParticle, 1.5f);
+                    this.GetComponent<Renderer>().material = stage3;
+                    return stage;
+                default:
+                    break;
+            }
+        }
+
+
+        return stage;
 
     }
 }

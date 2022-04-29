@@ -9,16 +9,9 @@ public class Combineable : MonoBehaviour
     Collider leftCollider;
     Collider rightCollider;
 
-    public GameObject combinePoint;
-    public string combinableWantedObject;
-
     public List<GameObject> boneParts = new List<GameObject>();
 
- /*   public GameObject hiddenJaw;
-    public GameObject hiddenNose;
-    public GameObject hiddenHead;*/
-
-    GameObject parentObject = new GameObject();
+    public int combinedBoneCounter = -1;
 
     void Start()
     {
@@ -28,16 +21,17 @@ public class Combineable : MonoBehaviour
         rightCollider = (childColliders[0].tag == "BottomColliderLeft") ? childColliders[1] : childColliders[0];
     }
 
-    void Update()
+
+    public int GetBoneCounter()
     {
-        
+        return combinedBoneCounter;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         GameObject collidedObject = other.gameObject;
 
-        if (rightCollider.gameObject.tag == collidedObject.tag)
+        if (rightCollider.gameObject.tag == collidedObject.tag || leftCollider.gameObject.tag == collidedObject.tag)
         {
             for (int i = 0; i < boneParts.Count; i++)
             {
@@ -46,9 +40,11 @@ public class Combineable : MonoBehaviour
                 if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
                 {
                     this.boneParts[i].SetActive(true);
+                    combinedBoneCounter += 1;
                     Destroy(collidedObject.transform.parent.gameObject);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
                 }
+                Debug.Log("Bone Couner Count From Active OBJ : " + combinedBoneCounter);
             }
         }
     }
