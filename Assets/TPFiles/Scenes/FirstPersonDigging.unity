@@ -1050,15 +1050,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05c3a35c273f824bb618c71df5c73e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSize: {fileID: 1173524278}
-  textMaterial: {fileID: 1609144960}
   digNoise: {fileID: 226290380}
   modiferStrengh: 6
   sizeHit: 10
   buildingMaterial: 0
-  startingChunkX: 1
-  startingChunkZ: -1
-  chunkSize: 8
 --- !u!82 &226290380
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4348,7 +4343,6 @@ MonoBehaviour:
   panelLocation: {fileID: 1871915452}
   panelTimeRemaining: 0
   loadTimeRemaining: 5
-  timeRemaining: 0
 --- !u!114 &800598545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5715,6 +5709,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SampleFossil
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996352711260062010, guid: 4df9809bee0dfdd40b17b6cdd3dce2cb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6644049462066585104, guid: 4df9809bee0dfdd40b17b6cdd3dce2cb,
         type: 3}
