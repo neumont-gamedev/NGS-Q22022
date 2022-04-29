@@ -16,6 +16,7 @@ public class TestPhysicsPointer : MonoBehaviour
     }
 
 
+    public CleaningUIManager cUIManager;
     public float defaultLength = 1.0f;
     LineRenderer lineRenderer;
     public TestVRInput VRInput;
@@ -50,7 +51,11 @@ public class TestPhysicsPointer : MonoBehaviour
                         Debug.Log("Rock Clicked");
                         if(hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece())
                         {
+
+                            cUIManager.RockBreakToggleChange();
+
                             currentState = CleaningGameState.DUSTING;
+
                         }
                     }
                 }
@@ -66,6 +71,8 @@ public class TestPhysicsPointer : MonoBehaviour
                             piecesCleaned++;
                             if (piecesCleaned == currentBone.boneParts.Count + 1)
                             {
+                                cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
+                                cUIManager.CleanToggleChange();
                                 Debug.Log("All Clean");
                                 currentState = CleaningGameState.COMBINE;
                             }
@@ -84,6 +91,7 @@ public class TestPhysicsPointer : MonoBehaviour
                 Debug.Log("Bone Parts Count : " + currentBone.boneParts.Count);
                 if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
                 {
+                    cUIManager.CombineToggleChange();
                     combined = true;
                     currentState = CleaningGameState.POLISH;
                 }
@@ -102,9 +110,9 @@ public class TestPhysicsPointer : MonoBehaviour
                             piecesPolished++;
                             if (piecesPolished == currentBone.boneParts.Count + 1)
                             {
+                                cUIManager.PolishToggleChange();
                                 currentState = CleaningGameState.IDENTIFY;
                             }
-
                         }
                     }
                 }
@@ -121,6 +129,7 @@ public class TestPhysicsPointer : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         currentBone = FindObjectOfType<Combineable>();
+        cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
     }
 
     private void Update()
