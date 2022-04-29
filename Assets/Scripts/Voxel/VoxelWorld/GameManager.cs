@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             //OnPause();
         }
 
-        if (Input.GetButtonDown("Button.Two"))
+        if (OVRInput.Get(OVRInput.Button.Two))
         {
             //open informational book if not open
             //put away book if open
