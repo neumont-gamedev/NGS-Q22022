@@ -6,32 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Camera gameCamera;
+    public Camera mainCam;
     public GameObject playerPrefab;
-    private GameObject player;
     public GameObject VRPlayer;
+    public GameState currentState = GameState.BEFORETITLE;
+    public UIManager uiManager;
     public Vector3Int currentPlayerChunkPosition;
     public Vector3Int currentVRPlayerChunkPosition;
-    private Vector3Int currentChunkCenter = Vector3Int.zero;
-
     public World world;
 
-    float detectionTime = 1;
-    public Camera mainCam;
-
-    public UIManager uiManager;
-
-    public GameState currentState = GameState.BEFORETITLE;
-
-    public Camera gameCamera;
-
+    private float detectionTime = 1;
+    private GameObject player;
     private int scene = 0;
+    private Vector3Int currentChunkCenter = Vector3Int.zero;    
 
     public enum GameState
     { 
-        //i promise this makes sense -Salem
         TITLE,
         PAUSED,
-        CREDIT,
+        CREDITS,
         BEFORETITLE, 
         GAME,
         LAB,
@@ -46,16 +40,16 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown("Button.One"))
         {
-            OnPause();
+            //OnPause();
         }
 
         if (Input.GetButtonDown("Button.Two"))
         {
             //open informational book if not open
             //put away book if open
-            //uiManager.InfoBook();
+            uiManager.InfoBook();
         }
 
         switch (currentState)
@@ -98,7 +92,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 //uiManager.Menu(GameState.PAUSED);
                 break;
-            case GameState.CREDIT:
+            case GameState.CREDITS:
                 //uiManager.Menu(GameState.ABOUT);
                 break;
             case GameState.EXITGAME:
@@ -144,16 +138,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AboutPage()
+    public void CreditsPage()
     {
-        if (currentState == GameState.CREDIT) return;  
+        if (currentState == GameState.CREDITS) return;
         for (int i=0; i < (int)GameState.EXITGAME; i++)
         {
             uiManager.DeactivatePanel((GameState)i);
         }
 
-        uiManager.ActivatePanel(GameState.CREDIT);
-        currentState = GameState.CREDIT;
+        uiManager.ActivatePanel(GameState.CREDITS);
+        currentState = GameState.CREDITS;
+    }
+
+    public void BackButton()
+    {
+        if (currentState == GameState.TITLE) return;
+        for (int i = 0; i < (int)GameState.EXITGAME; i++)
+        {
+            uiManager.DeactivatePanel((GameState)i);
+        }
+
+        uiManager.ActivatePanel(GameState.TITLE);
+        currentState = GameState.TITLE;
     }
 
     public void OnPause()

@@ -12813,6 +12813,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 809827749}
+    - target: {fileID: 1764090468, guid: ebe330b1603776c459101a5c0067d719, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1815102870, guid: ebe330b1603776c459101a5c0067d719, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -13478,6 +13482,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryObjects: []
   inventorySlots: []
+  emptySprite: {fileID: 0}
+  maxCapacityPerMenu: 9
 --- !u!1 &699436804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 699436804, guid: ebe330b1603776c459101a5c0067d719,
@@ -15576,7 +15582,7 @@ MonoBehaviour:
   - {fileID: 132978674}
   - {fileID: 1776915045}
   - {fileID: 1006919037}
-  infoBook: {fileID: 1764090468}
+  mainMenuIndex: 3
 --- !u!1 &824885863
 GameObject:
   m_ObjectHideFlags: 0
@@ -37361,15 +37367,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea9a6ad8003c53428df79a43d353dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCamera: {fileID: 0}
+  mainCam: {fileID: 0}
   playerPrefab: {fileID: 689925691}
   VRPlayer: {fileID: 689925691}
+  currentState: 3
+  uiManager: {fileID: 809827749}
   currentPlayerChunkPosition: {x: 0, y: 0, z: 0}
   currentVRPlayerChunkPosition: {x: 0, y: 0, z: 0}
   world: {fileID: 0}
-  mainCam: {fileID: 0}
-  uiManager: {fileID: 809827749}
-  currentState: 3
-  gameCamera: {fileID: 0}
 --- !u!1 &1728250905
 GameObject:
   m_ObjectHideFlags: 0
@@ -38131,12 +38137,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1038146256242982, guid: a9d2de84afb308a4796cc671d3432b4d,
     type: 3}
   m_PrefabInstance: {fileID: 1761519819}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1764090468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1764090468, guid: ebe330b1603776c459101a5c0067d719,
-    type: 3}
-  m_PrefabInstance: {fileID: 689925689}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768236513
 GameObject:
