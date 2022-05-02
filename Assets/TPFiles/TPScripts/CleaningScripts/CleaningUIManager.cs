@@ -30,12 +30,12 @@ public class CleaningUIManager : MonoBehaviour
 
     public void CleanToggleTextChange(int cleanedBones, int maxBones)
     {
-        cToggleText.text = "Clean Bones  - Bones Cleaned: " + cleanedBones + "/" + (maxBones + 1);
+        cToggleText.text = "Clean Bones - Bones Cleaned: " + cleanedBones + "/" + (maxBones + 1);
     }
     
     public void PolishToggleTextChange(int polishedBones, int maxBones)
     {
-        polishToggleText.text = "Clean Bones  - Bones Polished: " + polishedBones + "/" + (maxBones + 1);
+        polishToggleText.text = "Polish Bones - Bones Polished: " + polishedBones + "/" + (maxBones + 1);
     }
 
     public void CombineToggleChange()
