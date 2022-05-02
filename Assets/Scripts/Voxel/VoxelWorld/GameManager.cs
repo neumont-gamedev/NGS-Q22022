@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown("Button.One"))
+        if (OVRInput.Get(OVRInput.Button.One))
         {
             //OnPause();
         }
@@ -176,14 +176,7 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToTitle()
     {
-        if (currentState == GameState.TITLE) return;
-        for (int i = 0; i < (int)GameState.EXITGAME; i++)
-        {
-            uiManager.DeactivatePanel((GameState)i);
-        }
-
-        uiManager.ActivatePanel(GameState.TITLE);
-        currentState = GameState.TITLE;
+        BackButton();
     }
 
     public void MainMenuOpen()
