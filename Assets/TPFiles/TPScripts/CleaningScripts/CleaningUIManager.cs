@@ -17,23 +17,24 @@ public class CleaningUIManager : MonoBehaviour
 
     public void RockBreakToggleChange()
     {
+        Polishtoggle.isOn = false;
         RockBreaktoggle.isOn = true;
     }
 
     public void CleanToggleChange()
     {
-        
+        Polishtoggle.isOn = false;
         Cleantoggle.isOn = true;
     }
 
     public void CleanToggleTextChange(int cleanedBones, int maxBones)
     {
-        cToggleText.text = "Clean Bones  - Bones Cleaned: " + cleanedBones + "/" + maxBones;
-        Cleantoggle.isOn = true;
+        cToggleText.text = "Clean Bones  - Bones Cleaned: " + cleanedBones + "/" + (maxBones + 1);
     }
 
     public void CombineToggleChange()
     {
+        Polishtoggle.isOn = false;
         Combinetoggle.isOn = true;
     }
 
