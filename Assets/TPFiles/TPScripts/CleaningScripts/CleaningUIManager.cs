@@ -13,6 +13,7 @@ public class CleaningUIManager : MonoBehaviour
 
     public Toggle Combinetoggle;
     public Toggle Polishtoggle;
+    public Text polishToggleText;
 
 
     public void RockBreakToggleChange()
@@ -30,6 +31,11 @@ public class CleaningUIManager : MonoBehaviour
     public void CleanToggleTextChange(int cleanedBones, int maxBones)
     {
         cToggleText.text = "Clean Bones  - Bones Cleaned: " + cleanedBones + "/" + (maxBones + 1);
+    }
+    
+    public void PolishToggleTextChange(int polishedBones, int maxBones)
+    {
+        cToggleText.text = "Clean Bones  - Bones Polished: " + polishedBones + "/" + (maxBones + 1);
     }
 
     public void CombineToggleChange()
