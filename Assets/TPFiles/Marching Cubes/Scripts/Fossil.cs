@@ -20,6 +20,7 @@ public class Fossil : MonoBehaviour
         ani = GetComponent<Animator>();
         shell = transform.Find("Shell").gameObject;
         shell.SetActive(false);
+        name = name.Replace("(Clone)", "");
     }
 
     //resets buried to false until it comes back false
