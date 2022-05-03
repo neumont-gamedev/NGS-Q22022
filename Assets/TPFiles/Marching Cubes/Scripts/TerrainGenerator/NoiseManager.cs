@@ -113,13 +113,39 @@ namespace MarchingCubes
 			float x, z;
 			foreach (var f in fossils)
 			{
-				x = Random.value * fossilBorders;
-				if (x > (fossilBorders / 2)) x = x / 2;
-				else x = x * -1;
+				bool isDistanced = true;
 
-				z = Random.value * fossilBorders;
-				if (z > (fossilBorders / 2)) z = z / 2;
-				else z = z * -1;
+				do {
+					isDistanced = true;
+					x = Random.value * fossilBorders;
+					if (x > (fossilBorders / 2)) x = x / 2;
+					else x = x * -1;
+					
+					foreach(var i in xzs)
+                    {
+						if(x !<= i.Value.Key - 10 || x !>= i.Value.Key + 10)
+                        {
+							isDistanced = false;
+							break;
+                        }
+                    }
+				}while (!isDistanced);
+
+				do {
+					isDistanced = true;
+					z = Random.value * fossilBorders;
+					if (z > (fossilBorders / 2)) z = z / 2;
+					else z = z * -1;
+
+					foreach(var i in xzs)
+                    {
+						if (z !<= i.Value.Value - 10 || z !>= i.Value.Value + 10)
+						{
+							isDistanced = false;
+							break;
+						}
+                    }
+				}while(!isDistanced);
 
 				f.transform.position = new Vector3(x, fossilDepth, z);
 				Instantiate(f, transform);
