@@ -31,7 +31,6 @@ public class Fossil : MonoBehaviour
             {
                 unburied = true;
                 FossilHolder.FossilFound(this);
-                //Debug.Log("Bruh it works");
             }
             if (!unburied)
             {
