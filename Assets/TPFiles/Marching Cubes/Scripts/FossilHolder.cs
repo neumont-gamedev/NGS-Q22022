@@ -55,9 +55,12 @@ public class FossilHolder : Singleton<FossilHolder>
     {
         foreach (var f in fossilBits)
         {
+            Debug.Log($"{f.name} : {fossil.name}");
             if (f.name == fossil.name)
             {
+                Debug.Log("Found");
                 f.found = fossil.isFound();
+                Debug.Log($"{f.found} : {fossil.isFound()}");
                 break;
             }
         }

@@ -45,13 +45,6 @@ public class GameManager : MonoBehaviour
             //OnPause();
         }
 
-        if (OVRInput.Get(OVRInput.Button.Two))
-        {
-            //open informational book if not open
-            //put away book if open
-            uiManager.InfoBook();
-        }
-
         switch (currentState)
         {
             case GameState.BEFORETITLE:
