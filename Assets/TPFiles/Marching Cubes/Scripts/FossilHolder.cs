@@ -21,7 +21,7 @@ public class FossilHolder : Singleton<FossilHolder>
         new FossilInfo("Lobocarcinus", FossilInfo.eDiet.CARNIVORE, "New Zealand, Southern Pacific Ocean",
             "Lobocarcinus are in the family of sponge crabs.\n They relied on drag-powered swimming to move.",
             "91.6 millimeters / 3.6 inches long and 119.4 millimeters / 4.7 inches wide", "Eocene Epoch (Paleogene)", "around 1 pounds / 453.6 grams"),
-        new FossilInfo("Plesiosaur", FossilInfo.eDiet.CARNIVORE, "European seas, Pacific Ocean",
+        new FossilInfo("Plesiosaurus", FossilInfo.eDiet.CARNIVORE, "European seas, Pacific Ocean",
             "Nostrils located far back on the head near the eyes.\n They swam by flapping their fins in the water, much like sea lions do today, in a modified style of underwater 'flight.'",
             "4.5 meters / 15 feet long", "Late Triassic - Late Cretaceous", "over 49 tons"),
         new FossilInfo("Pterodactyl", FossilInfo.eDiet.CARNIVORE,"Germany",
