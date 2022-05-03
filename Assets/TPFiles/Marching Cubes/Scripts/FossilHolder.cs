@@ -58,8 +58,7 @@ public class FossilHolder : Singleton<FossilHolder>
             if (f.name == fossil.name)
             {
                 f.found = fossil.isFound();
-                //Debug.Log(f.found);
-                continue;
+                break;
             }
         }
     }
@@ -112,6 +111,15 @@ public class FossilHolder : Singleton<FossilHolder>
         }
 
         return -1;
+    }
+
+    public bool IsFound(string name)
+    {
+        foreach(var i in fossilBits)
+        {
+            if (i.name == name) return i.found;
+        }
+        return false;
     }
 }
 
