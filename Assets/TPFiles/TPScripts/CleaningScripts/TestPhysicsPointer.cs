@@ -16,6 +16,7 @@ public class TestPhysicsPointer : MonoBehaviour
     }
 
 
+    public CleaningUIManager cUIManager;
     public float defaultLength = 1.0f;
     LineRenderer lineRenderer;
     public TestVRInput VRInput;
@@ -47,14 +48,16 @@ public class TestPhysicsPointer : MonoBehaviour
                 {
                     if (hit.transform.gameObject.CompareTag("Rock"))
                     {
-                        Debug.Log("Rock Clicked");
                         if(hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece())
                         {
+
+                            cUIManager.RockBreakToggleChange();
+
                             currentState = CleaningGameState.DUSTING;
+
                         }
                     }
                 }
-                    Debug.Log("Currently on Rock Break");
                 break;
             case CleaningGameState.DUSTING:
                 if (Physics.Raycast(ray, out hit, endPosition.magnitude))
@@ -64,27 +67,27 @@ public class TestPhysicsPointer : MonoBehaviour
                         if(hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
                         {
                             piecesCleaned++;
+                            cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
                             if (piecesCleaned == currentBone.boneParts.Count + 1)
                             {
-                                Debug.Log("All Clean");
+                                cUIManager.CleanToggleChange();
                                 currentState = CleaningGameState.COMBINE;
                             }
                            
                         }
-                        Debug.Log("Bone Clicked");
                     }
                 }
-                Debug.Log("Currently on Dusting");
                 break;
 
             case CleaningGameState.COMBINE:
-                Debug.Log("Enter Combine");
+/*                Debug.Log("Enter Combine");
                 Debug.Log("Bone Counter : " + currentBone.GetBoneCounter());
                 Debug.Log("Bone Counter With Public Var : " + currentBone.combinedBoneCounter);
-                Debug.Log("Bone Parts Count : " + currentBone.boneParts.Count);
+                Debug.Log("Bone Parts Count : " + currentBone.boneParts.Count);*/
                 if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
                 {
                     combined = true;
+                    cUIManager.CombineToggleChange();
                     currentState = CleaningGameState.POLISH;
                 }
                 break;
@@ -98,13 +101,17 @@ public class TestPhysicsPointer : MonoBehaviour
                     {
                         if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
                         {
-                            Debug.Log("Bruh" + hit.transform.gameObject.name);
                             piecesPolished++;
+                            cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+
                             if (piecesPolished == currentBone.boneParts.Count + 1)
                             {
+                                cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+
+                                cUIManager.PolishToggleChange();
+
                                 currentState = CleaningGameState.IDENTIFY;
                             }
-
                         }
                     }
                 }
@@ -121,16 +128,12 @@ public class TestPhysicsPointer : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         currentBone = FindObjectOfType<Combineable>();
+        cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
+        cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
     }
 
     private void Update()
     {
-       
-        Debug.Log(currentState);
-        Debug.Log("Pieces Cleaned: " + piecesCleaned);
-        Debug.Log("Number of bone Pieces: " + currentBone.GetBoneCounter());
-
-
         if (VRInput.GetMouseButtonDown(0))
         {
             CleaningState();
