@@ -125,5 +125,17 @@ public class Fossil : MonoBehaviour
         grabbable.snapOrientation = true;
         grabbable.snapOffset = gameObject.transform.Find("Offset");
         grabbable.grabPoints[0] = grabbable.snapOffset.gameObject.GetComponent<Collider>();
+
+        StartCoroutine(PlasterBackpack(2));
+    }
+
+    private IEnumerator PlasterBackpack(float timer = 1f)
+    {
+        yield return new WaitForSeconds(timer);
+
+        FossilHolder.AddToBackpack(this);
+        Destroy(this.gameObject);
+
+        yield return true;
     }
 }
