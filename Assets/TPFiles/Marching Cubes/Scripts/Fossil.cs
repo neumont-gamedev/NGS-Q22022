@@ -10,7 +10,7 @@ public class Fossil : MonoBehaviour
     private bool buried = true;
     private bool startDigging = false;
     private bool plastered = false;
-    private bool cleaned = false;
+    public bool cleaned = false;
 
     private OVRGrabbable grabbable;
     private Animator ani;
