@@ -10,6 +10,7 @@ public class Fossil : MonoBehaviour
     private bool buried = true;
     private bool startDigging = false;
     private bool plastered = false;
+    private bool cleaned = false;
 
     private OVRGrabbable grabbable;
     private Animator ani;
@@ -31,7 +32,6 @@ public class Fossil : MonoBehaviour
             if (!buried)
             {
                 unburied = true;
-                FossilHolder.FossilFound(this);
             }
             if (!unburied)
             {
@@ -74,7 +74,7 @@ public class Fossil : MonoBehaviour
         {
             buried = true;
         }
-        else if (collision.gameObject.CompareTag("Plaster"))
+        else if (collision.gameObject.CompareTag("Plaster") && unburied)
         {
             if (plastered) return;
             Debug.LogWarning("Plastered");
@@ -82,7 +82,7 @@ public class Fossil : MonoBehaviour
         }
     }
 
-    public bool isFound() { return unburied; }
+    public bool isFound() { return cleaned; }
 
     public void Plaster()
     {
