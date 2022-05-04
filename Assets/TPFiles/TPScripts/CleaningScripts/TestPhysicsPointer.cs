@@ -110,14 +110,8 @@ public class TestPhysicsPointer : MonoBehaviour
 
                                 cUIManager.PolishToggleChange();
 
-                                //set cur fossil.clean to true;
-                                Fossil temp = FossilHolder.backpack.Find(f => f.Name == "Utahraptor");
-                                
-                                if(temp != null)
-                                {
-                                    temp.cleaned = true;
-                                    FossilHolder.FossilFound(temp);
-                                }
+                                FossilHolder.FossilFound("Utahraptor");
+
                                 currentState = CleaningGameState.IDENTIFY;
                             }
                         }

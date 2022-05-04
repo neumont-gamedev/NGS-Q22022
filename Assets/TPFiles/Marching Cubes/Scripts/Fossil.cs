@@ -11,7 +11,6 @@ public class Fossil : MonoBehaviour
     private bool startDigging = false;
     private bool plastered = false;
     public bool cleaned = false;
-    public string Name;
 
     private OVRGrabbable grabbable;
     private Animator ani;
@@ -23,7 +22,6 @@ public class Fossil : MonoBehaviour
         shell = transform.Find("Shell").gameObject;
         shell.SetActive(false);
         name = name.Replace("(Clone)", "");
-        this.Name = name;
     }
 
     //resets buried to false until it comes back false
@@ -136,12 +134,9 @@ public class Fossil : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
 
-        Fossil nFossil = this;
-        if(nFossil != null)
-        {
-            FossilHolder.AddToBackpack(nFossil);
-            Destroy(this.gameObject);
-        }
+        FossilHolder.AddToBackpack(name);
+        Destroy(this.gameObject);
+        
         yield return true;
     }
 

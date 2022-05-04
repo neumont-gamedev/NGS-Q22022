@@ -38,7 +38,7 @@ public class FossilHolder : Singleton<FossilHolder>
             "6 meters / 19.7 feet long", "Early Cretaceous", "over a ton")
     };
 
-    public static List<Fossil> backpack = new List<Fossil>();
+    public static List<string> backpack = new List<string>();
     [SerializeField] static OVRGrabber grabber;
 
     private void Awake()
@@ -50,31 +50,22 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
-    //updates the fossil found
-    //Called after the fossil is cleaned
-    public static void FossilFound(Fossil fossil)
+    public static void FossilFound(string n)
     {
-        foreach (var f in fossilBits)
+        foreach(var f in fossilBits)
         {
-            if (f.name == fossil.name)
+            if(f.name == n)
             {
-                f.found = fossil.isFound();
+                f.found = true;
                 break;
             }
         }
     }
 
     //adds unburied Fossil to backpack
-    public static void AddToBackpack(Fossil fossil)
+    public static void AddToBackpack(string n)
     {
-        backpack.Add(fossil);
-
-        Debug.Log($"Backpack Count: {backpack.Count}");
-
-        foreach (Fossil f in backpack)
-        {
-            Debug.Log($"{f.name}");
-        }
+        backpack.Add(n);
     }
 
     //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
@@ -87,14 +78,14 @@ public class FossilHolder : Singleton<FossilHolder>
         Fossil grabbedFossil = new Fossil();
         for (int i = 0; i < backpack.Count - 1; i++)
         {
-            f = backpack[i];
+            /*f = backpack[i];
             if (f == fossil)
             { 
                 grabbedFossil = f;
                 backpack.Remove(f);
                 fossilIndex = i;
                 break;
-            }
+            }*/
         }
 
         if (grabbedFossil == null)
