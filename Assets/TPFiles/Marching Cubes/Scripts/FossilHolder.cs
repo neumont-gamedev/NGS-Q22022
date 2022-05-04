@@ -50,7 +50,8 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
-    //updates the fossil found 
+    //updates the fossil found
+    //Called after the fossil is cleaned
     public static void FossilFound(Fossil fossil)
     {
         foreach (var f in fossilBits)
@@ -63,15 +64,10 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
-    //adds Fossil to backpack
-    //called by InventoryUI.cs
+    //adds unburied Fossil to backpack
     public static void AddToBackpack(Fossil fossil)
     {
-        if (grabber.grabbedObject != null)
-        {
-            backpack.Add(fossil);
-            grabber.ForceRelease(grabber.grabbedObject);
-        }
+        backpack.Add(fossil);
     }
 
     //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
