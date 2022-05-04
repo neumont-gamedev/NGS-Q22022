@@ -82,6 +82,7 @@ public class Fossil : MonoBehaviour
         }
     }
 
+    public void Clean() { cleaned = true; }
     public bool isFound() { return cleaned; }
 
     public void Plaster()
