@@ -111,7 +111,7 @@ public class TestPhysicsPointer : MonoBehaviour
                                 cUIManager.PolishToggleChange();
 
                                 //set cur fossil.clean to true;
-                                Fossil temp = FossilHolder.backpack.Find(f => f.name == "Utahraptor");
+                                Fossil temp = FossilHolder.backpack.Find(f => f.Name == "Utahraptor");
                                 
                                 if(temp != null)
                                 {
