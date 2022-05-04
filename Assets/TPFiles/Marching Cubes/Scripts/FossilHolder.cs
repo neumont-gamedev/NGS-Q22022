@@ -68,6 +68,13 @@ public class FossilHolder : Singleton<FossilHolder>
     public static void AddToBackpack(Fossil fossil)
     {
         backpack.Add(fossil);
+
+        Debug.Log($"Backpack Count: {backpack.Count}");
+
+        foreach (Fossil f in backpack)
+        {
+            Debug.Log($"{f.name}");
+        }
     }
 
     //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
