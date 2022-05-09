@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Combineable : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Combineable : MonoBehaviour
                 {
                     this.boneParts[i].SetActive(true);
                     combinedBoneCounter += 1;
+                    //gameObject.GetComponent<OVRGrabber>().colliders.Clear();
                     Destroy(collidedObject.transform.parent.gameObject);
                     Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
                 }
