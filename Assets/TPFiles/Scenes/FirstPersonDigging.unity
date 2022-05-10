@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 219536570}
-  m_IndirectSpecularColor: {r: 0.18190676, g: 0.2275872, b: 0.3074174, a: 1}
+  m_IndirectSpecularColor: {r: 0.18190691, g: 0.22758718, b: 0.30741766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,7 +178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &37473403
 RectTransform:
   m_ObjectHideFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 215003754}
   - component: {fileID: 215003753}
   m_Layer: 11
-  m_Name: MainMenu (1)
+  m_Name: InstructionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418.944, y: -207.167}
+  m_AnchoredPosition: {x: -418.9758, y: -207.167}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215003753
@@ -400,14 +400,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Find Fossil using your Map
+  m_text: '1. Find fossils using your map.
 
-    - Dig Up Fossil with your Shovel
+    2. Dig up fossils with your shovel.
 
-    -
-    Apply Plaster Field Jacket
+    3.
+    Apply the plaster field jacket.
 
-    - Bring Fossil back to Museum'
+    4. Bring fossils back to the museum.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -435,19 +435,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 25
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1129,12 +1129,20 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 104668534, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 104668534, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 104668534, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -206.65
+      value: -206.78789
+      objectReference: {fileID: 0}
+    - target: {fileID: 104668535, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_text
+      value: Museum Lobby
       objectReference: {fileID: 0}
     - target: {fileID: 104668535, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_fontAsset
@@ -1193,6 +1201,10 @@ PrefabInstance:
     - target: {fileID: 1499890309, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499890315, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_text
+      value: Let's Go!
       objectReference: {fileID: 0}
     - target: {fileID: 1499890315, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_fontAsset
@@ -1279,6 +1291,18 @@ PrefabInstance:
     - target: {fileID: 1784279311, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_SizeDelta.y
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784279311, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784279311, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784279311, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1901825349, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_Layer
@@ -1494,7 +1518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &732765863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,7 +1834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &972687012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1980,7 +2004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1073155513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,7 +3078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1823307525
 RectTransform:
   m_ObjectHideFlags: 0
