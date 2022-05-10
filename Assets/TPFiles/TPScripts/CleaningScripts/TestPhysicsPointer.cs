@@ -26,17 +26,21 @@ public class TestPhysicsPointer : MonoBehaviour
     int piecesPolished = 0;
     bool combined = false;
 
+    bool isCollidedWithRock = false;
+
 
     static CleaningGameState currentState;
 
     public Combineable currentBone;
+
+    public UnityEvent CleanCollisionEvent;
 
     /// <summary>
     /// Cleaning Game State Layout
     /// </summary>
     /// 
 
-    private void CleaningState()
+    public void CleaningState()
     {
         RaycastHit hit;
         Ray ray = new Ray(endPosition, transform.forward);
@@ -48,7 +52,7 @@ public class TestPhysicsPointer : MonoBehaviour
                 {
                     if (hit.transform.gameObject.CompareTag("Rock"))
                     {
-                        if(hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece())
+                        if (hit.transform.gameObject.GetComponent<StoneBreak>().BreakPiece())
                         {
 
                             cUIManager.RockBreakToggleChange();
@@ -62,9 +66,9 @@ public class TestPhysicsPointer : MonoBehaviour
             case CleaningGameState.DUSTING:
                 if (Physics.Raycast(ray, out hit, endPosition.magnitude))
                 {
-                if(hit.transform.gameObject.CompareTag("Bone"))
+                    if (hit.transform.gameObject.CompareTag("Bone"))
                     {
-                        if(hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
+                        if (hit.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
                         {
                             piecesCleaned++;
                             cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
@@ -73,10 +77,11 @@ public class TestPhysicsPointer : MonoBehaviour
                                 cUIManager.CleanToggleChange();
                                 currentState = CleaningGameState.COMBINE;
                             }
-                           
+
                         }
                     }
                 }
+
                 break;
 
             case CleaningGameState.COMBINE:
@@ -132,14 +137,33 @@ public class TestPhysicsPointer : MonoBehaviour
         currentBone = FindObjectOfType<Combineable>();
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+
+        if (CleanCollisionEvent == null)
+            CleanCollisionEvent = new UnityEvent();
     }
 
     private void Update()
     {
-        if (VRInput.GetMouseButtonDown(0))
+        if (VRInput.GetMouseButton(0) && CleanCollisionEvent != null)
         {
-            CleaningState();
+            CleanCollisionEvent.Invoke();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            if (other.gameObject.GetComponent<StoneBreak>().BreakPiece())
+            {
+                isCollidedWithRock = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isCollidedWithRock = false;
     }
 
     /// <summary>
