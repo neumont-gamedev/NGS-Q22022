@@ -124,7 +124,8 @@ public class TestPhysicsPointer : MonoBehaviour
                 }
                 break;
             case CleaningGameState.IDENTIFY:
-                Debug.Log("Identify");
+                Identify newIdentify = new Identify();
+                //newIdentify.CheckQuestion(currentBone.gameObject.GetComponent<IdentifyData>(),);
                 break;
             default:
                 break;
