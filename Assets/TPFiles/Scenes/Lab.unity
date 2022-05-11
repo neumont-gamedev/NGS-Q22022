@@ -1621,7 +1621,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &412340181
 PrefabInstance:
@@ -2686,7 +2686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &733150861
 GameObject:
@@ -6398,7 +6398,7 @@ Transform:
   - {fileID: 481396508}
   - {fileID: 1197737842}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1790123650
 GameObject:
@@ -6626,14 +6626,17 @@ MonoBehaviour:
 
     Music
 
-    Main Menu - Jurassic Park Main Theme by John Williams
+    Main Menu - Jurassic Park
+    Main Theme by John Williams
 
-    Overworld - The Temple God Awakens by Tyler Cunningham
+    Overworld - The Temple God Awakens by Tyler
+    Cunningham
 
     Museum - Resting Grounds Hollow Knight by by Christopher Larkin
 
 
-    Assets - Unity Asset Store'
+    Assets
+    - Unity Asset Store'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7289,20 +7292,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4921277215929859620, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870196020076753022, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4921277215206359357, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921277215929859620, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5870196020076753022, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -7676,8 +7674,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Using the information in this journal\nand your fossil, identify what \ncreature
-    it is and what happened to them"
+  m_text: "Using the information in this journal\nand your fossil, identify what
+    \ncreature it is and what happened to them"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -7820,7 +7818,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2077930799
 MonoBehaviour:
@@ -9010,7 +9008,7 @@ Transform:
   - {fileID: 125318662943149012}
   - {fileID: 120575681794590766}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!64 &125318661649927662
 MeshCollider:
@@ -10436,7 +10434,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919132147643000051
 GameObject:
@@ -10515,17 +10513,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147643000051}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4b70e207c33c584d97dfe205b62a544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBone: {fileID: 0}
   cUIManager: {fileID: 526766098}
   VRInput: {fileID: 2077930799}
-  currentBone: {fileID: 0}
-  CleanCollisionEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!23 &1711813855308973350
 MeshRenderer:
   m_ObjectHideFlags: 0
