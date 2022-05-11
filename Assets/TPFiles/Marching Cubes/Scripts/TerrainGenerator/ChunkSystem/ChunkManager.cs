@@ -34,6 +34,10 @@ namespace MarchingCubes
         private float removeDistance;
         private float loadRegionDistance;
 
+        private new void Awake()
+        {
+            
+        }
 
         //Search the player start position and the start the chunk load (Called from NoiseManager start)
         public void Initialize()

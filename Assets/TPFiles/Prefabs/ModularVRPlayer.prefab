@@ -757,10 +757,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0950df82e7936c84983497630bde5b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Acceleration: 0.2
+  Acceleration: 0.15
   Damping: 0.3
   BackAndSideDampen: 0.5
-  JumpForce: 0.5
+  JumpForce: 0.4
   RotationAmount: 1.5
   RotationRatchet: 45
   SnapRotation: 0
@@ -768,7 +768,7 @@ MonoBehaviour:
   FixedSpeedSteps: 0
   HmdResetsY: 1
   HmdRotatesY: 1
-  GravityModifier: 0.1
+  GravityModifier: 0.04
   useProfileData: 1
   EnableLinearMovement: 1
   EnableRotation: 1
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - {fileID: 4921277215206359357}
+  - {fileID: 4922132691086130706}
   controller: {fileID: 3387489073371872177}
   button: 2
 --- !u!1 &3388713606432329909
@@ -1776,7 +1776,6 @@ RectTransform:
   - {fileID: 4921277214737162074}
   - {fileID: 4921277216544621553}
   - {fileID: 4921277214913846866}
-  - {fileID: 4921277216751261733}
   m_Father: {fileID: 4921277215287530066}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5032,141 +5031,6 @@ MonoBehaviour:
   m_Text: 'Slot 1
 
 '
---- !u!1 &4921277216751261732
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4921277216751261733}
-  - component: {fileID: 4921277216751261735}
-  - component: {fileID: 4921277216751261734}
-  m_Layer: 11
-  m_Name: Instruction (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4921277216751261733
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4921277216751261732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4921277214729110583}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 175, y: -346.40128}
-  m_SizeDelta: {x: 350, y: 203.4575}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4921277216751261735
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4921277216751261732}
-  m_CullTransparentMesh: 1
---- !u!114 &4921277216751261734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4921277216751261732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Grab Fossil - Right Hand Trigger
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
-  m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
-    type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 32
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &4921277216794629482
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,13 +5964,11 @@ PrefabInstance:
 
         Time Period: Late Jurassic
 
-        Weight:
-        USA, Tanzania
+        Weight: USA, Tanzania
 
         Length: 24 meters / 78.7 feet
 
-        Location: over
-        20 tons'
+        Location: over 20 tons'
       objectReference: {fileID: 0}
     - target: {fileID: 5667284562888011961, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -6433,8 +6295,7 @@ PrefabInstance:
 
         Time Period: Early Cretaceous
 
-        Weight:
-        over a ton
+        Weight: over a ton
 
         Length: 6 meters / 19.7 feet
 
@@ -6692,9 +6553,8 @@ PrefabInstance:
       value: 'Nostrils located far back on the head near the eyes.
 
 
-        They
-        swam by flapping their fins in the water, much like sea lions do today, in
-        a modified style of underwater ''flight.'''
+        They swam by flapping their fins in the water, much like sea lions do today,
+        in a modified style of underwater ''flight.'''
       objectReference: {fileID: 0}
     - target: {fileID: 5667284563503242374, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -6777,8 +6637,7 @@ PrefabInstance:
       value: 'Lobocarcinus are in the family of sponge crabs.
 
 
-        They relied
-        on drag-powered swimming to move.'
+        They relied on drag-powered swimming to move.'
       objectReference: {fileID: 0}
     - target: {fileID: 5667284563573711450, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -7278,11 +7137,10 @@ PrefabInstance:
       value: 'Juvenile pterodactyls were called flaplings.
 
 
-        Pterodactyls
-        were not dinosaurs. Dinosaurs are generally considered to walk upright, on
-        either two legs or four legs. Pterodactyls often didn''t walk at all, and
-        when they did walk, they waddled on their back legs and pointed wings. Animals
-        like them are called pterosaurs.'
+        Pterodactyls were not dinosaurs. Dinosaurs are generally considered to walk
+        upright, on either two legs or four legs. Pterodactyls often didn''t walk
+        at all, and when they did walk, they waddled on their back legs and pointed
+        wings. Animals like them are called pterosaurs.'
       objectReference: {fileID: 0}
     - target: {fileID: 5667284564078079530, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -7365,12 +7223,11 @@ PrefabInstance:
       value: 'Trilobites had three-part bodies.
 
 
-        They could roll into balls
-        for protection.
+        They could roll into balls for protection.
 
 
-        They were the first group of animals in the animal
-        kingdom to develop complex eyes and multiple appendages for moving around.'
+        They were the first group of animals in the animal kingdom to develop complex
+        eyes and multiple appendages for moving around.'
       objectReference: {fileID: 0}
     - target: {fileID: 5667284564095107158, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -7642,13 +7499,11 @@ PrefabInstance:
 
         Time Period: Late Cretaceous
 
-        Weight:
-        over 7 tons
+        Weight: over 7 tons
 
         Length: 12 meters / 39.3 feet
 
-        Location: USA,
-        Canada
+        Location: USA, Canada
 
 '
       objectReference: {fileID: 0}
@@ -7781,7 +7636,8 @@ PrefabInstance:
       value: "They are closely related to birds. Prior to their discovery, paleontologists
         believed sickle-clawed dromaeosaurids were small carnivores that only lived
         in the Late Cretaceous. They required paleontologists to revise their understanding
-        of this family of dinosaurs as it was much larger and lived the Early Cretaceous.\r\n           "
+        of this family of dinosaurs as it was much larger and lived the Early Cretaceous.\r\n
+        \          "
       objectReference: {fileID: 0}
     - target: {fileID: 5667284564427511797, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -7914,13 +7770,11 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Tyrannosaurus Rex means ''tyrant lizard.
 
-        Their powerful jaws
-        had 60 teeth, each one up to 20 centimeters / 8 inches long, and their bite
-        was around 3 times as powerful than that of a lion.
+        Their powerful jaws had 60 teeth, each one up to 20 centimeters / 8 inches
+        long, and their bite was around 3 times as powerful than that of a lion.
 
-        They have close
-        relatives that sometimes lived together because there are fossils of groups
-        who were buried together.'
+        They have close relatives that sometimes lived together because there are
+        fossils of groups who were buried together.'
       objectReference: {fileID: 0}
     - target: {fileID: 5667284564563729773, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -7941,8 +7795,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "Diet: Carnivore\nTime Period: Late Triassic - \n Late Cretaceous\nWeight:
-        4.5 meters / 15 feet\nLength: over 49 tons\nLocation: European seas, \n                 
-        Pacific Ocean"
+        4.5 meters / 15 feet\nLength: over 49 tons\nLocation: European seas, \n Pacific
+        Ocean"
       objectReference: {fileID: 0}
     - target: {fileID: 5667284564602362050, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -8038,13 +7892,11 @@ PrefabInstance:
 
         Time Period: Late Jurassic
 
-        Weight:
-        over 1.5 tons
+        Weight: over 1.5 tons
 
         Length: 8.5 meters / 28 feet
 
-        Location: USA,
-        Portugal'
+        Location: USA, Portugal'
       objectReference: {fileID: 0}
     - target: {fileID: 5667284564655066691, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
@@ -8362,8 +8214,8 @@ PrefabInstance:
     - target: {fileID: 5667284564797502305, guid: 02754efc001bad14a923ebd3d6b74684,
         type: 3}
       propertyPath: m_text
-      value: "Diet: Carnivore\nTime Period: Eocene Epoch \n (Paleogene)\nWeight:
-        around 1 pound / \n                453.6 grams\nWidth: 119.4 mm / 4.7 inches\nLength:
+      value: "Diet: Carnivore\nTime Period: Eocene Epoch \n (Paleogene)\nWeight: around
+        1 pound / \n                453.6 grams\nWidth: 119.4 mm / 4.7 inches\nLength:
         91.6 mm / 3.6 inches\nLocation: New Zealand, \n                   Southern
         Pacific Ocean"
       objectReference: {fileID: 0}
@@ -8478,12 +8330,6 @@ RectTransform:
 --- !u!224 &4921277215206359356 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5667284564751814287, guid: 02754efc001bad14a923ebd3d6b74684,
-    type: 3}
-  m_PrefabInstance: {fileID: 787530449270296499}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4921277215206359357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5667284564751814286, guid: 02754efc001bad14a923ebd3d6b74684,
     type: 3}
   m_PrefabInstance: {fileID: 787530449270296499}
   m_PrefabAsset: {fileID: 0}

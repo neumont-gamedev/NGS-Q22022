@@ -87,11 +87,14 @@ MonoBehaviour:
     octaves: 5
     persistance: 0.1
     lacunarity: 9
+  map: {fileID: 0}
   biomes:
   - biome: {fileID: 1424679412264877637}
     appearValue: 0.75
   - biome: {fileID: 997808334374709775}
     appearValue: 0.25
+  fossils:
+  - {fileID: 4996352711260062010, guid: ad52cbcad1939e24ea0d21324e8c0d0c, type: 3}
 --- !u!114 &997808334374709775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainMaterial: {fileID: 2100000, guid: 89c4a0e45f94ae34d88ced3ebbc28bee, type: 2}
-  chunkViewDistance: 6
+  chunkViewDistance: 8
   chunkMantainDistance: 0.3
   useCameraPosition: 0
   debugMode: 0
