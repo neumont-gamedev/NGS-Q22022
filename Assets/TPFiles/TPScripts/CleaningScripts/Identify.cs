@@ -17,7 +17,7 @@ public class Identify : MonoBehaviour
 
     public IdentifyData curData;
 
-
+ 
     public void CheckQuestion()
     {
 
