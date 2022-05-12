@@ -26,6 +26,7 @@ public class AirScribe : MonoBehaviour
 
     private void Awake()
     {
+        currentState = CleaningGameState.ROCKBREAK;
         currentBone = FindObjectOfType<Combineable>();
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
