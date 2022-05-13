@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class ObjectEnabler : MonoBehaviour
 {
     public GameObject[] objects;
+    public GameObject[] toolDescriptionPanels;
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
     bool pressedLastFrame = false;
@@ -30,13 +31,22 @@ public class ObjectEnabler : MonoBehaviour
             if (counter < objects.Length)
             {
                 objects[counter].SetActive(true);
+                if (toolDescriptionPanels[counter] != null) toolDescriptionPanels[counter].SetActive(true);
                 controller.SetActive(false);
-                if (counter - 1 >= 0) objects[counter-1].SetActive(false);
+                if (counter - 1 >= 0)
+                {
+                    objects[counter - 1].SetActive(false);
+                    if(toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                }
                 counter++;
             }
             else
             {
-                if (counter - 1 >= 0) objects[counter-1].SetActive(false);
+                if (counter - 1 >= 0)
+                {
+                    objects[counter - 1].SetActive(false);
+                    if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                }
                 controller.SetActive(true);
                 counter = 0;
             }
