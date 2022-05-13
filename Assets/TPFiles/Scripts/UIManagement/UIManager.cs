@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject[] panels;
     [SerializeField] int mainMenuIndex = 3;
 
+    public GameObject LabButton;
+    public GameObject NoFossilsText;
+
     /*
     void Start()
     {
@@ -105,10 +108,27 @@ public class UIManager : MonoBehaviour
 
     public void LoadLab()
     {
-        //load scene
-        SceneManager.LoadScene(2);
+        //If player doesnt have a fossil
+        // Deactivate Lab Button
+        if (FossilHolder.backpack.Count == 0)
+        {
+            LabButton.SetActive(false);
+            NoFossilsText.SetActive(true);
+        }
+        else
+        {
+            //Reactiveate Button if Button is disabled
+            if (!LabButton.activeSelf)
+            {
+                LabButton.SetActive(true);
+                NoFossilsText.SetActive(false);
+            }
 
-        //load anything that needs to be loaded
+            //load scene
+            SceneManager.LoadScene(2);
+
+            //load anything that needs to be loaded
+        }
     }
     #endregion
 }
