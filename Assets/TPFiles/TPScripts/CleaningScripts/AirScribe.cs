@@ -19,6 +19,7 @@ public class AirScribe : MonoBehaviour
     public Combineable currentBone;
     public CleaningUIManager cUIManager;
     public TestVRInput VRInput;
+    [SerializeField] GameObject scribeDescriptionPanel;
 
     int piecesCleaned = 0;
     int piecesPolished = 0;
@@ -30,6 +31,7 @@ public class AirScribe : MonoBehaviour
         currentBone = FindObjectOfType<Combineable>();
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+        if (scribeDescriptionPanel != null) scribeDescriptionPanel.SetActive(true);
     }
 
     private void Update()
