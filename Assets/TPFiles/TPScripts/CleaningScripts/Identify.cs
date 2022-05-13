@@ -17,6 +17,7 @@ public class Identify : MonoBehaviour
 
     public IdentifyData curData;
 
+    public GameObject resultsPage;
  
     public void CheckQuestion()
     {
@@ -34,6 +35,8 @@ public class Identify : MonoBehaviour
       
 
         rAnswer.text = curData.FinalAnswer;
+        resultsPage.SetActive(true);
+
 
     }
 }

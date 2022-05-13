@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4614,7 +4614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1435062667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5405,36 +5405,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647448339}
   m_Mesh: {fileID: 4300000, guid: a8e4bafb7e4bb244ba54405934bf5a27, type: 3}
---- !u!1 &1683994715
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1683994716}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1683994716
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683994715}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8139795086015601188}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693479645
 GameObject:
   m_ObjectHideFlags: 0
@@ -7148,6 +7118,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.14299989
       objectReference: {fileID: 0}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1977933262}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheckQuestion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Identify, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132107896814686427, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8366398924882545654, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_Name
@@ -7246,6 +7251,7 @@ MonoBehaviour:
   uPart: {fileID: 1977933257}
   uCreature: {fileID: 1977933256}
   curData: {fileID: 0}
+  resultsPage: {fileID: 1435062666}
 --- !u!114 &1977933263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10557,12 +10563,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba81314528bb344469fb20477f7a4d16, type: 3}
---- !u!4 &8139795086015601188 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5161788475725685808, guid: ba81314528bb344469fb20477f7a4d16,
-    type: 3}
-  m_PrefabInstance: {fileID: 8139795086015601187}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8139795086015601189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 163093431362834665, guid: ba81314528bb344469fb20477f7a4d16,
