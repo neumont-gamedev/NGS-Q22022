@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class TestVRInput : BaseInput
 {
-    public Camera eventCamera = null;
+    //Camera eventCamera = null;
 
     public OVRInput.Button clickButton = OVRInput.Button.PrimaryIndexTrigger;
     public OVRInput.Controller controller = OVRInput.Controller.All;
@@ -30,11 +30,11 @@ public class TestVRInput : BaseInput
         return OVRInput.GetUp(clickButton, controller);
     }
 
-    public override Vector2 mousePosition
-    {
-        get
-        {
-            return new Vector2(eventCamera.pixelWidth / 2, eventCamera.pixelHeight / 2);
-        }
-    }
+    //public override Vector2 mousePosition
+    //{
+    //    get
+    //    {
+    //        return new Vector2(eventCamera.pixelWidth / 2, eventCamera.pixelHeight / 2);
+    //    }
+    //}
 }
