@@ -70,8 +70,6 @@ public class ToolCollision : MonoBehaviour
         Debug.Log("Set block");
     }
 
-
-
     //CheckCollision(collision);
     //Ray playerRay = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
     //RaycastHit hit;

@@ -9937,7 +9937,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532309951
 GameObject:
@@ -12351,7 +12351,7 @@ RectTransform:
   - {fileID: 769380254}
   - {fileID: 1032236520}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12440,7 +12440,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &704729524
 MonoBehaviour:
@@ -12538,17 +12538,14 @@ MonoBehaviour:
 
     Music
 
-    Main Menu - Jurassic Park
-    Main Theme by John Williams
+    Main Menu - Jurassic Park Main Theme by John Williams
 
-    Overworld - The Temple God Awakens by Tyler
-    Cunningham
+    Overworld - The Temple God Awakens by Tyler Cunningham
 
     Museum - Resting Grounds Hollow Knight by by Christopher Larkin
 
 
-    Assets
-    - Unity Asset Store'
+    Assets - Unity Asset Store'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -15722,6 +15719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860355404}
   - component: {fileID: 860355403}
+  - component: {fileID: 860355405}
   m_Layer: 0
   m_Name: FossilHolder
   m_TagString: Untagged
@@ -15753,8 +15751,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860355405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860355402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02e88e7b2138d84184bbd2a0cf539a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &864435522
 GameObject:
   m_ObjectHideFlags: 0
@@ -15820,7 +15830,7 @@ Transform:
   - {fileID: 809827748}
   - {fileID: 2064397450}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &872161843
 GameObject:
@@ -17025,6 +17035,7 @@ GameObject:
   - component: {fileID: 920785573}
   - component: {fileID: 920785575}
   - component: {fileID: 920785574}
+  - component: {fileID: 920785576}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -17090,6 +17101,18 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!114 &920785576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920785572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02e88e7b2138d84184bbd2a0cf539a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &923521272
 GameObject:
   m_ObjectHideFlags: 0
@@ -22308,7 +22331,7 @@ PrefabInstance:
     - target: {fileID: 3388713606432065481, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3388713606432065481, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -22360,6 +22383,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3388713606432133565, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3388713606432234471, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_Name
@@ -22370,11 +22398,62 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4921277215121663691, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0185
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921277215121663691, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.1527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921277215121663691, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
 --- !u!4 &1093282807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3388713606432065479, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093282806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1093282808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4588118559815856326, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093282806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a8a742b438a7e4a83cbed6a16c4e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1093282809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4921277215287530065, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093282806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1093282810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3388713606420983301, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093282806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0950df82e7936c84983497630bde5b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1093282811 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3388713606432065475, guid: 29beb0e07f415db4485dcf1708a405f5,
     type: 3}
   m_PrefabInstance: {fileID: 1093282806}
   m_PrefabAsset: {fileID: 0}
@@ -24342,7 +24421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1191943625
 GameObject:
@@ -27326,8 +27405,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29113,6 +29192,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6237256278488372246, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+    - target: {fileID: -2557187229411438188, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+    - target: {fileID: -290329354356124225, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
     - target: {fileID: 919132149155446097, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c,
         type: 3}
       propertyPath: m_Name
@@ -29121,7 +29215,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c49cfaf9ebb5094c8cc2f1d8b1b4e4c, type: 3}
@@ -30636,17 +30730,14 @@ MonoBehaviour:
 
     Music
 
-    Main Menu - Jurassic Park
-    Main Theme by John Williams
+    Main Menu - Jurassic Park Main Theme by John Williams
 
-    Overworld - The Temple God Awakens by Tyler
-    Cunningham
+    Overworld - The Temple God Awakens by Tyler Cunningham
 
     Museum - Resting Grounds Hollow Knight by by Christopher Larkin
 
 
-    Assets
-    - Unity Asset Store'
+    Assets - Unity Asset Store'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -35957,7 +36048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1704710275
 GameObject:
@@ -40751,17 +40842,14 @@ MonoBehaviour:
 
     Music
 
-    Main Menu - Jurassic Park
-    Main Theme by John Williams
+    Main Menu - Jurassic Park Main Theme by John Williams
 
-    Overworld - The Temple God Awakens by Tyler
-    Cunningham
+    Overworld - The Temple God Awakens by Tyler Cunningham
 
     Museum - Resting Grounds Hollow Knight by by Christopher Larkin
 
 
-    Assets
-    - Unity Asset Store'
+    Assets - Unity Asset Store'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41183,7 +41271,7 @@ Transform:
   - {fileID: 1217891328}
   - {fileID: 259491133}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1923092594
 PrefabInstance:
@@ -44394,7 +44482,7 @@ PrefabInstance:
     - target: {fileID: 626393733822328631, guid: c09024c393cbafb47a8a6049dd150f11,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 626393733822328631, guid: c09024c393cbafb47a8a6049dd150f11,
         type: 3}
@@ -44947,12 +45035,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1093282807}
+    m_TransformParent: {fileID: 1093282811}
     m_Modifications:
     - target: {fileID: 1430035261567643932, guid: 92611b569ba778c48bbd9130c61c472b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1430035261567643932, guid: 92611b569ba778c48bbd9130c61c472b,
         type: 3}
@@ -45029,6 +45117,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8925513370539439805, guid: 92611b569ba778c48bbd9130c61c472b,
+        type: 3}
+      propertyPath: HUD
+      value: 
+      objectReference: {fileID: 1093282809}
+    - target: {fileID: 8925513370539439805, guid: 92611b569ba778c48bbd9130c61c472b,
+        type: 3}
+      propertyPath: enabler
+      value: 
+      objectReference: {fileID: 1093282808}
+    - target: {fileID: 8925513370539439805, guid: 92611b569ba778c48bbd9130c61c472b,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1093282810}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92611b569ba778c48bbd9130c61c472b, type: 3}
 --- !u!1 &3036138894421573594
@@ -48482,7 +48585,7 @@ Transform:
   m_Children:
   - {fileID: 6522744910205283259}
   m_Father: {fileID: 1093282807}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9127799713614867231
 GameObject:

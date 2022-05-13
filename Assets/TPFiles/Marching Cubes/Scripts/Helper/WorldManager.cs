@@ -20,6 +20,8 @@ namespace MarchingCubes
             {
                 DontDestroyOnLoad(gameObject);
 
+                Debug.LogWarning("" + Application.persistentDataPath + WORLDS_DIRECTORY);
+
                 if (!Directory.Exists(Application.persistentDataPath + WORLDS_DIRECTORY))//in case worlds directory not created, create the "worlds" directory 
                     Directory.CreateDirectory(Application.persistentDataPath + WORLDS_DIRECTORY);
 

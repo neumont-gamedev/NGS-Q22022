@@ -35,13 +35,13 @@ public class UIManager : MonoBehaviour
 
     public void ActivatePanel(GameManager.GameState gameState)
     {
-        if ((int)gameState >= panels.Length) return;
+        if ((int)gameState >= panels.Length || panels[(int)gameState] == null) return;
         panels[(int)gameState].SetActive(true);
     }
 
     public void DeactivatePanel(GameManager.GameState gameState)
     {
-        if ((int)gameState >= panels.Length) return;
+        if ((int)gameState >= panels.Length || panels[(int)gameState] == null) return;
         panels[(int)gameState].SetActive(false);
     }
     #endregion
