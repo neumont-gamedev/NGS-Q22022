@@ -7,13 +7,11 @@ using UnityEngine.UI;
 public class VRTerrainModifier : MonoBehaviour
 {
     public AudioSource digNoise;
+    public AudioClip[] diggingClips;
     [Tooltip("Force of modifications applied to the terrain")]
     public float modiferStrengh = 10;
     [Tooltip("Size of the brush, number of vertex modified")]
     public float sizeHit = 6;
-    [Tooltip("Color of the new voxels generated")]
-    [Range(0, Constants.NUMBER_MATERIALS - 1)]
-    public int buildingMaterial = 0;
 
     private ChunkManager chunkManager;
     private Vector3 startPos = Vector3.zero;
@@ -34,7 +32,11 @@ public class VRTerrainModifier : MonoBehaviour
         float distance = Mathf.Abs((startPos - contacts[0].point).magnitude);
         if (distance <= 4f) return;
 
-        chunkManager.ModifyChunkData(contacts[0].point, sizeHit, -modiferStrengh, buildingMaterial);
-        if (!digNoise.isPlaying) digNoise.Play();
+        chunkManager.ModifyChunkData(contacts[0].point, sizeHit, -modiferStrengh, 0);
+        if (!digNoise.isPlaying)
+        {
+            digNoise.clip = diggingClips[Random.Range(0, diggingClips.Length)];
+            digNoise.Play();
+        }
     }
 }

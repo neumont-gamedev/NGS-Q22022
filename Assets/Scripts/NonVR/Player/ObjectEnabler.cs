@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ObjectEnabler : MonoBehaviour
 {
+    public AudioSource itemSwitch;
     public GameObject[] objects;
     public GameObject[] toolDescriptionPanels;
     public GameObject controller;
@@ -19,24 +20,29 @@ public class ObjectEnabler : MonoBehaviour
         {
             obj.SetActive(false);
         }
+        foreach (GameObject panel in toolDescriptionPanels)
+        {
+            panel.SetActive(false);
+        }
 
         if (controller == null) controller = GameObject.Find("RightControllerAnchor");
+        if (itemSwitch == null) itemSwitch = GetComponent<AudioSource>();
         controller.SetActive(true);
     }
 
     void Update()
     {
-        if (OVRInput.Get(button) && !pressedLastFrame)
+        if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Space))
         {
             if (counter < objects.Length)
             {
                 objects[counter].SetActive(true);
-                if (toolDescriptionPanels[counter] != null) toolDescriptionPanels[counter].SetActive(true);
+                ToolDescriptionPanel(counter, true);
                 controller.SetActive(false);
                 if (counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    if(toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                    ToolDescriptionPanel(counter - 1, false);
                 }
                 counter++;
             }
@@ -45,13 +51,19 @@ public class ObjectEnabler : MonoBehaviour
                 if (counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                    ToolDescriptionPanel(counter - 1, false);
                 }
                 controller.SetActive(true);
                 counter = 0;
             }
+            itemSwitch?.Play();
         }
 
         pressedLastFrame = OVRInput.Get(button);
+    }
+
+    private void ToolDescriptionPanel(int num, bool active)
+    {
+        if (toolDescriptionPanels.Length != 0 && toolDescriptionPanels[num] != null) toolDescriptionPanels[num].SetActive(active);
     }
 }
