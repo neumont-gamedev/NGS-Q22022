@@ -11,16 +11,16 @@ public class StoneBreak : MonoBehaviour
     //public int numofPieces;
     //int curlength;
 
+    public TestPhysicsPointer physicsPointer;
+
     public bool BreakPiece()
     {
 
         cBreakParticle = Instantiate(breakParticle);
         Destroy(cBreakParticle, 1.5f);
         numofPiecesToBreak = RockPieces.Count;
-        
 
         int ranNum = Random.Range(0, RockPieces.Count);
-
 
         if (RockPieces.Count == 0)
         {
@@ -43,9 +43,6 @@ public class StoneBreak : MonoBehaviour
             RockPieces.RemoveAt(ranNum);
             return false;
         }
-
-
-
     }
 
     public void DestroyRock()
