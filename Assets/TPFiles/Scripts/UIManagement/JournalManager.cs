@@ -26,7 +26,7 @@ public class JournalManager : MonoBehaviour
         identifyOffPage.SetActive(false);
         nextTab.SetActive(true);
         backTab.SetActive(true);
-        identifyBackTab.SetActive(true);
+        identifyBackTab.SetActive(false);
         identifyTab.SetActive(true);
 
         foreach (GameObject i in journalPages)
