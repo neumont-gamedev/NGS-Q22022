@@ -26,6 +26,7 @@ public class JournalManager : MonoBehaviour
         identifyOffPage.SetActive(false);
         nextTab.SetActive(true);
         backTab.SetActive(true);
+        identifyBackTab.SetActive(true);
         identifyTab.SetActive(true);
 
         foreach (GameObject i in journalPages)
@@ -41,6 +42,7 @@ public class JournalManager : MonoBehaviour
 
     public void TurnPage()
     {
+        Debug.Log(journalPages.Count.ToString());
 
         if(page + 1 > journalPages.Count)
         {
@@ -51,6 +53,8 @@ public class JournalManager : MonoBehaviour
             page++;
             journalPages[page].SetActive(true);
         }
+
+        Debug.Log(page);
         
     }
 
