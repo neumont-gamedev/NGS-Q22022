@@ -16,6 +16,14 @@ public class CleaningUIManager : MonoBehaviour
     public Text polishToggleText;
 
     public GameObject putTogetherDisplay;
+    public AudioSource successAudio;
+    public AudioClip[] clips;
+
+    private void Start()
+    {
+        if (successAudio == null) successAudio = GetComponent<AudioSource>();
+        if (successAudio != null) successAudio.clip = clips[0];
+    }
 
 
     public void RockBreakToggleChange()
@@ -54,5 +62,14 @@ public class CleaningUIManager : MonoBehaviour
         Polishtoggle.isOn = true;
     }
 
+    public void PlayTaskCompleteAudio()
+    {
+        successAudio?.Play();
+    }
 
+    public void PlayFullCompleteAudio()
+    {
+        successAudio.clip = clips[1];
+        successAudio?.Play();
+    }
 }

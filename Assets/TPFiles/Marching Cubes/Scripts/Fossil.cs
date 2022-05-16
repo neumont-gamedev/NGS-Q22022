@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Fossil : MonoBehaviour
 {
     //public Material setJacketMaterial;
+
+    public bool cleaned = false;
+
+    public AudioClip[] clips;
 
     private bool unburied = false;
     private bool buried = true;
     private bool startDigging = false;
     private bool plastered = false;
-    public bool cleaned = false;
+    private bool foundAudioPlayed = false;
 
+    private AudioSource audioSource;
     private OVRGrabbable grabbable;
     private Animator ani;
     private GameObject shell;
@@ -19,6 +25,7 @@ public class Fossil : MonoBehaviour
     private void Awake()
     {
         ani = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         shell = transform.Find("Shell").gameObject;
         shell.SetActive(false);
         name = name.Replace("(Clone)", "");
@@ -32,6 +39,12 @@ public class Fossil : MonoBehaviour
             if (!buried)
             {
                 unburied = true;
+                if (!foundAudioPlayed)
+                {
+                    foundAudioPlayed = true;
+                    audioSource.clip = clips[0];
+                    audioSource.Play();
+                }
             }
             if (!unburied)
             {
@@ -127,6 +140,8 @@ public class Fossil : MonoBehaviour
         grabbable.snapOffset = gameObject.transform.Find("Offset");
         grabbable.grabPoints[0] = grabbable.snapOffset.gameObject.GetComponent<Collider>();
 
+        audioSource.clip = clips[1];
+        audioSource.Play();
         StartCoroutine(PlasterBackpack(2));
     }
 

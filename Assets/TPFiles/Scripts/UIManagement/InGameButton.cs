@@ -19,7 +19,8 @@ public class InGameButton : MonoBehaviour
     {
         if (button != null && collision.gameObject.CompareTag("Hand"))
         {
-            clickAudio.Play();
+            AudioSource.PlayClipAtPoint(clickAudio.clip, transform.position);
+            //clickAudio.Play();
             button.onClick.Invoke();
             return;
         }
