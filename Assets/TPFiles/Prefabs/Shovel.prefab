@@ -62,8 +62,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.175, y: 0.04, z: 0.29}
-  m_Center: {x: 0, y: 0.3, z: 0.835}
+  m_Size: {x: 0.2, y: 0.075, z: 0.35}
+  m_Center: {x: 0, y: 0.3, z: 0.81}
 --- !u!114 &2042308838350170420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,9 +77,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digNoise: {fileID: 2042308838350170419}
+  diggingClips:
+  - {fileID: 8300000, guid: e911ae9dc4ca08c43a61aa64963dcdde, type: 3}
+  - {fileID: 8300000, guid: 0baf2aaabcc47f54487e8f7162a9e4ee, type: 3}
+  - {fileID: 8300000, guid: 91a17c90cc35341418e0897b227ab5b3, type: 3}
+  - {fileID: 8300000, guid: 4ec66820aa85001449734b47ffdcee56, type: 3}
   modiferStrengh: 10
   sizeHit: 6
-  buildingMaterial: 0
 --- !u!82 &2042308838350170419
 AudioSource:
   m_ObjectHideFlags: 0
@@ -90,7 +94,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 28d7a874ba7d93e46bdc3cd776c19259, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e911ae9dc4ca08c43a61aa64963dcdde, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
