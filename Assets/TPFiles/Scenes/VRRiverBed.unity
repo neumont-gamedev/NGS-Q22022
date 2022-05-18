@@ -539,8 +539,7 @@ MonoBehaviour:
 
     2. Dig up fossils with your shovel.
 
-    3.
-    Apply the plaster field jacket.'
+    3. Apply the plaster field jacket.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -1340,7 +1339,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7671837012821691523, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 59e2f6fb2afadd2489dc5c6f7503f596, type: 3}
+    - target: {fileID: 7671837012821691523, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: [{fileID: 101085034, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}, {fileID: 3022583402842918174, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}, {fileID: 962813471, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3},
+      {fileID: -1237725896903203899, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3},
+      {fileID: 101085035, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}, {fileID: 101085032,
+        guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}, {fileID: 4116575515438549798,
+        guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}, {fileID: 9023175594519538234,
+        guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}]
   m_SourcePrefab: {fileID: 100100000, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
 --- !u!1 &678532919 stripped
 GameObject:
@@ -1738,7 +1754,7 @@ PrefabInstance:
     - target: {fileID: 3577543227352792563, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
       propertyPath: m_Name
-      value: --- MC Singletons ---
+      value: '--- MC Singletons ---'
       objectReference: {fileID: 0}
     - target: {fileID: 3577543227352792563, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
@@ -2518,8 +2534,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'How to use:
 
-        Press the metal head of the shovel against the
-        ground to dig. '
+        Press the metal head of the shovel against the ground to dig. '
       objectReference: {fileID: 0}
     - target: {fileID: 747798580, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
       propertyPath: m_Name
@@ -2712,6 +2727,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1963157321418991963, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963157321418991963, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963157321418991963, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.065
+      objectReference: {fileID: 0}
     - target: {fileID: 3388713606432065481, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_RootOrder
@@ -2766,6 +2796,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388713606432148163, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388713606432152237, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3388713606432234471, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -2992,7 +3032,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents: [{fileID: 136833824, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}]
   m_SourcePrefab: {fileID: 100100000, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
 --- !u!4 &1281926381 stripped
 Transform:
