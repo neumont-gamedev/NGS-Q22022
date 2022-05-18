@@ -34,28 +34,24 @@ public class ObjectEnabler : MonoBehaviour
     {
         if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (counter < objects.Length)
+            if(counter < objects.Length)
             {
                 objects[counter].SetActive(true);
-                if (toolDescriptionPanels != null)
+                if(toolDescriptionPanels.Length >= counter)
                 {
-                    if (counter < toolDescriptionPanels.Length)
-                    {
-                        toolDescriptionPanels[counter].SetActive(true);
-                    }
+                    toolDescriptionPanels[counter].SetActive(true);
                 }
+
                 controller.SetActive(false);
-                if (counter - 1 >= 0)
+                if(counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    if (toolDescriptionPanels != null)
+                    if(counter - 1 < toolDescriptionPanels.Length)
                     {
-                        if (counter - 1 >= 0)
-                        {
-                            toolDescriptionPanels[counter - 1].SetActive(false);
-                        }
+                        toolDescriptionPanels[counter - 1].SetActive(false);
                     }
                 }
+
                 counter++;
             }
             else
@@ -63,19 +59,17 @@ public class ObjectEnabler : MonoBehaviour
                 if (counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    if (toolDescriptionPanels[counter - 1] != null)
+
+                    if (counter - 1 < toolDescriptionPanels.Length)
                     {
-                        if (counter - 1 >= 0)
-                        {
-                            toolDescriptionPanels[counter - 1].SetActive(true);
-                        }
+                        toolDescriptionPanels[counter - 1].SetActive(false);
                     }
                 }
                 controller.SetActive(true);
                 counter = 0;
             }
             itemSwitch?.Play();
-        }
+        }        
 
         pressedLastFrame = OVRInput.Get(button);
     }
