@@ -19,6 +19,7 @@ public class AirScribe : MonoBehaviour
     public Combineable currentBone;
     public CleaningUIManager cUIManager;
     public TestVRInput VRInput;
+    [SerializeField] GameObject scribeDescriptionPanel;
 
     public JournalManager JManager;
 
