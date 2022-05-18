@@ -20,6 +20,8 @@ public class AirScribe : MonoBehaviour
     public CleaningUIManager cUIManager;
     public TestVRInput VRInput;
 
+    public JournalManager JManager;
+
     int piecesCleaned = 0;
     int piecesPolished = 0;
     bool combined = false;
@@ -30,6 +32,7 @@ public class AirScribe : MonoBehaviour
         currentBone = FindObjectOfType<Combineable>();
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+        JManager = FindObjectOfType<JournalManager>();
     }
 
     private void Update()
@@ -111,6 +114,7 @@ public class AirScribe : MonoBehaviour
                 break;
             case CleaningGameState.IDENTIFY:
                 Debug.Log("Identify");
+                JManager.IdentifyReady = true;
                 break;
             default:
                 break;
