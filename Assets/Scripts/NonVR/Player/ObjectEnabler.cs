@@ -31,7 +31,13 @@ public class ObjectEnabler : MonoBehaviour
             if (counter < objects.Length)
             {
                 objects[counter].SetActive(true);
-                if (toolDescriptionPanels[counter] != null) toolDescriptionPanels[counter].SetActive(true);
+                if (toolDescriptionPanels[counter] != null)
+                {
+                    if (counter < toolDescriptionPanels.Length)
+                    {
+                        toolDescriptionPanels[counter].SetActive(true);
+                    }
+                }
                 controller.SetActive(false);
                 if (counter - 1 >= 0)
                 {
@@ -45,7 +51,13 @@ public class ObjectEnabler : MonoBehaviour
                 if (counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                    if (toolDescriptionPanels[counter - 1] != null)
+                    {
+                        if (counter - 1 >= 0)
+                        {
+                            toolDescriptionPanels[counter].SetActive(true);
+                        }
+                    }
                 }
                 controller.SetActive(true);
                 counter = 0;
