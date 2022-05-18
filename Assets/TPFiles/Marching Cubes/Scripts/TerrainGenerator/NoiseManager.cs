@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MarchingCubes
 {
@@ -49,7 +50,6 @@ namespace MarchingCubes
 				public float appearValue;//1 to 0 value when the biome appears. Next biomePropertie.appear value is where this biome end
 		  }
 
-		  private int fossilDepth = -3;
 		  private int fossilBorders = 45;
 		  private Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
@@ -147,7 +147,9 @@ namespace MarchingCubes
                     }
 				}while(!isDistanced);
 
-				f.transform.position = new Vector3(x, fossilDepth, z);
+				if (SceneManager.GetActiveScene().name == "VRRiverBed") f.transform.position = new Vector3(x, -4, z);
+				else if (SceneManager.GetActiveScene().name == "VRMountains") f.transform.position = new Vector3(x, 0.07f, z);
+				else if (SceneManager.GetActiveScene().name == "VRDessert") f.transform.position = new Vector3(x, -3.42f, z);
 				Instantiate(f, transform);
 				xzs.Add(f.name, new KeyValuePair<float, float>(x, z));
 			}

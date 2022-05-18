@@ -11798,17 +11798,14 @@ MonoBehaviour:
 
     Music
 
-    Main Menu - Jurassic Park
-    Main Theme by John Williams
+    Main Menu - Jurassic Park Main Theme by John Williams
 
-    Overworld - The Temple God Awakens by Tyler
-    Cunningham
+    Overworld - The Temple God Awakens by Tyler Cunningham
 
     Museum - Resting Grounds Hollow Knight by by Christopher Larkin
 
 
-    Assets
-    - Unity Asset Store'
+    Assets - Unity Asset Store'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -16250,6 +16247,51 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1001 &949075457
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1093282812}
+    m_Modifications:
+    - target: {fileID: 6878521254948511425, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878521254948511425, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878521254948511425, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878521254948511425, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659259
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878521254948511425, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.258819
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878521254948511425, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 161eb71909f9f1849a5c7af1d52c99ce, type: 3}
+--- !u!1 &949075458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6878521254948511438, guid: 161eb71909f9f1849a5c7af1d52c99ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 949075457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &949315687
 GameObject:
   m_ObjectHideFlags: 0
@@ -21460,6 +21502,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 4588118559815856326, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588118559815856326, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4419872924452530103, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_audioClip
@@ -21484,7 +21536,12 @@ PrefabInstance:
         type: 3}
       propertyPath: objects.Array.data[0]
       value: 
-      objectReference: {fileID: 1605674065}
+      objectReference: {fileID: 949075458}
+    - target: {fileID: 4588118559815856326, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 949075458}
     - target: {fileID: 4588118559815856326, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: objects.Array.data[2]
@@ -21796,6 +21853,12 @@ MonoBehaviour:
 --- !u!4 &1093282811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3388713606432065475, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093282806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1093282812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3388713606432148163, guid: 29beb0e07f415db4485dcf1708a405f5,
     type: 3}
   m_PrefabInstance: {fileID: 1093282806}
   m_PrefabAsset: {fileID: 0}
@@ -31871,12 +31934,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1575628071}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1605674065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1963157321418991956, guid: 29beb0e07f415db4485dcf1708a405f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1093282806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607292031
 GameObject:
   m_ObjectHideFlags: 0

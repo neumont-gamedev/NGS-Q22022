@@ -57,6 +57,7 @@ public class FossilHolder : Singleton<FossilHolder>
             if(f.name == n)
             {
                 f.found = true;
+                backpack.Remove(n);
                 break;
             }
         }
@@ -65,7 +66,7 @@ public class FossilHolder : Singleton<FossilHolder>
     //adds unburied Fossil to backpack
     public static void AddToBackpack(string n)
     {
-        backpack.Add(n);
+        if(!backpack.Contains(n)) backpack.Add(n);
     }
 
     //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
