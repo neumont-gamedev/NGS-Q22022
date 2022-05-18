@@ -34,6 +34,7 @@ public class AirScribe : MonoBehaviour
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
         JManager = FindObjectOfType<JournalManager>();
+        if (scribeDescriptionPanel != null) scribeDescriptionPanel.SetActive(true);
     }
 
     private void Update()
