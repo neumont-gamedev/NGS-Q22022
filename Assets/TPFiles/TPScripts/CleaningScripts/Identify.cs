@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 
 public class Identify : MonoBehaviour
 {
-
     public TMP_Text uAnswer;
     public TMP_Text rAnswer;
     public TMP_Text uMarkings;
@@ -33,12 +32,10 @@ public class Identify : MonoBehaviour
         else
         {
             uAnswer.text = "The fossil is the " + uPart.text + "of a " + uCreature.text + " it has " + uMarkings.text + " marks. This creature " + uHappened.text;
-        }
-      
+        }  
 
         rAnswer.text = curData.boneData.FinalAnswer;
         resultsPage.SetActive(true);
-
 
     }
 }

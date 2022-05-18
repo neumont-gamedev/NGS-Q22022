@@ -8,7 +8,7 @@ public class JournalManager : MonoBehaviour
     public List<GameObject> journalPages;
     int page = 0;
 
-    bool IdentifyReady = false;
+    public bool IdentifyReady = false;
 
     //identify pages
     public GameObject identifyOnPage;
