@@ -37,7 +37,7 @@ public class ObjectEnabler : MonoBehaviour
             if (counter < objects.Length)
             {
                 objects[counter].SetActive(true);
-                if (toolDescriptionPanels[counter] != null)
+                if (toolDescriptionPanels != null)
                 {
                     if (counter < toolDescriptionPanels.Length)
                     {
@@ -61,7 +61,7 @@ public class ObjectEnabler : MonoBehaviour
                     {
                         if (counter - 1 >= 0)
                         {
-                            toolDescriptionPanels[counter].SetActive(true);
+                            toolDescriptionPanels[counter - 1].SetActive(true);
                         }
                     }
                 }
