@@ -2,12 +2,14 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     //panel index checks with gamestate index
     [SerializeField] GameObject[] panels;
     [SerializeField] int mainMenuIndex = 3;
+    [SerializeField] TMP_Text txtObjective; 
 
     public GameObject LabButton;
     public GameObject NoFossilsText;
@@ -96,6 +98,14 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
 
         //load anything that needs to be loaded
+        if (FossilHolder.backpack.Count == 0)
+        {
+            txtObjective.text = "Go find a fossil!";
+        }
+        else
+        {
+            txtObjective.text = "Go clean your fossil!";
+        }
     }
 
     public void LoadExcavation()
