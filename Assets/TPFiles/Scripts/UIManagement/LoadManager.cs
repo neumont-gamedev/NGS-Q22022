@@ -7,17 +7,28 @@ using MarchingCubes;
 public class LoadManager : MonoBehaviour
 {
     public GameObject LoadingScreen;
-    public GameObject LoadingRaptor;
     public GameObject HUD;
     public OVRPlayerController playerController;
-    public ObjectEnabler enabler;
+    public bool activateHUD = true;
+
+    ObjectEnabler[] enablers;
+
+    public ChunkLoad chunkLoad;
+    [Serializable]
+    public class ChunkLoad
+    {
+        public bool waitForChunks = true;
+        public int startingChunkX = 1;
+        public int startingChunkY = -1;
+    }
 
     void Awake()
     {
         playerController = GetComponentInParent<OVRPlayerController>();
-        if (enabler == null) enabler = GetComponentInParent<ObjectEnabler>();
         if (playerController != null) playerController.enabled = false;
-        if (enabler != null) enabler.enabled = false;
+        if (enablers == null || enablers.Length == 0) enablers = GetComponentsInParent<ObjectEnabler>();
+
+        ActivateObjectEnablers(false);
         HUD.SetActive(false);
 
         StartCoroutine(LoadingScreenCo());
@@ -25,13 +36,18 @@ public class LoadManager : MonoBehaviour
 
     IEnumerator LoadingScreenCo()
     {
-        yield return WaitUntilTrue(IsPlayerSet);
-        yield return WaitUntilTrue(IsEnoughChunksLoaded);
-        LoadingRaptor.SetActive(false);
+        if (chunkLoad.waitForChunks) // IsPlayerSet is based on ChunkManager
+        {
+            yield return WaitUntilTrue(IsPlayerSet);
+            yield return WaitUntilTrue(IsEnoughChunksLoaded);
+        }
+        else yield return new WaitForSeconds(2);
+
         LoadingScreen.SetActive(false);
-        HUD.SetActive(true);
+        if (activateHUD) HUD.SetActive(true);
         if (playerController != null) playerController.enabled = true;
-        if (enabler != null) enabler.enabled = true;
+        ActivateObjectEnablers(true);
+
         yield return true;
     }
 
@@ -53,9 +69,9 @@ public class LoadManager : MonoBehaviour
         List<GameObject> chunks = new List<GameObject>();
         GameObject chunk;
         int i, j;
-        for (i = 0; i < 3; i++)
+        for (i = chunkLoad.startingChunkX - 1; i < chunkLoad.startingChunkX + 2; i++)
         {
-            for (j = 0; j > -3; j--)
+            for (j = chunkLoad.startingChunkY - 1; j < chunkLoad.startingChunkY + 2; j++)
             {
                 chunk = GameObject.Find($"Chunk_{i}|{j}");
                 if (chunk != null)
@@ -67,5 +83,16 @@ public class LoadManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void ActivateObjectEnablers(bool activate)
+    {
+        if (enablers != null && enablers.Length > 0)
+        {
+            foreach (var enabler in enablers)
+            {
+                enabler.enabled = activate;
+            }
+        }
     }
 }

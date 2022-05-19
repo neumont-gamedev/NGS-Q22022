@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panels: []
   mainMenuIndex: 3
+  txtObjective: {fileID: 0}
   LabButton: {fileID: 0}
   NoFossilsText: {fileID: 0}
 --- !u!4 &397233823
@@ -3415,6 +3416,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PhysicsPointer
       objectReference: {fileID: 0}
+    - target: {fileID: 7026781318064740241, guid: de1ee31ece2d7924ca82140dfb24366c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7550720676458005861, guid: de1ee31ece2d7924ca82140dfb24366c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de1ee31ece2d7924ca82140dfb24366c, type: 3}
@@ -5172,6 +5178,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1004166802, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004166804, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
+      propertyPath: chunkLoad.waitForChunks
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1188042813, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5641,6 +5655,11 @@ PrefabInstance:
     - target: {fileID: 4921277216544621553, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922132691086130706, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547574037227404281, guid: 29beb0e07f415db4485dcf1708a405f5,
