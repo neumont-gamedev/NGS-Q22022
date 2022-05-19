@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
+using TMPro;
 
 public class CleaningUIManager : MonoBehaviour
 {
-
+    public TMP_Text txtScribeSteps;
     public Toggle RockBreaktoggle;
     public Toggle Cleantoggle;
     public Text cToggleText;
-
 
     public Toggle Combinetoggle;
     public Toggle Polishtoggle;
@@ -23,13 +23,15 @@ public class CleaningUIManager : MonoBehaviour
     {
         if (successAudio == null) successAudio = GetComponent<AudioSource>();
         if (successAudio != null) successAudio.clip = clips[0];
+        txtScribeSteps.text = "Hold left trigger to free the fossil with the air scribe!";
     }
 
 
     public void RockBreakToggleChange()
     {
         Polishtoggle.isOn = false;
-        RockBreaktoggle.isOn = true;
+        RockBreaktoggle.isOn = true; 
+        txtScribeSteps.text = "Hold left trigger to clean the fossil!";
     }
 
     public void CleanToggleChange()
@@ -37,6 +39,7 @@ public class CleaningUIManager : MonoBehaviour
         Polishtoggle.isOn = false;
         Cleantoggle.isOn = true;
         putTogetherDisplay.SetActive(true);
+        txtScribeSteps.text = "Put the fossil back together!";
     }
 
     public void CleanToggleTextChange(int cleanedBones, int maxBones)
@@ -54,12 +57,14 @@ public class CleaningUIManager : MonoBehaviour
         Polishtoggle.isOn = false;
         Combinetoggle.isOn = true;
         putTogetherDisplay.SetActive(false);
+        txtScribeSteps.text = "Hold left trigger to polish the fossil!";
     }
 
 
     public void PolishToggleChange()
     {
         Polishtoggle.isOn = true;
+        txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
     }
 
     public void PlayTaskCompleteAudio()
