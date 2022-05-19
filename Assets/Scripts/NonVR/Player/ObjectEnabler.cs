@@ -35,6 +35,7 @@ public class ObjectEnabler : MonoBehaviour
     {
         if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Space))
         {
+            bool reset = false;
             if(counter < objects.Length)
             {
                 objects[counter].SetActive(true);
@@ -53,6 +54,7 @@ public class ObjectEnabler : MonoBehaviour
 
                 controller.SetActive(true);
                 counter = 0;
+                reset = true;
             }
 
             if(descriptionCounter < toolDescriptionPanels.Length)
@@ -73,7 +75,11 @@ public class ObjectEnabler : MonoBehaviour
                     if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
                 }
 
-                descriptionCounter = 0;
+                if (reset)
+                {
+                    descriptionCounter = 0;
+                    reset = false;
+                }
             }
 
             itemSwitch?.Play();
