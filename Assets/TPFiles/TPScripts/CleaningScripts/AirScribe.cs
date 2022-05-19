@@ -87,6 +87,10 @@ public class AirScribe : MonoBehaviour
                 {
                     combined = true;
                     cUIManager.CombineToggleChange();
+                }
+                
+                if (combined)
+                {
                     currentState = CleaningGameState.POLISH;
                 }
                 break;

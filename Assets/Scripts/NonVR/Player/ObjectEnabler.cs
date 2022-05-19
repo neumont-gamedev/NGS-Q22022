@@ -13,6 +13,7 @@ public class ObjectEnabler : MonoBehaviour
     bool pressedLastFrame = false;
 
     int counter = 0;
+    int descriptionCounter = 0;
 
     void Awake()
     {
@@ -34,42 +35,55 @@ public class ObjectEnabler : MonoBehaviour
     {
         if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (counter < objects.Length)
+            bool reset = false;
+            if(counter < objects.Length)
             {
                 objects[counter].SetActive(true);
-                if (toolDescriptionPanels[counter] != null)
-                {
-                    if (counter < toolDescriptionPanels.Length)
-                    {
-                        toolDescriptionPanels[counter].SetActive(true);
-                    }
-                }
+
                 controller.SetActive(false);
-                if (counter - 1 >= 0)
+                if(counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    toolDescriptionPanels[counter - 1].SetActive(false);
                 }
+
                 counter++;
             }
             else
             {
-                if (counter - 1 >= 0)
-                {
-                    objects[counter - 1].SetActive(false);
-                    if (toolDescriptionPanels[counter - 1] != null)
-                    {
-                        if (counter - 1 >= 0)
-                        {
-                            toolDescriptionPanels[counter].SetActive(true);
-                        }
-                    }
-                }
+                if (counter - 1 >= 0) objects[counter - 1].SetActive(false);
+
                 controller.SetActive(true);
                 counter = 0;
+                reset = true;
             }
+
+            if(descriptionCounter < toolDescriptionPanels.Length)
+            {
+                if (toolDescriptionPanels[descriptionCounter] != null) toolDescriptionPanels[descriptionCounter].SetActive(true);
+                
+                if(descriptionCounter - 1  >= 0)
+                {
+                    if (toolDescriptionPanels[descriptionCounter - 1] != null) toolDescriptionPanels[descriptionCounter - 1].SetActive(false);
+                }
+
+                descriptionCounter++;
+            }
+            else
+            {
+                if(descriptionCounter -1 >= 0)
+                {
+                    if (toolDescriptionPanels[descriptionCounter - 1] != null) toolDescriptionPanels[descriptionCounter - 1].SetActive(false);
+                }
+
+                if (reset)
+                {
+                    descriptionCounter = 0;
+                    reset = false;
+                }
+            }
+
             itemSwitch?.Play();
-        }
+        }        
 
         pressedLastFrame = OVRInput.Get(button);
     }
