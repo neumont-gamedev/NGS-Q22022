@@ -39,7 +39,7 @@ public class ObjectEnabler : MonoBehaviour
                 objects[counter].SetActive(true);
                 if(toolDescriptionPanels.Length >= counter)
                 {
-                    if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter].SetActive(true);
+                    if (toolDescriptionPanels[counter] != null) toolDescriptionPanels[counter].SetActive(true);
                 }
 
                 controller.SetActive(false);
