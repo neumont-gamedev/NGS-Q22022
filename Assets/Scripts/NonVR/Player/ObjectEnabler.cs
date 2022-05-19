@@ -13,6 +13,7 @@ public class ObjectEnabler : MonoBehaviour
     bool pressedLastFrame = false;
 
     int counter = 0;
+    int descriptionCounter = 0;
 
     void Awake()
     {
@@ -37,36 +38,44 @@ public class ObjectEnabler : MonoBehaviour
             if(counter < objects.Length)
             {
                 objects[counter].SetActive(true);
-                if(toolDescriptionPanels.Length >= counter)
-                {
-                    if (toolDescriptionPanels[counter] != null) toolDescriptionPanels[counter].SetActive(true);
-                }
 
                 controller.SetActive(false);
                 if(counter - 1 >= 0)
                 {
                     objects[counter - 1].SetActive(false);
-                    if(counter - 1 < toolDescriptionPanels.Length)
-                    {
-                        if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
-                    }
                 }
 
                 counter++;
             }
             else
             {
-                if (counter - 1 >= 0)
-                {
-                    objects[counter - 1].SetActive(false); 
-                    if (counter - 1 < toolDescriptionPanels.Length)
-                    {
-                        if(toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
-                    }
-                }
+                if (counter - 1 >= 0) objects[counter - 1].SetActive(false);
+
                 controller.SetActive(true);
                 counter = 0;
             }
+
+            if(descriptionCounter < toolDescriptionPanels.Length)
+            {
+                if (toolDescriptionPanels[counter] != null) toolDescriptionPanels[counter].SetActive(true);
+                
+                if(descriptionCounter - 1  >= 0)
+                {
+                    if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                }
+
+                descriptionCounter++;
+            }
+            else
+            {
+                if(descriptionCounter -1 >= 0)
+                {
+                    if (toolDescriptionPanels[counter - 1] != null) toolDescriptionPanels[counter - 1].SetActive(false);
+                }
+
+                descriptionCounter = 0;
+            }
+
             itemSwitch?.Play();
         }        
 
