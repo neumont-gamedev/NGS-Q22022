@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
+        if(SceneManager.GetActiveScene() == SceneManager.GetAllScenes()[0]) uiManager.ObjectiveChange();
     }
 
     //Build Reference: Museum=0 Dessert=1 Mountains=2 Riverbed=3 Lab=4
@@ -20,7 +21,6 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 SceneManager.LoadScene(0);
-                uiManager.ObjectiveChange();
                 break;
             case 1:
                 SceneManager.LoadScene(1);
