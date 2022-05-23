@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public UIManager uiManager;
+    private UIManager uiManager;
 
     public void Start()
     {
-        if (uiManager == null) uiManager = FindObjectOfType<UIManager>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
-    //0 - museum 1 - dessert  2 - mountains 3 - riverbed 4 - lab
+    //Build Reference: Museum=0 Dessert=1 Mountains=2 Riverbed=3 Lab=4
     public void LoadScene(int sceneIndex)
     {
         switch (sceneIndex)
@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Quits game
     public void OnQuit()
     {
 #if UNITY_EDITOR
