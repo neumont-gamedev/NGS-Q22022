@@ -5,22 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Fossil : MonoBehaviour
 {
-    //public Material setJacketMaterial;
-
     public bool cleaned = false;
-
     public AudioClip[] clips;
-
-    private bool unburied = false;
-    private bool buried = true;
-    private bool startDigging = false;
-    private bool plastered = false;
-    private bool foundAudioPlayed = false;
-
-    private AudioSource audioSource;
-    private OVRGrabbable grabbable;
-    private Animator ani;
-    private GameObject shell;
 
     private void Awake()
     {
@@ -31,7 +17,13 @@ public class Fossil : MonoBehaviour
         name = name.Replace("(Clone)", "");
     }
 
-    //resets buried to false until it comes back false
+    //Checks if the fossil is being dug up
+    //And when the diffing is finished
+    #region digging
+    private bool unburied = false;
+    private bool buried = true;
+    private bool startDigging = false;
+
     private void FixedUpdate()
     {
         if (startDigging)
@@ -53,11 +45,8 @@ public class Fossil : MonoBehaviour
         }
     }
 
-    //starts the digging and sets buried true
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
-
         if (collision.gameObject.CompareTag("Ground"))
         {
             if (!startDigging)
@@ -78,25 +67,30 @@ public class Fossil : MonoBehaviour
         }
     }
 
-    //changes buried true as long as they collide
     private void OnCollisionStay(Collision collision)
     {
-        Debug.Log(collision.gameObject.tag);
-
+        //Checks if it  is still buried
         if (collision.gameObject.CompareTag("Ground") && !unburied)
         {
             buried = true;
         }
+        //Checks for plastering 
         else if (collision.gameObject.CompareTag("Plaster") && unburied)
         {
             if (plastered) return;
-            Debug.LogWarning("Plastered");
             Plaster();
         }
     }
+    #endregion
 
-    public void Clean() { cleaned = true; }
-    public bool isFound() { return cleaned; }
+    //Plasters fossil
+    #region plaster
+    private bool plastered = false;
+    private bool foundAudioPlayed = false;
+    private AudioSource audioSource;
+    private OVRGrabbable grabbable;
+    private Animator ani;
+    private GameObject shell;
 
     public void Plaster()
     {
@@ -105,6 +99,7 @@ public class Fossil : MonoBehaviour
         ani.Play("FieldJacketClose");
     }
 
+    
     public void PlasterDry()
     {
         var renderers = shell.GetComponentsInChildren<MeshRenderer>();
@@ -154,5 +149,5 @@ public class Fossil : MonoBehaviour
         
         yield return true;
     }
-
+    #endregion
 }

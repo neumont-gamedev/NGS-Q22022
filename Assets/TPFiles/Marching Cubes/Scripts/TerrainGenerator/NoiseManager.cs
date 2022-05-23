@@ -53,14 +53,14 @@ namespace MarchingCubes
 		  private int fossilBorders = 45;
 		  private Dictionary<string, KeyValuePair<float, float>> xzs = new Dictionary<string, KeyValuePair<float, float>>();
 
-		//resets world data and calls startup commands
+		//resets world data, calls startup commands, and generates map
 		  public void Start()
 		  {
 			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
 			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
+			 if (map == null) map = FindObjectOfType<Map>();
 			 Startup();
 			 StartupBoi();
-			 if (map == null) map = FindObjectOfType<Map>();
 			 map.GenerateMap();
 		}
 
@@ -115,6 +115,8 @@ namespace MarchingCubes
 			{
 				bool isDistanced = true;
 
+				//Gives random x between 0 & fossilBorders
+				//Repeats if overlapping with another fossil
 				do {
 					isDistanced = true;
 					x = Random.value * fossilBorders;
@@ -131,7 +133,10 @@ namespace MarchingCubes
                     }
 				}while (!isDistanced);
 
-				do {
+				//Gives random z between 0 & fossilBorders
+				//Repeats if overlapping with another fossil
+				do
+				{
 					isDistanced = true;
 					z = Random.value * fossilBorders;
 					if (z > (fossilBorders / 2)) z = z / 2;
@@ -147,6 +152,7 @@ namespace MarchingCubes
                     }
 				}while(!isDistanced);
 
+				//Set fossil depth based on map type
 				if (SceneManager.GetActiveScene().name == "VRRiverBed") f.transform.position = new Vector3(x, -4, z);
 				else if (SceneManager.GetActiveScene().name == "VRMountains") f.transform.position = new Vector3(x, 0.07f, z);
 				else if (SceneManager.GetActiveScene().name == "VRDessert") f.transform.position = new Vector3(x, -3.42f, z);
@@ -375,6 +381,7 @@ namespace MarchingCubes
 				return noiseMap;
 		  }
 
+		//Sends coordinates of the fossils to the map
 		public Dictionary<float, float> getCoords()
         {
 			Dictionary<float, float> coords = new Dictionary<float, float>();

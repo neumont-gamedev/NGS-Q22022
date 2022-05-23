@@ -37,8 +37,8 @@ public class FossilHolder : Singleton<FossilHolder>
             "They are closely related to birds.\n Prior to their discovery, paleontologists believed sickle-clawed dromaeosaurids were small carnivores that only lived in the Late Cretaceous. They required paleontologists to revise their understanding of this family of dinosaurs as it was much larger and lived the Early Cretaceous.",
             "6 meters / 19.7 feet long", "Early Cretaceous", "over a ton")
     };
+    public static List<string> backpack = new List<string>(); 
 
-    public static List<string> backpack = new List<string>();
     [SerializeField] static OVRGrabber grabber;
 
     private void Awake()
@@ -69,6 +69,7 @@ public class FossilHolder : Singleton<FossilHolder>
         if(!backpack.Contains(n)) backpack.Add(n);
     }
 
+    //TODO: Not Used ???
     //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
     public int GrabFossil(Fossil fossil)
     {
