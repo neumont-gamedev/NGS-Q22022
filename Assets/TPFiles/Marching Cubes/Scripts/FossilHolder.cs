@@ -50,6 +50,11 @@ public class FossilHolder : Singleton<FossilHolder>
         }
     }
 
+    public string[] backpackContents()
+    {
+        return backpack.ToArray();
+    }
+
     public static void FossilFound(string n)
     {
         foreach(var f in fossilBits)

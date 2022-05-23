@@ -21,22 +21,18 @@ public class CleaningUIManager : MonoBehaviour
 
     private void Start()
     {
-        if (successAudio == null) successAudio = GetComponent<AudioSource>();
-        if (successAudio != null) successAudio.clip = clips[0];
         txtScribeSteps.text = "Hold left trigger to free the fossil with the air scribe!";
     }
 
 
     public void RockBreakToggleChange()
     {
-        Polishtoggle.isOn = false;
         RockBreaktoggle.isOn = true; 
         txtScribeSteps.text = "Hold left trigger to clean the fossil!";
     }
 
     public void CleanToggleChange()
     {
-        Polishtoggle.isOn = false;
         Cleantoggle.isOn = true;
         putTogetherDisplay.SetActive(true);
         txtScribeSteps.text = "Put the fossil back together!";
@@ -54,7 +50,6 @@ public class CleaningUIManager : MonoBehaviour
 
     public void CombineToggleChange()
     {
-        Polishtoggle.isOn = false;
         Combinetoggle.isOn = true;
         putTogetherDisplay.SetActive(false);
         txtScribeSteps.text = "Hold left trigger to polish the fossil!";
