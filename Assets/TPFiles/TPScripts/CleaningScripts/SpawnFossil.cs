@@ -10,6 +10,8 @@ public class SpawnFossil : MonoBehaviour
 
     private FossilHolder holder;
 
+    //Should be used in lab scene
+    //Spawns first fossil in the backpack
     void Start()
     {
         holder = GetComponent<FossilHolder>();
