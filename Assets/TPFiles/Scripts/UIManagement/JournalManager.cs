@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 
 public class JournalManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool IdentifyReady = false;
+
     public List<GameObject> journalPages;
     public List<GameObject> identifyPages;
     int page = 0;
     int identifyPage = 0;
-
-    public bool IdentifyReady = false;
 
     //identify pages
     public GameObject identifyOnPage;
@@ -24,7 +23,6 @@ public class JournalManager : MonoBehaviour
 
     public Identify identifier;
 
-
     public void Reset()
     {
         identifyOnPage.SetActive(false);
@@ -36,10 +34,9 @@ public class JournalManager : MonoBehaviour
 
         foreach (GameObject i in journalPages)
         {
-            
+
             i.SetActive(false);
         }
-
 
         page = 0;
         journalPages[page].SetActive(true);
@@ -56,10 +53,8 @@ public class JournalManager : MonoBehaviour
 
         foreach (GameObject i in identifyPages)
         {
-
             i.SetActive(false);
         }
-
 
         identifyPage = 0;
         journalPages[page].SetActive(true);
@@ -85,12 +80,6 @@ public class JournalManager : MonoBehaviour
 
     public void TurnIdentifyPage()
     {
-
-        foreach (GameObject i in journalPages)
-        {
-
-            i.SetActive(false);
-        }
 
         if (identifyPage + 1 > identifyPages.Count)
         {
@@ -129,6 +118,12 @@ public class JournalManager : MonoBehaviour
         identifyTab.SetActive(false);
         identifyBackTab.SetActive(true);
 
+        foreach (GameObject i in journalPages)
+        {
+
+            i.SetActive(false);
+        }
+
         if (IdentifyReady)
         {
             identifyOnPage.SetActive(true);
@@ -139,9 +134,9 @@ public class JournalManager : MonoBehaviour
         }
     }
 
-    public void EnterAnswer()
+    public void EnterAnswer(string name)
     {
-        identifier.InsertAnswer(EventSystem.current.currentSelectedGameObject.name);
+        identifier.InsertAnswer(name);
         TurnIdentifyPage();
     }
 
