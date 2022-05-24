@@ -7,14 +7,14 @@ using UnityEngine.UIElements;
 
 public class Identify : MonoBehaviour
 {
-    public TMP_Text uAnswer;
+    public TMP_Text userAnswer;
     public string rAnswer;
     
-    public string uMarkings;
+    public string userMarkings;
     public TMP_Text fMarkings;
-    public string uPart;
+    public string userPart;
     public TMP_Text fPart;
-    public string uCreature;
+    public string userCreature;
     public TMP_Text fCreature;
 
 
@@ -31,17 +31,17 @@ public class Identify : MonoBehaviour
     {
         if(answer == "Head" || answer == "Tail" || answer == "Foot" || answer == "Pelvis")
         {
-            uPart = answer;
+            userPart = answer;
             fPart.text = answer;
         }
         else if(answer == "Scratch" || answer == "Holes" || answer == "Bug Bites" || answer == "Fractures")
         {
-            uMarkings = answer;
+            userMarkings = answer;
             fMarkings.text = answer;
         }
         else if(answer == "Allosaurus" || answer == "Barosaurus" || answer == "Iguanadon" || answer == "Pterodactyl" || answer == "Trilobite" || answer == "Plesiosaurus" || answer == "Trex" || answer == "UtahRaptor")
         {
-            uCreature = answer;
+            userCreature = answer;
             fCreature.text = answer;
         }
 
@@ -51,11 +51,11 @@ public class Identify : MonoBehaviour
     {
         if(curData.boneData.Creature_Name.ToString() == "Trilobite")
         {
-            uAnswer.text = "The fossil is the " + uPart + "of a " + uCreature;
+            userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
         }
         else
         {
-            uAnswer.text = "The fossil is the " + uPart + "of a " + uCreature + " it has " + uMarkings + " marks.";
+            userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
         }  
 
         //rAnswer.text = curData.boneData.FinalAnswer;

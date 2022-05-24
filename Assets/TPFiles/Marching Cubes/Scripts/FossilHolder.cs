@@ -49,6 +49,13 @@ public class FossilHolder : Singleton<FossilHolder>
             DontDestroyOnLoad(this);
         }
     }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            backpack.Add("UtahRaptor");
+        }
+    }
 
     public string[] backpackContents()
     {
