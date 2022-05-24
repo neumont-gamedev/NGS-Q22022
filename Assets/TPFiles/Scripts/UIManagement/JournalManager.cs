@@ -9,6 +9,7 @@ public class JournalManager : MonoBehaviour
     public List<GameObject> journalPages;
     public List<GameObject> identifyPages;
     int page = 0;
+    int identifyPage = 0;
 
     public bool IdentifyReady = false;
 
@@ -44,6 +45,26 @@ public class JournalManager : MonoBehaviour
         journalPages[page].SetActive(true);
     }
 
+    public void IdentifyReset()
+    {
+        identifyOnPage.SetActive(true);
+        identifyOffPage.SetActive(false);
+        nextTab.SetActive(false);
+        backTab.SetActive(false);
+        identifyBackTab.SetActive(true);
+        identifyTab.SetActive(false);
+
+        foreach (GameObject i in identifyPages)
+        {
+
+            i.SetActive(false);
+        }
+
+
+        identifyPage = 0;
+        journalPages[page].SetActive(true);
+    }
+
     public void TurnPage()
     {
         Debug.Log(journalPages.Count.ToString());
@@ -64,19 +85,25 @@ public class JournalManager : MonoBehaviour
 
     public void TurnIdentifyPage()
     {
-        Debug.Log(identifyPages.Count.ToString());
 
-        if (page + 1 > identifyPages.Count)
+        foreach (GameObject i in journalPages)
         {
-            Reset();
+
+            i.SetActive(false);
+        }
+
+        if (identifyPage + 1 > identifyPages.Count)
+        {
+            IdentifyReset();
         }
         else
         {
-            page++;
-            identifyPages[page].SetActive(true);
+            identifyPages[identifyPage].SetActive(false);
+            identifyPage++;
+            identifyPages[identifyPage].SetActive(true);
         }
 
-        Debug.Log(page);
+        Debug.Log(identifyPage);
 
     }
 
