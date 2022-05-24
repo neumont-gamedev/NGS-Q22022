@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class JournalManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> journalPages;
+    public List<GameObject> identifyPages;
     int page = 0;
 
     public bool IdentifyReady = false;
@@ -18,6 +20,8 @@ public class JournalManager : MonoBehaviour
     public GameObject backTab;
     public GameObject identifyTab;
     public GameObject identifyBackTab;
+
+    public Identify identifier;
 
 
     public void Reset()
@@ -58,6 +62,24 @@ public class JournalManager : MonoBehaviour
         
     }
 
+    public void TurnIdentifyPage()
+    {
+        Debug.Log(identifyPages.Count.ToString());
+
+        if (page + 1 > identifyPages.Count)
+        {
+            Reset();
+        }
+        else
+        {
+            page++;
+            identifyPages[page].SetActive(true);
+        }
+
+        Debug.Log(page);
+
+    }
+
     public void BackPage()
     {
 
@@ -88,6 +110,12 @@ public class JournalManager : MonoBehaviour
         {
             identifyOffPage.SetActive(true);
         }
+    }
+
+    public void EnterAnswer()
+    {
+        identifier.InsertAnswer(EventSystem.current.currentSelectedGameObject.name);
+        TurnIdentifyPage();
     }
 
 
