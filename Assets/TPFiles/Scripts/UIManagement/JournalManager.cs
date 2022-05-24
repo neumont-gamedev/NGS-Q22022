@@ -149,13 +149,13 @@ public class JournalManager : MonoBehaviour
     {
         foreach(GameObject c in handColliders)
         {
-            c.gameObject.GetComponent<BoxCollider>().enabled = false;
+            c.gameObject.GetComponent<SphereCollider>().enabled = false;
         }
         yield return new WaitForSeconds(seconds);
 
         foreach (GameObject c in handColliders)
         {
-            c.gameObject.GetComponent<BoxCollider>().enabled = false;
+            c.gameObject.GetComponent<SphereCollider>().enabled = false;
         }
     }
 

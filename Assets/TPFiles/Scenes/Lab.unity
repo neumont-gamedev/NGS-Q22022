@@ -5269,9 +5269,24 @@ PrefabInstance:
       objectReference: {fileID: 1977933258}
     - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
+      propertyPath: handColliders.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
       propertyPath: identifyPages.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: handColliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 1977933299}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: handColliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 1977933298}
     - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: identifyPages.Array.data[0]
@@ -7235,6 +7250,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4176d0c431eae439a3ec48e12d2631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1977933298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3388713606432329909, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1977933253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1977933299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3388713606432295245, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1977933253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &1988517470
 MeshFilter:
   m_ObjectHideFlags: 0
