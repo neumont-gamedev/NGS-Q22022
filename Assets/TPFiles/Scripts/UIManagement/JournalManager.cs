@@ -65,7 +65,7 @@ public class JournalManager : MonoBehaviour
     public void TurnPage()
     {
         Debug.Log(journalPages.Count.ToString());
-        StopPlayer(2);
+        StartCoroutine(StopPlayer(2));
 
         if (page + 1 > journalPages.Count)
         {
@@ -101,7 +101,7 @@ public class JournalManager : MonoBehaviour
 
     public void BackPage()
     {
-         StopPlayer(2);
+        StartCoroutine(StopPlayer(2));
         if (page - 1 < 0)
         {
             Reset();
@@ -142,7 +142,7 @@ public class JournalManager : MonoBehaviour
 
         identifier.InsertAnswer(name);
         TurnIdentifyPage();
-        StopPlayer(2);
+        StartCoroutine(StopPlayer(2));
     }
 
     public IEnumerator StopPlayer(float seconds)
