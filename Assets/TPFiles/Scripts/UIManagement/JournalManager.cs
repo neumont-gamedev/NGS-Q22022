@@ -156,7 +156,7 @@ public class JournalManager : MonoBehaviour
 
         foreach (GameObject c in handColliders)
         {
-            c.gameObject.GetComponent<SphereCollider>().enabled = false;
+            c.gameObject.GetComponent<SphereCollider>().enabled = true;
         }
     }
 
