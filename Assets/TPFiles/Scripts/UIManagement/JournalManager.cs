@@ -23,6 +23,8 @@ public class JournalManager : MonoBehaviour
 
     public Identify identifier;
 
+    public List<GameObject> handColliders;
+
     public void Reset()
     {
         identifyOnPage.SetActive(false);
@@ -63,8 +65,9 @@ public class JournalManager : MonoBehaviour
     public void TurnPage()
     {
         Debug.Log(journalPages.Count.ToString());
+        StopPlayer(2);
 
-        if(page + 1 > journalPages.Count)
+        if (page + 1 > journalPages.Count)
         {
             Reset();
         }
@@ -98,7 +101,7 @@ public class JournalManager : MonoBehaviour
 
     public void BackPage()
     {
-
+         StopPlayer(2);
         if (page - 1 < 0)
         {
             Reset();
@@ -136,10 +139,25 @@ public class JournalManager : MonoBehaviour
 
     public void EnterAnswer(string name)
     {
+
         identifier.InsertAnswer(name);
         TurnIdentifyPage();
+        StopPlayer(2);
     }
 
+    public IEnumerator StopPlayer(float seconds)
+    {
+        foreach(GameObject c in handColliders)
+        {
+            c.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+        yield return new WaitForSeconds(seconds);
+
+        foreach (GameObject c in handColliders)
+        {
+            c.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
 
 
 }
