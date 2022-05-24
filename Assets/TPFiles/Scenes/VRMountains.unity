@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 219536570}
-  m_IndirectSpecularColor: {r: 0.18190676, g: 0.2275872, b: 0.3074174, a: 1}
+  m_IndirectSpecularColor: {r: 0.18190691, g: 0.22758718, b: 0.30741766, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -539,8 +539,7 @@ MonoBehaviour:
 
     2. Dig up fossils with your shovel.
 
-    3.
-    Apply the plaster field jacket.'
+    3. Apply the plaster field jacket.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -1257,7 +1256,8 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents: [{fileID: 7671837012821691523, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}]
   m_SourcePrefab: {fileID: 100100000, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
 --- !u!1 &678532919 stripped
 GameObject:
@@ -1265,6 +1265,108 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 678532918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &678532920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1784279310, guid: e256c70be6f1759468fdfa8d48e9217b,
+    type: 3}
+  m_PrefabInstance: {fileID: 678532918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &678532921
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678532920}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 59e2f6fb2afadd2489dc5c6f7503f596, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &690523090
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1580,7 +1682,7 @@ PrefabInstance:
     - target: {fileID: 3577543227352792563, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
       propertyPath: m_Name
-      value: --- MC Singletons ---
+      value: '--- MC Singletons ---'
       objectReference: {fileID: 0}
     - target: {fileID: 3577543227352792563, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
@@ -2350,8 +2452,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'How to use:
 
-        Press the metal head of the shovel against the
-        ground to dig. '
+        Press the metal head of the shovel against the ground to dig. '
       objectReference: {fileID: 0}
     - target: {fileID: 747798580, guid: 29beb0e07f415db4485dcf1708a405f5, type: 3}
       propertyPath: m_Name
@@ -2775,6 +2876,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4255200748477015864, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3880585227173408162, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -2944,6 +3050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921277215050355317, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4921277214913846867, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -3174,6 +3285,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1281926380}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1281926387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4921277215057434327, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1281926380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1287640120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2057128503, guid: 29beb0e07f415db4485dcf1708a405f5,
@@ -3649,7 +3772,7 @@ MonoBehaviour:
   panels:
   - {fileID: 678532919}
   mainMenuIndex: 3
-  txtObjective: {fileID: 0}
+  txtObjective: {fileID: 1281926387}
   LabButton: {fileID: 0}
   NoFossilsText: {fileID: 0}
 --- !u!1 &1712057809
