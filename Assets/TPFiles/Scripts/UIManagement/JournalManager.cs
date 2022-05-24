@@ -111,6 +111,7 @@ public class JournalManager : MonoBehaviour
             journalPages[page].SetActive(false);
             page--;
             journalPages[page].SetActive(true);
+            identifier.FillAnswers();
         }
     }
 

@@ -27,29 +27,36 @@ public class Identify : MonoBehaviour
         curData = FindObjectOfType<DataHolder>();
     }
 
+    public void FillAnswers()
+    {
+        fPart.text = userPart;
+        fMarkings.text = userMarkings;
+        fCreature.text = userCreature;
+    }
+
     public void InsertAnswer(string answer)
     {
         if(answer == "Head" || answer == "Tail" || answer == "Foot" || answer == "Pelvis")
         {
             userPart = answer;
-            fPart.text = answer;
+            
         }
         else if(answer == "Scratch" || answer == "Holes" || answer == "Bug Bites" || answer == "Fractures")
         {
             userMarkings = answer;
-            fMarkings.text = answer;
         }
         else if(answer == "Allosaurus" || answer == "Barosaurus" || answer == "Iguanadon" || answer == "Pterodactyl" || answer == "Trilobite" || answer == "Plesiosaurus" || answer == "Trex" || answer == "UtahRaptor")
         {
             userCreature = answer;
-            fCreature.text = answer;
         }
 
     }
 
     public void CheckQuestion()
     {
-        if(curData.boneData.Creature_Name.ToString() == "Trilobite")
+        resultsPage.SetActive(true);
+
+        if (curData.boneData.Creature_Name.ToString() == "Trilobite")
         {
             userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
         }
@@ -58,7 +65,6 @@ public class Identify : MonoBehaviour
             userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
         }  
 
-        //rAnswer.text = curData.boneData.FinalAnswer;
-        resultsPage.SetActive(true);
+        
     }
 }
