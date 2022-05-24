@@ -7,11 +7,9 @@ public class Fossil : MonoBehaviour
 {
     public bool cleaned = false;
     public AudioClip[] clips;
-    private UIManager uiBoi;
 
     private void Awake()
     {
-        uiBoi = FindObjectOfType<UIManager>();
         ani = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         shell = transform.Find("Shell").gameObject;
@@ -35,7 +33,6 @@ public class Fossil : MonoBehaviour
                 unburied = true;
                 if (!foundAudioPlayed)
                 {
-                    uiBoi.DiggingObjective(2);
                     foundAudioPlayed = true;
                     audioSource.clip = clips[0];
                     audioSource.Play();
@@ -55,7 +52,6 @@ public class Fossil : MonoBehaviour
             if (!startDigging)
             {
                 startDigging = true;
-                uiBoi.DiggingObjective(1);
             }
             if (!unburied)
             {
@@ -141,7 +137,6 @@ public class Fossil : MonoBehaviour
 
         audioSource.clip = clips[1];
         audioSource.Play();
-        uiBoi.DiggingObjective(3);
         StartCoroutine(PlasterBackpack(2));
     }
 

@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneAt(0)) uiManager.ObjectiveChange();
-        if (SceneManager.GetActiveScene() != SceneManager.GetSceneAt(0) && SceneManager.GetActiveScene() != SceneManager.GetSceneAt(4)) uiManager.DiggingObjective(0);
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneAt(0)) uiManager.ObjectiveChange();
     }
 
     //Build Reference: Museum=0 Dessert=1 Mountains=2 Riverbed=3 Lab=4
