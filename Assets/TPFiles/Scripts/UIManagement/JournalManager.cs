@@ -149,6 +149,7 @@ public class JournalManager : MonoBehaviour
     {
         foreach(GameObject c in handColliders)
         {
+            Debug.Log(c.name);
             c.gameObject.GetComponent<SphereCollider>().enabled = false;
         }
         yield return new WaitForSeconds(seconds);
