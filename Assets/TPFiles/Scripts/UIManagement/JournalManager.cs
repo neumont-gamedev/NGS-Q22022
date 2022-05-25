@@ -46,6 +46,11 @@ public class JournalManager : MonoBehaviour
 
             i.SetActive(false);
         }
+        foreach (GameObject i in identifyPages)
+        {
+
+            i.SetActive(false);
+        }
 
         page = 0;
         journalPages[page].SetActive(true);
@@ -69,7 +74,7 @@ public class JournalManager : MonoBehaviour
         }
 
         identifyPage = 0;
-        journalPages[page].SetActive(true);
+        identifyPages[identifyPage].SetActive(true);
     }
 
     public void TurnPage()
@@ -129,7 +134,7 @@ public class JournalManager : MonoBehaviour
         StartCoroutine(StopPlayer(2));
         if (identifyPage - 1 < 0)
         {
-            Reset();
+            IdentifyReset();
         }
         else
         {
