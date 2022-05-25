@@ -16,10 +16,15 @@ public class JournalManager : MonoBehaviour
     public GameObject identifyOnPage;
     public GameObject identifyOffPage;
 
-    public GameObject nextTab;
-    public GameObject backTab;
-    public GameObject identifyTab;
-    public GameObject identifyBackTab;
+
+    //Tabs
+    public GameObject mainTabs;
+    public GameObject identifyTabs;
+
+    //public GameObject mainNextTab;
+    //public GameObject mainBackTab;
+    //public GameObject enterIdentifyTab;
+    //public GameObject identifyBackTab;
 
     public Identify identifier;
 
@@ -29,10 +34,12 @@ public class JournalManager : MonoBehaviour
     {
         identifyOnPage.SetActive(false);
         identifyOffPage.SetActive(false);
-        nextTab.SetActive(true);
-        backTab.SetActive(true);
-        identifyBackTab.SetActive(false);
-        identifyTab.SetActive(true);
+        mainTabs.SetActive(true);
+        identifyTabs.SetActive(false);
+        //mainNextTab.SetActive(true);
+        //mainBackTab.SetActive(true);
+        //identifyBackTab.SetActive(false);
+        //enterIdentifyTab.SetActive(true);
 
         foreach (GameObject i in journalPages)
         {
@@ -48,10 +55,13 @@ public class JournalManager : MonoBehaviour
     {
         identifyOnPage.SetActive(true);
         identifyOffPage.SetActive(false);
-        nextTab.SetActive(false);
-        backTab.SetActive(false);
+        mainTabs.SetActive(false);
+        identifyTabs.SetActive(true);
+
+        /*mainNextTab.SetActive(false);
+        mainBackTab.SetActive(false);
         identifyBackTab.SetActive(true);
-        identifyTab.SetActive(false);
+        enterIdentifyTab.SetActive(false);*/
 
         foreach (GameObject i in identifyPages)
         {
@@ -94,7 +104,7 @@ public class JournalManager : MonoBehaviour
             identifyPage++;
             identifyPages[identifyPage].SetActive(true);
         }
-
+        identifier.FillAnswers();
         Debug.Log(identifyPage);
 
     }
@@ -111,16 +121,33 @@ public class JournalManager : MonoBehaviour
             journalPages[page].SetActive(false);
             page--;
             journalPages[page].SetActive(true);
-            identifier.FillAnswers();
+        }
+    }
+
+    public void IdentifyBackPage()
+    {
+        StartCoroutine(StopPlayer(2));
+        if (identifyPage - 1 < 0)
+        {
+            Reset();
+        }
+        else
+        {
+            identifyPages[identifyPage].SetActive(false);
+            identifyPage--;
+            identifyPages[identifyPage].SetActive(true);
         }
     }
 
     public void GoToIdentify()
     {
-        nextTab.SetActive(false);
-        backTab.SetActive(false);
-        identifyTab.SetActive(false);
-        identifyBackTab.SetActive(true);
+        mainTabs.SetActive(false);
+        identifyTabs.SetActive(true);
+
+       /* mainNextTab.SetActive(false);
+        mainBackTab.SetActive(false);
+        enterIdentifyTab.SetActive(false);
+        identifyBackTab.SetActive(true);*/
 
         foreach (GameObject i in journalPages)
         {

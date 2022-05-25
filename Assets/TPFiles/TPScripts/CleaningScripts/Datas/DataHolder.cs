@@ -8,15 +8,4 @@ public class DataHolder : MonoBehaviour
 {
     public IdentifyData boneData;
 
-    public TMP_Text RightAnswersText;
-
-    void Start()
-    {
-        RightAnswersText.text = boneData.FinalAnswer;
-    }
-
-    void Update()
-    {
-        
-    }
 }
