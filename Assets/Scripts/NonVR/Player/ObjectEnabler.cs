@@ -17,17 +17,9 @@ public class ObjectEnabler : MonoBehaviour
 
     void Awake()
     {
-        foreach (GameObject obj in objects)
-        {
-            obj.SetActive(false);
-        }
-        foreach (GameObject panel in toolDescriptionPanels)
-        {
-            panel.SetActive(false);
-        }
+        foreach (GameObject obj in objects) { obj.SetActive(false); }
+        foreach (GameObject panel in toolDescriptionPanels) { panel.SetActive(false); }
 
-        if (controller == null) controller = GameObject.Find("RightControllerAnchor");
-        if (itemSwitch == null) itemSwitch = GetComponent<AudioSource>();
         controller.SetActive(true);
     }
 

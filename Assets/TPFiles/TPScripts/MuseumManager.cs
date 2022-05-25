@@ -8,6 +8,7 @@ public class MuseumManager : MonoBehaviour
 
     private void Awake()
     {
+        //Activates found fossils
         FossilHolder holder = FindObjectOfType<FossilHolder>();
         foreach(var d in displays)
         {
