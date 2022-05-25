@@ -67,7 +67,7 @@ public class AirScribe : MonoBehaviour
                     {
                         piecesCleaned++;
                         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
-                        if (piecesCleaned == currentBone.boneParts.Count + 1)
+                        if (piecesCleaned >= currentBone.boneParts.Count)
                         {
                             cUIManager.CleanToggleChange();
                             currentState = CleaningGameState.COMBINE;
