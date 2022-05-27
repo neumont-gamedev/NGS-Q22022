@@ -5,50 +5,84 @@ using UnityEngine.EventSystems;
 
 public class JournalManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool IdentifyReady = false;
+
     public List<GameObject> journalPages;
     public List<GameObject> identifyPages;
     int page = 0;
-
-    public bool IdentifyReady = false;
+    int identifyPage = 0;
 
     //identify pages
     public GameObject identifyOnPage;
     public GameObject identifyOffPage;
 
-    public GameObject nextTab;
-    public GameObject backTab;
-    public GameObject identifyTab;
-    public GameObject identifyBackTab;
+
+    //Tabs
+    public GameObject mainTabs;
+    public GameObject identifyTabs;
+
+    //public GameObject mainNextTab;
+    //public GameObject mainBackTab;
+    //public GameObject enterIdentifyTab;
+    //public GameObject identifyBackTab;
 
     public Identify identifier;
 
+    public List<GameObject> handColliders;
 
     public void Reset()
     {
         identifyOnPage.SetActive(false);
         identifyOffPage.SetActive(false);
-        nextTab.SetActive(true);
-        backTab.SetActive(true);
-        identifyBackTab.SetActive(false);
-        identifyTab.SetActive(true);
+        mainTabs.SetActive(true);
+        identifyTabs.SetActive(false);
+        //mainNextTab.SetActive(true);
+        //mainBackTab.SetActive(true);
+        //identifyBackTab.SetActive(false);
+        //enterIdentifyTab.SetActive(true);
 
         foreach (GameObject i in journalPages)
         {
-            
+
             i.SetActive(false);
         }
+        foreach (GameObject i in identifyPages)
+        {
 
+            i.SetActive(false);
+        }
 
         page = 0;
         journalPages[page].SetActive(true);
     }
 
+    public void IdentifyReset()
+    {
+        identifyOnPage.SetActive(true);
+        identifyOffPage.SetActive(false);
+        mainTabs.SetActive(false);
+        identifyTabs.SetActive(true);
+
+        /*mainNextTab.SetActive(false);
+        mainBackTab.SetActive(false);
+        identifyBackTab.SetActive(true);
+        enterIdentifyTab.SetActive(false);*/
+
+        foreach (GameObject i in identifyPages)
+        {
+            i.SetActive(false);
+        }
+
+        identifyPage = 0;
+        identifyPages[identifyPage].SetActive(true);
+    }
+
     public void TurnPage()
     {
         Debug.Log(journalPages.Count.ToString());
+        StartCoroutine(StopPlayer(2));
 
-        if(page + 1 > journalPages.Count)
+        if (page + 1 > journalPages.Count)
         {
             Reset();
         }
@@ -64,25 +98,25 @@ public class JournalManager : MonoBehaviour
 
     public void TurnIdentifyPage()
     {
-        Debug.Log(identifyPages.Count.ToString());
 
-        if (page + 1 > identifyPages.Count)
+        if (identifyPage + 1 > identifyPages.Count)
         {
-            Reset();
+            IdentifyReset();
         }
         else
         {
-            page++;
-            identifyPages[page].SetActive(true);
+            identifyPages[identifyPage].SetActive(false);
+            identifyPage++;
+            identifyPages[identifyPage].SetActive(true);
         }
-
-        Debug.Log(page);
+        identifier.FillAnswers();
+        Debug.Log(identifyPage);
 
     }
 
     public void BackPage()
     {
-
+        StartCoroutine(StopPlayer(2));
         if (page - 1 < 0)
         {
             Reset();
@@ -95,12 +129,36 @@ public class JournalManager : MonoBehaviour
         }
     }
 
+    public void IdentifyBackPage()
+    {
+        StartCoroutine(StopPlayer(2));
+        if (identifyPage - 1 < 0)
+        {
+            IdentifyReset();
+        }
+        else
+        {
+            identifyPages[identifyPage].SetActive(false);
+            identifyPage--;
+            identifyPages[identifyPage].SetActive(true);
+        }
+    }
+
     public void GoToIdentify()
     {
-        nextTab.SetActive(false);
-        backTab.SetActive(false);
-        identifyTab.SetActive(false);
-        identifyBackTab.SetActive(true);
+        mainTabs.SetActive(false);
+        identifyTabs.SetActive(true);
+
+       /* mainNextTab.SetActive(false);
+        mainBackTab.SetActive(false);
+        enterIdentifyTab.SetActive(false);
+        identifyBackTab.SetActive(true);*/
+
+        foreach (GameObject i in journalPages)
+        {
+
+            i.SetActive(false);
+        }
 
         if (IdentifyReady)
         {
@@ -112,12 +170,28 @@ public class JournalManager : MonoBehaviour
         }
     }
 
-    public void EnterAnswer()
+    public void EnterAnswer(string name)
     {
-        identifier.InsertAnswer(EventSystem.current.currentSelectedGameObject.name);
+
+        identifier.InsertAnswer(name);
         TurnIdentifyPage();
+        StartCoroutine(StopPlayer(2));
     }
 
+    public IEnumerator StopPlayer(float seconds)
+    {
+        foreach(GameObject c in handColliders)
+        {
+            Debug.Log(c.name);
+            c.gameObject.GetComponent<SphereCollider>().enabled = false;
+        }
+        yield return new WaitForSeconds(seconds);
+
+        foreach (GameObject c in handColliders)
+        {
+            c.gameObject.GetComponent<SphereCollider>().enabled = true;
+        }
+    }
 
 
 }

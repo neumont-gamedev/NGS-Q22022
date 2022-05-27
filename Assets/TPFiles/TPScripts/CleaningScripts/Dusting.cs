@@ -15,51 +15,46 @@ public class Dusting : MonoBehaviour
 
     bool donePolishing = false;
 
-    int timesCleaned = 0;
-    public int ChangeMaterial(bool isCombined)
+    //Changes the material based on stage
+    //Returns true when on final stage
+    public bool ChangeMaterial()
     {
-
-
-        if (isCombined)
+        stage++;
+        switch (stage)
         {
-            if(!donePolishing)
-            {
+            case 1:
                 cBreakParticle = Instantiate(breakParticle);
                 Destroy(cBreakParticle, 1.5f);
-                this.GetComponent<Renderer>().material = stage4;
-                donePolishing = true;
-                return -1;
-            }
+                this.GetComponent<Renderer>().material = stage1;
+                return false;
+            case 2:
+                cBreakParticle = Instantiate(breakParticle);
+                Destroy(cBreakParticle, 1.5f);
+                this.GetComponent<Renderer>().material = stage2;
+                return false;
+            case 3:
+                cBreakParticle = Instantiate(breakParticle);
+                Destroy(cBreakParticle, 1.5f);
+                this.GetComponent<Renderer>().material = stage3;
+                return true;
+            default:
+                break;
         }
 
-        else
+        return false;
+    }
+
+    //Polishes given material only once
+    public bool PolishChange()
+    {
+        if (!donePolishing)
         {
-            Debug.Log(gameObject.name + " Stage: " + stage);
-            stage++;
-            switch (stage)
-            {
-                case 1:
-                    cBreakParticle = Instantiate(breakParticle);
-                    Destroy(cBreakParticle, 1.5f);
-                    this.GetComponent<Renderer>().material = stage1;
-                    return stage; //isCleaned false
-                case 2:
-                    cBreakParticle = Instantiate(breakParticle);
-                    Destroy(cBreakParticle, 1.5f);
-                    this.GetComponent<Renderer>().material = stage2;
-                    return stage; //isCleaned false
-                case 3:
-                    cBreakParticle = Instantiate(breakParticle);
-                    Destroy(cBreakParticle, 1.5f);
-                    this.GetComponent<Renderer>().material = stage3;
-                    return stage;
-                default:
-                    break;
-            }
+            cBreakParticle = Instantiate(breakParticle);
+            Destroy(cBreakParticle, 1.5f);
+            this.GetComponent<Renderer>().material = stage4;
+            donePolishing = true;
+            return true;
         }
-
-
-        return stage;
-
+        return false;
     }
 }

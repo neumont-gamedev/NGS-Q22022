@@ -7,14 +7,14 @@ using UnityEngine.UIElements;
 
 public class Identify : MonoBehaviour
 {
-    public TMP_Text uAnswer;
+    public TMP_Text userAnswer;
     public string rAnswer;
     
-    public string uMarkings;
+    public string userMarkings;
     public TMP_Text fMarkings;
-    public string uPart;
+    public string userPart;
     public TMP_Text fPart;
-    public string uCreature;
+    public string userCreature;
     public TMP_Text fCreature;
 
 
@@ -27,38 +27,44 @@ public class Identify : MonoBehaviour
         curData = FindObjectOfType<DataHolder>();
     }
 
+    public void FillAnswers()
+    {
+        fPart.text = userPart;
+        fMarkings.text = userMarkings;
+        fCreature.text = userCreature;
+    }
+
     public void InsertAnswer(string answer)
     {
         if(answer == "Head" || answer == "Tail" || answer == "Foot" || answer == "Pelvis")
         {
-            uPart = answer;
-            fPart.text = answer;
+            userPart = answer;
+            
         }
         else if(answer == "Scratch" || answer == "Holes" || answer == "Bug Bites" || answer == "Fractures")
         {
-            uMarkings = answer;
-            fMarkings.text = answer;
+            userMarkings = answer;
         }
         else if(answer == "Allosaurus" || answer == "Barosaurus" || answer == "Iguanadon" || answer == "Pterodactyl" || answer == "Trilobite" || answer == "Plesiosaurus" || answer == "Trex" || answer == "UtahRaptor")
         {
-            uCreature = answer;
-            fCreature.text = answer;
+            userCreature = answer;
         }
 
     }
 
     public void CheckQuestion()
     {
-        if(curData.boneData.Creature_Name.ToString() == "Trilobite")
+        resultsPage.SetActive(true);
+
+        if (curData.boneData.Creature_Name.ToString() == "Trilobite")
         {
-            uAnswer.text = "The fossil is the " + uPart + "of a " + uCreature;
+            userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
         }
         else
         {
-            uAnswer.text = "The fossil is the " + uPart + "of a " + uCreature + " it has " + uMarkings + " marks.";
+            userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
         }  
 
-        //rAnswer.text = curData.boneData.FinalAnswer;
-        resultsPage.SetActive(true);
+        
     }
 }
