@@ -9,13 +9,11 @@ public class Credits : MonoBehaviour
 
     RectTransform rect;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rect = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         rect.localPosition = new Vector3(rect.localPosition.x, 
@@ -24,9 +22,19 @@ public class Credits : MonoBehaviour
 
         if (rect.localPosition.y >= resetPoint)
         {
-            rect.localPosition = new Vector3(rect.localPosition.x,
+            ResetCredits();
+        }
+    }
+
+    public void ResetCredits()
+    {
+        rect.localPosition = new Vector3(rect.localPosition.x,
                                              0,
                                              rect.localPosition.z);
-        }
+    }
+
+    private void OnEnable()
+    {
+        ResetCredits();
     }
 }
