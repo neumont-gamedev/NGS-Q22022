@@ -6,12 +6,12 @@ using UnityEngine.UI;
 // Will Be Child Class of MapMarker
 public class PlayerMarker : MapMarker
 {
-    public GameObject worldObject;
+    private GameObject worldObject;
 
     private new void Start()
     {
         base.Start();
-        if (worldObject == null) worldObject = GameObject.FindWithTag("Player");
+        worldObject = GameObject.FindWithTag("Player");
         SetPosition();
     }
 
