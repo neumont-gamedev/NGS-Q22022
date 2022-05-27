@@ -8,6 +8,7 @@ public class Combineable : MonoBehaviour
     public List<GameObject> boneParts = new List<GameObject>();
     public int combinedBoneCounter = -1;
 
+    private bool isClean = false;
     private List<OVRGrabber> hands = new List<OVRGrabber>();
 
     void Start()
@@ -20,6 +21,7 @@ public class Combineable : MonoBehaviour
         }
     }
 
+    public void Clean() { isClean = true; }
 
     public int GetBoneCounter()
     {
@@ -30,19 +32,21 @@ public class Combineable : MonoBehaviour
     {
         GameObject collidedObject = other.gameObject;
 
-        if (collidedObject.tag == "BottomColliderRight" || collidedObject.tag == "BottomColliderLeft")
-        {
-            for (int i = 0; i < boneParts.Count; i++)
+        if (isClean) { 
+            if (collidedObject.tag == "BottomColliderRight" || collidedObject.tag == "BottomColliderLeft")
             {
-                if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
+                for (int i = 0; i < boneParts.Count; i++)
                 {
-                    this.boneParts[i].SetActive(true);
-                    combinedBoneCounter += 1;
+                    if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
+                    {
+                        this.boneParts[i].SetActive(true);
+                        combinedBoneCounter += 1;
 
-                    //Force release of object before destroying it
-                    foreach (var h in hands) h.ForceRelease(other.gameObject.GetComponent<OVRGrabbable>());
+                        //Force release of object before destroying it
+                        foreach (var h in hands) h.ForceRelease(other.gameObject.GetComponent<OVRGrabbable>());
 
-                    Destroy(collidedObject.transform.parent.gameObject);
+                        Destroy(collidedObject.transform.parent.gameObject);
+                    }
                 }
             }
         }

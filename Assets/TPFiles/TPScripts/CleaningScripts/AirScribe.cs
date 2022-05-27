@@ -20,6 +20,8 @@ public class AirScribe : MonoBehaviour
     public CleaningUIManager cUIManager;
     [SerializeField] GameObject scribeDescriptionPanel;
 
+    public List<MeshCollider> grabMeshes = new List<MeshCollider>();
+
     public JournalManager JManager;
     FossilHolder holder;
 
@@ -28,6 +30,13 @@ public class AirScribe : MonoBehaviour
 
     private void Awake()
     {
+        foreach(GameObject b in GameObject.FindGameObjectsWithTag("Bone"))
+        {
+            grabMeshes?.Add(b.GetComponent<MeshCollider>());
+        }
+
+        grabMeshes.ForEach(l => l.enabled = false);
+
         currentState = CleaningGameState.ROCKBREAK;
         currentBone = FindObjectOfType<Combineable>();
         holder = FindObjectOfType<FossilHolder>();
@@ -54,7 +63,7 @@ public class AirScribe : MonoBehaviour
                         cUIManager.RockBreakToggleChange();
 
                         currentState = CleaningGameState.DUSTING;
-
+                        grabMeshes.ForEach(l => l.enabled = true);
                     }
 
                 }
@@ -69,6 +78,7 @@ public class AirScribe : MonoBehaviour
                         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
                         if (piecesCleaned >= currentBone.boneParts.Count + 1)
                         {
+                            currentBone.Clean();
                             cUIManager.CleanToggleChange();
                             currentState = CleaningGameState.COMBINE;
                         }
