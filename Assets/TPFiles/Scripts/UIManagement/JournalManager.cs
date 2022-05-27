@@ -20,6 +20,7 @@ public class JournalManager : MonoBehaviour
     //Tabs
     public GameObject mainTabs;
     public GameObject identifyTabs;
+    public GameObject identifyBack;
 
     //public GameObject mainNextTab;
     //public GameObject mainBackTab;
@@ -36,6 +37,7 @@ public class JournalManager : MonoBehaviour
         identifyOffPage.SetActive(false);
         mainTabs.SetActive(true);
         identifyTabs.SetActive(false);
+        identifyBack.SetActive(false);
         //mainNextTab.SetActive(true);
         //mainBackTab.SetActive(true);
         //identifyBackTab.SetActive(false);
@@ -62,6 +64,7 @@ public class JournalManager : MonoBehaviour
         identifyOffPage.SetActive(false);
         mainTabs.SetActive(false);
         identifyTabs.SetActive(true);
+        identifyBack.SetActive(true);
 
         /*mainNextTab.SetActive(false);
         mainBackTab.SetActive(false);
@@ -149,6 +152,7 @@ public class JournalManager : MonoBehaviour
         mainTabs.SetActive(false);
         identifyTabs.SetActive(true);
 
+
        /* mainNextTab.SetActive(false);
         mainBackTab.SetActive(false);
         enterIdentifyTab.SetActive(false);
@@ -163,10 +167,12 @@ public class JournalManager : MonoBehaviour
         if (IdentifyReady)
         {
             identifyOnPage.SetActive(true);
+            identifyBack.SetActive(true);
         }
         else
         {
             identifyOffPage.SetActive(true);
+            identifyBack.SetActive(false);
         }
     }
 
