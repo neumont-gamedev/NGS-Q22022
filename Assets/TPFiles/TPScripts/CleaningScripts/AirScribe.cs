@@ -18,62 +18,67 @@ public class AirScribe : MonoBehaviour
     static CleaningGameState currentState;
     public Combineable currentBone;
     public CleaningUIManager cUIManager;
-    public TestVRInput VRInput;
     [SerializeField] GameObject scribeDescriptionPanel;
 
+    public List<MeshCollider> grabMeshes = new List<MeshCollider>();
+
     public JournalManager JManager;
+    FossilHolder holder;
 
     int piecesCleaned = 0;
     int piecesPolished = 0;
-    bool combined = false;
 
     private void Awake()
     {
+        foreach(GameObject b in GameObject.FindGameObjectsWithTag("Bone"))
+        {
+            grabMeshes?.Add(b.GetComponent<MeshCollider>());
+        }
+
+        grabMeshes.ForEach(l => l.enabled = false);
+
         currentState = CleaningGameState.ROCKBREAK;
         currentBone = FindObjectOfType<Combineable>();
+        holder = FindObjectOfType<FossilHolder>();
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
         JManager = FindObjectOfType<JournalManager>();
         if (scribeDescriptionPanel != null) scribeDescriptionPanel.SetActive(true);
     }
 
-    private void Update()
-    {
-
-    }
-
-
     /// <summary>
     /// Cleaning Game State Layout
     /// </summary>
     public void CleaningState(Collider collidedObject)
     {
+        GameObject collided = collidedObject.transform.gameObject;
         switch (currentState)
         {
             case CleaningGameState.ROCKBREAK:
-                if (collidedObject.transform.gameObject.CompareTag("Rock"))
+                if (collided.CompareTag("Rock"))
                 {
-                    if (collidedObject.transform.gameObject.GetComponent<StoneBreak>().BreakPiece())
+                    if (collided.GetComponent<StoneBreak>().BreakPiece())
                     {
 
                         cUIManager.RockBreakToggleChange();
 
                         currentState = CleaningGameState.DUSTING;
-
+                        grabMeshes.ForEach(l => l.enabled = true);
                     }
 
                 }
 
                 break;
             case CleaningGameState.DUSTING:
-                if (collidedObject.transform.gameObject.CompareTag("Bone"))
+                if (collided.CompareTag("Bone"))
                 {
-                    if (collidedObject.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == 3)
+                    if (collided.GetComponent<Dusting>().ChangeMaterial())
                     {
                         piecesCleaned++;
                         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
-                        if (piecesCleaned == currentBone.boneParts.Count + 1)
+                        if (piecesCleaned >= currentBone.boneParts.Count + 1)
                         {
+                            currentBone.Clean();
                             cUIManager.CleanToggleChange();
                             currentState = CleaningGameState.COMBINE;
                         }
@@ -85,32 +90,24 @@ public class AirScribe : MonoBehaviour
             case CleaningGameState.COMBINE:
                 if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
                 {
-                    combined = true;
                     cUIManager.CombineToggleChange();
-                }
-                
-                if (combined)
-                {
                     currentState = CleaningGameState.POLISH;
                 }
                 break;
 
             case CleaningGameState.POLISH:
-                Debug.Log("Enter Polish");
-                if (collidedObject.transform.gameObject.CompareTag("Bone"))
+                if (collided.CompareTag("Bone"))
                 {
-                    if (collidedObject.transform.gameObject.GetComponent<Dusting>().ChangeMaterial(combined) == -1)
+                    if (collided.GetComponent<Dusting>().PolishChange())
                     {
                         piecesPolished++;
                         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
 
                         if (piecesPolished == currentBone.boneParts.Count + 1)
                         {
-                            cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
-
                             cUIManager.PolishToggleChange();
 
-                            FossilHolder.FossilFound("Utahraptor");
+                            FossilHolder.FossilFound(holder.backpackContents()[0]);
 
                             currentState = CleaningGameState.IDENTIFY;
                         }
@@ -133,10 +130,5 @@ public class AirScribe : MonoBehaviour
         {
             CleaningState(other);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
     }
 }

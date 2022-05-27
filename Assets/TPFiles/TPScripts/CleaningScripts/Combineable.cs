@@ -5,23 +5,23 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Combineable : MonoBehaviour
 {
-    Collider[] childColliders;
-
-    Collider leftCollider;
-    Collider rightCollider;
-
     public List<GameObject> boneParts = new List<GameObject>();
-
     public int combinedBoneCounter = -1;
+
+    private bool isClean = false;
+    private List<OVRGrabber> hands = new List<OVRGrabber>();
 
     void Start()
     {
-        childColliders = GetComponentsInChildren<BoxCollider>();
-
-        leftCollider = (childColliders[0].tag == "BottomColliderLeft") ? childColliders[0] : childColliders[1];
-        rightCollider = (childColliders[0].tag == "BottomColliderLeft") ? childColliders[1] : childColliders[0];
+        //Get hands OVRGrabbers
+        GameObject[] temp = GameObject.FindGameObjectsWithTag("Hand");
+        for(int i = 0; i < temp.Length; i++) 
+        { 
+            if (temp[i].GetComponent<OVRGrabber>() != null) hands.Add(temp[i].GetComponent<OVRGrabber>());
+        }
     }
 
+    public void Clean() { isClean = true; }
 
     public int GetBoneCounter()
     {
@@ -32,21 +32,22 @@ public class Combineable : MonoBehaviour
     {
         GameObject collidedObject = other.gameObject;
 
-        if (rightCollider.gameObject.tag == collidedObject.tag || leftCollider.gameObject.tag == collidedObject.tag)
-        {
-            for (int i = 0; i < boneParts.Count; i++)
+        if (isClean) { 
+            if (collidedObject.tag == "BottomColliderRight" || collidedObject.tag == "BottomColliderLeft")
             {
-                Debug.Log(collidedObject.transform.parent.name);
-                Debug.Log(boneParts[i].gameObject.name);
-                if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
+                for (int i = 0; i < boneParts.Count; i++)
                 {
-                    this.boneParts[i].SetActive(true);
-                    combinedBoneCounter += 1;
-                    //gameObject.GetComponent<OVRGrabber>().colliders.Clear();
-                    Destroy(collidedObject.transform.parent.gameObject);
-                    Debug.Log("I CHOOSE YOU " + boneParts[i].gameObject.name);
+                    if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
+                    {
+                        this.boneParts[i].SetActive(true);
+                        combinedBoneCounter += 1;
+
+                        //Force release of object before destroying it
+                        foreach (var h in hands) h.ForceRelease(other.gameObject.GetComponent<OVRGrabbable>());
+
+                        Destroy(collidedObject.transform.parent.gameObject);
+                    }
                 }
-                Debug.Log("Bone Couner Count From Active OBJ : " + combinedBoneCounter);
             }
         }
     }
