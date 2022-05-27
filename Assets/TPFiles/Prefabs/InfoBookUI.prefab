@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 606488559}
   - component: {fileID: 4370708059169422945}
   m_Layer: 0
-  m_Name: Identify
+  m_Name: EnterIdentify
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4474,7 +4474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7374095555527301484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15199,7 +15199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 88248c08baaca9f479d3d92501d3bf3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff7dd2ccc88a3384f87d1a372e40f42a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17447,8 +17447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.00000071525574, y: 0}
-  m_SizeDelta: {x: 0.3, y: 0.39999998}
+  m_AnchoredPosition: {x: 0, y: -0.03}
+  m_SizeDelta: {x: 0.45, y: 0.35}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &5667284563741069432
 CanvasRenderer:
@@ -17478,7 +17478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a563234119b92c04ab1e4fb7caedadb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 120b4bacbae2757468ec974933284fc1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24393,9 +24393,9 @@ MonoBehaviour:
   userAnswer: {fileID: 350101308}
   rAnswer: 
   userMarkings: 
-  fMarkings: {fileID: 1283258327942596889}
+  fMarkings: {fileID: 3074222019192098749}
   userPart: 
-  fPart: {fileID: 3074222019192098749}
+  fPart: {fileID: 1283258327942596889}
   userCreature: 
   fCreature: {fileID: 8319563883291748736}
   curData: {fileID: 0}
@@ -24430,6 +24430,7 @@ MonoBehaviour:
   - {fileID: 4724802591380585624}
   - {fileID: 3020134334997491518}
   - {fileID: 899787427}
+  - {fileID: 731973486}
   identifyOnPage: {fileID: 3284550256123209852}
   identifyOffPage: {fileID: 715830467633812032}
   mainTabs: {fileID: 1088859892270071523}
@@ -25639,7 +25640,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1977933269}
         m_TargetAssemblyTypeName: JournalManager, Assembly-CSharp
-        m_MethodName: BackPage
+        m_MethodName: IdentifyBackPage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
