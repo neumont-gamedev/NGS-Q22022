@@ -68,15 +68,18 @@ public class AirScribe : MonoBehaviour
                 }
                 break;
             case CleaningGameState.DUSTING:
-                if (collided.GetComponent<Dusting>().ChangeMaterial())
+                if (collided.transform.gameObject.CompareTag("Bone"))
                 {
-                    piecesCleaned++;
-                    cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
-                    if (piecesCleaned >= currentBone.boneParts.Count + 1)
+                    if (collided.GetComponent<Dusting>().ChangeMaterial())
                     {
-                        currentBone.Clean();
-                        cUIManager.CleanToggleChange();
-                        currentState = CleaningGameState.COMBINE;
+                        piecesCleaned++;
+                        cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
+                        if (piecesCleaned >= currentBone.boneParts.Count + 1)
+                        {
+                            currentBone.Clean();
+                            cUIManager.CleanToggleChange();
+                            currentState = CleaningGameState.COMBINE;
+                        }
                     }
                 }
                 break;
