@@ -55,6 +55,13 @@ public class FossilHolder : Singleton<FossilHolder>
         {
             backpack.Add("Utahraptor");
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            backpack.Clear();
+            fossilBits.ForEach(f => f.found = false);
+            FindObjectOfType<GameManager>().LoadScene(0);
+        }
     }
 
     public string[] backpackContents()
