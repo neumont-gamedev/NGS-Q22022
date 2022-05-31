@@ -6,7 +6,6 @@ public class Dusting : MonoBehaviour
 {
     public int stage = 0;
     public GameObject breakParticle;
-    public GameObject cBreakParticle;
 
     public Material stage1;
     public Material stage2;
@@ -23,18 +22,15 @@ public class Dusting : MonoBehaviour
         switch (stage)
         {
             case 1:
-                cBreakParticle = Instantiate(breakParticle);
-                Destroy(cBreakParticle, 1.5f);
+                Destroy(Instantiate(breakParticle), 1.5f);
                 this.GetComponent<Renderer>().material = stage1;
                 return false;
             case 2:
-                cBreakParticle = Instantiate(breakParticle);
-                Destroy(cBreakParticle, 1.5f);
+                Destroy(Instantiate(breakParticle), 1.5f);
                 this.GetComponent<Renderer>().material = stage2;
                 return false;
             case 3:
-                cBreakParticle = Instantiate(breakParticle);
-                Destroy(cBreakParticle, 1.5f);
+                Destroy(Instantiate(breakParticle), 1.5f);
                 this.GetComponent<Renderer>().material = stage3;
                 return true;
             default:
@@ -49,8 +45,7 @@ public class Dusting : MonoBehaviour
     {
         if (!donePolishing)
         {
-            cBreakParticle = Instantiate(breakParticle);
-            Destroy(cBreakParticle, 1.5f);
+            Destroy(Instantiate(breakParticle), 1.5f);
             this.GetComponent<Renderer>().material = stage4;
             donePolishing = true;
             return true;

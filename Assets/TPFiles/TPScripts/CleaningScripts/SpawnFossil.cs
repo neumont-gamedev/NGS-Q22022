@@ -17,9 +17,10 @@ public class SpawnFossil : MonoBehaviour
         holder = GetComponent<FossilHolder>();
         for(int i = 0; i < fossilNames.Length; i++)
         {
-            if(fossilNames[i] == holder.backpackContents()[0])
+            if(fossilNames[i] == holder.firstFossil())
             {
                 Instantiate(fossils[i], spawnPoint.transform);
+                return; 
             }
         }
     }

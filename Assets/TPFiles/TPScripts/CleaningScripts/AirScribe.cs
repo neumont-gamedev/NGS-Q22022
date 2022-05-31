@@ -12,17 +12,18 @@ public class AirScribe : MonoBehaviour
         DUSTING,
         COMBINE,
         POLISH,
-        IDENTIFY
+        IDENTIFY,
+        DONE
     }
 
-    static CleaningGameState currentState;
+    static CleaningGameState currentState = CleaningGameState.ROCKBREAK;
     public Combineable currentBone;
     public CleaningUIManager cUIManager;
     [SerializeField] GameObject scribeDescriptionPanel;
 
     public List<MeshCollider> grabMeshes = new List<MeshCollider>();
 
-    public JournalManager JManager;
+    JournalManager JManager;
     FossilHolder holder;
 
     int piecesCleaned = 0;
@@ -30,20 +31,22 @@ public class AirScribe : MonoBehaviour
 
     private void Awake()
     {
-        foreach(GameObject b in GameObject.FindGameObjectsWithTag("Bone"))
+        foreach(var b in GameObject.FindGameObjectsWithTag("Bone"))
         {
             grabMeshes?.Add(b.GetComponent<MeshCollider>());
         }
+        var temp = grabMeshes.ToArray();
 
-        grabMeshes.ForEach(l => l.enabled = false);
+        foreach(var l in temp) { l.enabled = false; }
 
-        currentState = CleaningGameState.ROCKBREAK;
         currentBone = FindObjectOfType<Combineable>();
+        JManager = FindObjectOfType<JournalManager>();
         holder = FindObjectOfType<FossilHolder>();
+
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
-        JManager = FindObjectOfType<JournalManager>();
-        if (scribeDescriptionPanel != null) scribeDescriptionPanel.SetActive(true);
+
+        scribeDescriptionPanel?.SetActive(true);
     }
 
     /// <summary>
@@ -55,40 +58,30 @@ public class AirScribe : MonoBehaviour
         switch (currentState)
         {
             case CleaningGameState.ROCKBREAK:
-                if (collided.CompareTag("Rock"))
+                if (collided.GetComponent<StoneBreak>().BreakPiece())
                 {
-                    if (collided.GetComponent<StoneBreak>().BreakPiece())
-                    {
+                    cUIManager.RockBreakToggleChange();
+                    currentState = CleaningGameState.DUSTING;
 
-                        cUIManager.RockBreakToggleChange();
-
-                        currentState = CleaningGameState.DUSTING;
-                        grabMeshes.ForEach(l => l.enabled = true);
-                    }
-
+                    var temp = grabMeshes.ToArray();
+                    foreach(var b in temp) { b.enabled = true; }
                 }
-
                 break;
             case CleaningGameState.DUSTING:
-                if (collided.CompareTag("Bone"))
+                if (collided.GetComponent<Dusting>().ChangeMaterial())
                 {
-                    if (collided.GetComponent<Dusting>().ChangeMaterial())
+                    piecesCleaned++;
+                    cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
+                    if (piecesCleaned >= currentBone.boneParts.Count + 1)
                     {
-                        piecesCleaned++;
-                        cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
-                        if (piecesCleaned >= currentBone.boneParts.Count + 1)
-                        {
-                            currentBone.Clean();
-                            cUIManager.CleanToggleChange();
-                            currentState = CleaningGameState.COMBINE;
-                        }
-
+                        currentBone.Clean();
+                        cUIManager.CleanToggleChange();
+                        currentState = CleaningGameState.COMBINE;
                     }
                 }
-
                 break;
             case CleaningGameState.COMBINE:
-                if (currentBone.GetBoneCounter() == currentBone.boneParts.Count)
+                if (currentBone.GetBoneCounter())
                 {
                     cUIManager.CombineToggleChange();
                     currentState = CleaningGameState.POLISH;
@@ -96,37 +89,33 @@ public class AirScribe : MonoBehaviour
                 break;
 
             case CleaningGameState.POLISH:
-                if (collided.CompareTag("Bone"))
+                if (collided.GetComponent<Dusting>().PolishChange())
                 {
-                    if (collided.GetComponent<Dusting>().PolishChange())
+                    piecesPolished++;
+                    cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+
+                    if (piecesPolished == currentBone.boneParts.Count + 1)
                     {
-                        piecesPolished++;
-                        cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+                        cUIManager.PolishToggleChange();
 
-                        if (piecesPolished == currentBone.boneParts.Count + 1)
-                        {
-                            cUIManager.PolishToggleChange();
+                        FossilHolder.FossilFound(holder.firstFossil());
 
-                            FossilHolder.FossilFound(holder.backpackContents()[0]);
-
-                            currentState = CleaningGameState.IDENTIFY;
-                        }
+                        currentState = CleaningGameState.IDENTIFY;
                     }
                 }
-
                 break;
             case CleaningGameState.IDENTIFY:
-                Debug.Log("Identify");
                 JManager.IdentifyReady = true;
                 break;
-            default:
+            case CleaningGameState.DONE:
                 break;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.gameObject.CompareTag("Bone") || other.transform.gameObject.CompareTag("Rock"))
+        var bro = other.transform.gameObject;
+        if (bro.CompareTag("Bone") || bro.CompareTag("Rock"))
         {
             CleaningState(other);
         }

@@ -6,46 +6,35 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Combineable : MonoBehaviour
 {
     public List<GameObject> boneParts = new List<GameObject>();
-    public int combinedBoneCounter = -1;
+    [SerializeField] int combinedBoneCounter = -1;
 
     private bool isClean = false;
-    private List<OVRGrabber> hands = new List<OVRGrabber>();
-
-    void Start()
-    {
-        //Get hands OVRGrabbers
-        GameObject[] temp = GameObject.FindGameObjectsWithTag("Hand");
-        for(int i = 0; i < temp.Length; i++) 
-        { 
-            if (temp[i].GetComponent<OVRGrabber>() != null) hands.Add(temp[i].GetComponent<OVRGrabber>());
-        }
-    }
 
     public void Clean() { isClean = true; }
 
-    public int GetBoneCounter()
-    {
-        return combinedBoneCounter;
-    }
+    public bool GetBoneCounter() { return combinedBoneCounter == boneParts.Count; }
 
     private void OnTriggerEnter(Collider other)
     {
         GameObject collidedObject = other.gameObject;
 
-        if (isClean) { 
+        if (isClean) 
+        { 
             if (collidedObject.tag == "BottomColliderRight" || collidedObject.tag == "BottomColliderLeft")
             {
-                for (int i = 0; i < boneParts.Count; i++)
+                foreach(var a in boneParts)
                 {
-                    if (collidedObject.transform.parent.name.Equals(boneParts[i].gameObject.name))
+                    if (collidedObject.transform.parent.name.Equals(a.gameObject.name))
                     {
-                        this.boneParts[i].SetActive(true);
-                        combinedBoneCounter += 1;
+                        a.SetActive(true);
+                        combinedBoneCounter++;
 
                         //Force release of object before destroying it
-                        foreach (var h in hands) h.ForceRelease(other.gameObject.GetComponent<OVRGrabbable>());
+                        var c = collidedObject.GetComponent<OVRGrabbable>();
+                        c.m_grabbedBy.ForceRelease(c);
 
                         Destroy(collidedObject.transform.parent.gameObject);
+                        return;
                     }
                 }
             }

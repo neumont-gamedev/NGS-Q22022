@@ -13,19 +13,19 @@ public class StoneBreak : MonoBehaviour
         cBreakParticle = Instantiate(breakParticle);
         Destroy(cBreakParticle, 1.5f);
 
-        int ranNum = Random.Range(0, RockPieces.Count);
-
         //Finish Removal
         if (RockPieces.Count == 0)
         {
             DestroyRock();
             return true;
         }
+
+        int ranNum = Random.Range(0, RockPieces.Count);
+
         //Decreases rockpiece durability
-        else if (RockPieces[ranNum].GetComponent<Rock>().breakPoint >= 0)
+        if (RockPieces[ranNum].GetComponent<Rock>().breakPoint >= 0)
         {
             RockPieces[ranNum].GetComponent<Rock>().breakPoint--;
-            return false;
         }
         //Drops and destroys rock piece when durability is gone
         else 
@@ -34,14 +34,13 @@ public class StoneBreak : MonoBehaviour
 
             Destroy(RockPieces[ranNum], 1.5f);
             RockPieces.RemoveAt(ranNum);
-            return false;
         }
+        return false;
     }
 
     //Destroys Rock collider
     public void DestroyRock()
     { 
-        gameObject.GetComponent<Collider>();
         Destroy(gameObject, 2f);
     }
 }
