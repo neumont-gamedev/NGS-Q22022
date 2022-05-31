@@ -63,8 +63,7 @@ public class Identify : MonoBehaviour
         else
         {
             userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
-        }  
-
+        }
         
     }
 }
