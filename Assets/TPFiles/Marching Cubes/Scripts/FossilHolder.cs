@@ -55,12 +55,16 @@ public class FossilHolder : Singleton<FossilHolder>
         {
             backpack.Add("Utahraptor");
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            backpack.Clear();
+            fossilBits.ForEach(f => f.found = false);
+            FindObjectOfType<GameManager>().LoadScene(0);
+        }
     }
 
-    public string[] backpackContents()
-    {
-        return backpack.ToArray();
-    }
+    public string firstFossil() { return backpack[0]; }
 
     public static void FossilFound(string n)
     {
@@ -70,7 +74,7 @@ public class FossilHolder : Singleton<FossilHolder>
             {
                 f.found = true;
                 backpack.Remove(n);
-                break;
+                return;
             }
         }
     }
@@ -79,46 +83,6 @@ public class FossilHolder : Singleton<FossilHolder>
     public static void AddToBackpack(string n)
     {
         if(!backpack.Contains(n)) backpack.Add(n);
-    }
-
-    //TODO: Not Used ???
-    //brings fossil to hand, fails if -1 is returned, otherwise returns fossil index
-    public int GrabFossil(Fossil fossil)
-    {
-        Fossil f;
-        int fossilIndex = 0;
-        if (fossil == null) return -1;
-        //needs to clear hand of any fossils and put back in backpack
-        Fossil grabbedFossil = new Fossil();
-        for (int i = 0; i < backpack.Count - 1; i++)
-        {
-            /*f = backpack[i];
-            if (f == fossil)
-            { 
-                grabbedFossil = f;
-                backpack.Remove(f);
-                fossilIndex = i;
-                break;
-            }*/
-        }
-
-        if (grabbedFossil == null)
-        {
-            print("no bones for you");
-        }
-        else
-        {
-            grabber.ForceRelease(grabber.grabbedObject);
-            Fossil backpackFossil = Instantiate(fossil, grabber.transform);
-            // <-- check if fossilFromBackpack has OVRGrabbable -->
-            if(backpackFossil.TryGetComponent<OVRGrabbable>(out OVRGrabbable grabFossil))
-            {
-                grabber.grabbedObject = grabFossil;
-                return fossilIndex;
-            }
-        }
-
-        return -1;
     }
 
     public bool IsFound(string name)
