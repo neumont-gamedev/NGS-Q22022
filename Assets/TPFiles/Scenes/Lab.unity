@@ -3639,24 +3639,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1442247146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 652381624, guid: 29beb0e07f415db4485dcf1708a405f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1977933253}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1442247148 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 652381626, guid: 29beb0e07f415db4485dcf1708a405f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1977933253}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1442247146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1444044463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4479,7 +4461,7 @@ PrefabInstance:
         type: 3}
       propertyPath: txtScribeSteps
       value: 
-      objectReference: {fileID: 1442247148}
+      objectReference: {fileID: 0}
     - target: {fileID: 2413895424173299288, guid: 7cfb218c3143c254f9d5f1cacc70f22e,
         type: 3}
       propertyPath: RockBreaktoggle
@@ -5597,7 +5579,7 @@ PrefabInstance:
         type: 3}
       propertyPath: scribeDescriptionPanel
       value: 
-      objectReference: {fileID: 1442247146}
+      objectReference: {fileID: 0}
     - target: {fileID: 7752647478249312316, guid: 2e73bb3634a41f44b95b47a4e4f7aa58,
         type: 3}
       propertyPath: m_Name
@@ -9127,8 +9109,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.35, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.15, z: 1}
+  m_Center: {x: 0, y: 0.017255062, z: 0}
 --- !u!114 &2284971945506927932
 MonoBehaviour:
   m_ObjectHideFlags: 0
