@@ -58,7 +58,6 @@ namespace MarchingCubes
 		  {
 			 WorldManager.DeleteWorld(WorldManager.GetSelectedWorldName());
 			 WorldManager.CreateWorld(WorldManager.GetSelectedWorldName(), worldConfig);
-			 if (map == null) map = FindObjectOfType<Map>();
 			 Startup();
 			 StartupBoi();
 			 map.GenerateMap();
