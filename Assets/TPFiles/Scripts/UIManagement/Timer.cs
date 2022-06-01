@@ -83,7 +83,7 @@ public class Timer : MonoBehaviour
             yield return false;
         }
 
-        for (int i = 0; i < numberAudioPlays; i++)
+        for (int i = 0; i < numberAudioPlays + 1; i++)
         {
             if (timerAudio.isPlaying) i--;
             else timerAudio.Play();
