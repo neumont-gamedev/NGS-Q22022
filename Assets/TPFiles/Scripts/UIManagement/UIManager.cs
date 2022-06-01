@@ -38,13 +38,16 @@ public class UIManager : MonoBehaviour
     //Changes Objective based on fossil count
     public void ObjectiveChange()
     {
-        if (FossilHolder.backpack.Count == 0)
+        if (txtObjective != null)
         {
-            txtObjective.text = "Go find a fossil!";
-        }
-        else
-        {
-            txtObjective.text = "Go clean your fossil!";
+            if (FossilHolder.backpack.Count == 0)
+            {
+                txtObjective.text = "Go find a fossil!";
+            }
+            else
+            {
+                txtObjective.text = "Go clean your fossil!";
+            }
         }
     }
 
