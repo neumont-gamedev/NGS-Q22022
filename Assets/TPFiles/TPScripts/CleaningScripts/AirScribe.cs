@@ -19,7 +19,6 @@ public class AirScribe : MonoBehaviour
     static CleaningGameState currentState = CleaningGameState.ROCKBREAK;
     public Combineable currentBone;
     public CleaningUIManager cUIManager;
-    [SerializeField] GameObject scribeDescriptionPanel;
 
     public List<MeshCollider> grabMeshes = new List<MeshCollider>();
 
@@ -45,8 +44,6 @@ public class AirScribe : MonoBehaviour
 
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
-
-        scribeDescriptionPanel?.SetActive(true);
     }
 
     /// <summary>
