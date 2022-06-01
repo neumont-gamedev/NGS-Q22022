@@ -31,7 +31,8 @@ public class Combineable : MonoBehaviour
 
                         //Force release of object before destroying it
                         var c = collidedObject.gameObject.GetComponent<OVRGrabbable>();
-                        c.m_grabbedBy.ForceRelease(c);
+                        Debug.Log(c);
+                        if(c != null) c?.m_grabbedBy.ForceRelease(c);
 
                         Destroy(collidedObject.transform.parent.gameObject);
                         return;
