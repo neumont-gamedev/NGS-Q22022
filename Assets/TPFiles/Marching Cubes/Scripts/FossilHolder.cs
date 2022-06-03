@@ -30,7 +30,7 @@ public class FossilHolder : Singleton<FossilHolder>
         new FossilInfo("Trilobite", FossilInfo.eDiet.CARNIVORE, "Northern USA East Coast, Pacific Ocean",
             "They had three-part bodies.\n They could roll into balls for protection.\n First group of animals in the animal kingdom to develop complex eyes and multiple appendages for moving around.",
             "1 to over 70 centimeters long", "Early Cambrian Period", "up to 4.5 kilograms / 10 pounds"),
-        new FossilInfo("Tyrannosaurus Rex", FossilInfo.eDiet.CARNIVORE, "USA, Canada",
+        new FossilInfo("TyrannosaurusRex", FossilInfo.eDiet.CARNIVORE, "USA, Canada",
             "Tyrannosaurus Rex means 'tyrant lizard.'\n Their powerful jaws had 60 teeth, each one up to 20 centimeters / 8 inches long, and their bite was around 3 times as powerful than that of a lion.\n They have close relatives that sometimes lived together because there are fossils of groups who were buried together, but we don't know for sure if they hunted alone, or in packs like lions and wolves do today.",
             "12 meters / 39.3 feet long", "Late Cretaceous", "over 7 tons"),
         new FossilInfo("Utahraptor", FossilInfo.eDiet.CARNIVORE, "Utah, USA",
@@ -70,7 +70,7 @@ public class FossilHolder : Singleton<FossilHolder>
     {
         foreach(var f in fossilBits)
         {
-            if(f.name == n)
+            if (f.name == n.Split('_')[0])
             {
                 f.found = true;
                 backpack.Remove(n);
