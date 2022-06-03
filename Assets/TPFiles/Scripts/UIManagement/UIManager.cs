@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     {
         if (txtObjective != null)
         {
-            if (FossilHolder.backpack.Count == 0)
+            if (FossilHolder.Instance.backpack.Count == 0)
             {
                 txtObjective.text = "Go find a fossil!";
             }
@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
     {
         //If player doesnt have a fossil
         // Deactivate Lab Button
-        if (FossilHolder.backpack.Count == 0)
+        if (FossilHolder.Instance.backpack.Count == 0)
         {
             LabButton.SetActive(false);
             NoFossilsText.SetActive(true);

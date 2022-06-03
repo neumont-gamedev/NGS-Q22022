@@ -14,12 +14,13 @@ public class SpawnFossil : MonoBehaviour
     //Spawns first fossil in the backpack
     void Start()
     {
-        holder = GetComponent<FossilHolder>();
+        holder = FindObjectOfType<FossilHolder>();
         for(int i = 0; i < fossilNames.Length; i++)
         {
             if(fossilNames[i] == holder.firstFossil())
             {
                 Instantiate(fossils[i], spawnPoint.transform);
+                fossils[i].gameObject.SetActive(true);
                 return; 
             }
         }

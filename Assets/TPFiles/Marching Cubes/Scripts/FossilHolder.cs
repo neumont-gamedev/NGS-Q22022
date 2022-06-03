@@ -8,7 +8,7 @@ public class FossilHolder : Singleton<FossilHolder>
     // FossilInfo(string _name, eDiet _diet, string _aliveLocation, string _generalInformation,
     //   string _lengthRange, string _timePeriod, string _weightRange)
 
-    public static List<FossilInfo> fossilBits = new List<FossilInfo>() {
+    public List<FossilInfo> fossilBits = new List<FossilInfo>() {
         new FossilInfo("Allosaurus", FossilInfo.eDiet.CARNIVORE, "USA, Portugal",
             "Ziphodont teeth (sword-toothed): Teeth are curved backwards, narrow from side to side and finely serrated. These are found in living predatory lizards and sharks and are indicators of a predatory lifestyle that involves the attacking and eating of animals. \n They used rapid, slashing bites to weaken and kill prey. \n",
             "8.5 meters / 28 feet long", "Late Jurassic", "over 1.5 tons"),
@@ -37,9 +37,9 @@ public class FossilHolder : Singleton<FossilHolder>
             "They are closely related to birds.\n Prior to their discovery, paleontologists believed sickle-clawed dromaeosaurids were small carnivores that only lived in the Late Cretaceous. They required paleontologists to revise their understanding of this family of dinosaurs as it was much larger and lived the Early Cretaceous.",
             "6 meters / 19.7 feet long", "Early Cretaceous", "over a ton")
     };
-    public static List<string> backpack = new List<string>(); 
+    public List<string> backpack = new List<string>();
 
-    [SerializeField] static OVRGrabber grabber;
+    [SerializeField] OVRGrabber grabber;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class FossilHolder : Singleton<FossilHolder>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            backpack.Add("Utahraptor");
+            backpack.Add("Utahraptor_Head");
         }
 
         if (Input.GetKeyDown(KeyCode.M))
@@ -66,7 +66,7 @@ public class FossilHolder : Singleton<FossilHolder>
 
     public string firstFossil() { return backpack[0]; }
 
-    public static void FossilFound(string n)
+    public void FossilFound(string n)
     {
         foreach(var f in fossilBits)
         {
@@ -80,7 +80,7 @@ public class FossilHolder : Singleton<FossilHolder>
     }
 
     //adds unburied Fossil to backpack
-    public static void AddToBackpack(string n)
+    public void AddToBackpack(string n)
     {
         if(!backpack.Contains(n)) backpack.Add(n);
     }

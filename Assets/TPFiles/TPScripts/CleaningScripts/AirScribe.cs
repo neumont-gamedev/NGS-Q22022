@@ -28,7 +28,7 @@ public class AirScribe : MonoBehaviour
     int piecesCleaned = 0;
     int piecesPolished = 0;
 
-    private void Awake()
+    private void Start()
     {
         foreach(var b in GameObject.FindGameObjectsWithTag("Bone"))
         {
@@ -98,7 +98,7 @@ public class AirScribe : MonoBehaviour
                     {
                         cUIManager.PolishToggleChange();
 
-                        FossilHolder.FossilFound(holder.firstFossil());
+                        FossilHolder.Instance.FossilFound(holder.firstFossil());
 
                         currentState = CleaningGameState.IDENTIFY;
                     }

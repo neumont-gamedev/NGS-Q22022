@@ -149,7 +149,7 @@ public class Fossil : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
 
-        FossilHolder.AddToBackpack(name);
+        FossilHolder.Instance.AddToBackpack(name);
         Destroy(this.gameObject);
         
         yield return true;
