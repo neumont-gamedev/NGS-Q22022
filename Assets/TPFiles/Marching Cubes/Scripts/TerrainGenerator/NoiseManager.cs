@@ -156,6 +156,7 @@ namespace MarchingCubes
 				else if (SceneManager.GetActiveScene().name == "VRMountains") f.transform.position = new Vector3(x, 0.07f, z);
 				else if (SceneManager.GetActiveScene().name == "VRDessert") f.transform.position = new Vector3(x, -3.42f, z);
 				Instantiate(f, transform);
+				f.SetActive(true);
 				xzs.Add(f.name, new KeyValuePair<float, float>(x, z));
 			}
          }

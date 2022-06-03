@@ -837,6 +837,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &291157409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291157410}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &291157410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291157409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.025, y: 0, z: 0.078}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &297228909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,9 +3794,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a438e16885852f7469fe6654c04c003c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fossils: []
-  fossilNames: []
-  spawnPoint: {fileID: 0}
+  fossils:
+  - {fileID: 6449358210029961423, guid: 8c7fb082b0fde6e4a97bbcdc9bbe2e0e, type: 3}
+  - {fileID: 8052058430094393517, guid: a5f1df78af4e6bf4cbc82385309d7f7c, type: 3}
+  - {fileID: 7944537226947721372, guid: f701a71a242cc1046b9befa71d73afde, type: 3}
+  - {fileID: 4558100219437173122, guid: b6394a953608874438cd795e7e3c6cd6, type: 3}
+  - {fileID: 6483761124305629262, guid: 8ad553234eae9d2449eff072bc5d563f, type: 3}
+  - {fileID: 7729669013833446116, guid: 610b1ad307ac9984fbfd7d396b9f26c2, type: 3}
+  - {fileID: 5522277309625475799, guid: 4bcdee750bb887f43a1cccc34b825001, type: 3}
+  - {fileID: 5178673954591259345, guid: 5f352e51da464b44aa129ddf60b46abe, type: 3}
+  - {fileID: 5542114652250832522, guid: ba81314528bb344469fb20477f7a4d16, type: 3}
+  fossilNames:
+  - TyrannosaurusRex_Foot
+  - TyrannosaurusRex_Pelvis
+  - TyrannosaurusRex_Skull
+  - Trilobite_Final
+  - Allosaurus_Pelvis
+  - Allosaurus_Skull
+  - Utahraptor_Pelvis
+  - Utahraptor_Tail
+  - Utahraptor_Head
+  spawnPoint: {fileID: 291157409}
 --- !u!1 &1412049588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1963157321418991956, guid: 29beb0e07f415db4485dcf1708a405f5,
@@ -5528,11 +5576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModularVRPlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 4921277215777555708, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4588118559815856326, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: objects.Array.size
@@ -5558,6 +5601,11 @@ PrefabInstance:
       propertyPath: toolDescriptionPanels.Array.data[0]
       value: 
       objectReference: {fileID: 1047176617}
+    - target: {fileID: 4921277215777555708, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7771439176678282725, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5833,8 +5881,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: airScribe
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 7752647478249312313, guid: 2e73bb3634a41f44b95b47a4e4f7aa58,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 7752647478249312313, guid: 2e73bb3634a41f44b95b47a4e4f7aa58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e73bb3634a41f44b95b47a4e4f7aa58, type: 3}
 --- !u!1 &2045887209
 GameObject:
@@ -8519,6 +8567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UPelvisFieldJacket
+      objectReference: {fileID: 0}
+    - target: {fileID: 5522277309625475799, guid: 4bcdee750bb887f43a1cccc34b825001,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bcdee750bb887f43a1cccc34b825001, type: 3}
