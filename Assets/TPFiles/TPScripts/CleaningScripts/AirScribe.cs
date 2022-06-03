@@ -107,7 +107,7 @@ public class AirScribe : MonoBehaviour
                 }
                 break;
             case CleaningGameState.IDENTIFY:
-                JManager.IdentifyReady = true;
+                //JManager.IdentifyReady = true;
                 break;
             case CleaningGameState.DONE:
                 break;
