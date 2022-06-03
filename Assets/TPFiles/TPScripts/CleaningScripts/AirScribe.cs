@@ -30,6 +30,8 @@ public class AirScribe : MonoBehaviour
 
     private void Start()
     {
+        currentState = CleaningGameState.ROCKBREAK;
+
         foreach(var b in GameObject.FindGameObjectsWithTag("Bone"))
         {
             grabMeshes?.Add(b.GetComponent<MeshCollider>());
