@@ -124,7 +124,7 @@ namespace MarchingCubes
 					
 					foreach(var i in xzs)
                     {
-						if(x !<= i.Value.Key - 10 || x !>= i.Value.Key + 10)
+						if(x <= i.Value.Key - 10 || x >= i.Value.Key + 10)
                         {
 							isDistanced = false;
 							break;
@@ -143,7 +143,7 @@ namespace MarchingCubes
 
 					foreach(var i in xzs)
                     {
-						if (z !<= i.Value.Value - 10 || z !>= i.Value.Value + 10)
+						if (z <= i.Value.Value - 10 || z >= i.Value.Value + 10)
 						{
 							isDistanced = false;
 							break;
