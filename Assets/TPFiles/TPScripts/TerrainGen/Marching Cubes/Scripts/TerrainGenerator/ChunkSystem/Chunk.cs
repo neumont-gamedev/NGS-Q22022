@@ -35,7 +35,9 @@ namespace MarchingCubes
             //mymat.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
             GetComponent<MeshRenderer>().material = ChunkManager.Instance.terrainMaterial;
             gameObject.AddComponent<MeshCollider>();
-
+            gameObject.AddComponent<Rigidbody>();
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
             gameObject.tag = "Ground";
             gameObject.layer = LayerMask.NameToLayer("Ground");
 
@@ -143,6 +145,6 @@ namespace MarchingCubes
         private void OnCollisionExit(Collision collision)
         {
             Debug.Log("Bruh");
-        }
+        }        
     }
 }
