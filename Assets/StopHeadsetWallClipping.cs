@@ -5,70 +5,14 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class StopHeadsetWallClipping : MonoBehaviour
 {
-    public SphereCollider sphereCollider;
-    public GameObject chunkManager;
-    public List<MeshCollider> chunks;
-    public List<MeshCollider> collidingChunks;
-    public GameObject panel;
-    public float distance;
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        ////if (chunks.Count == 0)
-        ////{
-        //    foreach (Transform child in chunkManager.transform)
-        //    {
-        //        if(!chunks.Contains(child.GetComponent<MeshCollider>()))
-        //        {
-        //            chunks.Add(child.GetComponent<MeshCollider>());
-        //        }
-        //    }
-        ////}
-
-        //foreach (MeshCollider chunk in chunks)
-        //{
-        //    if (Vector3.Distance(chunk.transform.position, sphereCollider.transform.position) < distance)
-        //    {
-        //        collidingChunks.Add(chunk);
-        //    }
-        //    else
-        //    {
-        //        if(collidingChunks.Contains(chunk))
-        //        {
-        //            collidingChunks.Remove(chunk);
-        //        }
-        //    }
-        //}
-
-        //foreach(MeshCollider chunk in collidingChunks)
-        //{
-        //    if (Vector3.Distance(chunk.transform.position, sphereCollider.transform.position) < distance)
-        //    {
-        //        camera.fieldOfView = 0;
-        //    }
-        //    else
-        //    {
-        //        if (camera.fieldOfView == 0)
-        //        {
-        //            camera.fieldOfView = 90;
-        //        }
-        //        if (collidingChunks.Contains(chunk))
-        //        {
-        //            collidingChunks.Remove(chunk);
-        //        }
-        //    }
-        //}
-    }
+    public GameObject wallColliderSphere;
+    public GameObject rayCastPoint;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Ground")
         {
-            panel.SetActive(true);
+            wallColliderSphere.SetActive(true);
             print("enter");
         }
     }
@@ -80,9 +24,11 @@ public class StopHeadsetWallClipping : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Ground")
+        Vector3 fwd = rayCastPoint.transform.TransformDirection(Vector3.forward);
+
+        if (other.gameObject.tag == "Ground" && Physics.Raycast(rayCastPoint.transform.position, fwd, 10))
         {
-            panel.SetActive(false);
+            wallColliderSphere.SetActive(false);
             print("exit");
         }
     }
