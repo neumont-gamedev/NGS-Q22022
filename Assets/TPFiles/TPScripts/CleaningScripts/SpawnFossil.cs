@@ -12,7 +12,7 @@ public class SpawnFossil : MonoBehaviour
 
     //Should be used in lab scene
     //Spawns first fossil in the backpack
-    void Start()
+    public void FossilSpawn()
     {
         holder = FindObjectOfType<FossilHolder>();
         for(int i = 0; i < fossilNames.Length; i++)

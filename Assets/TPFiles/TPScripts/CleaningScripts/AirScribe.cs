@@ -28,7 +28,7 @@ public class AirScribe : MonoBehaviour
     int piecesCleaned = 0;
     int piecesPolished = 0;
 
-    private void Start()
+    public void StartClean()
     {
         currentState = CleaningGameState.ROCKBREAK;
 
@@ -46,6 +46,11 @@ public class AirScribe : MonoBehaviour
 
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+    }
+
+    public void EndClean()
+    {
+        currentState = CleaningGameState.ROCKBREAK;
     }
 
     /// <summary>

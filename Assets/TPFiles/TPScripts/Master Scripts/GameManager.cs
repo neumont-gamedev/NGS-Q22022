@@ -32,9 +32,6 @@ public class GameManager : MonoBehaviour
             case 3:
                 SceneManager.LoadScene(3);
                 break;
-            case 4:
-                if(uiManager.LoadLab()) SceneManager.LoadScene(4);
-                break;
             default:
                 SceneManager.LoadScene(0);
                 break;
