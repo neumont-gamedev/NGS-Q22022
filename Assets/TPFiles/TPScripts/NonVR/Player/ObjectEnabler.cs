@@ -11,7 +11,7 @@ public class ObjectEnabler : MonoBehaviour
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
     bool pressedLastFrame = false;
-    bool inLab = true;
+    public bool inLab = true;
 
     int counter = 0;
     int descriptionCounter = 0;
