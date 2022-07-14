@@ -18,7 +18,9 @@ public class LabManager : MonoBehaviour
         {
             //transport
             //spawn player
+            player.SetActive(false);
             player.transform.position = labPlayerSpawn.transform.position;
+            player.SetActive(true);
             fossilSpawner.FossilSpawn();
             airScribe.StartClean();
             objectEnabler.inLab = true;
