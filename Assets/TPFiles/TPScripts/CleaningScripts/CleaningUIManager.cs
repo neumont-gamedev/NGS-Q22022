@@ -21,21 +21,21 @@ public class CleaningUIManager : MonoBehaviour
 
     private void Start()
     {
-        txtScribeSteps.text = "Hold left trigger to free the fossil with the air scribe!";
+        //txtScribeSteps.text = "Hold left trigger to free the fossil with the air scribe!";
     }
 
 
     public void RockBreakToggleChange()
     {
         RockBreaktoggle.isOn = true; 
-        txtScribeSteps.text = "Hold left trigger to clean the fossil!";
+        //txtScribeSteps.text = "Hold left trigger to clean the fossil!";
     }
 
     public void CleanToggleChange()
     {
         Cleantoggle.isOn = true;
         putTogetherDisplay.SetActive(true);
-        txtScribeSteps.text = "Put the fossil back together!";
+        //txtScribeSteps.text = "Put the fossil back together!";
     }
 
     public void CleanToggleTextChange(int cleanedBones, int maxBones)
@@ -52,7 +52,7 @@ public class CleaningUIManager : MonoBehaviour
     {
         Combinetoggle.isOn = true;
         putTogetherDisplay.SetActive(false);
-        txtScribeSteps.text = "Hold left trigger to polish the fossil!";
+        //txtScribeSteps.text = "Hold left trigger to polish the fossil!";
     }
 
 

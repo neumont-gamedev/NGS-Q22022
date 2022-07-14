@@ -30,7 +30,9 @@ public class LabManager : MonoBehaviour
 
     public void ExitLabClick()
     {
+        player.SetActive(false);
         player.transform.position = museumPlayerSpawn.transform.position;
+        player.SetActive(true);
         airScribe.EndClean();
         objectEnabler.inLab = false;
     }

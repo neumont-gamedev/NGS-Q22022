@@ -22,11 +22,16 @@ public class AirScribe : MonoBehaviour
 
     public List<MeshCollider> grabMeshes = new List<MeshCollider>();
 
-    JournalManager JManager;
+    //JournalManager JManager;
     FossilHolder holder;
 
     int piecesCleaned = 0;
     int piecesPolished = 0;
+
+    public void Update()
+    {
+        Debug.Log(currentState.ToString());
+    }
 
     public void StartClean()
     {
@@ -41,7 +46,7 @@ public class AirScribe : MonoBehaviour
         foreach(var l in temp) { l.enabled = false; }
 
         currentBone = FindObjectOfType<Combineable>();
-        JManager = FindObjectOfType<JournalManager>();
+        //JManager = FindObjectOfType<JournalManager>();
         holder = FindObjectOfType<FossilHolder>();
 
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
@@ -66,6 +71,7 @@ public class AirScribe : MonoBehaviour
                 {
                     cUIManager.RockBreakToggleChange();
                     currentState = CleaningGameState.DUSTING;
+                    Debug.Log(currentState);
 
                     var temp = grabMeshes.ToArray();
                     foreach(var b in temp) { b.enabled = true; }
