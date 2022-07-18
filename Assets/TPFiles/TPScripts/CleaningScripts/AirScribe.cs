@@ -47,7 +47,7 @@ public class AirScribe : MonoBehaviour
         var temp = grabMeshes.ToArray();
         foreach(var l in temp) { l.enabled = false; }
 
-        //sets the current bone
+        //sets the current bone - Destroys old and replaces with new
         if (!currentBone)
         {
             currentBone = FindObjectOfType<Combineable>();
