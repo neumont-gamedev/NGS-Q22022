@@ -24,17 +24,43 @@ public class CleaningUIManager : MonoBehaviour
         //txtScribeSteps.text = "Hold left trigger to free the fossil with the air scribe!";
     }
 
+    public void CUIMCheckReset()
+    {
+        RockBreakToggleChange();
+        CombineToggleChange();
+        PolishToggleChange();
+    }
+
 
     public void RockBreakToggleChange()
     {
-        RockBreaktoggle.isOn = true; 
+        if (RockBreaktoggle.isOn == true)
+        {
+            RockBreaktoggle.isOn = false;
+        }
+        else
+        {
+            RockBreaktoggle.isOn = true;
+        }
+        
         //txtScribeSteps.text = "Hold left trigger to clean the fossil!";
     }
+
 
     public void CleanToggleChange()
     {
         Cleantoggle.isOn = true;
         putTogetherDisplay.SetActive(true);
+
+        if (Cleantoggle.isOn == true)
+        {
+            Cleantoggle.isOn = false;
+        }
+        else
+        {
+            Cleantoggle.isOn = true;
+        }
+
         //txtScribeSteps.text = "Put the fossil back together!";
     }
 
@@ -50,7 +76,15 @@ public class CleaningUIManager : MonoBehaviour
 
     public void CombineToggleChange()
     {
-        Combinetoggle.isOn = true;
+
+        if (Combinetoggle.isOn == true)
+        {
+            Combinetoggle.isOn = false;
+        }
+        else
+        {
+            Combinetoggle.isOn = true;
+        }
         putTogetherDisplay.SetActive(false);
         //txtScribeSteps.text = "Hold left trigger to polish the fossil!";
     }

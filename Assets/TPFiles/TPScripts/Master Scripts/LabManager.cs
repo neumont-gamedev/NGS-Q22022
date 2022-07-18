@@ -17,6 +17,7 @@ public class LabManager : MonoBehaviour
     {
         if (LoadLab())
         {
+
             //transport
             //spawn player
             fossilSpawner.FossilSpawn();

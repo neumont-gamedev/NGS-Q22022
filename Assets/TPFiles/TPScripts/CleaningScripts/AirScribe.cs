@@ -35,22 +35,36 @@ public class AirScribe : MonoBehaviour
 
     public void StartClean()
     {
-        currentState = CleaningGameState.ROCKBREAK;
+        
 
         foreach(var b in GameObject.FindGameObjectsWithTag("Bone"))
         {
             grabMeshes?.Add(b.GetComponent<MeshCollider>());
         }
-        var temp = grabMeshes.ToArray();
 
+        //store all bone meshes in an array and disables them so player can't
+        //pick up the bones
+        var temp = grabMeshes.ToArray();
         foreach(var l in temp) { l.enabled = false; }
 
-        currentBone = FindObjectOfType<Combineable>();
+        //sets the current bone
+        if (!currentBone)
+        {
+            currentBone = FindObjectOfType<Combineable>();
+        }
+        else if(currentBone != null)
+        {
+            Destroy(currentBone);
+            currentBone = FindObjectOfType<Combineable>();
+        }
         //JManager = FindObjectOfType<JournalManager>();
         holder = FindObjectOfType<FossilHolder>();
 
+        currentState = CleaningGameState.ROCKBREAK;
+
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+        cUIManager.CUIMCheckReset();
     }
 
     public void EndClean()
