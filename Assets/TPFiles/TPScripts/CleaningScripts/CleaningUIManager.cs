@@ -59,7 +59,7 @@ public class CleaningUIManager : MonoBehaviour
     public void PolishToggleChange()
     {
         Polishtoggle.isOn = true;
-        txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
+        //txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
     }
 
     public void PlayTaskCompleteAudio()

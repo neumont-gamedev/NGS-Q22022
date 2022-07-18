@@ -31,6 +31,11 @@ public class LabManager : MonoBehaviour
 
     public void ExitLabClick()
     {
+        foreach (GameObject fossil in fossilSpawner.activeFossils)
+        {
+            Destroy(fossil);
+        }
+
         museumManager.SpawnDisplay();
         airScribe.EndClean();
         player.SetActive(false);

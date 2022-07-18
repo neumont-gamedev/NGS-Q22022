@@ -7,6 +7,7 @@ public class SpawnFossil : MonoBehaviour
     public GameObject[] fossils;
     public string[] fossilNames;
     public GameObject spawnPoint;
+    public List<GameObject> activeFossils;
 
     private FossilHolder holder;
 
@@ -19,7 +20,7 @@ public class SpawnFossil : MonoBehaviour
         {
             if(fossilNames[i] == holder.firstFossil())
             {
-                Instantiate(fossils[i], spawnPoint.transform);
+                activeFossils.Add(Instantiate(fossils[i], spawnPoint.transform));
                 fossils[i].gameObject.SetActive(true);
                 return; 
             }
