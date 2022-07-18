@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LabManager : MonoBehaviour
 {
-
+    public GameManager gManager;
     public AirScribe airScribe;
     public ObjectEnabler objectEnabler;
     public GameObject museumPlayerSpawn;
@@ -32,17 +32,18 @@ public class LabManager : MonoBehaviour
 
     public void ExitLabClick()
     {
-        foreach (GameObject fossil in fossilSpawner.activeFossils)
+        /*foreach (GameObject fossil in fossilSpawner.activeFossils)
         {
             Destroy(fossil);
-        }
+        }*/
 
-        museumManager.SpawnDisplay();
+        //museumManager.SpawnDisplay();
         airScribe.EndClean();
-        player.SetActive(false);
-        player.transform.position = museumPlayerSpawn.transform.position;
-        player.SetActive(true);
         objectEnabler.inLab = false;
+        gManager.LoadScene(0);
+        //player.SetActive(false);
+        //player.transform.position = museumPlayerSpawn.transform.position;
+        //player.SetActive(true);
     }
 
 
