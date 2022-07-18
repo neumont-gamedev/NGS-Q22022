@@ -6,7 +6,7 @@ public class MuseumManager : MonoBehaviour
 {
     public GameObject[] displays;
 
-    private void Awake()
+    public void SpawnDisplay()
     {
         //Activates found fossils
         FossilHolder holder = FindObjectOfType<FossilHolder>();

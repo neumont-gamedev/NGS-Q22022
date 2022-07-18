@@ -11,6 +11,7 @@ public class LabManager : MonoBehaviour
     public GameObject labPlayerSpawn;
     public GameObject player;
     public SpawnFossil fossilSpawner;
+    public MuseumManager museumManager;
 
     public void EnterLabClick()
     {
@@ -18,10 +19,10 @@ public class LabManager : MonoBehaviour
         {
             //transport
             //spawn player
+            fossilSpawner.FossilSpawn();
             player.SetActive(false);
             player.transform.position = labPlayerSpawn.transform.position;
             player.SetActive(true);
-            fossilSpawner.FossilSpawn();
             airScribe.StartClean();
             objectEnabler.inLab = true;
         }
@@ -30,10 +31,11 @@ public class LabManager : MonoBehaviour
 
     public void ExitLabClick()
     {
+        museumManager.SpawnDisplay();
+        airScribe.EndClean();
         player.SetActive(false);
         player.transform.position = museumPlayerSpawn.transform.position;
         player.SetActive(true);
-        airScribe.EndClean();
         objectEnabler.inLab = false;
     }
 
