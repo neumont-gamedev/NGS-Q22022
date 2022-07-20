@@ -35,8 +35,6 @@ public class AirScribe : MonoBehaviour
 
     public void StartClean()
     {
-        
-
         foreach(var b in GameObject.FindGameObjectsWithTag("Bone"))
         {
             grabMeshes?.Add(b.GetComponent<MeshCollider>());
@@ -67,10 +65,6 @@ public class AirScribe : MonoBehaviour
         //cUIManager.CUIMCheckReset();
     }
 
-    public void EndClean()
-    {
-        currentState = CleaningGameState.ROCKBREAK;
-    }
 
     /// <summary>
     /// Cleaning Game State Layout
