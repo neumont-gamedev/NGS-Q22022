@@ -10,7 +10,9 @@ public class ObjectEnabler : MonoBehaviour
     public GameObject[] toolDescriptionPanels;
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
+    public OVRInput.Button buttonTools = OVRInput.Button.Two;  
     bool pressedLastFrame = false;
+    bool buttonToolsPLF = false; //PLF = Pressed Last Frame
     public bool inLab = true;
 
     int counter = 0;
@@ -86,5 +88,13 @@ public class ObjectEnabler : MonoBehaviour
         }        
 
         pressedLastFrame = OVRInput.Get(button);
+
+        //if ((OVRInput.Get(buttonTools) && !buttonToolsPLF))
+        //{
+        //    if(toolDescriptionPanels[descriptionCounter].activeInHierarchy) toolDescriptionPanels[descriptionCounter].SetActive(false);
+        //    else { toolDescriptionPanels[descriptionCounter].SetActive(true); }
+        //}
+
+        //buttonToolsPLF = OVRInput.Get(buttonTools);
     }
 }
