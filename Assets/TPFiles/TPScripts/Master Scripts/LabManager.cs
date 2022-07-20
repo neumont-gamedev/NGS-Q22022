@@ -13,9 +13,6 @@ public class LabManager : MonoBehaviour
     public SpawnFossil fossilSpawner;
     public MuseumManager museumManager;
 
-    public GameObject LabButton;
-    public GameObject NoFossilsText;
-
     public void EnterLabClick()
     {
         if (LoadLab())
@@ -41,10 +38,17 @@ public class LabManager : MonoBehaviour
         }*/
 
         //museumManager.SpawnDisplay();
-        //objectEnabler.inLab = false;
+        airScribe.EndClean();
+        objectEnabler.inLab = false;
         gManager.LoadScene(0);
-
+        //player.SetActive(false);
+        //player.transform.position = museumPlayerSpawn.transform.position;
+        //player.SetActive(true);
     }
+
+
+    public GameObject LabButton;
+    public GameObject NoFossilsText;
 
     //checks to see if player can enter lab
     //based on if they have any fossils to clean
