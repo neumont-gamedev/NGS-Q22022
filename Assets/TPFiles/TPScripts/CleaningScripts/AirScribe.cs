@@ -22,30 +22,54 @@ public class AirScribe : MonoBehaviour
 
     public List<MeshCollider> grabMeshes = new List<MeshCollider>();
 
-    JournalManager JManager;
+    //JournalManager JManager;
     FossilHolder holder;
 
     int piecesCleaned = 0;
     int piecesPolished = 0;
 
-    private void Start()
+    public void Update()
     {
-        currentState = CleaningGameState.ROCKBREAK;
+        Debug.Log(currentState.ToString());
+    }
+
+    public void StartClean()
+    {
+        
 
         foreach(var b in GameObject.FindGameObjectsWithTag("Bone"))
         {
             grabMeshes?.Add(b.GetComponent<MeshCollider>());
         }
-        var temp = grabMeshes.ToArray();
 
+        //store all bone meshes in an array and disables them so player can't
+        //pick up the bones
+        var temp = grabMeshes.ToArray();
         foreach(var l in temp) { l.enabled = false; }
 
-        currentBone = FindObjectOfType<Combineable>();
-        JManager = FindObjectOfType<JournalManager>();
+        //sets the current bone - Destroys old and replaces with new
+        if (!currentBone)
+        {
+            currentBone = FindObjectOfType<Combineable>();
+        }
+        else if(currentBone != null)
+        {
+            Destroy(currentBone);
+            currentBone = FindObjectOfType<Combineable>();
+        }
+        //JManager = FindObjectOfType<JournalManager>();
         holder = FindObjectOfType<FossilHolder>();
+
+        currentState = CleaningGameState.ROCKBREAK;
 
         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
         cUIManager.PolishToggleTextChange(piecesPolished, currentBone.boneParts.Count);
+        //cUIManager.CUIMCheckReset();
+    }
+
+    public void EndClean()
+    {
+        currentState = CleaningGameState.ROCKBREAK;
     }
 
     /// <summary>
@@ -61,6 +85,7 @@ public class AirScribe : MonoBehaviour
                 {
                     cUIManager.RockBreakToggleChange();
                     currentState = CleaningGameState.DUSTING;
+                    Debug.Log(currentState);
 
                     var temp = grabMeshes.ToArray();
                     foreach(var b in temp) { b.enabled = true; }

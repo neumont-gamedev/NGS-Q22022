@@ -11,6 +11,7 @@ public class ObjectEnabler : MonoBehaviour
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
     bool pressedLastFrame = false;
+    public bool inLab = true;
 
     int counter = 0;
     int descriptionCounter = 0;
@@ -30,15 +31,22 @@ public class ObjectEnabler : MonoBehaviour
             bool reset = false;
             if(counter < objects.Length)
             {
-                objects[counter].SetActive(true);
-
-                controller.SetActive(false);
-                if(counter - 1 >= 0)
+                if (inLab)
                 {
-                    objects[counter - 1].SetActive(false);
+                    objects[counter].SetActive(true);
+                    controller.SetActive(false);
+                    if (counter - 1 >= 0)
+                    {
+                        objects[counter - 1].SetActive(false);
+                    }
+                    counter++;
                 }
-
-                counter++;
+                else
+                {
+                    controller.SetActive(true);
+                    counter = 0;
+                    reset = true;
+                }
             }
             else
             {
