@@ -8,12 +8,11 @@ public class ObjectEnabler : MonoBehaviour
     public AudioSource itemSwitch;
     public GameObject[] objects;
     public GameObject[] toolDescriptionPanels;
-    public GameObject specialObject;
+    public GameObject goHUD;
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
     public OVRInput.Button buttonTools = OVRInput.Button.Two;
     bool pressedLastFrame = false;
-    bool buttonToolsPLF = false; //PLF = Pressed Last Frame
     public bool inLab = true;
 
     int counter = 0;
@@ -31,7 +30,6 @@ public class ObjectEnabler : MonoBehaviour
     {
         if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Q))
         {
-            specialObject.SetActive(false);
             bool reset = false;
             if (counter < objects.Length)
             {
@@ -90,21 +88,19 @@ public class ObjectEnabler : MonoBehaviour
         }
         if ((OVRInput.Get(button) && OVRInput.Get(buttonTools)) && !pressedLastFrame || Input.GetKeyDown(KeyCode.E))
         {
-            specialObject.SetActive(true);
+            if (goHUD.activeInHierarchy)
+            {
+                goHUD.SetActive(false);
+            }
+            else
+            {
+                goHUD.SetActive(true);
+            }
+
             controller.SetActive(false);
             objects[counter].SetActive(false);
         }
-        
-
 
         pressedLastFrame = OVRInput.Get(button) || OVRInput.Get(buttonTools);
-
-        //if ((OVRInput.Get(buttonTools) && !buttonToolsPLF))
-        //{
-        //    if(toolDescriptionPanels[descriptionCounter].activeInHierarchy) toolDescriptionPanels[descriptionCounter].SetActive(false);
-        //    else { toolDescriptionPanels[descriptionCounter].SetActive(true); }
-        //}
-
-        //buttonToolsPLF = OVRInput.Get(buttonTools);
     }
 }
