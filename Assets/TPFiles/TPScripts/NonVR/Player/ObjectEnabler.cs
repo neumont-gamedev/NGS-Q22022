@@ -13,6 +13,7 @@ public class ObjectEnabler : MonoBehaviour
     public OVRInput.Button button = OVRInput.Button.Three;
     public OVRInput.Button buttonTools = OVRInput.Button.Two;
     bool pressedLastFrame = false;
+    bool buttonToolsPLF = false; //PLF = Pressed Last Frame
     public bool inLab = true;
 
     int counter = 0;
