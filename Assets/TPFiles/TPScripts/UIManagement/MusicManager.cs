@@ -34,27 +34,6 @@ public class MusicManager : MonoBehaviour
             {
                 currentTrack = 0;
             }
-
-            /*if (trackList[currentTrack].isPlaying)
-            {
-                yield return null;
-            }
-            else if(nextTrack > trackList.Count - 1)
-            {
-                print("resetlist");
-                nextTrack = 1;
-                currentTrack = 0;
-                yield return null;
-            }
-            else
-            {
-                print("Iterate");
-                currentTrack = nextTrack;
-                nextTrack++;
-                yield return null;
-            }
-            trackList[currentTrack].Play();
-            yield WaitForSeconds(trackList[currentTrack].clip.length);*/
         }
     }
 }

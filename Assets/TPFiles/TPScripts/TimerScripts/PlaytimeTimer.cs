@@ -7,12 +7,13 @@ public class PlaytimeTimer : MonoBehaviour
 { 
     private bool timerActive = false;
     public TMP_Text m_timer;
-    private float m_Time = 60;
+    private float m_TimeBase = 60;
+    public float m_Time = 60;
     private int m_Multiplier = 1;
 
     void Start()
     {
-        
+       
     }
 
     void Update()
@@ -80,13 +81,14 @@ public class PlaytimeTimer : MonoBehaviour
             if(m_Time > 0)
             {
                 m_Time = m_Time - Time.deltaTime;
-                m_timer.SetText("0:00");
                 UpdateTimer();
             }
             else
             {
                 m_Time = 0;
                 timerActive = false;
+                m_timer.SetText("0:00");
+                Application.LoadLevel(0);
             }
         }
     }
@@ -94,7 +96,7 @@ public class PlaytimeTimer : MonoBehaviour
     void SetTimer()
     {
         timerActive = true;
-        m_Time = m_Time * m_Multiplier;
+        m_Time = m_TimeBase * m_Multiplier;
     }
 
     void UpdateTimer()
