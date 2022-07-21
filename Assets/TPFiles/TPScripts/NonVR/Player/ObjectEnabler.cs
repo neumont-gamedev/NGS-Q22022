@@ -8,9 +8,10 @@ public class ObjectEnabler : MonoBehaviour
     public AudioSource itemSwitch;
     public GameObject[] objects;
     public GameObject[] toolDescriptionPanels;
+    public GameObject specialObject;
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
-    public OVRInput.Button buttonTools = OVRInput.Button.Two;  
+    public OVRInput.Button buttonTools = OVRInput.Button.Two;
     bool pressedLastFrame = false;
     bool buttonToolsPLF = false; //PLF = Pressed Last Frame
     public bool inLab = true;
@@ -28,10 +29,11 @@ public class ObjectEnabler : MonoBehaviour
 
     void Update()
     {
-        if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Space))
+        if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Q))
         {
+            specialObject.SetActive(false);
             bool reset = false;
-            if(counter < objects.Length)
+            if (counter < objects.Length)
             {
                 if (inLab)
                 {
@@ -59,11 +61,11 @@ public class ObjectEnabler : MonoBehaviour
                 reset = true;
             }
 
-            if(descriptionCounter < toolDescriptionPanels.Length)
+            if (descriptionCounter < toolDescriptionPanels.Length)
             {
                 if (toolDescriptionPanels[descriptionCounter] != null) toolDescriptionPanels[descriptionCounter].SetActive(true);
-                
-                if(descriptionCounter - 1  >= 0)
+
+                if (descriptionCounter - 1 >= 0)
                 {
                     if (toolDescriptionPanels[descriptionCounter - 1] != null) toolDescriptionPanels[descriptionCounter - 1].SetActive(false);
                 }
@@ -72,7 +74,7 @@ public class ObjectEnabler : MonoBehaviour
             }
             else
             {
-                if(descriptionCounter -1 >= 0)
+                if (descriptionCounter - 1 >= 0)
                 {
                     if (toolDescriptionPanels[descriptionCounter - 1] != null) toolDescriptionPanels[descriptionCounter - 1].SetActive(false);
                 }
@@ -85,9 +87,17 @@ public class ObjectEnabler : MonoBehaviour
             }
 
             itemSwitch?.Play();
-        }        
+        }
+        if ((OVRInput.Get(button) && OVRInput.Get(buttonTools)) && !pressedLastFrame || Input.GetKeyDown(KeyCode.E))
+        {
+            specialObject.SetActive(true);
+            controller.SetActive(false);
+            objects[counter].SetActive(false);
+        }
+        
 
-        pressedLastFrame = OVRInput.Get(button);
+
+        pressedLastFrame = OVRInput.Get(button) || OVRInput.Get(buttonTools);
 
         //if ((OVRInput.Get(buttonTools) && !buttonToolsPLF))
         //{
