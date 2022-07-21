@@ -88,13 +88,13 @@ public class ObjectEnabler : MonoBehaviour
         }
         if ((OVRInput.Get(button) && OVRInput.Get(buttonTools)) && !pressedLastFrame || Input.GetKeyDown(KeyCode.E))
         {
-            if (goHUD.activeInHierarchy)
+            if (goHUD.GetComponent<Canvas>().enabled)
             {
-                goHUD.SetActive(false);
+                goHUD.GetComponent<Canvas>().enabled = false;
             }
             else
             {
-                goHUD.SetActive(true);
+                goHUD.GetComponent<Canvas>().enabled = true;
             }
 
             controller.SetActive(false);
