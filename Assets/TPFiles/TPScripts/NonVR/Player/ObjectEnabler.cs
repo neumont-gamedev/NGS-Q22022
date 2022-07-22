@@ -13,14 +13,7 @@ public class ObjectEnabler : MonoBehaviour
     public OVRInput.Button button = OVRInput.Button.Three;
     public OVRInput.Button buttonTools = OVRInput.Button.Two;
     bool pressedLastFrame = false;
-    bool buttonToolsPLF = false; //PLF = Pressed Last Frame
     public bool inLab = true;
-    public float delayTime = 0.3f;
-    float timer = 0;
-    bool timerOn = false;
-    bool playItemNextFrame = false;
-    bool reset = false;
-
 
     int counter = 0;
     int descriptionCounter = 0;
@@ -37,28 +30,7 @@ public class ObjectEnabler : MonoBehaviour
     {
         if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Q))
         {
-            reset = false;
-            timerOn = true;
-            timer = delayTime;
-        }
-        if(timerOn && ((OVRInput.Get(button) && OVRInput.Get(buttonTools)) || Input.GetKeyDown(KeyCode.E)))
-        {
-            timerOn = false;
-            if (goHUD.GetComponent<Canvas>().enabled)
-            {
-                goHUD.GetComponent<Canvas>().enabled = false;
-            }
-            else
-            {
-                goHUD.GetComponent<Canvas>().enabled = true;
-            }
-
-            controller.SetActive(false);
-            objects[counter].SetActive(false);
-        }
-        else if(playItemNextFrame)
-        {
-            playItemNextFrame = false;
+            bool reset = false;
             if (counter < objects.Length)
             {
                 if (inLab)
@@ -114,14 +86,19 @@ public class ObjectEnabler : MonoBehaviour
 
             itemSwitch?.Play();
         }
-        if(timerOn)
+        if ((OVRInput.Get(button) && OVRInput.Get(buttonTools)) && !pressedLastFrame || Input.GetKeyDown(KeyCode.E))
         {
-            timer -= Time.deltaTime;
-            if(timer < 0)
+            if (goHUD.GetComponent<Canvas>().enabled)
             {
-                timerOn = false;
-                playItemNextFrame = true;
+                goHUD.GetComponent<Canvas>().enabled = false;
             }
+            else
+            {
+                goHUD.GetComponent<Canvas>().enabled = true;
+            }
+
+            //controller.SetActive(false);
+            objects[counter].SetActive(false);
         }
 
         pressedLastFrame = OVRInput.Get(button) || OVRInput.Get(buttonTools);
