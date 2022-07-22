@@ -97,11 +97,7 @@ public class ObjectEnabler : MonoBehaviour
                 goHUD.GetComponent<Canvas>().enabled = true;
             }
 
-<<<<<<< HEAD
             //controller.SetActive(false);
-=======
-            controller.SetActive(false);
->>>>>>> parent of 8e6f159 (HUD Toggle Functionality and Consistency)
             objects[counter].SetActive(false);
         }
 
