@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dusting : MonoBehaviour
 {
     public int stage = 0;
-    public GameObject breakParticle;
+    //public GameObject breakParticle;
 
     public List<Material> stages = new List<Material>();
 
