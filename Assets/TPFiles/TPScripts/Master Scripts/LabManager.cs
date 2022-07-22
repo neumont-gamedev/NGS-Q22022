@@ -25,8 +25,8 @@ public class LabManager : MonoBehaviour
             player.SetActive(false);
             player.transform.position = labPlayerSpawn.transform.position;
             player.SetActive(true);
-            airScribe.StartCleanProcess();
             objectEnabler.inLab = true;
+            airScribe.StartCleanProcess();
         }
 
     }
