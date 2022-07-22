@@ -31,6 +31,12 @@ public class NewClean : MonoBehaviour
     void Start()
     {
         cState = CleanState.START;
+        holder = FindObjectOfType<FossilHolder>();
+    }
+
+    public void EndClean()
+    {
+        cState = CleanState.ROCKBREAK;
     }
 
     // Update is called once per frame

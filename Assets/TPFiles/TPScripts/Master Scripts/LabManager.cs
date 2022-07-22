@@ -5,13 +5,14 @@ using UnityEngine;
 public class LabManager : MonoBehaviour
 {
     public GameManager gManager;
-    public AirScribe airScribe;
+    //public AirScribe airScribe;
     public ObjectEnabler objectEnabler;
     public GameObject museumPlayerSpawn;
     public GameObject labPlayerSpawn;
     public GameObject player;
     public SpawnFossil fossilSpawner;
     public MuseumManager museumManager;
+    public NewClean airScribe;
 
     public void EnterLabClick()
     {
@@ -24,7 +25,7 @@ public class LabManager : MonoBehaviour
             player.SetActive(false);
             player.transform.position = labPlayerSpawn.transform.position;
             player.SetActive(true);
-            airScribe.StartClean();
+            airScribe.StartCleanProcess();
             objectEnabler.inLab = true;
         }
 
