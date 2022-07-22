@@ -7,9 +7,11 @@ public class Dusting : MonoBehaviour
     public int stage = 0;
     public GameObject breakParticle;
 
-    public Material stage1;
-    public Material stage2;
-    public Material stage3;
+    public List<Material> stages = new List<Material>();
+
+    //public Material stage1;
+    //public Material stage2;
+    //public Material stage3;
     public Material stage4;
 
     bool donePolishing = false;
@@ -18,20 +20,18 @@ public class Dusting : MonoBehaviour
     //Returns true when on final stage
     public bool ChangeMaterial()
     {
+        if(stage == 0)
         stage++;
         switch (stage)
         {
             case 1:
-                Destroy(Instantiate(breakParticle), 1.5f);
-                this.GetComponent<Renderer>().material = stage1;
+                GetComponent<Renderer>().material = stages[stage];
                 return false;
             case 2:
-                Destroy(Instantiate(breakParticle), 1.5f);
-                this.GetComponent<Renderer>().material = stage2;
+                GetComponent<Renderer>().material = stages[stage];
                 return false;
             case 3:
-                Destroy(Instantiate(breakParticle), 1.5f);
-                this.GetComponent<Renderer>().material = stage3;
+                GetComponent<Renderer>().material = stages[stage];
                 return true;
             default:
                 break;
@@ -45,8 +45,7 @@ public class Dusting : MonoBehaviour
     {
         if (!donePolishing)
         {
-            Destroy(Instantiate(breakParticle), 1.5f);
-            this.GetComponent<Renderer>().material = stage4;
+            GetComponent<Renderer>().material = stage4;
             donePolishing = true;
             return true;
         }

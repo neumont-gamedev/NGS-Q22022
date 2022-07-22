@@ -6,13 +6,26 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Combineable : MonoBehaviour
 {
     public List<GameObject> boneParts = new List<GameObject>();
-    [SerializeField] int combinedBoneCounter = -1;
+    [SerializeField] public int combinedBoneCounter = -1;
+    [SerializeField] public int cleanedCounter = 0;
+    [SerializeField] public int polishCounter = 0;
 
+    public List<MeshCollider> grabMeshes = new List<MeshCollider>();
     private bool isClean = false;
 
-    public void Clean() { isClean = true; }
+    private void Start()
+    {
+        foreach(MeshCollider coll in grabMeshes) { coll.enabled = false; }
+    }
+
+    public void Clean() 
+    { 
+        isClean = true;
+        foreach (MeshCollider coll in grabMeshes) { coll.enabled = true; }
+    }
 
     public bool GetBoneCounter() { return combinedBoneCounter == boneParts.Count; }
+
 
     private void OnTriggerEnter(Collider other)
     {
