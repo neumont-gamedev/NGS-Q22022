@@ -61,12 +61,15 @@ public class NewClean : MonoBehaviour
   
                 break;
             case CleanState.ROCKBREAK:
+                Debug.Log(cState);
                 if (currentBone.GetComponent<StoneBreak>().BreakPiece()) //if true is returned go to next state
                 {
+
                     cState = CleanState.DUSTING;
                 }
                 break;
             case CleanState.DUSTING:
+                Debug.Log(cState);
                 if (collided.transform.gameObject.CompareTag("Bone"))
                 {
                     currentBone.cleanedCounter++;
@@ -84,6 +87,7 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.COMBINE:
+                Debug.Log(cState);
                 if (currentBone.GetBoneCounter())
                 {
                     cuiManager.CombineToggleChange();
@@ -91,6 +95,7 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.POLISH:
+                Debug.Log(cState);
                 if (collided.GetComponent<Dusting>().PolishChange())
                 {
                     currentBone.polishCounter++;
@@ -107,6 +112,7 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.IDENTIFY:
+                Debug.Log(cState);
                 cState = CleanState.DONE;
                 break;
             case CleanState.DONE:
