@@ -6,7 +6,7 @@ using TMPro;
 
 public class CleaningUIManager : MonoBehaviour
 {
-    public TMP_Text txtScribeSteps;
+    //public TMP_Text txtScribeSteps;
     public Toggle RockBreaktoggle;
     public Toggle Cleantoggle;
     public Text cToggleText;

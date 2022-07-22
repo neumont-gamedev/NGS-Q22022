@@ -48,8 +48,8 @@ public class NewClean : MonoBehaviour
     public void StartCleanProcess()
     {
         cState = CleanState.ROCKBREAK;
-        cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
-        cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
+        //cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
+        //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
     }
 
     public void Clean(Collider collidedObject)
