@@ -8,6 +8,7 @@ public class StoneBreak : MonoBehaviour
 
     public bool BreakPiece() 
     {
+        Debug.Log("Rock Time");
         int ranNum = Random.Range(0, RockPieces.Count); //ger random rock between all that's left
         Rock curRock = null;
 
