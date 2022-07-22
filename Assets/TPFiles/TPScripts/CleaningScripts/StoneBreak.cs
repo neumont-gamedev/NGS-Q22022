@@ -15,6 +15,7 @@ public class StoneBreak : MonoBehaviour
         if (RockPieces.Count == 0)
         {
             DestroyRock();
+            Debug.Log("Rock Done");
             return true; // return null when all rocks broken
         }
 
