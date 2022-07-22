@@ -47,7 +47,9 @@ public class NewClean : MonoBehaviour
 
     public void StartCleanProcess()
     {
+        Debug.Log(cState);
         cState = CleanState.ROCKBREAK;
+        Debug.Log(cState);
         //cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
         //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
     }
