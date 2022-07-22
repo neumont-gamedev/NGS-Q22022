@@ -53,7 +53,7 @@ public class FossilHolder : Singleton<FossilHolder>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            backpack.Add("Allosaurus_Skull");
+            backpack.Add("Utahraptor_Head");
         }
 
         if (Input.GetKeyDown(KeyCode.M))
