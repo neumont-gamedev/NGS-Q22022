@@ -11,17 +11,19 @@ public class Combineable : MonoBehaviour
     [SerializeField] public int polishCounter = 0;
 
     public List<MeshCollider> grabMeshes = new List<MeshCollider>();
+    public List<OVRGrabbable> grabberFiles = new List<OVRGrabbable>(); 
     private bool isClean = false;
 
     private void Start()
     {
         foreach(MeshCollider coll in grabMeshes) { coll.enabled = false; }
+        foreach (OVRGrabbable goll in grabberFiles) { goll.enabled = false; }
     }
 
     public void Clean() 
     { 
         isClean = true;
-        foreach (MeshCollider coll in grabMeshes) { coll.enabled = true; }
+        foreach (OVRGrabbable goll in grabberFiles) { goll.enabled = true; }
     }
 
     public bool GetBoneCounter() { return combinedBoneCounter == boneParts.Count; }

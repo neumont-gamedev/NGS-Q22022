@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.88484144, g: 0.741144, b: 0.49524313, a: 1}
+  m_IndirectSpecularColor: {r: 0.88484144, g: 0.741144, b: 0.49524307, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30587,7 +30587,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: airScribe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7752647478249312312, guid: 2e73bb3634a41f44b95b47a4e4f7aa58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e73bb3634a41f44b95b47a4e4f7aa58, type: 3}
 --- !u!1 &1736597566 stripped
 GameObject:
@@ -39204,7 +39205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!1 &368697655122757910
@@ -42960,7 +42960,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!4 &887573933739112695
@@ -45312,7 +45311,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!114 &887573934637990372
@@ -47994,7 +47992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!33 &1110098111370581655
@@ -48110,7 +48107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!33 &1110098112010252519
@@ -49713,7 +49709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!64 &2357493273688460769
@@ -50154,7 +50149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!1 &2832453835624137920
@@ -50242,7 +50236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!114 &2874111478281874135
@@ -50430,7 +50423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!64 &2974458219756860219
@@ -50774,7 +50766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5b8f7eeafaf014e91e385b35a544ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtScribeSteps: {fileID: 0}
   RockBreaktoggle: {fileID: 1003303685889112003}
   Cleantoggle: {fileID: 1003303685788867133}
   cToggleText: {fileID: 1003303684179825921}
@@ -55521,7 +55512,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!64 &4608616022863030614
@@ -57289,6 +57279,7 @@ MonoBehaviour:
   cleanedCounter: -1
   polishCounter: 0
   grabMeshes: []
+  grabberFiles: []
 --- !u!114 &6456097010019977982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57302,7 +57293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!114 &6456097010019977983
@@ -57361,6 +57351,7 @@ MonoBehaviour:
   cleanedCounter: -1
   polishCounter: 0
   grabMeshes: []
+  grabberFiles: []
 --- !u!114 &6486517184038150250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57374,7 +57365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!114 &6486517184038150251
@@ -58032,7 +58022,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!114 &6658145651460843331
@@ -61247,7 +61236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!54 &8319489268776782572
@@ -61965,7 +61953,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages: []
   stage4: {fileID: 0}
 --- !u!1 &9143569311079647179
@@ -62060,6 +62047,7 @@ MonoBehaviour:
   cleanedCounter: -1
   polishCounter: 0
   grabMeshes: []
+  grabberFiles: []
 --- !u!33 &9192943240757773530
 MeshFilter:
   m_ObjectHideFlags: 0

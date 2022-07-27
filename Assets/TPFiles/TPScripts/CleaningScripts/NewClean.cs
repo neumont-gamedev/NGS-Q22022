@@ -25,12 +25,28 @@ public class NewClean : MonoBehaviour
     public FossilHolder holder;
 
     //Bone Counts
-
+    void Awake()
+    {
+        currentBone = FindObjectOfType<Combineable>();
+        holder = FindObjectOfType<FossilHolder>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        holder = FindObjectOfType<FossilHolder>();
+        
+    }
+
+
+
+    // Update is called once per frame
+
+    public void StartCleanProcess()
+    {
+        cState = CleanState.ROCKBREAK;
+        Debug.Log(cState.ToString());
+        //cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
+        //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
     }
 
     public void EndClean()
@@ -38,37 +54,24 @@ public class NewClean : MonoBehaviour
         cState = CleanState.ROCKBREAK;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void StartCleanProcess()
-    {
-        Debug.Log(cState);
-        cState = CleanState.ROCKBREAK;
-        Debug.Log(cState);
-        //cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
-        //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
-    }
-
     public void Clean(Collider collidedObject)
     {
         GameObject collided = collidedObject.transform.gameObject;
         switch (cState) // switch dependant on state of cleaning
         {
-
             case CleanState.ROCKBREAK:
-                Debug.Log(cState);
+                Debug.Log("Current Action: "+ cState.ToString());
                 if (currentBone.GetComponent<StoneBreak>().BreakPiece()) //if true is returned go to next state
                 {
-
+                    foreach (MeshCollider dust in currentBone.grabMeshes)
+                    {
+                        dust.enabled = true;
+                    }
                     cState = CleanState.DUSTING;
                 }
                 break;
             case CleanState.DUSTING:
-                Debug.Log(cState);
+                Debug.Log("Current Action: " + cState.ToString());
                 if (collided.transform.gameObject.CompareTag("Bone"))
                 {
                     currentBone.cleanedCounter++;
@@ -86,7 +89,7 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.COMBINE:
-                Debug.Log(cState);
+                Debug.Log("Current Action: " + cState.ToString());
                 if (currentBone.GetBoneCounter())
                 {
                     //cuiManager.CombineToggleChange();
@@ -94,8 +97,7 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.POLISH:
-                Debug.Log(cState);
-                if (collided.GetComponent<Dusting>().PolishChange())
+                Debug.Log("Current Action: " + cState.ToString()); if (collided.GetComponent<Dusting>().PolishChange())
                 {
                     currentBone.polishCounter++;
                     //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
@@ -111,6 +113,7 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.IDENTIFY:
+                Debug.Log("Current Action: " + cState.ToString());
                 Debug.Log(cState);
                 cState = CleanState.DONE;
                 break;
