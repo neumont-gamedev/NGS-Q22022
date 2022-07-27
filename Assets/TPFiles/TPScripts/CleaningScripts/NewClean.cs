@@ -126,5 +126,14 @@ public class NewClean : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        var bro = other.transform.gameObject;
+        if (bro.CompareTag("Bone") || bro.CompareTag("Rock"))
+        {
+            Clean(other);
+        }
+    }
+
 
 }
