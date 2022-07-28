@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dusting : MonoBehaviour
 {
-    public int stage = 0;
+    public int stageNum = 0;
     //public GameObject breakParticle;
 
     public List<Material> stages = new List<Material>();
@@ -13,31 +13,41 @@ public class Dusting : MonoBehaviour
     //public Material stage2;
     //public Material stage3;
     public Material stage4;
-
+    public bool baseCleanDone = false;
     bool donePolishing = false;
 
     //Changes the material based on stage
     //Returns true when on final stage
     public bool ChangeMaterial()
     {
-        if(stage == 0)
-        stage++;
-        switch (stage)
+        if (!baseCleanDone)
         {
-            case 1:
-                GetComponent<Renderer>().material = stages[stage];
-                return false;
-            case 2:
-                GetComponent<Renderer>().material = stages[stage];
-                return false;
-            case 3:
-                GetComponent<Renderer>().material = stages[stage];
-                return true;
-            default:
-                break;
+            if (stageNum < stages.Count)
+            {
+                
+                switch (stageNum)
+                {
+                    case 1:
+                        GetComponent<Renderer>().material = stages[stageNum];
+                        stageNum++;
+                        return false;
+                    case 2:
+                        GetComponent<Renderer>().material = stages[stageNum];
+                        stageNum++;
+                        return false;
+                    case 3:
+                        GetComponent<Renderer>().material = stages[stageNum];
+                        baseCleanDone = true;
+                        return true;
+                    default:
+                        break;
+                }
+            }
+            return false;
         }
+        return true;
 
-        return false;
+
     }
 
     //Polishes given material only once

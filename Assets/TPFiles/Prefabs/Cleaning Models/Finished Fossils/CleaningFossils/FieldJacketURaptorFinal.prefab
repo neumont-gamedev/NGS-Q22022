@@ -126,6 +126,10 @@ MonoBehaviour:
   - {fileID: 163093431362834668}
   - {fileID: 6576929333772369394}
   - {fileID: 2360285855347917154}
+  grabberFiles:
+  - {fileID: 163093431362834671}
+  - {fileID: 2360285855347916958}
+  - {fileID: 6576929333772369397}
 --- !u!54 &163093431362834670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,7 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
   stages:
   - {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
   - {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
@@ -1478,9 +1481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  stages: []
+  stage: 0
+  stages:
+  - {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
+  - {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
+  - {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
 --- !u!1 &2360285855455195301
 GameObject:
@@ -2604,8 +2609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  stages: []
+  stages:
+  - {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
+  - {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
+  - {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
 --- !u!64 &6188072017042678809
 MeshCollider:
@@ -3009,8 +3016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stage: 0
   stages:
   - {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
   - {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
@@ -3241,8 +3247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  stages: []
+  stages:
+  - {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
+  - {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
+  - {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
 --- !u!64 &6633917627713903299
 MeshCollider:

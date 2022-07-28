@@ -60,8 +60,8 @@ public class NewClean : MonoBehaviour
         switch (cState) // switch dependant on state of cleaning
         {
             case CleanState.ROCKBREAK:
-                Debug.Log("Current Action: "+ cState.ToString());
-                if (currentBone.GetComponent<StoneBreak>().BreakPiece()) //if true is returned go to next state
+                //Debug.Log("Current Action: "+ cState.ToString());
+                if (collided.GetComponent<StoneBreak>().BreakPiece()) //if true is returned go to next state
                 {
                     foreach (MeshCollider dust in currentBone.grabMeshes)
                     {
@@ -71,13 +71,14 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.DUSTING:
-                Debug.Log("Current Action: " + cState.ToString());
-                if (collided.transform.gameObject.CompareTag("Bone"))
+                //Debug.Log("Current Action: " + cState.ToString());
+                if (collided.transform.gameObject.CompareTag("Bone")) // check if bone struck
                 {
-                    currentBone.cleanedCounter++;
-                    //cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
-                    if(collided.GetComponent<Dusting>().ChangeMaterial())
+                    if(collided.GetComponent<Dusting>().ChangeMaterial()) //checks if needs to clean
                     {
+                        Debug.Log(currentBone.cleanedCounter);
+                        currentBone.cleanedCounter++;
+                        Debug.Log(currentBone.cleanedCounter);
                         if (currentBone.cleanedCounter >= currentBone.boneParts.Count + 1)
                         {
                             currentBone.Clean();
@@ -129,10 +130,7 @@ public class NewClean : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var bro = other.transform.gameObject;
-        if (bro.CompareTag("Bone") || bro.CompareTag("Rock"))
-        {
-            Clean(other);
-        }
+        if (bro.CompareTag("Bone") || bro.CompareTag("Rock")) { Clean(other);}
     }
 
 

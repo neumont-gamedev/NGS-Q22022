@@ -5,7 +5,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Combineable : MonoBehaviour
 {
+
     public List<GameObject> boneParts = new List<GameObject>();
+
+
     [SerializeField] public int combinedBoneCounter = -1;
     [SerializeField] public int cleanedCounter = 0;
     [SerializeField] public int polishCounter = 0;
