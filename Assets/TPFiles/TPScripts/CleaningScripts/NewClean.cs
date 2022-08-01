@@ -21,21 +21,10 @@ public class NewClean : MonoBehaviour
     static CleanState cState = CleanState.ROCKBREAK;//current state
     public Combineable currentBone; //what bone is being messed with
     public CleaningUIManager cuiManager; //uiManagement
+    public GameObject collideobject;
 
     public FossilHolder holder;
 
-    //Bone Counts
-    void Awake()
-    {
-        currentBone = FindObjectOfType<Combineable>();
-        holder = FindObjectOfType<FossilHolder>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
 
 
@@ -43,10 +32,15 @@ public class NewClean : MonoBehaviour
 
     public void StartCleanProcess()
     {
+        currentBone = FindObjectOfType<Combineable>();
+        holder = FindObjectOfType<FossilHolder>();
+        cuiManager.CUIMCheckReset();
         cState = CleanState.ROCKBREAK;
+        Debug.Log("Cleaned Bones:" + currentBone.cleanedCounter);
+        Debug.Log("Total Bones:" + currentBone.boneParts.Count);
+        cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
+        cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
         Debug.Log(cState.ToString());
-        //cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
-        //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
     }
 
     public void EndClean()
@@ -67,33 +61,65 @@ public class NewClean : MonoBehaviour
                     {
                         dust.enabled = true;
                     }
+                    cuiManager.RockBreakToggleOn();
                     cState = CleanState.DUSTING;
+                    Debug.Log(cState.ToString());
+
                 }
                 break;
             case CleanState.DUSTING:
-                //Debug.Log("Current Action: " + cState.ToString());
-                if (collided.transform.gameObject.CompareTag("Bone")) // check if bone struck
+
+                //check if bone needs to be cleaned
+                //if not add to the counter
+                //if counter is equal to number of bones go to next stage
+
+                if(collided.transform.gameObject.CompareTag("Bone"))
                 {
+                    Debug.Log("Bone Hit");
+                    if(collided.GetComponent<Dusting>().ChangeMaterial())
+                    {
+                        currentBone.cleanedCounter++;
+                        cuiManager.CleanToggleTextChange(currentBone.cleanedCounter, currentBone.boneParts.Count);
+
+                        if (currentBone.cleanedCounter == currentBone.boneParts.Count + 1) // if all bones are cleaned change state
+                        {
+                            currentBone.IsClean();
+                            cuiManager.CleanToggleOn();
+                            cState = CleanState.COMBINE;
+                        }
+                    }
+                }
+
+
+                break;
+
+                //Debug.Log("Current Action: " + cState.ToString());
+      /*          if (collided.transform.gameObject.CompareTag("Bone")) // check if bone struck
+                {
+                    Debug.Log("Bone Hit");
                     if(collided.GetComponent<Dusting>().ChangeMaterial()) //checks if needs to clean
                     {
-                        Debug.Log(currentBone.cleanedCounter);
-                        currentBone.cleanedCounter++;
-                        Debug.Log(currentBone.cleanedCounter);
-                        if (currentBone.cleanedCounter >= currentBone.boneParts.Count + 1)
+                        if(collideobject.GetComponent<Dusting>().baseCleanDone)
+                        {
+                            currentBone.cleanedCounter++;
+                        }
+
+                        //if (currentBone.cleanedCounter >= currentBone.boneParts.Count + 1)
+                        if (currentBone.cleanedCounter == currentBone.boneParts.Count + 1)
                         {
                             currentBone.Clean();
                             cuiManager.CleanToggleChange();
                             cState = CleanState.COMBINE;
                         }
                     }
-                
                 }
-                break;
+                break;*/
+
             case CleanState.COMBINE:
                 Debug.Log("Current Action: " + cState.ToString());
                 if (currentBone.GetBoneCounter())
                 {
-                    //cuiManager.CombineToggleChange();
+                    cuiManager.CombineToggleOn();
                     cState = CleanState.POLISH;
                 }
                 break;
@@ -105,7 +131,7 @@ public class NewClean : MonoBehaviour
 
                     if (currentBone.polishCounter == currentBone.boneParts.Count + 1)
                     {
-                        cuiManager.PolishToggleChange();
+                        cuiManager.PolishToggleOn();
 
                         FossilHolder.Instance.FossilFound(holder.firstFossil());
 
@@ -129,8 +155,11 @@ public class NewClean : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var bro = other.transform.gameObject;
-        if (bro.CompareTag("Bone") || bro.CompareTag("Rock")) { Clean(other);}
+        collideobject = other.transform.gameObject;
+        if (collideobject.CompareTag("Bone") || collideobject.CompareTag("Rock")) 
+        {
+            Clean(other);
+        }
     }
 
 

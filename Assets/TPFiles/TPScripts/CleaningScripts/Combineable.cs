@@ -23,7 +23,7 @@ public class Combineable : MonoBehaviour
         foreach (OVRGrabbable goll in grabberFiles) { goll.enabled = false; }
     }
 
-    public void Clean() 
+    public void IsClean() 
     { 
         isClean = true;
         foreach (OVRGrabbable goll in grabberFiles) { goll.enabled = true; }

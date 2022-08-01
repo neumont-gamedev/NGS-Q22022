@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -100,7 +100,7 @@ public class AirScribe : MonoBehaviour
                         cUIManager.CleanToggleTextChange(piecesCleaned, currentBone.boneParts.Count);
                         if (piecesCleaned >= currentBone.boneParts.Count + 1)
                         {
-                            currentBone.Clean();
+                            currentBone.IsClean();
                             cUIManager.CleanToggleChange();
                             currentState = CleaningGameState.COMBINE;
                         }
@@ -148,3 +148,4 @@ public class AirScribe : MonoBehaviour
         }
     }
 }
+*/

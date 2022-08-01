@@ -26,40 +26,41 @@ public class CleaningUIManager : MonoBehaviour
 
     public void CUIMCheckReset()
     {
-        RockBreakToggleChange();
-        CombineToggleChange();
-        PolishToggleChange();
+        RockBreakToggleOff();
+        CombineToggleOff();
+        PolishToggleOff();
     }
 
 
-    public void RockBreakToggleChange()
+    public void RockBreakToggleOn()
     {
-        if (RockBreaktoggle.isOn == true)
-        {
-            RockBreaktoggle.isOn = false;
-        }
-        else
-        {
-            RockBreaktoggle.isOn = true;
-        }
+
+        RockBreaktoggle.isOn = true;
         
         //txtScribeSteps.text = "Hold left trigger to clean the fossil!";
     }
 
+    public void RockBreakToggleOff()
+    {
 
-    public void CleanToggleChange()
+        RockBreaktoggle.isOn = false;
+
+        //txtScribeSteps.text = "Hold left trigger to clean the fossil!";
+    }
+
+
+
+    public void CleanToggleOn()
     {
         Cleantoggle.isOn = true;
-        putTogetherDisplay.SetActive(true);
+        PlayTaskCompleteAudio();
 
-        if (Cleantoggle.isOn == true)
-        {
-            Cleantoggle.isOn = false;
-        }
-        else
-        {
-            Cleantoggle.isOn = true;
-        }
+        //txtScribeSteps.text = "Put the fossil back together!";
+    }
+
+    public void CleanToggleOff()
+    {
+        Cleantoggle.isOn = false;
 
         //txtScribeSteps.text = "Put the fossil back together!";
     }
@@ -74,28 +75,35 @@ public class CleaningUIManager : MonoBehaviour
         polishToggleText.text = "Polish Bones. Polished: " + polishedBones + "/" + (maxBones + 1);
     }
 
-    public void CombineToggleChange()
+    public void CombineToggleOn()
     {
+        Combinetoggle.isOn = true;
+        PlayTaskCompleteAudio();
+        putTogetherDisplay.SetActive(false);
+        //txtScribeSteps.text = "Hold left trigger to polish the fossil!";
+    }
 
-        if (Combinetoggle.isOn == true)
-        {
-            Combinetoggle.isOn = false;
-        }
-        else
-        {
-            Combinetoggle.isOn = true;
-        }
+    public void CombineToggleOff()
+    {
+        Combinetoggle.isOn = true;
         putTogetherDisplay.SetActive(false);
         //txtScribeSteps.text = "Hold left trigger to polish the fossil!";
     }
 
 
-    public void PolishToggleChange()
+    public void PolishToggleOn()
     {
         Polishtoggle.isOn = true;
+        PlayTaskCompleteAudio();
         //txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
     }
 
+
+    public void PolishToggleOff()
+    {
+        Polishtoggle.isOn = false;
+        //txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
+    }
     public void PlayTaskCompleteAudio()
     {
         successAudio?.Play();
