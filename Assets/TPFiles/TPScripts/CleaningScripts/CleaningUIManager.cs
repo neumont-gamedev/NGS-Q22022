@@ -27,6 +27,7 @@ public class CleaningUIManager : MonoBehaviour
     public void CUIMCheckReset()
     {
         RockBreakToggleOff();
+        CleanToggleOff();
         CombineToggleOff();
         PolishToggleOff();
     }
@@ -53,7 +54,6 @@ public class CleaningUIManager : MonoBehaviour
     public void CleanToggleOn()
     {
         Cleantoggle.isOn = true;
-        PlayTaskCompleteAudio();
 
         //txtScribeSteps.text = "Put the fossil back together!";
     }
@@ -78,7 +78,6 @@ public class CleaningUIManager : MonoBehaviour
     public void CombineToggleOn()
     {
         Combinetoggle.isOn = true;
-        PlayTaskCompleteAudio();
         putTogetherDisplay.SetActive(false);
         //txtScribeSteps.text = "Hold left trigger to polish the fossil!";
     }
@@ -94,7 +93,6 @@ public class CleaningUIManager : MonoBehaviour
     public void PolishToggleOn()
     {
         Polishtoggle.isOn = true;
-        PlayTaskCompleteAudio();
         //txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
     }
 

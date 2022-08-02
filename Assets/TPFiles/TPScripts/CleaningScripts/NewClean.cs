@@ -62,6 +62,7 @@ public class NewClean : MonoBehaviour
                         dust.enabled = true;
                     }
                     cuiManager.RockBreakToggleOn();
+                    cuiManager.PlayTaskCompleteAudio();
                     cState = CleanState.DUSTING;
                     Debug.Log(cState.ToString());
 
@@ -85,6 +86,7 @@ public class NewClean : MonoBehaviour
                         {
                             currentBone.IsClean();
                             cuiManager.CleanToggleOn();
+                            cuiManager.PlayTaskCompleteAudio();
                             cState = CleanState.COMBINE;
                         }
                     }
@@ -93,33 +95,13 @@ public class NewClean : MonoBehaviour
 
                 break;
 
-                //Debug.Log("Current Action: " + cState.ToString());
-      /*          if (collided.transform.gameObject.CompareTag("Bone")) // check if bone struck
-                {
-                    Debug.Log("Bone Hit");
-                    if(collided.GetComponent<Dusting>().ChangeMaterial()) //checks if needs to clean
-                    {
-                        if(collideobject.GetComponent<Dusting>().baseCleanDone)
-                        {
-                            currentBone.cleanedCounter++;
-                        }
-
-                        //if (currentBone.cleanedCounter >= currentBone.boneParts.Count + 1)
-                        if (currentBone.cleanedCounter == currentBone.boneParts.Count + 1)
-                        {
-                            currentBone.Clean();
-                            cuiManager.CleanToggleChange();
-                            cState = CleanState.COMBINE;
-                        }
-                    }
-                }
-                break;*/
 
             case CleanState.COMBINE:
                 Debug.Log("Current Action: " + cState.ToString());
                 if (currentBone.GetBoneCounter())
                 {
                     cuiManager.CombineToggleOn();
+                    cuiManager.PlayTaskCompleteAudio();
                     cState = CleanState.POLISH;
                 }
                 break;
@@ -133,8 +115,9 @@ public class NewClean : MonoBehaviour
                     {
                         cuiManager.PolishToggleOn();
 
-                        FossilHolder.Instance.FossilFound(holder.firstFossil());
-
+                        //FossilHolder.Instance.FossilFound(holder.firstFossil());
+                        holder.FossilFound(holder.firstFossil());
+                        cuiManager.PlayTaskCompleteAudio();
                         cState = CleanState.IDENTIFY;
                     }
                 }
