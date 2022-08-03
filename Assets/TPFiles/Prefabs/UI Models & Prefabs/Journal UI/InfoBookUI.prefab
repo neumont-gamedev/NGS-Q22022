@@ -9766,7 +9766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5667284563053706009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11978,7 +11978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5667284563685237743
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16784,6 +16784,7 @@ GameObject:
   - component: {fileID: 5667284564751814274}
   - component: {fileID: 5667284564751814285}
   - component: {fileID: 5667284564751814284}
+  - component: {fileID: 676613995016985034}
   - component: {fileID: 1977933255}
   - component: {fileID: 1977933269}
   m_Layer: 0
@@ -16872,7 +16873,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5667284564751814285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16909,6 +16910,29 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!114 &676613995016985034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5667284564751814286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bb5e59861a25245a39d3a48634fddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userAnswer: {fileID: 350101308}
+  rAnswer: 
+  userMarkings: 
+  fMarkings: {fileID: 3074222019192098749}
+  userPart: 
+  fPart: {fileID: 1283258327942596889}
+  userCreature: 
+  fCreature: {fileID: 8319563883291748736}
+  plaqueList: []
+  curData: {fileID: 0}
+  resultsPage: {fileID: 731973486}
 --- !u!114 &1977933255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16964,7 +16988,7 @@ MonoBehaviour:
   mainTabs: {fileID: 1088859892270071523}
   identifyTabs: {fileID: 1990147303832561080}
   identifyBack: {fileID: 6191797065246520066}
-  identifier: {fileID: 1977933255}
+  identifier: {fileID: 676613995016985034}
   handColliders:
   - {fileID: 0}
   - {fileID: 0}
