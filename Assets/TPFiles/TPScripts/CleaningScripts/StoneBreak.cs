@@ -4,35 +4,36 @@ using UnityEngine;
 
 public class StoneBreak : MonoBehaviour
 {
-    public List<GameObject> RockPieces;
-    public GameObject breakParticle;
-    public GameObject cBreakParticle;
+    public List<GameObject> RockPieces; // number of pieces to break
 
-    public bool BreakPiece()
+    public bool BreakPiece() 
     {
-        cBreakParticle = Instantiate(breakParticle);
-        Destroy(cBreakParticle, 1.5f);
+        Debug.Log("Rock Time");
+        int ranNum = Random.Range(0, RockPieces.Count); //ger random rock between all that's left
+        Rock curRock = null;
 
         //Finish Removal
         if (RockPieces.Count == 0)
         {
             DestroyRock();
-            return true;
+            Debug.Log("Rock Done");
+            return true; // return null when all rocks broken
         }
 
-        int ranNum = Random.Range(0, RockPieces.Count);
+        curRock = RockPieces[ranNum].GetComponent<Rock>();
 
         //Decreases rockpiece durability
-        if (RockPieces[ranNum].GetComponent<Rock>().breakPoint >= 0)
+        if (curRock.breakPoint > 0)
         {
-            RockPieces[ranNum].GetComponent<Rock>().breakPoint--;
+            curRock.breakPoint--;
         }
-        //Drops and destroys rock piece when durability is gone
-        else 
-        {
-            RockPieces[ranNum].GetComponent<Rigidbody>().useGravity = true;
 
-            Destroy(RockPieces[ranNum], 1.5f);
+        //Drops and destroys rock piece when durability is gone
+        else
+        {
+            curRock.GetComponent<Rigidbody>().useGravity = true;
+
+            Destroy(curRock, 1.5f);
             RockPieces.RemoveAt(ranNum);
         }
         return false;

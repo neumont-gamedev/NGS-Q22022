@@ -4,38 +4,47 @@ using UnityEngine;
 
 public class Dusting : MonoBehaviour
 {
-    public int stage = 0;
-    public GameObject breakParticle;
+    public int stageNum = 0;
+    //public GameObject breakParticle;
+
+    //public List<Material> stages = new List<Material>();
 
     public Material stage1;
     public Material stage2;
     public Material stage3;
     public Material stage4;
-
-    bool donePolishing = false;
+    public bool baseCleanDone = false;
+    public bool donePolishing = false;
 
     //Changes the material based on stage
     //Returns true when on final stage
     public bool ChangeMaterial()
     {
-        stage++;
-        switch (stage)
-        {
-            case 1:
-                Destroy(Instantiate(breakParticle), 1.5f);
-                this.GetComponent<Renderer>().material = stage1;
-                return false;
-            case 2:
-                Destroy(Instantiate(breakParticle), 1.5f);
-                this.GetComponent<Renderer>().material = stage2;
-                return false;
-            case 3:
-                Destroy(Instantiate(breakParticle), 1.5f);
-                this.GetComponent<Renderer>().material = stage3;
-                return true;
-            default:
-                break;
-        }
+
+            if (stageNum <= 3)
+            {
+
+                switch (stageNum)
+                {
+                    case 1:
+                        GetComponent<Renderer>().material = stage1;
+                        stageNum++;
+                        return false;
+                    case 2:
+                        GetComponent<Renderer>().material = stage2;
+                        stageNum++;
+                        return false;
+                    case 3:
+                        GetComponent<Renderer>().material = stage3;
+                        stageNum++;
+                        baseCleanDone = true;
+                        return true;
+                    default:
+                        break;
+                }
+
+
+            }
 
         return false;
     }
@@ -45,8 +54,7 @@ public class Dusting : MonoBehaviour
     {
         if (!donePolishing)
         {
-            Destroy(Instantiate(breakParticle), 1.5f);
-            this.GetComponent<Renderer>().material = stage4;
+            GetComponent<Renderer>().material = stage4;
             donePolishing = true;
             return true;
         }

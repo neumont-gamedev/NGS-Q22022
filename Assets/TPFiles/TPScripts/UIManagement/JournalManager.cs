@@ -27,7 +27,7 @@ public class JournalManager : MonoBehaviour
     //public GameObject enterIdentifyTab;
     //public GameObject identifyBackTab;
 
-    public Identify identifier;
+    public JournalIdentify identifier;
 
     public List<GameObject> handColliders;
 

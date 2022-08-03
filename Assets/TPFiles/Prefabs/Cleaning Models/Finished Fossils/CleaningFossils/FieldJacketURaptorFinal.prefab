@@ -99,7 +99,7 @@ MeshCollider:
   m_GameObject: {fileID: 163093431362834665}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -120,6 +120,16 @@ MonoBehaviour:
   - {fileID: 6188072017042678811}
   - {fileID: 6633917627713903356}
   combinedBoneCounter: 0
+  cleanedCounter: 0
+  polishCounter: 0
+  grabMeshes:
+  - {fileID: 163093431362834668}
+  - {fileID: 6576929333772369394}
+  - {fileID: 2360285855347917154}
+  grabberFiles:
+  - {fileID: 163093431362834671}
+  - {fileID: 2360285855347916958}
+  - {fileID: 6576929333772369397}
 --- !u!54 &163093431362834670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -167,12 +177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stageNum: 1
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &215688224283257474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,7 +1430,7 @@ MeshCollider:
   m_GameObject: {fileID: 2360285855347917156}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -1447,7 +1458,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2360285855347917156}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
@@ -1471,12 +1482,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stageNum: 1
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &2360285855455195301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,8 +1889,6 @@ MonoBehaviour:
   - {fileID: 1092092049084633779}
   - {fileID: 6623091404976804834}
   - {fileID: 4180142080104878120}
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  cBreakParticle: {fileID: 0}
 --- !u!1 &3511259241250618606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,12 +2610,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
+  stageNum: 0
+  stage1: {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!64 &6188072017042678809
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2956,7 +2967,7 @@ MeshCollider:
   m_GameObject: {fileID: 6576929333772369399}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -2968,7 +2979,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6576929333772369399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
   m_Name: 
@@ -3008,12 +3019,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stageNum: 1
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &6623091404976804834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,12 +3250,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
+  stageNum: 0
+  stage1: {fileID: 6043438135415486860, guid: 889d0efc404c1ae4ea257de9587d48db, type: 3}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!64 &6633917627713903299
 MeshCollider:
   m_ObjectHideFlags: 0

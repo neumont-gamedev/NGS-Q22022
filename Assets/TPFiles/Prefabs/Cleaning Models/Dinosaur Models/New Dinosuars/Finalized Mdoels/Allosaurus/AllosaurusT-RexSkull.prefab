@@ -770,12 +770,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stageNum: 1
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &3319326990608179824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,12 +1400,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stageNum: 0
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &4084924836187181433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1731,10 @@ MonoBehaviour:
   boneParts:
   - {fileID: 4084924835498366039}
   combinedBoneCounter: 0
+  cleanedCounter: 0
+  polishCounter: 0
+  grabMeshes: []
+  grabberFiles: []
 --- !u!114 &4474765901227555471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1741,12 +1747,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
+  stageNum: 1
   stage1: {fileID: 2100000, guid: a6e1cada55baad844b307a12656de2b6, type: 2}
   stage2: {fileID: 2100000, guid: 7d415ad67efc9ff4298d00b8deea418e, type: 2}
   stage3: {fileID: 2100000, guid: b8d39d46e0098684c993749ae54e9036, type: 2}
   stage4: {fileID: 2100000, guid: c9bdebd11d49f5b48b723f8b43a7180f, type: 2}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &4474765901227555470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3063,8 +3070,6 @@ MonoBehaviour:
   - {fileID: 6742388804128156081}
   - {fileID: 9088100998615119101}
   - {fileID: 1619059761555881449}
-  breakParticle: {fileID: 101130, guid: d7bf18dd20422304ea868e95c3518f19, type: 3}
-  cBreakParticle: {fileID: 0}
 --- !u!1 &9043093082204158088
 GameObject:
   m_ObjectHideFlags: 0

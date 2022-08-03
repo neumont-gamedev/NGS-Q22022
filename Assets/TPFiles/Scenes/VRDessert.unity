@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 219536570}
-  m_IndirectSpecularColor: {r: 0.18190691, g: 0.22758718, b: 0.30741766, a: 1}
+  m_IndirectSpecularColor: {r: 0.18190657, g: 0.22758691, b: 0.30741686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1074,6 +1074,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.024
       objectReference: {fileID: 0}
+    - target: {fileID: 1397516769, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
+      propertyPath: clickAudio
+      value: 
+      objectReference: {fileID: 678532921}
     - target: {fileID: 1499890309, guid: e256c70be6f1759468fdfa8d48e9217b, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -1227,6 +1231,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6594114425625041435, guid: e256c70be6f1759468fdfa8d48e9217b,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: c7f8058f397b1e644b4569f6c0f930f8, type: 3}
     - target: {fileID: 6626397001344773061, guid: e256c70be6f1759468fdfa8d48e9217b,
         type: 3}
       propertyPath: m_Name
@@ -1330,6 +1339,108 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 678532918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &678532920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1784279310, guid: e256c70be6f1759468fdfa8d48e9217b,
+    type: 3}
+  m_PrefabInstance: {fileID: 678532918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &678532921
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678532920}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 59e2f6fb2afadd2489dc5c6f7503f596, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &690523090
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4252,8 +4363,6 @@ MonoBehaviour:
   - {fileID: 678532919}
   mainMenuIndex: 3
   txtObjective: {fileID: 1281926399}
-  LabButton: {fileID: 0}
-  NoFossilsText: {fileID: 0}
 --- !u!1 &1712057809
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,6 +5122,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: da3f74a4d0f8ff845be72401e25c6eb7, type: 2}
+    - target: {fileID: 33000011087710742, guid: 136fed684fbe9844e8fc5f473bab97cf,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: c7f8058f397b1e644b4569f6c0f930f8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 136fed684fbe9844e8fc5f473bab97cf, type: 3}
 --- !u!4 &6626551485473676258 stripped

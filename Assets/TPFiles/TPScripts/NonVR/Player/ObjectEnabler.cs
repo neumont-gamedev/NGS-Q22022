@@ -8,10 +8,17 @@ public class ObjectEnabler : MonoBehaviour
     public AudioSource itemSwitch;
     public GameObject[] objects;
     public GameObject[] toolDescriptionPanels;
+    public GameObject goHUD;
     public GameObject controller;
     public OVRInput.Button button = OVRInput.Button.Three;
+    public OVRInput.Button buttonTools = OVRInput.Button.Two;
     bool pressedLastFrame = false;
     public bool inLab = true;
+    bool reset = false;
+    bool playNextFrame = false;
+    bool timerOn = false;
+    public float delayTimer = 0.3f;
+    float timer = 0;
 
     int counter = 0;
     int descriptionCounter = 0;
@@ -26,10 +33,35 @@ public class ObjectEnabler : MonoBehaviour
 
     void Update()
     {
-        if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Space))
+        if ((OVRInput.Get(button) && !pressedLastFrame) || Input.GetKeyDown(KeyCode.Q))
         {
-            bool reset = false;
-            if(counter < objects.Length)
+            reset = false;
+            timerOn = true;
+            timer = delayTimer;
+        }
+        if(timerOn && ((OVRInput.Get(button) && OVRInput.Get(buttonTools)) && !pressedLastFrame || Input.GetKeyDown(KeyCode.E)))
+        {
+            timerOn = false;
+            if (goHUD.GetComponent<Canvas>().enabled)
+            {
+                goHUD.GetComponent<Canvas>().enabled = false;
+            }
+            else
+            {
+                goHUD.GetComponent<Canvas>().enabled = true;
+            }
+
+            //controller.SetActive(false);
+            if (objects[counter])
+            {
+                objects[counter].SetActive(false);
+            }
+
+        }
+        else if(playNextFrame)
+        {
+            playNextFrame = false;
+            if (counter < objects.Length)
             {
                 if (inLab)
                 {
@@ -57,11 +89,11 @@ public class ObjectEnabler : MonoBehaviour
                 reset = true;
             }
 
-            if(descriptionCounter < toolDescriptionPanels.Length)
+            if (descriptionCounter < toolDescriptionPanels.Length)
             {
                 if (toolDescriptionPanels[descriptionCounter] != null) toolDescriptionPanels[descriptionCounter].SetActive(true);
-                
-                if(descriptionCounter - 1  >= 0)
+
+                if (descriptionCounter - 1 >= 0)
                 {
                     if (toolDescriptionPanels[descriptionCounter - 1] != null) toolDescriptionPanels[descriptionCounter - 1].SetActive(false);
                 }
@@ -70,7 +102,7 @@ public class ObjectEnabler : MonoBehaviour
             }
             else
             {
-                if(descriptionCounter -1 >= 0)
+                if (descriptionCounter - 1 >= 0)
                 {
                     if (toolDescriptionPanels[descriptionCounter - 1] != null) toolDescriptionPanels[descriptionCounter - 1].SetActive(false);
                 }
@@ -83,8 +115,17 @@ public class ObjectEnabler : MonoBehaviour
             }
 
             itemSwitch?.Play();
-        }        
+        }
+        if (timerOn)
+        {
+            timer -= Time.deltaTime;
+            if(timer < 0)
+            {
+                timerOn = false;
+                playNextFrame = true;
+            }
+        }
 
-        pressedLastFrame = OVRInput.Get(button);
+        pressedLastFrame = OVRInput.Get(button) || OVRInput.Get(buttonTools);
     }
 }
