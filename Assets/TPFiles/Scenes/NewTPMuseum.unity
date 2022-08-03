@@ -30610,6 +30610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentBone: {fileID: 0}
   cuiManager: {fileID: 3255727404999259516}
+  collideobject: {fileID: 0}
   holder: {fileID: 0}
 --- !u!1 &1751696696 stripped
 GameObject:
@@ -39204,9 +39205,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &368697655122757910
 GameObject:
   m_ObjectHideFlags: 0
@@ -42959,9 +42964,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!4 &887573933739112695
 Transform:
   m_ObjectHideFlags: 0
@@ -45310,9 +45319,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &887573934637990372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47991,9 +48004,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!33 &1110098111370581655
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -48106,9 +48123,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!33 &1110098112010252519
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -49708,9 +49729,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!64 &2357493273688460769
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50148,9 +50173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &2832453835624137920
 GameObject:
   m_ObjectHideFlags: 0
@@ -50235,9 +50264,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &2874111478281874135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50422,9 +50455,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!64 &2974458219756860219
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55511,9 +55548,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!64 &4608616022863030614
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -57292,9 +57333,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &6456097010019977983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57364,9 +57409,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &6486517184038150251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58021,9 +58070,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!114 &6658145651460843331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61235,9 +61288,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!54 &8319489268776782572
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61952,9 +62009,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164ac05451f84094699c900c281ad1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 1
-  stages: []
+  stageNum: 0
+  stage1: {fileID: 0}
+  stage2: {fileID: 0}
+  stage3: {fileID: 0}
   stage4: {fileID: 0}
+  baseCleanDone: 0
+  donePolishing: 0
 --- !u!1 &9143569311079647179
 GameObject:
   m_ObjectHideFlags: 0
