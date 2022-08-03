@@ -66,35 +66,35 @@ public class JournalIdentify : MonoBehaviour
                 break;
             case "Scratch":
                 userMarkings = answer;
-                chosenMarking = partList[0];
+                chosenMarking = markingList[0];
                 break;
             case "Holes":
                 userMarkings = answer;
-                chosenMarking = partList[1];
+                chosenMarking = markingList[1];
                 break;
             case "Bug Bites":
                 userMarkings = answer;
-                chosenMarking = partList[2];
+                chosenMarking = markingList[2];
                 break;
             case "Fractures":
                 userMarkings = answer;
-                chosenMarking = partList[3];
+                chosenMarking = markingList[3];
                 break;
             case "Allosaurus":
                 userCreature = answer;
-                chosenCreature = partList[0];
+                chosenCreature = creatureList[0];
                 break;
             case "Trilobite":
                 userCreature = answer;
-                chosenCreature = partList[1];
+                chosenCreature = creatureList[1];
                 break;
             case "Trex":
                 userCreature = answer;
-                chosenCreature = partList[2];
+                chosenCreature = creatureList[2];
                 break;
             case "UtahRaptor":
                 userCreature = answer;
-                chosenCreature = partList[3];
+                chosenCreature = creatureList[3];
                 break;
             default:
                 break;
