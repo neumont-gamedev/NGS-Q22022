@@ -27,6 +27,9 @@ public class JournalManager : MonoBehaviour
     //public GameObject enterIdentifyTab;
     //public GameObject identifyBackTab;
 
+    //Clean check
+    public bool identified = false;
+
     public JournalIdentify identifier;
 
     public List<GameObject> handColliders;
@@ -178,7 +181,7 @@ public class JournalManager : MonoBehaviour
 
     public void EnterAnswer(string name)
     {
-
+        identified = true;
         identifier.InsertAnswer(name);
         TurnIdentifyPage();
         StartCoroutine(StopPlayer(2));

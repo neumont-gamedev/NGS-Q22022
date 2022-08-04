@@ -24,6 +24,7 @@ public class NewClean : MonoBehaviour
     public GameObject collideobject;
 
     public FossilHolder holder;
+    public JournalManager journal;
 
 
 
@@ -125,7 +126,10 @@ public class NewClean : MonoBehaviour
             case CleanState.IDENTIFY:
                 Debug.Log("Current Action: " + cState.ToString());
                 Debug.Log(cState);
-                cState = CleanState.DONE;
+                if (journal.identified)
+                {
+                    cState = CleanState.DONE;
+                }
                 break;
             case CleanState.DONE:
 
