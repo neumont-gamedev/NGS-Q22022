@@ -184,6 +184,7 @@ public class JournalManager : MonoBehaviour
         identified = true;
         identifier.InsertAnswer(name);
         TurnIdentifyPage();
+        IdentifyReady = false;
         StartCoroutine(StopPlayer(2));
     }
 

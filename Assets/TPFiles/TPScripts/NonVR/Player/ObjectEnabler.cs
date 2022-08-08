@@ -65,6 +65,7 @@ public class ObjectEnabler : MonoBehaviour
             {
                 if (inLab)
                 {
+                    Debug.Log("Entered InLab Functionality");
                     objects[counter].SetActive(true);
                     controller.SetActive(false);
                     if (counter - 1 >= 0)
@@ -75,6 +76,7 @@ public class ObjectEnabler : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("Entered InLab False Functionality");
                     controller.SetActive(true);
                     counter = 0;
                     reset = true;

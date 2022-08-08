@@ -46,55 +46,56 @@ public class JournalIdentify : MonoBehaviour
     public void InsertAnswer(string answer)
     {
         //needed specific functionality with the icons for the plaques
+        //TODO: ReImplement the Part Funcitonality with the Plaques
         switch (answer)
         {
             case "Head":
                 userPart = answer;
-                chosenPart = partList[0];
+                //chosenPart = partList[0];
                 break;
             case "Tail":
                 userPart = answer;
-                chosenPart = partList[1];
+                //chosenPart = partList[1];
                 break;
             case "Foot":
                 userPart = answer;
-                chosenPart = partList[2];
+                //chosenPart = partList[2];
                 break;
             case "Pelvis":
                 userPart = answer;
-                chosenPart = partList[3];
+                //chosenPart = partList[3];
                 break;
             case "Scratch":
                 userMarkings = answer;
-                chosenMarking = markingList[0];
+                //chosenMarking = markingList[0];
                 break;
             case "Holes":
                 userMarkings = answer;
-                chosenMarking = markingList[1];
+                //chosenMarking = markingList[1];
                 break;
             case "Bug Bites":
                 userMarkings = answer;
-                chosenMarking = markingList[2];
+                //chosenMarking = markingList[2];
                 break;
             case "Fractures":
                 userMarkings = answer;
-                chosenMarking = markingList[3];
+                //chosenMarking = markingList[3];
                 break;
             case "Allosaurus":
                 userCreature = answer;
-                chosenCreature = creatureList[0];
+                //chosenCreature = creatureList[0];
                 break;
             case "Trilobite":
                 userCreature = answer;
-                chosenCreature = creatureList[1];
+                //chosenCreature = creatureList[1];
                 break;
             case "Trex":
                 userCreature = answer;
-                chosenCreature = creatureList[2];
+                //chosenCreature = creatureList[2];
                 break;
             case "UtahRaptor":
                 userCreature = answer;
-                chosenCreature = creatureList[3];
+                //chosenCreature = creatureList[3];
                 break;
             default:
                 break;
@@ -152,6 +153,7 @@ public class JournalIdentify : MonoBehaviour
                 break;
         }
 
+
         /*if (curData.boneData.Creature_Name.ToString() == "Trilobite")
         {
             userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
@@ -178,11 +180,14 @@ public class JournalIdentify : MonoBehaviour
     {
         //the proble is that we need to update multiple TMP_Text's in this function,
         //so I will make the input the modifier of this function rather than a reference to a specific Dino
-        plaqueList[plaqueNumber].text = userPart;
+
+        //TODO: ReImplement the Plaques
+        
+        /*plaqueList[plaqueNumber].text = userPart;
         plaqueList[plaqueNumber + 1].text = userMarkings;
         plaqueList[plaqueNumber + 2].text = userCreature;
         plaqueImageList[plaqueNumber].sprite = chosenPart;
         plaqueImageList[plaqueNumber + 1].sprite = chosenMarking;
-        plaqueImageList[plaqueNumber + 2].sprite = chosenCreature;
+        plaqueImageList[plaqueNumber + 2].sprite = chosenCreature;*/
     }
 }

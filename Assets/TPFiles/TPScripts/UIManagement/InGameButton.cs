@@ -19,6 +19,7 @@ public class InGameButton : MonoBehaviour
         {
             if(clickAudio != null)
             {
+                Debug.Log("ClickButton");
                 AudioSource.PlayClipAtPoint(clickAudio.clip, transform.position);
                 //clickAudio.Play();
                 button.onClick.Invoke();

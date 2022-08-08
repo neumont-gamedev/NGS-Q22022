@@ -126,6 +126,7 @@ public class NewClean : MonoBehaviour
             case CleanState.IDENTIFY:
                 Debug.Log("Current Action: " + cState.ToString());
                 Debug.Log(cState);
+                journal.IdentifyReady = true;
                 if (journal.identified)
                 {
                     cState = CleanState.DONE;
