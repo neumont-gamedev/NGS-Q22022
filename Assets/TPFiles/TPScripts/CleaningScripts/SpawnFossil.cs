@@ -8,6 +8,7 @@ public class SpawnFossil : MonoBehaviour
     public string[] fossilNames;
     public GameObject spawnPoint;
     public List<GameObject> activeFossils;
+    public JournalIdentify journal;
 
     private FossilHolder holder;
 
@@ -22,6 +23,7 @@ public class SpawnFossil : MonoBehaviour
             {
                 activeFossils.Add(Instantiate(fossils[i], spawnPoint.transform));
                 fossils[i].gameObject.SetActive(true);
+                journal.currentDino = fossilNames[i];
                 return; 
             }
         }

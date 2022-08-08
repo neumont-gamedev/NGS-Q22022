@@ -26,13 +26,12 @@ public class JournalIdentify : MonoBehaviour
     private Sprite chosenMarking;
     private Sprite chosenCreature;
 
-    public DataHolder curData;
+    public string currentDino;
 
     public GameObject resultsPage;
 
     private void Start()
     {
-        curData = FindObjectOfType<DataHolder>();
         
     }
 
@@ -46,56 +45,55 @@ public class JournalIdentify : MonoBehaviour
     public void InsertAnswer(string answer)
     {
         //needed specific functionality with the icons for the plaques
-        //TODO: ReImplement the Part Funcitonality with the Plaques
         switch (answer)
         {
             case "Head":
                 userPart = answer;
-                //chosenPart = partList[0];
+                chosenPart = partList[0];
                 break;
             case "Tail":
                 userPart = answer;
-                //chosenPart = partList[1];
+                chosenPart = partList[1];
                 break;
             case "Foot":
                 userPart = answer;
-                //chosenPart = partList[2];
+                chosenPart = partList[2];
                 break;
             case "Pelvis":
                 userPart = answer;
-                //chosenPart = partList[3];
+                chosenPart = partList[3];
                 break;
             case "Scratch":
                 userMarkings = answer;
-                //chosenMarking = markingList[0];
+                chosenMarking = markingList[0];
                 break;
             case "Holes":
                 userMarkings = answer;
-                //chosenMarking = markingList[1];
+                chosenMarking = markingList[1];
                 break;
             case "Bug Bites":
                 userMarkings = answer;
-                //chosenMarking = markingList[2];
+                chosenMarking = markingList[2];
                 break;
             case "Fractures":
                 userMarkings = answer;
-                //chosenMarking = markingList[3];
+                chosenMarking = markingList[3];
                 break;
             case "Allosaurus":
                 userCreature = answer;
-                //chosenCreature = creatureList[0];
+                chosenCreature = creatureList[0];
                 break;
             case "Trilobite":
                 userCreature = answer;
-                //chosenCreature = creatureList[1];
+                chosenCreature = creatureList[1];
                 break;
             case "Trex":
                 userCreature = answer;
-                //chosenCreature = creatureList[2];
+                chosenCreature = creatureList[2];
                 break;
             case "UtahRaptor":
                 userCreature = answer;
-                //chosenCreature = creatureList[3];
+                chosenCreature = creatureList[3];
                 break;
             default:
                 break;
@@ -119,36 +117,36 @@ public class JournalIdentify : MonoBehaviour
     public void CheckQuestion()
     {
         resultsPage.SetActive(true);
-        string currentDino;
-        if(curData != null)
-        {
-            currentDino = curData.boneData.Creature_Name.ToString();
-        }
-        else
-        {
-            currentDino = "";
-        }
-
         switch (currentDino)
         {
-            case "Allosaurus":
-                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
+            //Allosaurus Starts at 0
+            case "Allosaurus_Pelvis":
+            case "Allosaurus_Skull":
+                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdatePlaque(0);
                 break;
-            case "Trilobite":
-                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
+            //Trilobite Starts at 3
+            case "Trilobite_Final":
+                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdatePlaque(3);
                 break;
-            case "Trex":
-                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
+            //Trex Starts at 6
+            case "TyrannosaurusRex_Foot":
+            case "TyrannosaurusRex_Pelvis":
+            case "TyrannosaurusRex_Skull":
+                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdatePlaque(6);
                 break;
-            case "UtahRaptor":
-                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
+            //UtahRaptor Starts at 9
+            case "Utahraptor_Pelvis":
+            case "Utahraptor_Head":
+            case "Utahraptor_Skull":
+                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdatePlaque(9);
                 break;
+            //Default overwrites Allosaurus Currently
             default:
-                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
+                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature;
                 UpdatePlaque(0);
                 break;
         }
@@ -178,16 +176,15 @@ public class JournalIdentify : MonoBehaviour
 
     public void UpdatePlaque(int plaqueNumber)
     {
-        //the proble is that we need to update multiple TMP_Text's in this function,
+        //the problem is that we need to update multiple TMP_Text's in this function,
         //so I will make the input the modifier of this function rather than a reference to a specific Dino
 
-        //TODO: ReImplement the Plaques
-        
-        /*plaqueList[plaqueNumber].text = userPart;
+        Debug.Log("Attempted to Update Plaques " + plaqueNumber + " through " + (plaqueNumber + 2));
+        plaqueList[plaqueNumber].text = userPart;
         plaqueList[plaqueNumber + 1].text = userMarkings;
         plaqueList[plaqueNumber + 2].text = userCreature;
         plaqueImageList[plaqueNumber].sprite = chosenPart;
         plaqueImageList[plaqueNumber + 1].sprite = chosenMarking;
-        plaqueImageList[plaqueNumber + 2].sprite = chosenCreature;*/
+        plaqueImageList[plaqueNumber + 2].sprite = chosenCreature;
     }
 }
