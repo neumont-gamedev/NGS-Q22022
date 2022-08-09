@@ -14,11 +14,18 @@ public class Map : MonoBehaviour
 
     public void GenerateMap()
     {
-        foreach(var i in FindObjectOfType<NoiseManager>().getCoords())
+        foreach(var f in FindObjectOfType<NoiseManager>().fossils)
         {
-            GameObject markerClone = Instantiate(mapMarker, panel.transform);
-            markerClone.GetComponent<MapMarker>().UpdatePosition(i);
-            markers.Add(markerClone.GetComponent<MapMarker>());
+            foreach (var i in FindObjectOfType<NoiseManager>().getCoords())
+            {
+                if(f.transform.position.x == i.Key && f.transform.position.z == i.Value)
+                {
+                    GameObject markerClone = Instantiate(mapMarker, panel.transform);
+                    markerClone.GetComponent<MapMarker>().UpdatePosition(i);
+                    markerClone.GetComponent<MapMarker>().fossil = f.GetComponent<Fossil>();
+                    markers.Add(markerClone.GetComponent<MapMarker>());
+                }
+            }
         }
 
         GameObject boardClone = Instantiate(boardMarker, panel.transform);

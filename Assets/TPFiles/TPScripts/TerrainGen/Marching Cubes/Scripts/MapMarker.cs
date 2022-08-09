@@ -7,12 +7,21 @@ public class MapMarker : MonoBehaviour
 {
     public RectTransform rectTransform;
     public float mapScale = 100f;
+    public Fossil fossil;
 
     protected float markerZ = -0.51f;
 
     protected void Start()
     {
         GetComponent<Image>().color = Color.white;
+    }
+
+    private void Update()
+    {
+        if(fossil == null)
+        {
+            RemoveMarker();
+        }
     }
 
     public void UpdatePosition(KeyValuePair<float,float> values)
