@@ -6,13 +6,15 @@ using static UnityEngine.Rendering.DebugUI;
 public class StopHeadsetWallClipping : MonoBehaviour
 {
     public GameObject wallColliderSphere;
-    public GameObject rayCastPoint;
+    public GameObject bohCollider;
+    public BackOfHeadCollider bohScript;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Ground")
         {
-            wallColliderSphere.SetActive(true);
+            wallColliderSphere.GetComponent<MeshRenderer>().enabled = true;
+            bohCollider.GetComponent<BoxCollider>().enabled = true;
             print("enter");
         }
     }
@@ -24,11 +26,10 @@ public class StopHeadsetWallClipping : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Vector3 fwd = rayCastPoint.transform.TransformDirection(Vector3.forward);
-
-        if (other.gameObject.tag == "Ground" && Physics.Raycast(rayCastPoint.transform.position, fwd, 10))
+        if (other.gameObject.tag == "Ground" && bohScript.safeToExit == true)
         {
-            wallColliderSphere.SetActive(false);
+            wallColliderSphere.GetComponent<MeshRenderer>().enabled = false;
+            bohCollider.GetComponent<BoxCollider>().enabled = false;
             print("exit");
         }
     }
