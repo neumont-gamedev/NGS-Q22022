@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private UIManager uiManager;
+    public JournalIdentify m_journal;
     public MuseumManager mManager;
+    //
 
     public void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneAt(0)) uiManager.ObjectiveChange();
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneAt(0) && SceneManager.GetActiveScene() != SceneManager.GetSceneAt(4)) uiManager.DiggingObjective(0);
-
         //mManager.SpawnDisplay();
     }
 
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     //Quits game
     public void OnQuit()
     {
+        m_journal.CleanAnswers();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

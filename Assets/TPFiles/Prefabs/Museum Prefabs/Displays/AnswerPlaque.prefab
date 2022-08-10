@@ -2255,6 +2255,8 @@ GameObject:
   - component: {fileID: 6955534039721766099}
   - component: {fileID: 6988476062566211177}
   - component: {fileID: 6978475807433021327}
+  - component: {fileID: 2717275519272545968}
+  - component: {fileID: 6420902740929011958}
   - component: {fileID: 6947487464266556283}
   m_Layer: 0
   m_Name: AnswerPlaque
@@ -2331,6 +2333,56 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2717275519272545968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956580550314487735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1e2636ec2104234c96f879a9b4fb6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dino: {fileID: 6420902740929011958}
+  m_plaque: {fileID: 6956580550314487735}
+  textList:
+  - {fileID: 5949910088581659495}
+  - {fileID: 5949910088508544665}
+  - {fileID: 5949910089807066976}
+  plaqueImageList:
+  - {fileID: 5949910089771179094}
+  - {fileID: 5949910088838237125}
+  - {fileID: 5949910088341815260}
+  partList:
+  - {fileID: 21300000, guid: 4c2da73ef69f03c4bbf9dbd3114fd128, type: 3}
+  - {fileID: 21300000, guid: c3f55fe2ebb65454696baf544edf1084, type: 3}
+  - {fileID: 21300000, guid: a7ac87115138ac644bbd8de8626597e2, type: 3}
+  - {fileID: 21300000, guid: c9f4b151af516ff4aab61c1cdd294f8a, type: 3}
+  markingList:
+  - {fileID: 21300000, guid: 37d1fcb5a002a1e4ebd1e539a24af2c7, type: 3}
+  - {fileID: 21300000, guid: 0d660b57db92b164ab10869534e1bacc, type: 3}
+  - {fileID: 21300000, guid: a54a915f2a479534a8284db2fdd4e233, type: 3}
+  - {fileID: 21300000, guid: 26293b409788f234f82e01d16476b978, type: 3}
+  creatureList:
+  - {fileID: 21300000, guid: ff7dd2ccc88a3384f87d1a372e40f42a, type: 3}
+  - {fileID: 21300000, guid: c8481cbac45b1784d9b5e7b75471a09f, type: 3}
+  - {fileID: 21300000, guid: d1dd6a1d86ea8e64f877675d5889de40, type: 3}
+  - {fileID: 21300000, guid: 7e817fc234a1baa4d927db1433980715, type: 3}
+--- !u!114 &6420902740929011958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6956580550314487735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0e3fe6bd593624cb4c1d0d2804df7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneData: {fileID: 0}
 --- !u!64 &6947487464266556283
 MeshCollider:
   m_ObjectHideFlags: 0

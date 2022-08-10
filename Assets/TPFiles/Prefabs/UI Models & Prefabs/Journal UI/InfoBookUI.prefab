@@ -15793,7 +15793,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5667284564751814285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15850,12 +15850,9 @@ MonoBehaviour:
   fPart: {fileID: 1283258327942596889}
   userCreature: 
   fCreature: {fileID: 8319563883291748736}
-  plaqueList: []
-  plaqueImageList: []
-  partList: []
-  markingList: []
-  creatureList: []
-  curData: {fileID: 0}
+  m_Plaques: []
+  currentDino: 
+  m_Data: []
   resultsPage: {fileID: 731973486}
 --- !u!114 &1977933255
 MonoBehaviour:
@@ -15912,6 +15909,7 @@ MonoBehaviour:
   mainTabs: {fileID: 1088859892270071523}
   identifyTabs: {fileID: 1990147303832561080}
   identifyBack: {fileID: 6191797065246520066}
+  identified: 0
   identifier: {fileID: 676613995016985034}
   handColliders:
   - {fileID: 0}
