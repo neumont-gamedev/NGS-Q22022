@@ -26,7 +26,11 @@ public class NewClean : MonoBehaviour
     public FossilHolder holder;
     public JournalManager journal;
 
+
+
+
     // Update is called once per frame
+
     public void StartCleanProcess()
     {
         currentBone = FindObjectOfType<Combineable>();
