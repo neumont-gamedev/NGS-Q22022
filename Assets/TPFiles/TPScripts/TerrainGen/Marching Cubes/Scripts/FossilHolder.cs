@@ -53,7 +53,15 @@ public class FossilHolder : Singleton<FossilHolder>
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+<<<<<<< Updated upstream
             backpack.Add("Triceratops_Foot");
+=======
+<<<<<<< HEAD
+            backpack.Add("Triceratops_Head");
+=======
+            backpack.Add("Triceratops_Foot");
+>>>>>>> 232317a0346dd45a863623edb243df6954849880
+>>>>>>> Stashed changes
         }
 
         if (Input.GetKeyDown(KeyCode.M))
