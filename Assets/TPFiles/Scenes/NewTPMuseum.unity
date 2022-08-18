@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.88484144, g: 0.741144, b: 0.49524313, a: 1}
+  m_IndirectSpecularColor: {r: 0.88484144, g: 0.741144, b: 0.49524307, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12884,12 +12884,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 684722967}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &684722969 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6956580550314487735, guid: f72eb9899dd627144ad1d02234a99ac5,
-    type: 3}
-  m_PrefabInstance: {fileID: 684722967}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &700020647
 GameObject:
   m_ObjectHideFlags: 0
@@ -15420,15 +15414,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\n\n\n\n\n\n\nThis is a Paleontology Simulator, where you can learn first
-    hand the process of finding and preparing fossils.\r\n\r\nFirst, you will go
-    to the Desert, the Mountains, or the River Bed. Then, you will use your map to
-    find the fossil location and your shovel to dig up the fossil. When you find
-    it, you will pull out your plaster strips and apply the field jacket, which will
-    allow the fossil to be transported to the Fossil Lab. \r\n\r\nIn the Fossil Lab,
-    you will use your Air Scribe to break away the plaster and to clean the fossil
-    pieces. Once they're clean, you will assemble the pieces. Once assembled, you
-    will polish the pieces so that the fossil will be presented in the museum. \r\n\r\nThen,
-    you may look at the dinosaur in your journal and attempt to identify it."
+    hand the process of finding and preparing fossils.\r\n\r\nFirst, you will go to
+    the Desert, the Mountains, or the River Bed. Then, you will use your map to find
+    the fossil location and your shovel to dig up the fossil. When you find it, you
+    will pull out your plaster strips and apply the field jacket, which will allow
+    the fossil to be transported to the Fossil Lab. \r\n\r\nIn the Fossil Lab, you
+    will use your Air Scribe to break away the plaster and to clean the fossil pieces.
+    Once they're clean, you will assemble the pieces. Once assembled, you will polish
+    the pieces so that the fossil will be presented in the museum. \r\n\r\nThen, you
+    may look at the dinosaur in your journal and attempt to identify it."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -20246,7 +20240,7 @@ PrefabInstance:
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_Data.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -20273,14 +20267,8 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
-      propertyPath: m_Data.Array.data[4]
-      value: 
-      objectReference: {fileID: 2005725788025220370, guid: 3ebfe406a4ff51646883fa1f7aa657b5,
-        type: 3}
-    - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
       propertyPath: m_Plaques.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -20341,11 +20329,6 @@ PrefabInstance:
       propertyPath: m_Plaques.Array.data[3]
       value: 
       objectReference: {fileID: 402656931}
-    - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: m_Plaques.Array.data[4]
-      value: 
-      objectReference: {fileID: 684722969}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: plaqueList.Array.data[0]
@@ -20594,36 +20577,6 @@ PrefabInstance:
       propertyPath: identifyBackTab
       value: 
       objectReference: {fileID: 474103609}
-    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: journalPages.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: journalPages.Array.data[2]
-      value: 
-      objectReference: {fileID: 2060309877}
-    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: journalPages.Array.data[3]
-      value: 
-      objectReference: {fileID: 564290539}
-    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: journalPages.Array.data[4]
-      value: 
-      objectReference: {fileID: 2052112417}
-    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: journalPages.Array.data[5]
-      value: 
-      objectReference: {fileID: 1862301139}
-    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
-        type: 3}
-      propertyPath: journalPages.Array.data[6]
-      value: 
-      objectReference: {fileID: 1862301139}
     - target: {fileID: 787530447875445364, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_Enabled
@@ -28198,8 +28151,7 @@ PrefabInstance:
 
         LENGTH: 9 meters
 
-        WEIGHT:
-        5500 kilograms / 6 tons
+        WEIGHT: 5500 kilograms / 6 tons
 
         LOCATION: USA'
       objectReference: {fileID: 0}
@@ -29117,8 +29069,7 @@ MonoBehaviour:
   m_text: 'It looks like you don''t have any fossils to clean yet!
 
 
-    Go Digging
-    First!
+    Go Digging First!
 
 '
   m_isRightToLeft: 0
@@ -33357,9 +33308,7 @@ MonoBehaviour:
   - {fileID: 5522277309625475799, guid: 4bcdee750bb887f43a1cccc34b825001, type: 3}
   - {fileID: 5178673954591259345, guid: 5f352e51da464b44aa129ddf60b46abe, type: 3}
   - {fileID: 5542114652250832522, guid: ba81314528bb344469fb20477f7a4d16, type: 3}
-  - {fileID: 5542114652250832522, guid: f595a54fb5cb07343b8b25e4f9752d7e, type: 3}
-  - {fileID: 5542114652250832522, guid: 87f1cdf94854746458ce6f5c7b6bbc89, type: 3}
-  - {fileID: 5542114652250832522, guid: dc55f162a37ea9640abb5aaa5096e38b, type: 3}
+  - {fileID: 5542114652250832522, guid: 7a415d153da9c214a9150b6d85f5a73d, type: 3}
   fossilNames:
   - TyrannosaurusRex_Foot
   - TyrannosaurusRex_Pelvis
@@ -33370,8 +33319,6 @@ MonoBehaviour:
   - Utahraptor_Pelvis
   - Utahraptor_Tail
   - Utahraptor_Head
-  - Triceratops_Pelvis
-  - Triceratops_Foot
   - Triceratops_Head
   spawnPoint: {fileID: 887573934146369696}
   activeFossils: []
@@ -41700,12 +41647,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052254280}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2060309877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6100678304037776075, guid: 29beb0e07f415db4485dcf1708a405f5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1093282806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064397449
 GameObject:
   m_ObjectHideFlags: 0
