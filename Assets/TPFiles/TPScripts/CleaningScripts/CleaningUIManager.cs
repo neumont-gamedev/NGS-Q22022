@@ -84,7 +84,7 @@ public class CleaningUIManager : MonoBehaviour
 
     public void CombineToggleOff()
     {
-        Combinetoggle.isOn = true;
+        Combinetoggle.isOn = false;
         putTogetherDisplay.SetActive(false);
         //txtScribeSteps.text = "Hold left trigger to polish the fossil!";
     }
