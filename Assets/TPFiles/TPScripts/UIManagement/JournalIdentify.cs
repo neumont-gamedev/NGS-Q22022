@@ -80,6 +80,9 @@ public class JournalIdentify : MonoBehaviour
             case "UtahRaptor":
                 userCreature = answer;
                 break;
+            case "Triceratops":
+                userCreature = answer;
+                break;
             default:
                 break;
         }
@@ -126,6 +129,13 @@ public class JournalIdentify : MonoBehaviour
             case "Utahraptor_Head":
                 userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdateAnswers(3);
+                UpdatePlaques();
+                break;
+            case "Triceratops_Pelvis":
+            case "Triceratops_Head":
+            case "Triceratops_Foot":
+                userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
+                UpdateAnswers(4);
                 UpdatePlaques();
                 break;
             default:
