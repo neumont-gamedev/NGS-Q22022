@@ -5349,7 +5349,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f77041922ad1b9d4caf59aa01a2e023b,
         type: 3}
       propertyPath: m_Name
-      value: Triceratops_skeleton
+      value: Triceratops
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f77041922ad1b9d4caf59aa01a2e023b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77041922ad1b9d4caf59aa01a2e023b, type: 3}
@@ -15409,15 +15414,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\n\n\n\n\n\n\nThis is a Paleontology Simulator, where you can learn first
-    hand the process of finding and preparing fossils.\r\n\r\nFirst, you will go
-    to the Desert, the Mountains, or the River Bed. Then, you will use your map to
-    find the fossil location and your shovel to dig up the fossil. When you find
-    it, you will pull out your plaster strips and apply the field jacket, which will
-    allow the fossil to be transported to the Fossil Lab. \r\n\r\nIn the Fossil Lab,
-    you will use your Air Scribe to break away the plaster and to clean the fossil
-    pieces. Once they're clean, you will assemble the pieces. Once assembled, you
-    will polish the pieces so that the fossil will be presented in the museum. \r\n\r\nThen,
-    you may look at the dinosaur in your journal and attempt to identify it."
+    hand the process of finding and preparing fossils.\r\n\r\nFirst, you will go to
+    the Desert, the Mountains, or the River Bed. Then, you will use your map to find
+    the fossil location and your shovel to dig up the fossil. When you find it, you
+    will pull out your plaster strips and apply the field jacket, which will allow
+    the fossil to be transported to the Fossil Lab. \r\n\r\nIn the Fossil Lab, you
+    will use your Air Scribe to break away the plaster and to clean the fossil pieces.
+    Once they're clean, you will assemble the pieces. Once assembled, you will polish
+    the pieces so that the fossil will be presented in the museum. \r\n\r\nThen, you
+    may look at the dinosaur in your journal and attempt to identify it."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19d138e4370da3e499bae62a70ef8367, type: 2}
   m_sharedMaterial: {fileID: -5429871920970720873, guid: 19d138e4370da3e499bae62a70ef8367,
@@ -28146,8 +28151,7 @@ PrefabInstance:
 
         LENGTH: 9 meters
 
-        WEIGHT:
-        5500 kilograms / 6 tons
+        WEIGHT: 5500 kilograms / 6 tons
 
         LOCATION: USA'
       objectReference: {fileID: 0}
@@ -29065,8 +29069,7 @@ MonoBehaviour:
   m_text: 'It looks like you don''t have any fossils to clean yet!
 
 
-    Go Digging
-    First!
+    Go Digging First!
 
 '
   m_isRightToLeft: 0
