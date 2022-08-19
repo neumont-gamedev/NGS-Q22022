@@ -110,7 +110,7 @@ public class NewClean : MonoBehaviour
                 Debug.Log("Current Action: " + cState.ToString()); if (collided.GetComponent<Dusting>().PolishChange())
                 {
                     currentBone.polishCounter++;
-                    //cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
+                    cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
 
                     if (currentBone.polishCounter == currentBone.boneParts.Count + 1)
                     {
