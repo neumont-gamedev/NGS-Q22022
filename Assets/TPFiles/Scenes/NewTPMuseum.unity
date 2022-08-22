@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.88484144, g: 0.741144, b: 0.49524307, a: 1}
+  m_IndirectSpecularColor: {r: 0.88484144, g: 0.741144, b: 0.49524313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1581,6 +1581,12 @@ Transform:
   m_Father: {fileID: 453056532}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.7641068, y: -0.041494973, z: 0.28754306}
+--- !u!1 &100898771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f77041922ad1b9d4caf59aa01a2e023b,
+    type: 3}
+  m_PrefabInstance: {fileID: 287875638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &110732428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9405,6 +9411,12 @@ Transform:
   m_Father: {fileID: 1879776509}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.6945726, y: -0.04968247, z: 0.23959814}
+--- !u!1 &453173792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6956580550314487735, guid: f72eb9899dd627144ad1d02234a99ac5,
+    type: 3}
+  m_PrefabInstance: {fileID: 684722967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &459744802 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8832715168456559773, guid: a241fb98c9bb8b249a1140a27068921f,
@@ -12555,6 +12567,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6955534039721766099, guid: f72eb9899dd627144ad1d02234a99ac5,
     type: 3}
   m_PrefabInstance: {fileID: 684722967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &698107209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6100678304037776075, guid: 29beb0e07f415db4485dcf1708a405f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093282806}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &700020647
 GameObject:
@@ -20076,7 +20094,7 @@ PrefabInstance:
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_Data.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -20103,8 +20121,14 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
+      propertyPath: m_Data.Array.data[4]
+      value: 
+      objectReference: {fileID: 2005725788025220370, guid: 3ebfe406a4ff51646883fa1f7aa657b5,
+        type: 3}
+    - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
       propertyPath: m_Plaques.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
@@ -20165,6 +20189,11 @@ PrefabInstance:
       propertyPath: m_Plaques.Array.data[3]
       value: 
       objectReference: {fileID: 402656931}
+    - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: m_Plaques.Array.data[4]
+      value: 
+      objectReference: {fileID: 453173792}
     - target: {fileID: 256157701720299129, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: plaqueList.Array.data[0]
@@ -20413,6 +20442,36 @@ PrefabInstance:
       propertyPath: identifyBackTab
       value: 
       objectReference: {fileID: 474103609}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: journalPages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: journalPages.Array.data[2]
+      value: 
+      objectReference: {fileID: 698107209}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: journalPages.Array.data[3]
+      value: 
+      objectReference: {fileID: 564290539}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: journalPages.Array.data[4]
+      value: 
+      objectReference: {fileID: 2052112417}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: journalPages.Array.data[5]
+      value: 
+      objectReference: {fileID: 1862301139}
+    - target: {fileID: 787530447875445350, guid: 29beb0e07f415db4485dcf1708a405f5,
+        type: 3}
+      propertyPath: journalPages.Array.data[6]
+      value: 
+      objectReference: {fileID: 1862301139}
     - target: {fileID: 787530447875445364, guid: 29beb0e07f415db4485dcf1708a405f5,
         type: 3}
       propertyPath: m_Enabled
@@ -41697,7 +41756,7 @@ MonoBehaviour:
   - {fileID: 626438024}
   - {fileID: 664485099}
   - {fileID: 8122721606570458531}
-  - {fileID: 919132149155446097, guid: f77041922ad1b9d4caf59aa01a2e023b, type: 3}
+  - {fileID: 100898771}
 --- !u!1 &2076388188
 GameObject:
   m_ObjectHideFlags: 0

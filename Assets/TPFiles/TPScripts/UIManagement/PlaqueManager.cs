@@ -84,6 +84,9 @@ public class PlaqueManager : MonoBehaviour
             case "UtahRaptor":
                 result = creatureList[3];
                 break;
+            case "Triceratops":
+                result = creatureList[4];
+                break;
             default:
                 result = partList[0];
                 break;

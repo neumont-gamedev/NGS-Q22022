@@ -17,6 +17,7 @@ public class MuseumManager : MonoBehaviour
         foreach(var d in displays)
         {
             Debug.Log("Display:" + d.name + ":" + holder.IsFound(d.name).ToString());
+            Debug.Log(holder.IsFound(d.name));
             d.SetActive(holder.IsFound(d.name));
         }
     }
