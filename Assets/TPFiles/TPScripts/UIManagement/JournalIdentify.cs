@@ -132,7 +132,7 @@ public class JournalIdentify : MonoBehaviour
                 UpdatePlaques();
                 break;
             case "Triceratops_Pelvis":
-            case "Triceratops_Head":
+            case "Triceratops_Skull":
             case "Triceratops_Foot":
                 userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdateAnswers(4);
