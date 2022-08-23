@@ -14,6 +14,7 @@ public class CleaningUIManager : MonoBehaviour
     public Toggle Combinetoggle;
     public Toggle Polishtoggle;
     public Text polishToggleText;
+    public Toggle Identifytoggle;
 
     public GameObject putTogetherDisplay;
     public AudioSource successAudio;
@@ -30,6 +31,7 @@ public class CleaningUIManager : MonoBehaviour
         CleanToggleOff();
         CombineToggleOff();
         PolishToggleOff();
+        IdentifyToggleOff();
     }
 
 
@@ -105,6 +107,18 @@ public class CleaningUIManager : MonoBehaviour
     public void PlayTaskCompleteAudio()
     {
         successAudio?.Play();
+    }
+
+    public void IdentifyToggleOn()
+    {
+        Identifytoggle.isOn = true;
+        //txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
+    }
+
+    public void IdentifyToggleOff()
+    {
+        Identifytoggle.isOn = false;
+        //txtScribeSteps.text = "Great job. The fossil will be displayed in the museum soon!";
     }
 
     public void PlayFullCompleteAudio()

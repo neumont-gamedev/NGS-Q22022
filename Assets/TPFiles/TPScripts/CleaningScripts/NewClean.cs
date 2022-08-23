@@ -129,6 +129,7 @@ public class NewClean : MonoBehaviour
                 journal.IdentifyReady = true;
                 if (journal.identified)
                 {
+                    cuiManager.IdentifyToggleOn();
                     cState = CleanState.DONE;
                 }
                 break;
