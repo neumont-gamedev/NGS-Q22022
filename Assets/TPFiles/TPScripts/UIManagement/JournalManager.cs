@@ -202,6 +202,4 @@ public class JournalManager : MonoBehaviour
             c.gameObject.GetComponent<SphereCollider>().enabled = true;
         }
     }
-
-
 }
