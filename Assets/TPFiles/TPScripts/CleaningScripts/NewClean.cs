@@ -6,7 +6,7 @@ public class NewClean : MonoBehaviour
 {
     //State of where cleaning is currently
     //maybe have a button the player pressed to advance to the next stage
-    enum CleanState
+    public enum CleanState
     {
 
         ROCKBREAK, //chipping off rock pieces
@@ -18,7 +18,7 @@ public class NewClean : MonoBehaviour
     }
 
     //Variables
-    static CleanState cState = CleanState.ROCKBREAK;//current state
+    public static CleanState cState = CleanState.ROCKBREAK;//current state
     public Combineable currentBone; //what bone is being messed with
     public CleaningUIManager cuiManager; //uiManagement
     public GameObject collideobject;
@@ -107,7 +107,8 @@ public class NewClean : MonoBehaviour
                 }
                 break;
             case CleanState.POLISH:
-                Debug.Log("Current Action: " + cState.ToString()); if (collided.GetComponent<Dusting>().PolishChange())
+                Debug.Log("Current Action: " + cState.ToString()); 
+                if (collided.GetComponent<Dusting>().PolishChange())
                 {
                     currentBone.polishCounter++;
                     cuiManager.PolishToggleTextChange(currentBone.polishCounter, currentBone.boneParts.Count);
@@ -125,15 +126,10 @@ public class NewClean : MonoBehaviour
                 break;
             case CleanState.IDENTIFY:
                 Debug.Log("Current Action: " + cState.ToString());
-                Debug.Log(cState);
                 journal.IdentifyReady = true;
-                if (journal.identified)
-                {
-                    cState = CleanState.DONE;
-                }
                 break;
             case CleanState.DONE:
-
+                cuiManager.IdentifyToggleOn();
                 //cState = CleanState.START;
                 break;
             default:
@@ -150,5 +146,12 @@ public class NewClean : MonoBehaviour
         }
     }
 
-
+    public void IdentifyComplete(Collider other)
+    {
+        if (journal.identified)
+        {
+            cState = CleanState.DONE;
+            Clean(other);
+        }
+    }
 }

@@ -17,6 +17,7 @@ public class JournalIdentify : MonoBehaviour
     public string userCreature;
     public TMP_Text fCreature;
     public List<GameObject> m_Plaques;
+    public JournalManager journal;
 
     private Sprite chosenPart;
     private Sprite chosenMarking;
@@ -110,7 +111,7 @@ public class JournalIdentify : MonoBehaviour
             case "Allosaurus_Skull":
                 userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdateAnswers(0);
-                UpdatePlaques();
+                UpdatePlaques(); 
                 break;
             case "Trilobite_Final":
                 userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
@@ -144,7 +145,6 @@ public class JournalIdentify : MonoBehaviour
                 UpdatePlaques();
                 break;
         }
-
     }
 
     public void UpdatePlaques()
