@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 219536570}
-  m_IndirectSpecularColor: {r: 0.18190691, g: 0.22758718, b: 0.30741766, a: 1}
+  m_IndirectSpecularColor: {r: 0.18190657, g: 0.22758691, b: 0.30741686, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1143,6 +1143,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &769416922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 798286950}
+    m_Modifications:
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4028895
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.05901
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473442815814048534, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4996352711260062010, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+        type: 3}
+      propertyPath: m_Name
+      value: Triceratops_HeadBuried
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efa5f2acb55511d4a862ccd8ea4e6887, type: 3}
+--- !u!1 &769416923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4996352711260062010, guid: efa5f2acb55511d4a862ccd8ea4e6887,
+    type: 3}
+  m_PrefabInstance: {fileID: 769416922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &798286949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1383,7 +1458,7 @@ PrefabInstance:
     - target: {fileID: 4456748041921147835, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
       propertyPath: fossils.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4456748041921147835, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
@@ -1399,7 +1474,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fossils.Array.data[2]
       value: 
-      objectReference: {fileID: 172888141}
+      objectReference: {fileID: 769416923}
     - target: {fileID: 4456748041921147835, guid: 0dd8af356d25ee441896c42d31ada3b4,
         type: 3}
       propertyPath: worldConfig.worldSeed
