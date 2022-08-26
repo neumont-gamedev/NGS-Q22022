@@ -119,7 +119,7 @@ public class JournalIdentify : MonoBehaviour
                 UpdatePlaques();
                 break;
             case "TyrannosaurusRex_Foot":
-            case "TyrannosaurusRex_Pelvis":
+            case "TRex_Pelvis":
             case "TyrannosaurusRex_Skull":
                 userAnswer.text = "The fossil is the " + userPart + "of a " + userCreature + " it has " + userMarkings + " marks.";
                 UpdateAnswers(2);
