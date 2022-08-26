@@ -25,9 +25,8 @@ public class NewClean : MonoBehaviour
 
     public FossilHolder holder;
     public JournalManager journal;
-
-
-
+    public GameObject dustParticlePrefab; //the dust prefab
+    public GameObject dustSpawnPoint; //where the dust will spawn
 
     // Update is called once per frame
 
@@ -142,6 +141,10 @@ public class NewClean : MonoBehaviour
         collideobject = other.transform.gameObject;
         if (collideobject.CompareTag("Bone") || collideobject.CompareTag("Rock")) 
         {
+            if (dustParticlePrefab != null && (cState == CleanState.ROCKBREAK || cState == CleanState.DUSTING || cState == CleanState.POLISH))
+            {
+                GameObject activeDust = Instantiate(dustParticlePrefab, dustSpawnPoint.transform.position, dustSpawnPoint.transform.rotation);
+            }
             Clean(other);
         }
     }
