@@ -75,7 +75,7 @@ public class JournalIdentify : MonoBehaviour
             case "Trilobite":
                 userCreature = answer;
                 break;
-            case "Trex":
+            case "T-Rex":
                 userCreature = answer;
                 break;
             case "UtahRaptor":
