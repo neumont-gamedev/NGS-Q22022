@@ -57,6 +57,9 @@ public class JournalIdentify : MonoBehaviour
             case "Pelvis":
                 userPart = answer;
                 break;
+            case "Whole Fossil":
+                userPart = answer;
+                break;
             case "Scratch":
                 userMarkings = answer;
                 break;
@@ -72,6 +75,12 @@ public class JournalIdentify : MonoBehaviour
             case "Allosaurus":
                 userCreature = answer;
                 break;
+            case "Petrified Wood":
+                userCreature = answer;
+                break;
+            case "Triceratops":
+                userCreature = answer;
+                break;
             case "Trilobite":
                 userCreature = answer;
                 break;
@@ -79,9 +88,6 @@ public class JournalIdentify : MonoBehaviour
                 userCreature = answer;
                 break;
             case "UtahRaptor":
-                userCreature = answer;
-                break;
-            case "Triceratops":
                 userCreature = answer;
                 break;
             default:
